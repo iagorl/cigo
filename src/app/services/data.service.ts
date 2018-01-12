@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import * as crossfilter from 'crossfilter2';
 
 export interface ChartSeries {
-  name: string;
+  name: any;
   value: number;
 }
 

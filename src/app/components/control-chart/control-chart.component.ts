@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, ChartData } from '../../services/data.service';
 import { Observable } from 'rxjs/Observable';
+import { CommentsService } from '../../services/comments.service';
+import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'app-control-chart',
@@ -9,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ControlChartComponent implements OnInit {
   colorScheme = {
-    domain: ['blue', 'red', 'green']
+    domain: ['blue', 'red', 'rgba(255,255,0,0.5)']
   };
   gradient = true;
   showXAxis = true;
@@ -21,20 +24,32 @@ export class ControlChartComponent implements OnInit {
   yAxisLabel = 'Total Fases Extraction';
   autoScale = true;
   animations = false;
-  referenceLines = [
-    {name: 'Some Name', value: 6}
-  ];
 
   data$: Observable<ChartData[]>;
+  comments$: Observable<any[]>;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private commentService: CommentsService) { }
 
   ngOnInit() {
     this.data$ = this.dataService.data$;
+    this.comments$ = this.commentService.comments$.map(comments => {
+      return comments.map((comment) => {
+        return {
+          name: 'Comments',
+          series: [
+            {
+              name: comment.id,
+              y: comment.coordinates.y,
+              x: new Date(comment.coordinates.x),
+              radius: 100,
+            }
+          ]
+        };
+      });
+    });
   }
 
   onSelect(event) {
     console.log(event);
   }
-
 }

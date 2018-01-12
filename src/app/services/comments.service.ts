@@ -4,7 +4,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export interface Comments {
   id: number;
   text: string;
-  coordinates: number[];
+  coordinates: {
+    x: any,
+    y: any
+  };
   active: boolean;
 }
 
@@ -16,12 +19,17 @@ export class CommentsService {
   comments$: BehaviorSubject<Comments[]>;
 
   constructor() {
-    this.possibleID = 0;
-    this.comments = [];
+    this.possibleID = 1;
+    this.comments = [{
+      id: 0,
+      text: 'My First Comment',
+      coordinates: {x: '2011-10-13', y: 5},
+      active: false
+    }];
     this.comments$ = new BehaviorSubject<Comments[]>(this.comments);
   }
 
-  addComment(text: string, coordinates: number[]) {
+  addComment(text: string, coordinates: {x: any, y: any}) {
     const newComment = {
       'id': this.possibleID,
       'text': text,

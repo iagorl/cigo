@@ -1,7 +1,8 @@
-<ngx-charts-line-chart
+<app-combo
   [view]="[1200, 600]"
   [scheme]="colorScheme"
   [results]="data$ | async"
+  [comments]="comments$ | async"
   [animations]="animations"
   [gradient]="gradient"
   [xAxis]="showXAxis"
@@ -11,10 +12,10 @@
   [timeline]="true"
   [showXAxisLabel]="showXAxisLabel"
   [showYAxisLabel]="showYAxisLabel"
-  [referenceLines]="referenceLines"
   [showRefLabels]="false"
   [xAxisLabel]="xAxisLabel"
   [yAxisLabel]="yAxisLabel"
   [autoScale]="autoScale"
+  (clicked)="onSelect($event)"
   (select)="onSelect($event)">
-</ngx-charts-line-chart>
+</app-combo>
