@@ -1,0 +1,20 @@
+<ngx-charts-line-chart
+  [view]="[1200, 600]"
+  [scheme]="colorScheme"
+  [results]="data$ | async"
+  [animations]="animations"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showGridLines]="true"
+  [timeline]="true"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [referenceLines]="referenceLines"
+  [showRefLabels]="false"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [autoScale]="autoScale"
+  (select)="onSelect($event)">
+</ngx-charts-line-chart>
