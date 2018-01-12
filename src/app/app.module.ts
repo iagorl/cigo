@@ -8,21 +8,25 @@ import { AppComponent } from './app.component';
 import { ControlChartComponent } from './components/control-chart/control-chart.component';
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ComboComponent } from './components/control-chart/combo/combo.component';
+import { CommentsService } from './services/comments.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ControlChartComponent
+    ControlChartComponent,
+    ComboComponent
   ],
   imports: [
-    BrowserModule,
     BrowserAnimationsModule,
+    BrowserModule,
     NgxChartsModule,
     HttpClientModule
   ],
   providers: [
-    DataService
+    DataService,
+    CommentsService
   ],
   bootstrap: [AppComponent]
 })
