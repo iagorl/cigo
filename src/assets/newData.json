@@ -1,0 +1,1640 @@
+[
+  {
+    "store": 1,
+    "date": "2010-02-05",
+    "temperature": 42.31,
+    "fuel_price": 2.572,
+    "cpi": 211.0963582,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-02-12",
+    "temperature": 38.51,
+    "fuel_price": 2.548,
+    "cpi": 211.2421698,
+    "unemployment": 8.106,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2010-02-19",
+    "temperature": 39.93,
+    "fuel_price": 2.514,
+    "cpi": 211.2891429,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-02-26",
+    "temperature": 46.63,
+    "fuel_price": 2.561,
+    "cpi": 211.3196429,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-03-05",
+    "temperature": 46.5,
+    "fuel_price": 2.625,
+    "cpi": 211.3501429,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-03-12",
+    "temperature": 57.79,
+    "fuel_price": 2.667,
+    "cpi": 211.3806429,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-03-19",
+    "temperature": 54.58,
+    "fuel_price": 2.72,
+    "cpi": 211.215635,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-03-26",
+    "temperature": 51.45,
+    "fuel_price": 2.732,
+    "cpi": 211.0180424,
+    "unemployment": 8.106,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-04-02",
+    "temperature": 62.27,
+    "fuel_price": 2.719,
+    "cpi": 210.8204499,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-04-09",
+    "temperature": 65.86,
+    "fuel_price": 2.77,
+    "cpi": 210.6228574,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-04-16",
+    "temperature": 66.32,
+    "fuel_price": 2.808,
+    "cpi": 210.4887,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-04-23",
+    "temperature": 64.84,
+    "fuel_price": 2.795,
+    "cpi": 210.4391228,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-04-30",
+    "temperature": 67.41,
+    "fuel_price": 2.78,
+    "cpi": 210.3895456,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-05-07",
+    "temperature": 72.55,
+    "fuel_price": 2.835,
+    "cpi": 210.3399684,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-05-14",
+    "temperature": 74.78,
+    "fuel_price": 2.854,
+    "cpi": 210.3374261,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-05-21",
+    "temperature": 76.44,
+    "fuel_price": 2.826,
+    "cpi": 210.6170934,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-05-28",
+    "temperature": 80.44,
+    "fuel_price": 2.759,
+    "cpi": 210.8967606,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-06-04",
+    "temperature": 80.69,
+    "fuel_price": 2.705,
+    "cpi": 211.1764278,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-06-11",
+    "temperature": 80.43,
+    "fuel_price": 2.668,
+    "cpi": 211.4560951,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-06-18",
+    "temperature": 84.11,
+    "fuel_price": 2.637,
+    "cpi": 211.4537719,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-06-25",
+    "temperature": 84.34,
+    "fuel_price": 2.653,
+    "cpi": 211.3386526,
+    "unemployment": 7.808,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-07-02",
+    "temperature": 80.91,
+    "fuel_price": 2.669,
+    "cpi": 211.2235333,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-07-09",
+    "temperature": 80.48,
+    "fuel_price": 2.642,
+    "cpi": 211.108414,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-07-16",
+    "temperature": 83.15,
+    "fuel_price": 2.623,
+    "cpi": 211.1003854,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-07-23",
+    "temperature": 83.36,
+    "fuel_price": 2.608,
+    "cpi": 211.2351443,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-07-30",
+    "temperature": 81.84,
+    "fuel_price": 2.64,
+    "cpi": 211.3699032,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-08-06",
+    "temperature": 87.16,
+    "fuel_price": 2.627,
+    "cpi": 211.5046621,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-08-13",
+    "temperature": 87,
+    "fuel_price": 2.692,
+    "cpi": 211.6394211,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-08-20",
+    "temperature": 86.65,
+    "fuel_price": 2.664,
+    "cpi": 211.6033633,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-08-27",
+    "temperature": 85.22,
+    "fuel_price": 2.619,
+    "cpi": 211.5673056,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-09-03",
+    "temperature": 81.21,
+    "fuel_price": 2.577,
+    "cpi": 211.5312479,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-09-10",
+    "temperature": 78.69,
+    "fuel_price": 2.565,
+    "cpi": 211.4951902,
+    "unemployment": 7.787,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2010-09-17",
+    "temperature": 82.11,
+    "fuel_price": 2.582,
+    "cpi": 211.5224596,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-09-24",
+    "temperature": 80.94,
+    "fuel_price": 2.624,
+    "cpi": 211.5972246,
+    "unemployment": 7.787,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-10-01",
+    "temperature": 71.89,
+    "fuel_price": 2.603,
+    "cpi": 211.6719895,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-10-08",
+    "temperature": 63.93,
+    "fuel_price": 2.633,
+    "cpi": 211.7467544,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-10-15",
+    "temperature": 67.18,
+    "fuel_price": 2.72,
+    "cpi": 211.8137436,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-10-22",
+    "temperature": 69.86,
+    "fuel_price": 2.725,
+    "cpi": 211.8612937,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-10-29",
+    "temperature": 69.64,
+    "fuel_price": 2.716,
+    "cpi": 211.9088438,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-11-05",
+    "temperature": 58.74,
+    "fuel_price": 2.689,
+    "cpi": 211.9563939,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-11-12",
+    "temperature": 59.61,
+    "fuel_price": 2.728,
+    "cpi": 212.003944,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-11-19",
+    "temperature": 51.41,
+    "fuel_price": 2.771,
+    "cpi": 211.8896737,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-11-26",
+    "temperature": 64.52,
+    "fuel_price": 2.735,
+    "cpi": 211.7484333,
+    "unemployment": 7.838,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2010-12-03",
+    "temperature": 49.27,
+    "fuel_price": 2.708,
+    "cpi": 211.607193,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-12-10",
+    "temperature": 46.33,
+    "fuel_price": 2.843,
+    "cpi": 211.4659526,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-12-17",
+    "temperature": 49.84,
+    "fuel_price": 2.869,
+    "cpi": 211.4053124,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-12-24",
+    "temperature": 52.33,
+    "fuel_price": 2.886,
+    "cpi": 211.4051222,
+    "unemployment": 7.838,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2010-12-31",
+    "temperature": 48.43,
+    "fuel_price": 2.943,
+    "cpi": 211.4049321,
+    "unemployment": 7.838,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2011-01-07",
+    "temperature": 48.27,
+    "fuel_price": 2.976,
+    "cpi": 211.4047419,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-01-14",
+    "temperature": 35.4,
+    "fuel_price": 2.983,
+    "cpi": 211.4574109,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-01-21",
+    "temperature": 44.04,
+    "fuel_price": 3.016,
+    "cpi": 211.8272343,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-01-28",
+    "temperature": 43.83,
+    "fuel_price": 3.01,
+    "cpi": 212.1970577,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-02-04",
+    "temperature": 42.27,
+    "fuel_price": 2.989,
+    "cpi": 212.5668812,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-02-11",
+    "temperature": 36.39,
+    "fuel_price": 3.022,
+    "cpi": 212.9367046,
+    "unemployment": 7.742,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2011-02-18",
+    "temperature": 57.36,
+    "fuel_price": 3.045,
+    "cpi": 213.2478853,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-02-25",
+    "temperature": 62.9,
+    "fuel_price": 3.065,
+    "cpi": 213.535609,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-03-04",
+    "temperature": 59.58,
+    "fuel_price": 3.288,
+    "cpi": 213.8233327,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-03-11",
+    "temperature": 53.56,
+    "fuel_price": 3.459,
+    "cpi": 214.1110564,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-03-18",
+    "temperature": 62.76,
+    "fuel_price": 3.488,
+    "cpi": 214.3627114,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-03-25",
+    "temperature": 69.97,
+    "fuel_price": 3.473,
+    "cpi": 214.5999389,
+    "unemployment": 7.742,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-04-01",
+    "temperature": 59.17,
+    "fuel_price": 3.524,
+    "cpi": 214.8371664,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-04-08",
+    "temperature": 67.84,
+    "fuel_price": 3.622,
+    "cpi": 215.0743939,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-04-15",
+    "temperature": 71.27,
+    "fuel_price": 3.743,
+    "cpi": 215.2918561,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-04-22",
+    "temperature": 72.99,
+    "fuel_price": 3.807,
+    "cpi": 215.4599053,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-04-29",
+    "temperature": 72.03,
+    "fuel_price": 3.81,
+    "cpi": 215.6279544,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-05-06",
+    "temperature": 64.61,
+    "fuel_price": 3.906,
+    "cpi": 215.7960035,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-05-13",
+    "temperature": 75.64,
+    "fuel_price": 3.899,
+    "cpi": 215.9640526,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-05-20",
+    "temperature": 67.63,
+    "fuel_price": 3.907,
+    "cpi": 215.7339202,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-05-27",
+    "temperature": 77.72,
+    "fuel_price": 3.786,
+    "cpi": 215.5037878,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-06-03",
+    "temperature": 83,
+    "fuel_price": 3.699,
+    "cpi": 215.2736553,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-06-10",
+    "temperature": 83.13,
+    "fuel_price": 3.648,
+    "cpi": 215.0435229,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-06-17",
+    "temperature": 86.41,
+    "fuel_price": 3.637,
+    "cpi": 214.9980596,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-06-24",
+    "temperature": 83.58,
+    "fuel_price": 3.594,
+    "cpi": 215.0910982,
+    "unemployment": 7.682,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-07-01",
+    "temperature": 85.55,
+    "fuel_price": 3.524,
+    "cpi": 215.1841368,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-07-08",
+    "temperature": 85.83,
+    "fuel_price": 3.48,
+    "cpi": 215.2771754,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-07-15",
+    "temperature": 88.54,
+    "fuel_price": 3.575,
+    "cpi": 215.3611087,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-07-22",
+    "temperature": 85.77,
+    "fuel_price": 3.651,
+    "cpi": 215.4222784,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-07-29",
+    "temperature": 86.83,
+    "fuel_price": 3.682,
+    "cpi": 215.4834482,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-08-05",
+    "temperature": 91.65,
+    "fuel_price": 3.684,
+    "cpi": 215.544618,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-08-12",
+    "temperature": 90.76,
+    "fuel_price": 3.638,
+    "cpi": 215.6057878,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-08-19",
+    "temperature": 89.94,
+    "fuel_price": 3.554,
+    "cpi": 215.6693107,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-08-26",
+    "temperature": 87.96,
+    "fuel_price": 3.523,
+    "cpi": 215.7332258,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-09-02",
+    "temperature": 87.83,
+    "fuel_price": 3.533,
+    "cpi": 215.7971409,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-09-09",
+    "temperature": 76,
+    "fuel_price": 3.546,
+    "cpi": 215.861056,
+    "unemployment": 7.962,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2011-09-16",
+    "temperature": 79.94,
+    "fuel_price": 3.526,
+    "cpi": 216.0410526,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-09-23",
+    "temperature": 75.8,
+    "fuel_price": 3.467,
+    "cpi": 216.3758246,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-09-30",
+    "temperature": 79.69,
+    "fuel_price": 3.355,
+    "cpi": 216.7105965,
+    "unemployment": 7.962,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-10-07",
+    "temperature": 69.31,
+    "fuel_price": 3.285,
+    "cpi": 217.0453684,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-10-14",
+    "temperature": 71.74,
+    "fuel_price": 3.274,
+    "cpi": 217.3552733,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-10-21",
+    "temperature": 63.71,
+    "fuel_price": 3.353,
+    "cpi": 217.5159762,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-10-28",
+    "temperature": 66.57,
+    "fuel_price": 3.372,
+    "cpi": 217.6766791,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-11-04",
+    "temperature": 54.98,
+    "fuel_price": 3.332,
+    "cpi": 217.837382,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-11-11",
+    "temperature": 59.11,
+    "fuel_price": 3.297,
+    "cpi": 217.9980849,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-11-18",
+    "temperature": 62.25,
+    "fuel_price": 3.308,
+    "cpi": 218.2205088,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-11-25",
+    "temperature": 60.14,
+    "fuel_price": 3.236,
+    "cpi": 218.4676211,
+    "unemployment": 7.866,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2011-12-02",
+    "temperature": 48.91,
+    "fuel_price": 3.172,
+    "cpi": 218.7147333,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-12-09",
+    "temperature": 43.93,
+    "fuel_price": 3.158,
+    "cpi": 218.9618456,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-12-16",
+    "temperature": 51.63,
+    "fuel_price": 3.159,
+    "cpi": 219.1794533,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-12-23",
+    "temperature": 47.96,
+    "fuel_price": 3.112,
+    "cpi": 219.3577216,
+    "unemployment": 7.866,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2011-12-30",
+    "temperature": 44.55,
+    "fuel_price": 3.129,
+    "cpi": 219.5359898,
+    "unemployment": 7.866,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2012-01-06",
+    "temperature": 49.01,
+    "fuel_price": 3.157,
+    "cpi": 219.7142581,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-01-13",
+    "temperature": 48.53,
+    "fuel_price": 3.261,
+    "cpi": 219.8925263,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-01-20",
+    "temperature": 54.11,
+    "fuel_price": 3.268,
+    "cpi": 219.9856893,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-01-27",
+    "temperature": 54.26,
+    "fuel_price": 3.29,
+    "cpi": 220.0788523,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-02-03",
+    "temperature": 56.55,
+    "fuel_price": 3.36,
+    "cpi": 220.1720153,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-02-10",
+    "temperature": 48.02,
+    "fuel_price": 3.409,
+    "cpi": 220.2651783,
+    "unemployment": 7.348,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2012-02-17",
+    "temperature": 45.32,
+    "fuel_price": 3.51,
+    "cpi": 220.4257586,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-02-24",
+    "temperature": 57.25,
+    "fuel_price": 3.555,
+    "cpi": 220.636902,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-03-02",
+    "temperature": 60.96,
+    "fuel_price": 3.63,
+    "cpi": 220.8480454,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-03-09",
+    "temperature": 58.76,
+    "fuel_price": 3.669,
+    "cpi": 221.0591887,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-03-16",
+    "temperature": 64.74,
+    "fuel_price": 3.734,
+    "cpi": 221.2118132,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-03-23",
+    "temperature": 65.93,
+    "fuel_price": 3.787,
+    "cpi": 221.2864126,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-03-30",
+    "temperature": 67.61,
+    "fuel_price": 3.845,
+    "cpi": 221.3610119,
+    "unemployment": 7.348,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-04-06",
+    "temperature": 70.43,
+    "fuel_price": 3.891,
+    "cpi": 221.4356112,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-04-13",
+    "temperature": 69.07,
+    "fuel_price": 3.891,
+    "cpi": 221.5102105,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-04-20",
+    "temperature": 66.76,
+    "fuel_price": 3.877,
+    "cpi": 221.5640737,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-04-27",
+    "temperature": 67.23,
+    "fuel_price": 3.814,
+    "cpi": 221.6179368,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-05-04",
+    "temperature": 75.55,
+    "fuel_price": 3.749,
+    "cpi": 221.6718,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-05-11",
+    "temperature": 73.77,
+    "fuel_price": 3.688,
+    "cpi": 221.7256632,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-05-18",
+    "temperature": 70.33,
+    "fuel_price": 3.63,
+    "cpi": 221.742674,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-05-25",
+    "temperature": 77.22,
+    "fuel_price": 3.561,
+    "cpi": 221.744944,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-06-01",
+    "temperature": 77.95,
+    "fuel_price": 3.501,
+    "cpi": 221.7472139,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-06-08",
+    "temperature": 78.3,
+    "fuel_price": 3.452,
+    "cpi": 221.7494839,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-06-15",
+    "temperature": 79.35,
+    "fuel_price": 3.393,
+    "cpi": 221.7626421,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-06-22",
+    "temperature": 78.39,
+    "fuel_price": 3.346,
+    "cpi": 221.8030211,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-06-29",
+    "temperature": 84.88,
+    "fuel_price": 3.286,
+    "cpi": 221.8434,
+    "unemployment": 7.143,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-07-06",
+    "temperature": 81.57,
+    "fuel_price": 3.227,
+    "cpi": 221.8837789,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-07-13",
+    "temperature": 77.12,
+    "fuel_price": 3.256,
+    "cpi": 221.9241579,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-07-20",
+    "temperature": 80.42,
+    "fuel_price": 3.311,
+    "cpi": 221.9327267,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-07-27",
+    "temperature": 82.66,
+    "fuel_price": 3.407,
+    "cpi": 221.9412954,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-08-03",
+    "temperature": 86.11,
+    "fuel_price": 3.417,
+    "cpi": 221.9498642,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-08-10",
+    "temperature": 85.05,
+    "fuel_price": 3.494,
+    "cpi": 221.9584329,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-08-17",
+    "temperature": 84.85,
+    "fuel_price": 3.571,
+    "cpi": 222.0384109,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-08-24",
+    "temperature": 77.66,
+    "fuel_price": 3.62,
+    "cpi": 222.1719457,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-08-31",
+    "temperature": 80.49,
+    "fuel_price": 3.638,
+    "cpi": 222.3054805,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-09-07",
+    "temperature": 83.96,
+    "fuel_price": 3.73,
+    "cpi": 222.4390153,
+    "unemployment": 6.908,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2012-09-14",
+    "temperature": 74.97,
+    "fuel_price": 3.717,
+    "cpi": 222.5820193,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-09-21",
+    "temperature": 69.87,
+    "fuel_price": 3.721,
+    "cpi": 222.7818386,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-09-28",
+    "temperature": 76.08,
+    "fuel_price": 3.666,
+    "cpi": 222.9816579,
+    "unemployment": 6.908,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-10-05",
+    "temperature": 68.55,
+    "fuel_price": 3.617,
+    "cpi": 223.1814772,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-10-12",
+    "temperature": 62.99,
+    "fuel_price": 3.601,
+    "cpi": 223.3812965,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-10-19",
+    "temperature": 67.97,
+    "fuel_price": 3.594,
+    "cpi": 223.4257233,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-10-26",
+    "temperature": 69.16,
+    "fuel_price": 3.506,
+    "cpi": 223.4442513,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-11-02",
+    "temperature": 55.32,
+    "fuel_price": 3.386,
+    "cpi": 223.4627793,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-11-09",
+    "temperature": 61.24,
+    "fuel_price": 3.314,
+    "cpi": 223.4813073,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-11-16",
+    "temperature": 52.92,
+    "fuel_price": 3.252,
+    "cpi": 223.5129105,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-11-23",
+    "temperature": 56.23,
+    "fuel_price": 3.211,
+    "cpi": 223.5619474,
+    "unemployment": 6.573,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2012-11-30",
+    "temperature": 52.34,
+    "fuel_price": 3.207,
+    "cpi": 223.6109842,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-12-07",
+    "temperature": 64.12,
+    "fuel_price": 3.198,
+    "cpi": 223.6600211,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-12-14",
+    "temperature": 48.89,
+    "fuel_price": 3.168,
+    "cpi": 223.7192767,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-12-21",
+    "temperature": 56.02,
+    "fuel_price": 3.098,
+    "cpi": 223.8398455,
+    "unemployment": 6.573,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2012-12-28",
+    "temperature": 44.79,
+    "fuel_price": 3.108,
+    "cpi": 223.9604143,
+    "unemployment": 6.573,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2013-01-04",
+    "temperature": 41.73,
+    "fuel_price": 3.161,
+    "cpi": 224.080983,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-01-11",
+    "temperature": 50.32,
+    "fuel_price": 3.243,
+    "cpi": 224.2015518,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-01-18",
+    "temperature": 42.92,
+    "fuel_price": 3.237,
+    "cpi": 224.2358132,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-01-25",
+    "temperature": 53.37,
+    "fuel_price": 3.227,
+    "cpi": 224.2355518,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-02-01",
+    "temperature": 56.46,
+    "fuel_price": 3.244,
+    "cpi": 224.2352903,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-02-08",
+    "temperature": 56.67,
+    "fuel_price": 3.417,
+    "cpi": 224.2350289,
+    "unemployment": 6.525,
+    "is_holiday": true
+  },
+  {
+    "store": 1,
+    "date": "2013-02-15",
+    "temperature": 49.66,
+    "fuel_price": 3.475,
+    "cpi": 224.2760526,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-02-22",
+    "temperature": 50.25,
+    "fuel_price": 3.597,
+    "cpi": 224.4202895,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-03-01",
+    "temperature": 48.01,
+    "fuel_price": 3.711,
+    "cpi": 224.5645263,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-03-08",
+    "temperature": 50.81,
+    "fuel_price": 3.658,
+    "cpi": 224.7087632,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-03-15",
+    "temperature": 55.33,
+    "fuel_price": 3.622,
+    "cpi": 224.8356808,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-03-22",
+    "temperature": 63.42,
+    "fuel_price": 3.611,
+    "cpi": 224.9193005,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-03-29",
+    "temperature": 51,
+    "fuel_price": 3.606,
+    "cpi": 225.0029202,
+    "unemployment": 6.525,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-04-05",
+    "temperature": 58.59,
+    "fuel_price": 3.583,
+    "cpi": 225.0865399,
+    "unemployment": 6.314,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-04-12",
+    "temperature": 62.72,
+    "fuel_price": 3.529,
+    "cpi": 225.1701596,
+    "unemployment": 6.314,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-04-19",
+    "temperature": 67.1,
+    "fuel_price": 3.451,
+    "cpi": 225.1701596,
+    "unemployment": 6.314,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-04-26",
+    "temperature": 59.23,
+    "fuel_price": 3.417,
+    "cpi": 225.1701596,
+    "unemployment": 6.314,
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-05-03",
+    "temperature": 66.66,
+    "fuel_price": 3.386,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-05-10",
+    "temperature": 63.9,
+    "fuel_price": 3.392,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-05-17",
+    "temperature": 69.53,
+    "fuel_price": 3.454,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-05-24",
+    "temperature": 77.19,
+    "fuel_price": 3.494,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-05-31",
+    "temperature": 78.02,
+    "fuel_price": 3.466,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-06-07",
+    "temperature": 76.44,
+    "fuel_price": 3.439,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-06-14",
+    "temperature": 79.86,
+    "fuel_price": 3.431,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-06-21",
+    "temperature": 81.35,
+    "fuel_price": 3.479,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-06-28",
+    "temperature": 83.94,
+    "fuel_price": 3.495,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-07-05",
+    "temperature": 79.85,
+    "fuel_price": 3.422,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-07-12",
+    "temperature": 83.12,
+    "fuel_price": 3.4,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-07-19",
+    "temperature": 79.26,
+    "fuel_price": 3.556,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  },
+  {
+    "store": 1,
+    "date": "2013-07-26",
+    "temperature": 81.54,
+    "fuel_price": 3.62,
+    "cpi": "NA",
+    "unemployment": "NA",
+    "is_holiday": false
+  }
+]
