@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { DataService } from './data.service';
 
 export interface Offset {
   value: number;
@@ -14,6 +15,13 @@ export interface Range {
   limitPoints: Offset[];
 }
 
+export interface Alerts {
+  [key: string]: [ {
+    'from': string,
+    'to': string
+  } ];
+}
+
 @Injectable()
 export class RangeService {
 
@@ -21,7 +29,11 @@ export class RangeService {
   ranges: Range[];
   ranges$: BehaviorSubject<Range[]>;
 
-  constructor() {
+  alerts: {};
+
+  constructor(
+    private dataservice: DataService
+  ) {
     this.possibleID = 0;
     this.ranges = [];
     this.ranges$ = new BehaviorSubject<Range[]>(this.ranges);
@@ -38,6 +50,7 @@ export class RangeService {
     this.possibleID += 1;
     this.ranges.push(newRange);
     this.ranges$.next(this.ranges);
+    this.dataservice.studyData(newRange);
   }
 
   editRange(id: number, name: string, minX: string, maxX: string, limitPoints: Offset[]) {

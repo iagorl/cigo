@@ -507,7 +507,7 @@
     "store": 1,
     "date": "2011-03-04",
     "temperature": 59.58,
-    "fuel_price": 3.288,
+    "fuel_price": 3.022,
     "cpi": 213.8233327,
     "unemployment": 7.742,
     "is_holiday": false
@@ -525,7 +525,7 @@
     "store": 1,
     "date": "2011-03-18",
     "temperature": 62.76,
-    "fuel_price": 3.488,
+    "fuel_price": 3.288,
     "cpi": 214.3627114,
     "unemployment": 7.742,
     "is_holiday": false
