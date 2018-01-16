@@ -1,21 +1,23 @@
-<app-combo
-  [view]="[1200, 600]"
-  [scheme]="colorScheme"
-  [results]="data$ | async"
-  [comments]="comments$ | async"
-  [animations]="animations"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showGridLines]="true"
-  [timeline]="true"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [showRefLabels]="false"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [autoScale]="autoScale"
-  (clicked)="onSelect($event)"
-  (select)="onSelect($event)">
-</app-combo>
+<div class="chart-container" #target>
+  <app-combo
+    [view]="[width, height]"
+    [scheme]="colorScheme"
+    [results]="data$ | async"
+    [comments]="comments$ | async"
+    [animations]="animations"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showGridLines]="true"
+    [timeline]="true"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [showRefLabels]="false"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [autoScale]="autoScale"
+    (clicked)="onSelect($event)"
+    (select)="onSelect($event)">
+  </app-combo>
+</div>

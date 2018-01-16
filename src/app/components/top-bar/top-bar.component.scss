@@ -1,0 +1,36 @@
+.navbar-be{
+  background-color:white
+}
+.navbar {
+    height: 80px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    a {
+      margin-left: 30px;
+      img {
+        width: 200px;
+      }
+    }
+    h3 {
+      flex: 1;
+      text-align: center;
+    }
+}
+
+div.title-wrapper {
+  flex: 1;
+  text-align: center;
+  h3 {
+    margin: 10px 0 5px;
+  }
+  margin-bottom:5px;
+}
+
+ul {
+  li {
+    a {
+      margin: 0px;
+    }
+  }
+}

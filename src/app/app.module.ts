@@ -10,13 +10,15 @@ import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ComboComponent } from './components/control-chart/combo/combo.component';
 import { CommentsService } from './services/comments.service';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ControlChartComponent,
-    ComboComponent
+    ComboComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserAnimationsModule,
