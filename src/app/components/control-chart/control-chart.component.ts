@@ -37,7 +37,7 @@ export class ControlChartComponent implements OnInit {
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
-    this.width -= 60;
+    this.width -= 100;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 60;
     this.data$ = this.dataService.data$;
