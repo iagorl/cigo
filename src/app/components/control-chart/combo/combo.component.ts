@@ -54,10 +54,12 @@ export class ComboComponent extends BaseChartComponent {
   @Input() yScaleMin: number;
   @Input() yScaleMax: number;
   @Input() comments: any;
+  @Input() commentColor: any = {domain: ['rgba(255, 255, 0, .5)']};
 
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
   @Output() clicked: EventEmitter<any> = new EventEmitter();
+  @Output() hover: EventEmitter<any> = new EventEmitter();
 
   @ContentChild('tooltipTemplate') tooltipTemplate: TemplateRef<any>;
   @ContentChild('seriesTooltipTemplate') seriesTooltipTemplate: TemplateRef<any>;
@@ -71,6 +73,7 @@ export class ComboComponent extends BaseChartComponent {
   xScale: any;
   rScale: any;
   colors: ColorHelper;
+  secondaryColors: ColorHelper;
   scaleType: string;
   xScaleType: string;
   yScaleType: string = 'linear';
@@ -334,6 +337,12 @@ export class ComboComponent extends BaseChartComponent {
     this.select.emit(data);
   }
 
+  onHover(data, series?): void {
+    data.activate = series ? true : false;
+
+    this.hover.emit(data);
+  }
+
   trackBy(index, item): string {
     return item.name;
   }
@@ -347,6 +356,7 @@ export class ComboComponent extends BaseChartComponent {
     }
 
     this.colors = new ColorHelper(this.scheme, this.schemeType, domain, this.customColors);
+    this.secondaryColors = new ColorHelper(this.commentColor, this.schemeType, domain);
   }
 
   getLegendOptions() {

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardListingComponent } from './components/card-listing/card-listing.component';
 import { CardComponent } from './components/card/card.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { CommentComponent } from './components/comment-section/comment/comment.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { CardComponent } from './components/card/card.component';
     TopBarComponent,
     SidebarComponent,
     CardListingComponent,
-    CardComponent
+    CardComponent,
+    CommentSectionComponent,
+    CommentComponent
   ],
   imports: [
     BrowserAnimationsModule,

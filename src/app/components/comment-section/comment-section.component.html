@@ -1,0 +1,5 @@
+<div class="comment-section">
+    <ng-template ngFor let-comment let-i="index" [ngForOf]="comments$ | async">
+      <app-comment [comment]="comment" [active]="comment.id === (active$ | async)"></app-comment>  
+    </ng-template>
+</div>

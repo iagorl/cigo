@@ -44,10 +44,10 @@ export class ControlChartComponent implements OnInit {
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
         return {
-          name: 'Comments',
+          name: comment.id,
           series: [
             {
-              name: comment.id,
+              name: 'Comments',
               y: comment.coordinates.y,
               x: new Date(comment.coordinates.x),
               radius: 100,
@@ -59,6 +59,15 @@ export class ControlChartComponent implements OnInit {
   }
 
   onSelect(event) {
-    console.log(event);
+    console.log('select', event);
+  }
+
+  onClicked(event) {
+    console.log('clic', event);
+  }
+
+  onHover(event) {
+    this.commentService.toogleComment(event.activate ? event.name : null);
+    console.log('hover', event);
   }
 }

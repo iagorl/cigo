@@ -96,14 +96,14 @@
           [yScaleType]="yScaleType"
           [xAxisLabel]="xAxisLabel"
           [yAxisLabel]="yAxisLabel"
-          [colors]="colors"
+          [colors]="secondaryColors"
           [data]="series"
           [activeEntries]="activeEntries"
           [tooltipDisabled]="tooltipDisabled"
           [tooltipTemplate]="tooltipTemplate"
           (select)="onClick($event, series)"
-          (activate)="onActivate($event)"
-          (deactivate)="onDeactivate($event)" />
+          (activate)="onHover($event, series)"
+          (deactivate)="onHover($event, null)" />
       </svg:g>
     </svg:g>
   </svg:g>
