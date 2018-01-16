@@ -1,6 +1,6 @@
 <div class="chart-container" #target>
-  <app-combo
-    [view]="[width, height]"
+    <app-combo
+    [view]="[1200, 600]"
     [scheme]="colorScheme"
     [results]="data$ | async"
     [comments]="comments$ | async"
@@ -17,7 +17,8 @@
     [xAxisLabel]="xAxisLabel"
     [yAxisLabel]="yAxisLabel"
     [autoScale]="autoScale"
-    (clicked)="onSelect($event)"
+    (clicked)="onClicked($event)"
+    (hover)="onHover($event)"
     (select)="onSelect($event)">
   </app-combo>
 </div>

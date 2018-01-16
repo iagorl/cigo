@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  background-color: aqua;
+  flex-wrap: wrap;
+  transition: all 1s;
+
+
+  .text {
+    flex: 1;
+    width: 100%;
+  }
+  
+  &.active {
+    background-color: red;
+    transform: scale(1.2);
+    
+  }
+
+  .coords {
+    flex: 1;
+    width: 100%;
+  }
+}
