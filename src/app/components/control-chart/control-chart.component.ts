@@ -29,6 +29,10 @@ export class ControlChartComponent implements OnInit {
   yAxisLabel = 'Total Fases Extraction';
   autoScale = true;
   animations = false;
+  range = {
+    x: '0',
+    y: 0
+  };
 
   data$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
@@ -83,6 +87,10 @@ export class ControlChartComponent implements OnInit {
 
   onClicked(event) {
     console.log('clic', event);
+    this.range.x = event.xScale;
+    this.range.y = event.yScale;
+    this.dataService.setRange(this.range.x, this.range.x, this.range.y);
+    this.colorScheme.domain.push('rgba(255,255,0,0.5)');
   }
 
   onHover(event) {

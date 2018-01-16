@@ -198,4 +198,46 @@ export class DataService {
     this.warning.push(warningsByKey);
     this.warning$.next(this.warning);
   }
+
+  setRange(name: string, initialPoint: string, functionValue: number) {
+    let rangeData: ChartSeries[];
+    let limitValue = new Date(initialPoint).getTime();
+    this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
+      this.data = data;
+      this.cf = crossfilter(data);
+
+      this.dataByDate = this.cf.dimension((row) => row['date']);
+      const field = 'fuel_price';
+      const field2 = 'unemployment';
+
+      const addReduce = (p, v) => {
+        p = {
+          fuel_price: v[field],
+          unemployment: v[field2]
+        };
+        return p;
+      };
+      const removeReduce = (p, v) => {
+        return p;
+      };
+      const initReduce = () => {
+        return {
+        };
+      };
+
+      rangeData = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().filter(elem => {
+        if (new Date(elem.key).getTime() > limitValue) {
+          return elem;
+        }
+      }).map( elem => {
+          console.log(elem.key);
+          return {
+            name: new Date(elem.key),
+            value: functionValue
+          };
+      });
+
+      this.data$.next(this.data$.getValue().concat({name: name, series: rangeData}));
+    });
+  }
 }
