@@ -1,5 +1,13 @@
 <app-top-bar></app-top-bar>
 <div class="app-container">
-  <app-control-chart></app-control-chart>
+  <div class="sidebar-container left">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="charts-container">
+    <app-control-chart></app-control-chart>
+  </div>
+  <div class="sidebar-container right">
+    <app-sidebar [commentList]="true"></app-sidebar>
+  </div>
 </div>
 
