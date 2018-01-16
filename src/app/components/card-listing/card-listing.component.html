@@ -1,0 +1,16 @@
+<mat-list role="list" class="list-global">
+  <div class="list-container">
+    <h3 mat-subheader>Warnings</h3>
+    <div class="items-list">
+      <app-card [color]="'#f5753e'" [title]="'Ejemplo'" [content]="'Descripcion de ejemplo'"></app-card>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="list-container" *ngIf="!commentList" >
+    <h3 mat-subheader>Limits</h3>
+    <div class="items-list">
+      <app-card [color]="'#fd3636'"></app-card>
+      <app-card [color]="'#3030e7'"></app-card>
+    </div>
+  </div>
+</mat-list>

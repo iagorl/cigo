@@ -1,0 +1,19 @@
+.app-container {
+  height: calc(100vh - 80px);
+  display: flex;
+  flex: 1;
+  .sidebar-container {
+    flex: 2;
+    background-color: #f7f8fa;
+    &.right {
+      border-left: 1px solid #D4E3E8;
+    }
+    &.left {
+      border-right: 1px solid #D4E3E8;
+    }
+  }
+  .charts-container {
+    padding: 20px;
+    flex: 10
+  }
+}

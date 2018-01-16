@@ -1,0 +1,19 @@
+.card {
+  font-size: small;
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  .card-title {
+    margin: 0px;
+    padding: 3px 13px 3px 13px;  
+  }
+  .card-content {
+    padding: 0 13px 0px 13px;  
+  }
+}
+.color-box {
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+}

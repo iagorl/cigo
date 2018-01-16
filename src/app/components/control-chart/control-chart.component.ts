@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DataService, ChartData } from '../../services/data.service';
 import { Observable } from 'rxjs/Observable';
 import { CommentsService } from '../../services/comments.service';
@@ -11,9 +11,14 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./control-chart.component.scss']
 })
 export class ControlChartComponent implements OnInit {
+
+  @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
+
   colorScheme = {
     domain: ['blue', 'red', 'rgba(255,255,0,0.5)']
   };
+  width: number;
+  height: number;
   gradient = true;
   showXAxis = true;
   showYAxis = true;
@@ -31,6 +36,10 @@ export class ControlChartComponent implements OnInit {
   constructor(private dataService: DataService, private commentService: CommentsService) { }
 
   ngOnInit() {
+    this.width = this.target.element.nativeElement.getBoundingClientRect().width;
+    this.width -= 60;
+    this.height = this.target.element.nativeElement.getBoundingClientRect().height;
+    this.height -= 60;
     this.data$ = this.dataService.data$;
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
