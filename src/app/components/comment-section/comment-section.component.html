@@ -4,6 +4,7 @@
       <mat-checkbox [(ngModel)]="activated" (ngModelChange)="toggle()">Comments</mat-checkbox>
     </div>
     <div class="items-list">
+      <app-input *ngIf="activeCoords$ | async" (submit)="addComment($event)" (cancel)="onCancel()" [coordX]="(activeCoords$ | async)?.x" [coordY]="(activeCoords$ | async)?.y"></app-input>
       <ng-template ngFor let-comment let-i="index" [ngForOf]="comments$ | async">
         <app-comment [comment]="comment" [active]="comment.id === (active$ | async)" [color]="'#f5753e'" (click)="activateComment(comment.id)"></app-comment>  
       </ng-template>

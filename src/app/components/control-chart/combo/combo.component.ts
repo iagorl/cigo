@@ -55,7 +55,7 @@ export class ComboComponent extends BaseChartComponent {
   @Input() yScaleMax: number;
   @Input() comments: any;
   @Input() activeComment: any[] = [];
-  @Input() commentColor: any = {domain: ['rgba(255, 64, 129, 0.7)']};
+  @Input() commentColor: any = {domain: ['rgba(255, 64, 129, 0.7)', 'rgba(63, 81, 181, 0.7)']};
   @Input() commentsActive: boolean;
 
   @Output() activate: EventEmitter<any> = new EventEmitter();

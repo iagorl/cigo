@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface Comment {
-  id: number;
+  id?: number;
   text: string;
   title: string;
-  coordinates: {
-    x: any,
-    y: any
-  };
-  active: boolean;
+  coordinates: Coordinates;
+}
+
+export interface Coordinates {
+  x: any;
+  y: any;
 }
 
 @Injectable()
@@ -20,6 +21,8 @@ export class CommentsService {
   comments$: BehaviorSubject<Comment[]>;
   activeComment: Comment;
   activeComment$: BehaviorSubject<Comment|null>;
+  activeCoordinates: Coordinates;
+  activeCoordinates$: BehaviorSubject<Coordinates|null>;
   activated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {
@@ -29,17 +32,16 @@ export class CommentsService {
       title: 'My First Comment',
       text: 'My First Comment',
       coordinates: {x: '2011-10-13', y: 5},
-      active: false
     }, {
       id: 1,
       title: 'My Second Comment',
       text: 'My Second Comment',
       coordinates: {x: '2011-07-13', y: 5},
-      active: false
     }
     ];
     this.comments$ = new BehaviorSubject<Comment[]>(this.comments);
     this.activeComment$ = new BehaviorSubject<Comment|null>(null);
+    this.activeCoordinates$ = new BehaviorSubject<Coordinates|null>(null);
   }
 
   addComment(title: string, text: string, coordinates: {x: any, y: any}) {
@@ -48,7 +50,6 @@ export class CommentsService {
       'text': text,
       'title': title,
       'coordinates':  coordinates,
-      'active': true
     };
     this.possibleID += 1;
     this.comments.push(newComment);
@@ -74,5 +75,13 @@ export class CommentsService {
     this.activated$.next(!this.activated$.getValue());
   }
 
+  activateCoordinate(x?: string, y?: number) {
+    if (x && y) {
+      this.activeCoordinates = {x, y};
+    } else {
+      this.activeCoordinates = null;
+    }
+    this.activeCoordinates$.next(this.activeCoordinates);
+  }
 
 }

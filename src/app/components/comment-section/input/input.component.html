@@ -1,0 +1,23 @@
+<div class="card">
+  <mat-form-field class="example-full-width">
+    <input #first matInput placeholder="Title" value="Example Comment" [(ngModel)]="title">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Text" value="Example Text" [(ngModel)]="text">
+  </mat-form-field>
+  <div class="coords">
+    <mat-form-field>
+      <input matInput placeholder="X" [(ngModel)]="coordX">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Y" [(ngModel)]="coordY">
+    </mat-form-field>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="onSubmit()">Create Comment</button>
+    <button mat-icon-button color="warn">
+      <mat-icon aria-label="Example icon-button with a heart icon" (click)="onCancel()">delete</mat-icon>
+    </button>
+  </div>
+</div>
+  

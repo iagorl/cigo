@@ -3,6 +3,7 @@ import { DataService, ChartData } from '../../services/data.service';
 import { Observable } from 'rxjs/Observable';
 import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/combineLatest';
 
 
 @Component({
@@ -35,6 +36,8 @@ export class ControlChartComponent implements OnInit {
 
   data$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
+  fullComments$: Observable<any[]>;
+  commentsVisible: boolean;
   commentsVisible$: Observable<boolean>;
   activeComment$: Observable<any[]>;
 
@@ -46,7 +49,7 @@ export class ControlChartComponent implements OnInit {
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 60;
     this.data$ = this.dataService.data$;
-    this.commentsVisible$ = this.commentService.activated$;
+    this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {
         return [];
@@ -66,10 +69,10 @@ export class ControlChartComponent implements OnInit {
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
         return {
-          name: comment.id,
+          name: '',
           series: [
             {
-              name: `: ${comment.text}`,
+              name: comment.text,
               y: comment.coordinates.y,
               x: new Date(comment.coordinates.x),
               radius: 5,
@@ -78,10 +81,33 @@ export class ControlChartComponent implements OnInit {
         };
       });
     });
+    this.fullComments$ = Observable.combineLatest(this.comments$, this.commentService.activeCoordinates$)
+      .map(data => {
+        if (data[1]) {
+          return [
+            ...data[0],
+            {
+              name: 'Placeholder',
+              series: [
+                {
+                  name: `: Placeholder`,
+                  y: data[1].y,
+                  x: new Date(data[1].x),
+                  radius: 5,
+                }
+              ]
+            }
+          ];
+        } else {
+          return data[0];
+        }
+      })
+      .do(d => console.log(d));
   }
 
   onSelect(event) {
-    console.log('select', event);
+    const date = event.name.toLocaleDateString().split('/');
+    this.activateCoordinate(`${date[2]}-${date[0]}-${date[1]}`, event.yScale);
   }
 
   onClicked(event) {
@@ -90,6 +116,14 @@ export class ControlChartComponent implements OnInit {
     this.selectedY = event.yScale;
     if (!this.openFormContainer) {
       this.toggleForm();
+    }
+    const date = event.xScale.toLocaleDateString().split('/');
+    this.activateCoordinate(`${date[2]}-${date[0]}-${date[1]}`, event.yScale);
+  }
+
+  activateCoordinate(x, y) {
+    if (this.commentsVisible) {
+      this.commentService.activateCoordinate(x, y);
     }
   }
 
