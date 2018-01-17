@@ -26,7 +26,7 @@ export class NewRangeFormComponent implements OnInit, OnChanges {
   ngOnChanges(changes: any): void {
     if (changes.selectedX || changes.selectedY) {
       this.range.minX = this.selectedX;
-    this.range.value = this.selectedY;
+      this.range.value = this.selectedY;
     }
   }
 

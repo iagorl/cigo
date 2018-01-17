@@ -107,19 +107,17 @@ export class ControlChartComponent implements OnInit {
   }
 
   onSelect(event) {
-    const date = event.name.toLocaleDateString().split('/');
-    this.activateCoordinate(`${date[2]}-${date[0]}-${date[1]}`, event.yScale);
+    this.activateCoordinate(this.formatDate(event.name), event.yScale);
   }
 
   onClicked(event) {
     console.log('clic', event);
-    this.selectedX = event.xScale;
+    this.selectedX = this.formatDate(event.xScale);
     this.selectedY = event.yScale;
     if (!this.openFormContainer && !this.commentsVisible) {
       this.toggleForm();
     }
-    const date = event.xScale.toLocaleDateString().split('/');
-    this.activateCoordinate(`${date[2]}-${date[0]}-${date[1]}`, event.yScale);
+    this.activateCoordinate(this.selectedX, event.yScale);
   }
 
   activateCoordinate(x, y) {
@@ -145,5 +143,10 @@ export class ControlChartComponent implements OnInit {
     this.rangeService.addRange(range.name, range.minX, range.maxX, limitPoint);
     this.dataService.setRange(range.name, range.minX, range.maxX, range.value);
     this.colorScheme.domain.push('black');
+  }
+
+  formatDate(selectedDate): string {
+    const date = selectedDate.toLocaleDateString().split('/');
+    return `${date[2]}-${date[0]}-${date[1]}`;
   }
 }
