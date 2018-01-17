@@ -1,12 +1,16 @@
 <mat-list role="list" class="list-global">
   <div class="list-container">
     <div class="list-header">
-      <mat-checkbox [ngModel]="commentService.activated$ | async" (ngModelChange)="toggle()">Comments</mat-checkbox>
+      <h3 mat-subheader>Comments</h3>
     </div>
     <div class="items-list">
+      <mat-divider></mat-divider>
+      <mat-checkbox [ngModel]="commentService.activated$ | async" (ngModelChange)="toggle()">
+        Show on table
+      </mat-checkbox>
       <app-input *ngIf="activeCoords$ | async" (submit)="addComment($event)" (cancel)="onCancel()" [coordX]="(activeCoords$ | async)?.x" [coordY]="(activeCoords$ | async)?.y"></app-input>
       <ng-template ngFor let-comment let-i="index" [ngForOf]="comments$ | async">
-        <app-comment [comment]="comment" [active]="comment.id === (active$ | async)" [color]="'#f5753e'" (click)="activateComment(comment.id)"></app-comment>  
+        <app-comment [comment]="comment" [active]="comment.id === (active$ | async)" [color]="'rgba(255, 64, 129, 0.7)'" (click)="activateComment(comment.id)"></app-comment>
       </ng-template>
     </div>
   </div>

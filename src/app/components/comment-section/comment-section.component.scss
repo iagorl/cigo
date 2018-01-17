@@ -9,8 +9,9 @@
 .mat-subheader {
   color: rgba(0,0,0,.54);
   font-size: small;
+  text-transform: uppercase;
+  justify-content: center;
 }
-
 .list-global {
   height: 100%;
   display: flex;
@@ -28,4 +29,11 @@
       overflow: scroll;
     }
   }
+}
+
+.mat-checkbox {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  color: #353535;
 }
