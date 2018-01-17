@@ -16,7 +16,7 @@ export class ControlChartComponent implements OnInit {
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
 
   colorScheme = {
-    domain: ['blue', 'red']
+    domain: ['#1774F0', 'red']
   };
   width: number;
   height: number;
@@ -26,7 +26,7 @@ export class ControlChartComponent implements OnInit {
   showLegend = true;
   showXAxisLabel = true;
   showYAxisLabel = true;
-  xAxisLabel = 'Day';
+  xAxisLabel = 'Date';
   yAxisLabel = 'Total Fases Extraction';
   autoScale = true;
   animations = false;
@@ -45,7 +45,7 @@ export class ControlChartComponent implements OnInit {
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
-    this.width -= 100;
+    // this.width -= 100;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 60;
     this.data$ = this.dataService.data$;
