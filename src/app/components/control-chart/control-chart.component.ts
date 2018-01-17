@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DataService, ChartData } from '../../services/data.service';
+import { RangeService, Offset } from '../../services/range.service';
 import { Observable } from 'rxjs/Observable';
 import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
@@ -41,7 +42,7 @@ export class ControlChartComponent implements OnInit {
   commentsVisible$: Observable<boolean>;
   activeComment$: Observable<any[]>;
 
-  constructor(private dataService: DataService, private commentService: CommentsService) { }
+  constructor(private dataService: DataService, private commentService: CommentsService, private rangeService: RangeService) { }
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
@@ -106,19 +107,17 @@ export class ControlChartComponent implements OnInit {
   }
 
   onSelect(event) {
-    const date = event.name.toLocaleDateString().split('/');
-    this.activateCoordinate(`${date[2]}-${date[0]}-${date[1]}`, event.yScale);
+    this.activateCoordinate(this.formatDate(event.name), event.yScale);
   }
 
   onClicked(event) {
     console.log('clic', event);
-    this.selectedX = event.xScale;
+    this.selectedX = this.formatDate(event.xScale);
     this.selectedY = event.yScale;
     if (!this.openFormContainer && !this.commentsVisible) {
       this.toggleForm();
     }
-    const date = event.xScale.toLocaleDateString().split('/');
-    this.activateCoordinate(`${date[2]}-${date[0]}-${date[1]}`, event.yScale);
+    this.activateCoordinate(this.selectedX, event.yScale);
   }
 
   activateCoordinate(x, y) {
@@ -137,7 +136,17 @@ export class ControlChartComponent implements OnInit {
   }
 
   createRange(range: any) {
-    this.dataService.setRange(range.name, range.minX, range.maxX, range.value, range.condition);
+    const limitPoint: Offset[] = [{
+      value: range.value,
+      condition: range.condition
+    }];
+    this.rangeService.addRange(range.name, range.minX, range.maxX, limitPoint);
+    this.dataService.setRange(range.name, range.minX, range.maxX, range.value);
     this.colorScheme.domain.push('black');
+  }
+
+  formatDate(selectedDate): string {
+    const date = selectedDate.toLocaleDateString().split('/');
+    return `${date[2]}-${date[0]}-${date[1]}`;
   }
 }

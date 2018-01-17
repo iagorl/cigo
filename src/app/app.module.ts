@@ -58,7 +58,7 @@ import { RangeService } from './services/range.service';
     DataService,
     CommentsService,
     RangeService,
-    ViewService,
+    ViewService
   ],
   bootstrap: [AppComponent]
 })
