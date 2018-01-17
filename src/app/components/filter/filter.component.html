@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="fields">
+    <mat-form-field *ngFor="let field of options">
+      <mat-select [(value)]="field.selected" (change)="emit(field.name, $event.value)">
+        <ng-template ngFor let-option [ngForOf]="field.options">
+          <mat-option [value]="option.value">{{option.text}}</mat-option>
+        </ng-template>
+      </mat-select>
+    </mat-form-field>
+  </div>  
+  <mat-button-toggle-group *ngIf="targetOptions" [(value)]="targetOptions.selected" (change)="emit('target', $event.value)">
+    <ng-template ngFor let-option [ngForOf]="targetOptions.options">
+      <mat-button-toggle [value]="option.value">{{option.text}}</mat-button-toggle>
+    </ng-template>
+  </mat-button-toggle-group>
+</div>

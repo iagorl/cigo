@@ -107,11 +107,10 @@ export class ControlChartComponent implements OnInit {
   }
 
   onSelect(event) {
-    this.activateCoordinate(this.formatDate(event.name), event.yScale);
+    this.activateCoordinate(this.formatDate(event.name), event.value);
   }
 
   onClicked(event) {
-    console.log('clic', event);
     this.selectedX = this.formatDate(event.xScale);
     this.selectedY = event.yScale;
     if (!this.openFormContainer && !this.commentsVisible) {
@@ -128,7 +127,6 @@ export class ControlChartComponent implements OnInit {
 
   onHover(event) {
     this.commentService.toogleComment(event.activate ? event.name : null);
-    console.log('hover', event);
   }
 
   toggleForm() {
