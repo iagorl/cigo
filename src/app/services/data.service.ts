@@ -199,10 +199,10 @@ export class DataService {
     this.warning$.next(this.warning);
   }
 
-  setRange(name: string, initialPoint: string, finalPoint: string, functionValue: number, condition: string) {
+  setRange(name: string, initialPoint: string, finalPoint: string, functionValue: number) {
     let rangeData: ChartSeries[];
-    let minX = initialPoint.length ? new Date(initialPoint).getTime() : 0;
-    let maxX = new Date(finalPoint).getTime();
+    const minX = initialPoint ? new Date(initialPoint).getTime() : null;
+    const maxX = finalPoint ? new Date(finalPoint).getTime() : null;
     this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
       this.data = data;
       this.cf = crossfilter(data);
@@ -227,8 +227,8 @@ export class DataService {
       };
 
       rangeData = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().filter(elem => {
-        let currentDate = new Date(elem.key).getTime();
-        if (minX < currentDate && currentDate < maxX) {
+        const currentDate = new Date(elem.key).getTime();
+        if (this.validateRange(currentDate, minX, maxX)) {
           return elem;
         }
       }).map( elem => {
@@ -237,8 +237,19 @@ export class DataService {
             value: functionValue
           };
       });
-
       this.data$.next(this.data$.getValue().concat({name: name, series: rangeData}));
     });
+  }
+
+  validateRange( value: number, min: number, max: number ): boolean {
+    if (min && max) {
+      return (min <= value && value <= max);
+    }
+    if (min) {
+      return (min <= value);
+    }
+    if (max) {
+      return (value <= max);
+    }
   }
 }

@@ -12,7 +12,7 @@ export class NewRangeFormComponent implements OnInit, OnChanges {
     maxX: '',
     value: 0,
     condition: 'gt'
-  }
+  };
 
   @Input() selectedX: string;
   @Input() selectedY: number;
@@ -43,6 +43,7 @@ export class NewRangeFormComponent implements OnInit, OnChanges {
   saveRange() {
     this.createRange.emit(this.range);
     this.toggleContainer();
+    this.resetForm();
   }
 
   resetForm() {

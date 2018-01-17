@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DataService, ChartData } from '../../services/data.service';
+import { RangeService, Offset } from '../../services/range.service';
 import { Observable } from 'rxjs/Observable';
 import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
@@ -41,7 +42,7 @@ export class ControlChartComponent implements OnInit {
   commentsVisible$: Observable<boolean>;
   activeComment$: Observable<any[]>;
 
-  constructor(private dataService: DataService, private commentService: CommentsService) { }
+  constructor(private dataService: DataService, private commentService: CommentsService, private rangeService: RangeService) { }
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
@@ -137,7 +138,12 @@ export class ControlChartComponent implements OnInit {
   }
 
   createRange(range: any) {
-    this.dataService.setRange(range.name, range.minX, range.maxX, range.value, range.condition);
+    const limitPoint: Offset[] = [{
+      value: range.value,
+      condition: range.condition
+    }];
+    this.rangeService.addRange(range.name, range.minX, range.maxX, limitPoint);
+    this.dataService.setRange(range.name, range.minX, range.maxX, range.value);
     this.colorScheme.domain.push('black');
   }
 }
