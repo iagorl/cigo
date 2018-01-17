@@ -1,7 +1,11 @@
 <mat-list role="list" class="list-global">
   <div class="list-container">
-    <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle()">Warnings</mat-checkbox>
+    <div class="list-header">
+      <h3 mat-subheader>Warnings</h3>
+    </div>
     <div class="items-list">
+      <mat-divider></mat-divider>
+      <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle()">Add new limit</mat-checkbox>
       <app-card [color]="'#f5753e'" [title]="'Ejemplo'" [content]="'Descripcion de ejemplo'"></app-card>
     </div>
   </div>

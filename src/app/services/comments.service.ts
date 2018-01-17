@@ -30,12 +30,12 @@ export class CommentsService {
     this.comments = [{
       id: 0,
       title: 'My First Comment',
-      text: 'My First Comment',
+      text: 'My First Comment\'s description',
       coordinates: {x: '2011-10-13', y: 5},
     }, {
       id: 1,
       title: 'My Second Comment',
-      text: 'My Second Comment',
+      text: 'My Second Comment\'s description',
       coordinates: {x: '2011-07-13', y: 5},
     }
     ];
