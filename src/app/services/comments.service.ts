@@ -26,7 +26,7 @@ export class CommentsService {
   activated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {
-    this.possibleID = 1;
+    this.possibleID = 2;
     this.comments = [{
       id: 0,
       title: 'My First Comment',
@@ -71,8 +71,8 @@ export class CommentsService {
     this.comments$.next(this.comments);
   }
 
-  toggle() {
-    this.activated$.next(!this.activated$.getValue());
+  toggle(force = false) {
+    this.activated$.next(force ? false : !this.activated$.getValue());
   }
 
   activateCoordinate(x?: string, y?: number) {

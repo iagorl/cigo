@@ -28,6 +28,7 @@ export class RangeService {
   possibleID: number;
   ranges: Range[];
   ranges$: BehaviorSubject<Range[]>;
+  activated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   alerts: {};
 
@@ -75,6 +76,10 @@ export class RangeService {
     const index = this.ranges.findIndex(range => range.id === id);
     this.ranges.splice(index, 1);
     this.ranges$.next(this.ranges);
+  }
+
+  toggle(force = false) {
+    this.activated$.next(force ? false : !this.activated$.getValue());
   }
 
 }

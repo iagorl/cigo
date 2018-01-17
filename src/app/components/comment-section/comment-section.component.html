@@ -1,7 +1,7 @@
 <mat-list role="list" class="list-global">
   <div class="list-container">
     <div class="list-header">
-      <mat-checkbox [(ngModel)]="activated" (ngModelChange)="toggle()">Comments</mat-checkbox>
+      <mat-checkbox [ngModel]="commentService.activated$ | async" (ngModelChange)="toggle()">Comments</mat-checkbox>
     </div>
     <div class="items-list">
       <app-input *ngIf="activeCoords$ | async" (submit)="addComment($event)" (cancel)="onCancel()" [coordX]="(activeCoords$ | async)?.x" [coordY]="(activeCoords$ | async)?.y"></app-input>

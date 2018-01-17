@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommentsService, Comment, Coordinates } from '../../services/comments.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
+import { ViewService } from '../../services/view.service';
 
 
 @Component({
@@ -12,20 +13,25 @@ import 'rxjs/add/operator/do';
 export class CommentSectionComponent implements OnInit {
   comments$: Observable<Comment[]>;
   active$: Observable<number|null>;
-  activated: boolean = false;
   activeCoords$: Observable<Coordinates>;
 
-  constructor(private commentService: CommentsService) { }
+  constructor(private commentService: CommentsService, private viewService: ViewService) { }
 
   ngOnInit() {
     this.comments$ = this.commentService.comments$;
     this.active$ = this.commentService.activeComment$.map(elem => elem ? elem.id : null);
+    this.commentService.activated$.do(val => {
+      console.log('aqui');
+      if (!val) {
+        this.onCancel();
+      }
+    }).subscribe();
 
     this.activeCoords$ = this.commentService.activeCoordinates$;
   }
 
   toggle() {
-    this.commentService.toggle();
+    this.viewService.activate('comment');
   }
 
   activateComment(id: number) {
@@ -34,6 +40,7 @@ export class CommentSectionComponent implements OnInit {
 
   addComment(comment) {
     this.commentService.addComment(comment.title, comment.text, comment.coordinates);
+    this.onCancel();
   }
 
   onCancel() {

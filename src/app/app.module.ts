@@ -23,6 +23,8 @@ import { CommentComponent } from './components/comment-section/comment/comment.c
 import { FormsModule } from '@angular/forms';
 import { NewRangeFormComponent } from './components/new-range-form/new-range-form.component';
 import { InputComponent } from './components/comment-section/input/input.component';
+import { ViewService } from './services/view.service';
+import { RangeService } from './services/range.service';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { InputComponent } from './components/comment-section/input/input.compone
   ],
   providers: [
     DataService,
-    CommentsService
+    CommentsService,
+    RangeService,
+    ViewService,
   ],
   bootstrap: [AppComponent]
 })

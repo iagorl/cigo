@@ -114,7 +114,7 @@ export class ControlChartComponent implements OnInit {
     console.log('clic', event);
     this.selectedX = event.xScale;
     this.selectedY = event.yScale;
-    if (!this.openFormContainer) {
+    if (!this.openFormContainer && !this.commentsVisible) {
       this.toggleForm();
     }
     const date = event.xScale.toLocaleDateString().split('/');
