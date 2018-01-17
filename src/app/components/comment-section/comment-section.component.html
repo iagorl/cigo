@@ -1,5 +1,12 @@
-<div class="comment-section">
-    <ng-template ngFor let-comment let-i="index" [ngForOf]="comments$ | async">
-      <app-comment [comment]="comment" [active]="comment.id === (active$ | async)"></app-comment>  
-    </ng-template>
-</div>
+<mat-list role="list" class="list-global">
+  <div class="list-container">
+    <div class="list-header">
+      <mat-checkbox [(ngModel)]="activated" (ngModelChange)="toggle()">Comments</mat-checkbox>
+    </div>
+    <div class="items-list">
+      <ng-template ngFor let-comment let-i="index" [ngForOf]="comments$ | async">
+        <app-comment [comment]="comment" [active]="comment.id === (active$ | async)" [color]="'#f5753e'" (click)="activateComment(comment.id)"></app-comment>  
+      </ng-template>
+    </div>
+  </div>
+</mat-list>

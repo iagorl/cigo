@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DataService, ChartData } from '../../services/data.service';
 import { Observable } from 'rxjs/Observable';
-import { CommentsService } from '../../services/comments.service';
+import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
 
 
@@ -32,6 +32,8 @@ export class ControlChartComponent implements OnInit {
 
   data$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
+  commentsVisible$: Observable<boolean>;
+  activeComment$: Observable<any[]>;
 
   constructor(private dataService: DataService, private commentService: CommentsService) { }
 
@@ -41,16 +43,33 @@ export class ControlChartComponent implements OnInit {
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 60;
     this.data$ = this.dataService.data$;
+    this.commentsVisible$ = this.commentService.activated$;
+    this.activeComment$ = this.commentService.activeComment$.map(comment => {
+      if (!comment) {
+        return [];
+      }
+      return [{
+        name: comment.id,
+        series: [
+          {
+            name: 'Comments',
+            y: comment.coordinates.y,
+            x: new Date(comment.coordinates.x),
+            radius: 10,
+          }
+        ]
+      }];
+    });
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
         return {
           name: comment.id,
           series: [
             {
-              name: 'Comments',
+              name: `: ${comment.text}`,
               y: comment.coordinates.y,
               x: new Date(comment.coordinates.x),
-              radius: 100,
+              radius: 5,
             }
           ]
         };

@@ -87,24 +87,26 @@
           />
         </svg:g>
       </svg:g>
-      <svg:g *ngFor="let series of comments">
-          <svg:g ngx-charts-bubble-series
-          [xScale]="xScale"
-          [yScale]="yScale"
-          [rScale]="rScale"
-          [xScaleType]="xScaleType"
-          [yScaleType]="yScaleType"
-          [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel"
-          [colors]="secondaryColors"
-          [data]="series"
-          [activeEntries]="activeEntries"
-          [tooltipDisabled]="tooltipDisabled"
-          [tooltipTemplate]="tooltipTemplate"
-          (select)="onClick($event, series)"
-          (activate)="onHover($event, series)"
-          (deactivate)="onHover($event, null)" />
-      </svg:g>
+      <ng-container *ngIf="commentsActive">
+        <svg:g *ngFor="let series of comments">
+            <svg:g ngx-charts-bubble-series
+            [xScale]="xScale"
+            [yScale]="yScale"
+            [rScale]="rScale"
+            [xScaleType]="xScaleType"
+            [yScaleType]="yScaleType"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [colors]="secondaryColors"
+            [data]="series"
+            [activeEntries]="activeComment"
+            [tooltipDisabled]="tooltipDisabled"
+            [tooltipTemplate]="tooltipTemplate"
+            (select)="onClick($event, series)"
+            (activate)="onHover($event, series)"
+            (deactivate)="onHover($event, null)" />
+        </svg:g>
+      </ng-container>
     </svg:g>
   </svg:g>
   <svg:g ngx-charts-timeline
