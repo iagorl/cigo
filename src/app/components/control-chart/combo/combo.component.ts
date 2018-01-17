@@ -54,7 +54,9 @@ export class ComboComponent extends BaseChartComponent {
   @Input() yScaleMin: number;
   @Input() yScaleMax: number;
   @Input() comments: any;
-  @Input() commentColor: any = {domain: ['rgba(255, 255, 0, .5)']};
+  @Input() activeComment: any[] = [];
+  @Input() commentColor: any = {domain: ['rgba(255, 64, 129, 0.7)']};
+  @Input() commentsActive: boolean;
 
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
@@ -116,7 +118,7 @@ export class ComboComponent extends BaseChartComponent {
       legendType: this.schemeType,
     });
 
-    this.rScale = scaleLinear().range([10, 10]).domain([1, 1]);
+    this.rScale = scaleLinear().range([5, 10]).domain([1, 10]);
 
     if (this.timeline) {
       this.dims.height -= (this.timelineHeight + this.margin[2] + this.timelinePadding);

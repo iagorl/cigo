@@ -8,10 +8,10 @@ import { Comment } from '../../../services/comments.service';
 })
 export class CommentComponent implements OnInit {
   @Input() comment: Comment;
+  @Input() color: string;
 
   @HostBinding('class.active')
   @Input() active: boolean;
-
 
   constructor() { }
 

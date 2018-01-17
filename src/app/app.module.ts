@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 
 
 import { AppComponent } from './app.component';
@@ -17,6 +20,7 @@ import { CardListingComponent } from './components/card-listing/card-listing.com
 import { CardComponent } from './components/card/card.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentComponent } from './components/comment-section/comment/comment.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,8 +39,10 @@ import { CommentComponent } from './components/comment-section/comment/comment.c
     BrowserAnimationsModule,
     BrowserModule,
     MatListModule,
+    MatCheckboxModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     DataService,
