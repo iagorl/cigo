@@ -108,5 +108,47 @@
       }
     }
   }
+}
 
+.ngx-charts-outer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 100%;
+  .chart-legend {
+    min-width: 500px!important;
+    > div {
+      width: 100%!important;
+      .legend-labels {
+        background: transparent;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .legend-label {
+          color: rgba(35, 35, 35, 0.6);
+        }
+        span:focus {
+          outline: none;
+        }
+        .legend-label-color {
+          border-radius: 0;
+        }
+      }
+      header {
+        display: none;
+      }
+    }
+  }
+  .axis {
+    text {
+      font-size: 12px;
+      fill: rgba(35, 35, 35, 0.6);
+    }
+  }
+  rect.overlay {
+    stroke-width: 1;
+    stroke: rgba(35,35,35, 0.6);
+    shape-rendering: crispedges;
+    cursor: crosshair;
+  }
 }
