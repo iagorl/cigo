@@ -23,4 +23,11 @@
     (hover)="onHover($event)"
     (select)="onSelect($event)">
   </app-combo>
+  <app-new-range-form
+    [selectedX]="selectedX"
+    [selectedY]="selectedY"
+    [openFormContainer]="openFormContainer"
+    (toggleForm)="toggleForm($event)"
+    (createRange)="createRange($event)">
+  </app-new-range-form>
 </div>

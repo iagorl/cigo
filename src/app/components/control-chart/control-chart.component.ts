@@ -15,7 +15,7 @@ export class ControlChartComponent implements OnInit {
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
 
   colorScheme = {
-    domain: ['blue', 'red', 'rgba(255,255,0,0.5)']
+    domain: ['blue', 'red']
   };
   width: number;
   height: number;
@@ -29,10 +29,9 @@ export class ControlChartComponent implements OnInit {
   yAxisLabel = 'Total Fases Extraction';
   autoScale = true;
   animations = false;
-  range = {
-    x: '0',
-    y: 0
-  };
+  selectedX = '';
+  selectedY = 0;
+  openFormContainer = false;
 
   data$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
@@ -87,14 +86,24 @@ export class ControlChartComponent implements OnInit {
 
   onClicked(event) {
     console.log('clic', event);
-    this.range.x = event.xScale;
-    this.range.y = event.yScale;
-    this.dataService.setRange(this.range.x, this.range.x, this.range.y);
-    this.colorScheme.domain.push('rgba(255,255,0,0.5)');
+    this.selectedX = event.xScale;
+    this.selectedY = event.yScale;
+    if (!this.openFormContainer) {
+      this.toggleForm();
+    }
   }
 
   onHover(event) {
     this.commentService.toogleComment(event.activate ? event.name : null);
     console.log('hover', event);
+  }
+
+  toggleForm() {
+    this.openFormContainer = !this.openFormContainer;
+  }
+
+  createRange(range: any) {
+    this.dataService.setRange(range.name, range.minX, range.maxX, range.value, range.condition);
+    this.colorScheme.domain.push('black');
   }
 }

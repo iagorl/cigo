@@ -199,9 +199,10 @@ export class DataService {
     this.warning$.next(this.warning);
   }
 
-  setRange(name: string, initialPoint: string, functionValue: number) {
+  setRange(name: string, initialPoint: string, finalPoint: string, functionValue: number, condition: string) {
     let rangeData: ChartSeries[];
-    let limitValue = new Date(initialPoint).getTime();
+    let minX = initialPoint.length ? new Date(initialPoint).getTime() : 0;
+    let maxX = new Date(finalPoint).getTime();
     this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
       this.data = data;
       this.cf = crossfilter(data);
@@ -226,11 +227,11 @@ export class DataService {
       };
 
       rangeData = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().filter(elem => {
-        if (new Date(elem.key).getTime() > limitValue) {
+        let currentDate = new Date(elem.key).getTime();
+        if (minX < currentDate && currentDate < maxX) {
           return elem;
         }
       }).map( elem => {
-          console.log(elem.key);
           return {
             name: new Date(elem.key),
             value: functionValue

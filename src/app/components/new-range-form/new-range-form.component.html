@@ -1,0 +1,40 @@
+<div [ngClass]="{ 'visible-form': openFormContainer, 'hidden-form': !openFormContainer }" class="form-container">
+  <div class="form-header">
+    <span>Create a range</span>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="toggleContainer()">
+      <span *ngIf="openFormContainer">&#9660;</span>
+      <span *ngIf="!openFormContainer">&#9650;</span>
+    </button>
+  </div>
+  <div class="form-body">
+    <div class="form-group">
+      <label>Range name</label>
+      <input [(ngModel)]="range.name" name="name" class="input-control" />
+    </div>
+    <div class="form-group">
+      <label>Min x</label>
+      <input [(ngModel)]="range.minX" name="minX" class="input-control" />
+
+      <label class="right-inline">Max x</label>
+      <input [(ngModel)]="range.maxX" name="maxX" class="input-control" />
+    </div>
+    <div class="form-group">
+      <label>Value</label>
+      <input type="number" [(ngModel)]="range.value" name="value" class="input-control" />
+
+      <label>Condition</label>
+      <select [(ngModel)]="range.condition" name="condition" class="input-control">
+        <option value="gt">></option>
+        <option value="gte">>=</option>
+        <option value="equal">=</option>
+        <option value="lt"><</option>
+        <option value="lte"><=</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button (click)="saveRange()">Save</button>
+      <button (click)="toggleContainer()">Cancel</button>
+    </div>
+  </div>
+</div>

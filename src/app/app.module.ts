@@ -6,8 +6,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
-
-
 import { AppComponent } from './app.component';
 import { ControlChartComponent } from './components/control-chart/control-chart.component';
 import { DataService } from './services/data.service';
@@ -21,6 +19,7 @@ import { CardComponent } from './components/card/card.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentComponent } from './components/comment-section/comment/comment.component';
 import { FormsModule } from '@angular/forms';
+import { NewRangeFormComponent } from './components/new-range-form/new-range-form.component';
 
 
 @NgModule({
@@ -33,13 +32,15 @@ import { FormsModule } from '@angular/forms';
     CardListingComponent,
     CardComponent,
     CommentSectionComponent,
-    CommentComponent
+    CommentComponent,
+    NewRangeFormComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     MatListModule,
     MatCheckboxModule,
+    FormsModule,
     NgxChartsModule,
     HttpClientModule,
     FormsModule
