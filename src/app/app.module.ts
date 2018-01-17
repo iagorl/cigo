@@ -6,7 +6,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { ControlChartComponent } from './components/control-chart/control-chart.component';
@@ -25,6 +27,7 @@ import { NewRangeFormComponent } from './components/new-range-form/new-range-for
 import { InputComponent } from './components/comment-section/input/input.component';
 import { ViewService } from './services/view.service';
 import { RangeService } from './services/range.service';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 @NgModule({
@@ -39,7 +42,8 @@ import { RangeService } from './services/range.service';
     CommentSectionComponent,
     CommentComponent,
     NewRangeFormComponent,
-    InputComponent
+    InputComponent,
+    FilterComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -49,6 +53,8 @@ import { RangeService } from './services/range.service';
     FormsModule,
     NgxChartsModule,
     MatButtonModule,
+    MatSelectModule,
+    MatButtonToggleModule,
     MatInputModule,
     MatIconModule,
     HttpClientModule,
