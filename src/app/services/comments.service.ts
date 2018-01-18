@@ -56,11 +56,24 @@ export class CommentsService {
     this.comments$.next(this.comments);
   }
 
-  toogleComment(id: number|null) {
-    if (this.activeComment && this.activeComment.id === id) {
+  toogleComment(id: string|number|null) {
+    if (id === null) {
       this.activeComment = null;
+      this.activeComment$.next(null);
+      return;
+    }
+    if (typeof id === 'number') {
+      if (this.activeComment && this.activeComment.id === id) {
+        this.activeComment = null;
+      } else {
+        this.activeComment = id !== null ? this.comments.find(elem => elem.id === id) : null;
+      }
     } else {
-      this.activeComment = id !== null ? this.comments.find(elem => elem.id === id) : null;
+      if (this.activeComment && this.activeComment.title === id) {
+        this.activeComment = null;
+      } else {
+        this.activeComment = id !== null ? this.comments.find(elem => elem.title === id) : null;
+      }
     }
     this.activeComment$.next(this.activeComment);
   }

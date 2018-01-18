@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/combineLatest';
+import { TargetService } from '../../services/target.service';
 
 declare var Plotly: any;
 
@@ -38,13 +39,20 @@ export class ControlChartComponent implements OnInit {
   openFormContainer = false;
 
   data$: Observable<ChartData[]>;
+  targetData$: Observable<ChartData[]>;
+  fullData$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
   fullComments$: Observable<any[]>;
   commentsVisible: boolean;
   commentsVisible$: Observable<boolean>;
   activeComment$: Observable<any[]>;
 
-  constructor(private dataService: DataService, private commentService: CommentsService, private rangeService: RangeService) { }
+  constructor(
+    private dataService: DataService,
+    private commentService: CommentsService,
+    private rangeService: RangeService,
+    private targetService: TargetService
+  ) { }
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
@@ -52,19 +60,24 @@ export class ControlChartComponent implements OnInit {
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 60;
     this.data$ = this.dataService.data$;
+    this.targetData$ = this.targetService.target$;
+    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$)
+      .map(data => {
+        return [...data[0], ...data[1]];
+      });
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {
         return [];
       }
       return [{
-        name: comment.id,
+        name: 'a',
         series: [
           {
-            name: 'Comments',
+            name: comment.title,
             y: comment.coordinates.y,
             x: new Date(comment.coordinates.x),
-            radius: 10,
+            radius: 5,
           }
         ]
       }];
@@ -72,10 +85,10 @@ export class ControlChartComponent implements OnInit {
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
         return {
-          name: '',
+          name: 'a',
           series: [
             {
-              name: comment.text,
+              name: comment.title,
               y: comment.coordinates.y,
               x: new Date(comment.coordinates.x),
               radius: 5,
@@ -83,7 +96,7 @@ export class ControlChartComponent implements OnInit {
           ]
         };
       });
-    });
+    }).do(d => console.log(d));
     this.fullComments$ = Observable.combineLatest(this.comments$, this.commentService.activeCoordinates$)
       .map(data => {
         if (data[1]) {
@@ -104,9 +117,7 @@ export class ControlChartComponent implements OnInit {
         } else {
           return data[0];
         }
-      })
-      .do(d => console.log(d));
-    // this.test4();
+      });
   }
 
   onSelect(event) {
@@ -200,8 +211,9 @@ export class ControlChartComponent implements OnInit {
         Plotly.newPlot(this.test.element.nativeElement, data, layout);
       });
   }
-  onHover(event) {
-    this.commentService.toogleComment(event.activate ? event.name : null);
+
+  onHover(event: {name: string, series: {name: string, radius: number, x: Date, y: number}[]}) {
+    this.commentService.toogleComment(event ? event.series ? event.series[0].name : null : null);
   }
 
   toggleForm() {

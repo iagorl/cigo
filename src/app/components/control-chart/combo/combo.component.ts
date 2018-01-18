@@ -341,8 +341,7 @@ export class ComboComponent extends BaseChartComponent {
 
   onHover(data, series?): void {
     data.activate = series ? true : false;
-
-    this.hover.emit(data);
+    this.hover.emit({data, series: series ? series.series : null});
   }
 
   trackBy(index, item): string {

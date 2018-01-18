@@ -28,6 +28,7 @@ import { InputComponent } from './components/comment-section/input/input.compone
 import { ViewService } from './services/view.service';
 import { RangeService } from './services/range.service';
 import { FilterComponent } from './components/filter/filter.component';
+import { TargetService } from './services/target.service';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { FilterComponent } from './components/filter/filter.component';
     DataService,
     CommentsService,
     RangeService,
-    ViewService
+    ViewService,
+    TargetService
   ],
   bootstrap: [AppComponent]
 })
