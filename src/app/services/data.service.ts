@@ -257,11 +257,11 @@ export class DataService {
     let rangeData: ChartSeries[];
     const minX = initialPoint ? new Date(initialPoint).getTime() : null;
     const maxX = finalPoint ? new Date(finalPoint).getTime() : null;
-    this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
+    this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
       this.originalData = data;
       this.cf = crossfilter(data);
 
-      this.dataByDate = this.cf.dimension((row) => row['date']);
+      this.dataByDate = this.cf.dimension((row) => row['fecha']);
 
       const addReduce = (p, v) => {
         return p;

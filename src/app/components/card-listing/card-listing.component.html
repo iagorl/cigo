@@ -6,15 +6,14 @@
     <div class="items-list">
       <mat-divider></mat-divider>
       <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle()">Add new limit</mat-checkbox>
-      <app-card [color]="'#f5753e'" [title]="'Warning Title'" [content]="'Warning description'"></app-card>
+      <app-card *ngFor="let warning of warnings$ | async" [title]="'Out of range'" [content]="formatWarningContent(warning)"></app-card>
     </div>
   </div>
   <mat-divider></mat-divider>
   <div class="list-container" *ngIf="!commentList" >
     <h3 mat-subheader>Limits</h3>
     <div class="items-list">
-      <app-card [color]="'#fd3636'"></app-card>
-      <app-card [color]="'#4981FD'"></app-card>
+      <app-card *ngFor="let range of ranges$ | async" [color]="'#4981FD'" [title]="range.name" [content]="formatRangeContent(range)"></app-card>
     </div>
   </div>
 </mat-list>
