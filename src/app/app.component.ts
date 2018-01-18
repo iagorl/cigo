@@ -31,7 +31,7 @@ export class AppComponent {
     options: [
       {value: 'wk', text: 'Weekly'},
       {value: 'mt', text: 'Monthly'},
-      {value: 'yt', text: 'Yearly'},
+      {value: 'ot', text: 'Outlook'},
       {value: 'bgt', text: 'Budget'},
     ],
     selected: 'wk'

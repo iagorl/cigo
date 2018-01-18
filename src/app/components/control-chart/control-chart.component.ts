@@ -58,13 +58,13 @@ export class ControlChartComponent implements OnInit {
         return [];
       }
       return [{
-        name: comment.id,
+        name: 'a',
         series: [
           {
-            name: 'Comments',
+            name: comment.title,
             y: comment.coordinates.y,
             x: new Date(comment.coordinates.x),
-            radius: 10,
+            radius: 5,
           }
         ]
       }];
@@ -72,10 +72,10 @@ export class ControlChartComponent implements OnInit {
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
         return {
-          name: '',
+          name: 'a',
           series: [
             {
-              name: comment.text,
+              name: comment.title,
               y: comment.coordinates.y,
               x: new Date(comment.coordinates.x),
               radius: 5,
@@ -83,7 +83,7 @@ export class ControlChartComponent implements OnInit {
           ]
         };
       });
-    });
+    }).do(d => console.log(d));
     this.fullComments$ = Observable.combineLatest(this.comments$, this.commentService.activeCoordinates$)
       .map(data => {
         if (data[1]) {
@@ -104,9 +104,7 @@ export class ControlChartComponent implements OnInit {
         } else {
           return data[0];
         }
-      })
-      .do(d => console.log(d));
-    // this.test4();
+      });
   }
 
   onSelect(event) {
@@ -200,8 +198,9 @@ export class ControlChartComponent implements OnInit {
         Plotly.newPlot(this.test.element.nativeElement, data, layout);
       });
   }
-  onHover(event) {
-    this.commentService.toogleComment(event.activate ? event.name : null);
+
+  onHover(event: {name: string, series: {name: string, radius: number, x: Date, y: number}[]}) {
+    this.commentService.toogleComment(event ? event.series ? event.series[0].name : null : null);
   }
 
   toggleForm() {
