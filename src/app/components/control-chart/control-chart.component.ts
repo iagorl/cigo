@@ -64,7 +64,7 @@ export class ControlChartComponent implements OnInit {
     this.fullData$ = Observable.combineLatest(this.data$, this.targetData$)
       .map(data => {
         return [...data[0], ...data[1]];
-      });
+      }).do(d => console.log(d));
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {

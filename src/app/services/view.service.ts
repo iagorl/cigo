@@ -34,4 +34,15 @@ export class ViewService {
     this.target.generateData(this.activeTarget, this.field, this.fase);
   }
 
+  changeKPI(kpi: string) {
+    this.field = kpi;
+    this.target.generateData(this.activeTarget, this.field, this.fase);
+  }
+
+  changeFase(fase: string) {
+    this.fase = fase;
+    this.target.generateData(this.activeTarget, this.field, this.fase);
+
+  }
+
 }

@@ -10,20 +10,27 @@ export class AppComponent {
   title = 'app';
   fieldOptions = [
     {
-      name: 'Field 1',
+      name: 'KPI',
       options: [
-        {value: '1', text: 'Option 1'},
-        {value: '2', text: 'Option 2'},
+        {value: 'Distancia', text: 'Distancia'},
+        {value: 'Extraccion', text: 'Extraccion'},
+        {value: 'Oper. Truck', text: 'Oper. Truck'},
+        {value: 'Remanejo', text: 'Remanejo'},
+        {value: 'Velocidad', text: 'Velocidad'},
       ],
-      selected: '1'
+      selected: 'Distancia'
     },
     {
-      name: 'Field 2',
+      name: 'Fase',
       options: [
-        {value: '1', text: 'Option 1'},
-        {value: '3', text: 'Option 3'},
+        {value: 'Casino 2', text: 'Casino 2'},
+        {value: 'Donoso 1', text: 'Donoso 1'},
+        {value: 'Donoso 2', text: 'Donoso 2'},
+        {value: 'Infiernillo 5', text: 'Infiernillo 5'},
+        {value: 'Infirenillo 7A', text: 'Infirenillo 7A'},
+        {value: 'Total Fases', text: 'Total Fases'},
       ],
-      selected: '3'
+      selected: 'Total Fases'
     },
   ];
 
@@ -44,6 +51,13 @@ export class AppComponent {
     switch (event.field) {
       case 'target':
         this.view.changeTarget(event.value);
+        break;
+      case 'KPI':
+        this.view.changeKPI(event.value);
+        break;
+      case 'Fase':
+        this.view.changeFase(event.value);
+        break;
     }
     console.log('change in filter', event);
   }

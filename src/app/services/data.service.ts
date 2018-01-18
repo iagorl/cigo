@@ -7,6 +7,7 @@ import { Range, Offset } from './range.service';
 export interface ChartSeries {
   name: any;
   value: number;
+  fase?: string;
 }
 
 export interface ChartData {
@@ -83,6 +84,8 @@ export class DataService {
       };
       const prueba = data.reduce(addReduce, {});
 
+      console.log(prueba);
+
       const finalData = [];
       Object.keys(prueba).map(p => {
         if (p !== 'kpi_nombre' && p !== 'undefined') {
@@ -91,9 +94,17 @@ export class DataService {
         }
       });
       this.data = finalData;
-      this.data$.next(finalData);
+      this.changeData('Distancia', 'Total Fases');
+      // this.data$.next(finalData);
       this.fasesList = Object.keys(fases);
     });
+  }
+
+  changeData(field: string, fase: string) {
+    const dataForField = this.data.find(d => d.name === field);
+    const newSeries = dataForField.series.filter((d) => d.fase === fase);
+
+    this.data$.next([{name: field, series: newSeries}]);
   }
 
   getSubData(name: string, data: any) {
@@ -118,9 +129,11 @@ export class DataService {
       };
     };
 
-    const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().map(elem => {
+    const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
+    .map(elem => {
       return {
         name: new Date(elem.key),
+        fase: elem.value.fase,
         value: elem.value.valor
       };
     });
