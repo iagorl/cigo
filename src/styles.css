@@ -21,3 +21,9 @@ div.mat-checkbox-inner-container {
 .mat-icon-button {
   font-size: 12px;
 }
+
+.circle-data-0circle {
+  stroke: rgba(63, 81, 181, 0.7);
+  stroke-width: 5;
+  stroke-dasharray: 1;
+}

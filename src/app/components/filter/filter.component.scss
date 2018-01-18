@@ -15,19 +15,22 @@
       height: 30px;
       font-size: 14px;
       &.first {
-        width: 22%;      
+        width: 22%;
       }
     }
   }
 
-  mat-button-toggle-group {
+  mat-button-toggle-group, mat-option, mat-form-field {
     height: 30px;
     font-size: 14px;
-    // box-shadow: none;
+    color: #353535;
   }
-
-
+  .mat-button-toggle-checked {
+    background-color: #a59cb6;
+    color: #f9f9f9;
+  }
 }
+
 .filter-cont {
   padding: 0px;
 }
