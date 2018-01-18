@@ -64,7 +64,7 @@ export class ControlChartComponent implements OnInit {
     this.fullData$ = Observable.combineLatest(this.data$, this.targetData$)
       .map(data => {
         return [...data[0], ...data[1]];
-      }).do(d => console.log(d));
+      });
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {
@@ -96,7 +96,7 @@ export class ControlChartComponent implements OnInit {
           ]
         };
       });
-    }).do(d => console.log(d));
+    });
     this.fullComments$ = Observable.combineLatest(this.comments$, this.commentService.activeCoordinates$)
       .map(data => {
         if (data[1]) {
@@ -172,7 +172,6 @@ export class ControlChartComponent implements OnInit {
         //   type: 'scatter3d'};
 
         const data = [trace1];
-        // console.log(data);
           const layout = {
             margin: {
               l: 0,

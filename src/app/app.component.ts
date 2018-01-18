@@ -27,7 +27,7 @@ export class AppComponent {
         {value: 'Donoso 1', text: 'Donoso 1'},
         {value: 'Donoso 2', text: 'Donoso 2'},
         {value: 'Infiernillo 5', text: 'Infiernillo 5'},
-        {value: 'Infirenillo 7A', text: 'Infirenillo 7A'},
+        {value: 'Infiernillo 7A', text: 'Infiernillo 7A'},
         {value: 'Total Fases', text: 'Total Fases'},
       ],
       selected: 'Total Fases'
@@ -59,6 +59,5 @@ export class AppComponent {
         this.view.changeFase(event.value);
         break;
     }
-    console.log('change in filter', event);
   }
 }

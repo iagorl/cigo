@@ -31,12 +31,12 @@ export class CommentsService {
       id: 0,
       title: 'My First Comment',
       text: 'My First Comment\'s description',
-      coordinates: {x: '2011-10-13', y: 5},
+      coordinates: {x: '2017-10-13', y: 5},
     }, {
       id: 1,
       title: 'My Second Comment',
       text: 'My Second Comment\'s description',
-      coordinates: {x: '2011-07-13', y: 5},
+      coordinates: {x: '2017-07-13', y: 5},
     }
     ];
     this.comments$ = new BehaviorSubject<Comment[]>(this.comments);

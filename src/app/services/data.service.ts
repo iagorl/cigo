@@ -84,8 +84,6 @@ export class DataService {
       };
       const prueba = data.reduce(addReduce, {});
 
-      console.log(prueba);
-
       const finalData = [];
       Object.keys(prueba).map(p => {
         if (p !== 'kpi_nombre' && p !== 'undefined') {
@@ -95,7 +93,6 @@ export class DataService {
       });
       this.data = finalData;
       this.changeData('Distancia', 'Total Fases');
-      // this.data$.next(finalData);
       this.fasesList = Object.keys(fases);
     });
   }

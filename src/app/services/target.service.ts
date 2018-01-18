@@ -43,7 +43,6 @@ export class TargetService {
     }
     const cf = crossfilter(this.originalData);
     const dataByDate = cf.dimension((row) => row['fecha']);
-    console.log('pase');
 
     const addReduce = (p, v) => {
       p.push({

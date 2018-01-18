@@ -21,7 +21,6 @@ export class CommentSectionComponent implements OnInit {
     this.comments$ = this.commentService.comments$;
     this.active$ = this.commentService.activeComment$.map(elem => elem ? elem.id : null);
     this.commentService.activated$.do(val => {
-      console.log('aqui');
       if (!val) {
         this.onCancel();
       }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { RangeService } from './range.service';
 import { TargetService } from './target.service';
+import { DataService } from './data.service';
 
 export type Target = 'BUDGET'|'OL'|'ST'|'WK';
 
@@ -12,7 +13,12 @@ export class ViewService {
   field: string = 'Distancia';
   fase: string = 'Total Fases';
 
-  constructor(private comments: CommentsService, private ranges: RangeService, private target: TargetService) { }
+  constructor(
+    private comments: CommentsService,
+    private ranges: RangeService,
+    private target: TargetService,
+    private data: DataService,
+  ) { }
 
   activate(section: 'comment'|'range'|'') {
     if (section === '') {
@@ -37,12 +43,13 @@ export class ViewService {
   changeKPI(kpi: string) {
     this.field = kpi;
     this.target.generateData(this.activeTarget, this.field, this.fase);
+    this.data.changeData(this.field, this.fase);
   }
 
   changeFase(fase: string) {
     this.fase = fase;
     this.target.generateData(this.activeTarget, this.field, this.fase);
-
+    this.data.changeData(this.field, this.fase);
   }
 
 }
