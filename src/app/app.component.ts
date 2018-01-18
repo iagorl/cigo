@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ViewService } from './services/view.service';
 
 @Component({
   selector: 'app-root',
@@ -29,15 +30,21 @@ export class AppComponent {
   budgetOptions = {
     name: 'Budget',
     options: [
-      {value: 'wk', text: 'Weekly'},
-      {value: 'mt', text: 'Monthly'},
-      {value: 'ot', text: 'Outlook'},
-      {value: 'bgt', text: 'Budget'},
+      {value: 'WK', text: 'Weekly'},
+      {value: 'ST', text: 'Monthly'},
+      {value: 'OL', text: 'Outlook'},
+      {value: 'BUDGET', text: 'Budget'},
     ],
-    selected: 'wk'
+    selected: 'WK'
   };
 
+  constructor(private view: ViewService) {}
+
   test(event) {
+    switch (event.field) {
+      case 'target':
+        this.view.changeTarget(event.value);
+    }
     console.log('change in filter', event);
   }
 }

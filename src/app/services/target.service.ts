@@ -55,12 +55,13 @@ export class TargetService {
       };
 
       const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().map(elem => {
+        const datum = elem.value.find(e => e.key === targetString);
         return {
           name: new Date(elem.key),
-          value: elem.value.find(e => e.key === targetString).valor
+          value: datum ? datum.valor : null
         };
       });
-      console.log('filter data', chartsValue);
+
       this.dataDict[targetString] = {name: 'Target', series: chartsValue};
       this.target$.next([{name: 'Target', series: chartsValue}]);
   }
