@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() color: string;
-  @Input() title: string = 'Title';
-  @Input() content: string = 'Content';
+  @Input() title: string = 'Limit title';
+  @Input() content: string = 'Limit values';
 
   constructor() { }
 

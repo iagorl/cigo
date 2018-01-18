@@ -11,3 +11,13 @@ div.mat-checkbox-inner-container {
   width: 15px;
   height: 15px;
 }
+
+.mat-raised-button.mat-primary {
+  background-color: #4981FD;
+  font-weight: normal;
+  color: white;
+  font-size: 12px;
+}
+.mat-icon-button {
+  font-size: 12px;
+}
