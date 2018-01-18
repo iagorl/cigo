@@ -18,7 +18,7 @@ export class CommentSectionComponent implements OnInit {
   constructor(private commentService: CommentsService, private viewService: ViewService) { }
 
   ngOnInit() {
-    this.comments$ = this.commentService.comments$;
+    this.comments$ = this.commentService.comments$.do(d => console.log('comments', d));
     this.active$ = this.commentService.activeComment$.map(elem => elem ? elem.id : null);
     this.commentService.activated$.do(val => {
       if (!val) {
@@ -29,8 +29,8 @@ export class CommentSectionComponent implements OnInit {
     this.activeCoords$ = this.commentService.activeCoordinates$;
   }
 
-  toggle() {
-    this.viewService.activate('comment');
+  toggle(event) {
+    this.viewService.activate(event ? 'comment' : '');
   }
 
   activateComment(id: number) {

@@ -74,7 +74,8 @@ export class ControlChartComponent implements OnInit {
         name: 'a',
         series: [
           {
-            name: comment.title,
+            name: comment.target,
+            id: comment.id,
             y: comment.coordinates.y,
             x: new Date(comment.coordinates.x),
             radius: 5,
@@ -88,7 +89,8 @@ export class ControlChartComponent implements OnInit {
           name: 'a',
           series: [
             {
-              name: comment.title,
+              name: comment.target,
+              id: comment.id,
               y: comment.coordinates.y,
               x: new Date(comment.coordinates.x),
               radius: 5,
@@ -211,8 +213,8 @@ export class ControlChartComponent implements OnInit {
       });
   }
 
-  onHover(event: {name: string, series: {name: string, radius: number, x: Date, y: number}[]}) {
-    this.commentService.toogleComment(event ? event.series ? event.series[0].name : null : null);
+  onHover(event: {name: string, series: {name: string, id: number, radius: number, x: Date, y: number}[]}) {
+    this.commentService.toogleComment(event ? event.series ? event.series[0].id : null : null);
   }
 
   toggleForm() {

@@ -5,7 +5,7 @@
     </div>
     <div class="items-list">
       <mat-divider></mat-divider>
-      <mat-checkbox [ngModel]="commentService.activated$ | async" (ngModelChange)="toggle()">
+      <mat-checkbox [ngModel]="commentService.activated$ | async" (ngModelChange)="toggle($event)">
         Show on table
       </mat-checkbox>
       <app-input *ngIf="activeCoords$ | async" (submit)="addComment($event)" (cancel)="onCancel()" [coordX]="(activeCoords$ | async)?.x" [coordY]="(activeCoords$ | async)?.y"></app-input>

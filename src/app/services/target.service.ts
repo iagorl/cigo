@@ -35,6 +35,14 @@ export class TargetService {
     });
   }
 
+  getValue(target: string, field: string, fase: string, date: string) {
+    const elem = this.originalData.find((row) => {
+      return row.fase === fase && row.fecha === date && row.kpi_nombre === field && row.tipo_target === target;
+    });
+
+    return elem ? elem.valor_target : null;
+  }
+
   generateData(target: string, field: string, fase: string) {
     const targetString = `${target}.${field}.${fase}`;
     if (this.dataDict[targetString]) {
