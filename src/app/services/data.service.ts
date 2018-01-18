@@ -46,6 +46,8 @@ export class DataService {
   warning: WarningDict[];
   warning$: BehaviorSubject<WarningDict[]>;
   cf: any;
+  fasesList: string[];
+  kpiList: string[] = [];
 
   dataByDate: any;
 
@@ -58,7 +60,8 @@ export class DataService {
   }
 
   getData() {
-    this.http.get<SampleData[]>('/assets/codebeautify.json').subscribe((data) => {
+    const fases = {};
+    this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
       this.originalData = data;
       const addReduce = (p, v) => {
         const k = {
@@ -66,11 +69,15 @@ export class DataService {
           valor: v['valor'],
           fecha: v['Fecha']
         };
-        if (!p[v['kpi_descripcion']]) {
-          p[v['kpi_descripcion']] = [];
+        if (v['Fase'] !== 'Otras Fases' && v['Fase'] !== 'Total Fases') {
+          fases[v['Fase']] = '';
         }
-        if (!isNaN(k.valor)) {
-          p[v['kpi_descripcion']].push(k);
+        if ((!p[v['KPI_nombre']])) {
+          p[v['KPI_nombre']] = [];
+          this.kpiList.push(v['KPI_nombre']);
+        }
+        if ((!isNaN(k.valor))) {
+          p[v['KPI_nombre']].push(k);
         }
         return p;
       };
@@ -85,6 +92,13 @@ export class DataService {
       });
       this.data = finalData;
       this.data$.next(finalData);
+      this.fasesList = Object.keys(fases);
+<<<<<<< HEAD
+      console.log(this.fasesList, this.kpiList);
+=======
+      console.log(this.fasesList);
+      console.log(this.kpiList);
+>>>>>>> ca9f4ec9b8f346a389673155be11a59e164d3e22
     });
   }
 
