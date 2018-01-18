@@ -100,7 +100,7 @@ export class ComboComponent extends BaseChartComponent {
   timelinePadding: number = 10;
 
   update(): void {
-    console.log(this.comments);
+    // console.log(this.comments);
 
     super.update();
 
@@ -192,8 +192,8 @@ export class ComboComponent extends BaseChartComponent {
       this.xSet = [...values].sort((a, b) => {
         const aDate = a.getTime();
         const bDate = b.getTime();
-        if (aDate > bDate) return 1;
-        if (bDate > aDate) return -1;
+        if (aDate > bDate) { return 1; }
+        if (bDate > aDate) { return -1; }
         return 0;
       });
     } else if (this.scaleType === 'linear') {
@@ -297,8 +297,8 @@ export class ComboComponent extends BaseChartComponent {
       }
     }
 
-    if (date) return 'time';
-    if (num) return 'linear';
+    if (date) {return 'time'; }
+    if (num) {return 'linear'; }
     return 'ordinal';
   }
 
@@ -320,7 +320,7 @@ export class ComboComponent extends BaseChartComponent {
     this.hoveredVertical = item.value;
     this.deactivateAll();
   }
-  
+
   areaClicked(item): void {
     this.clicked.emit(item);
   }

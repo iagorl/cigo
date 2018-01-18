@@ -6,6 +6,7 @@ import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/combineLatest';
 
+declare var Plotly: any;
 
 @Component({
   selector: 'app-control-chart',
@@ -15,6 +16,7 @@ import 'rxjs/add/observable/combineLatest';
 export class ControlChartComponent implements OnInit {
 
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
+  @ViewChild('test', { read: ViewContainerRef }) test: ViewContainerRef;
 
   colorScheme = {
     domain: ['#1774F0', 'red']
@@ -104,6 +106,7 @@ export class ControlChartComponent implements OnInit {
         }
       })
       .do(d => console.log(d));
+    // this.test4();
   }
 
   onSelect(event) {
@@ -124,7 +127,79 @@ export class ControlChartComponent implements OnInit {
       this.commentService.activateCoordinate(x, y);
     }
   }
+  test4() {
+    Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/3d-scatter.csv',
+      (err, rows) => {
+        function unpack(rows, key) {
+          return rows.map(function(row)
+          { return row[key]; });
+        }
 
+        const trace1 = {
+          x: unpack(rows, 'x1'), y: unpack(rows, 'y1'), z: unpack(rows, 'z1'),
+          mode: 'markers',
+          marker: {
+            size: 12,
+            line: {
+            color: 'rgba(217, 217, 217, 0.14)',
+            width: 0.5},
+            opacity: 0.8},
+          type: 'scatter3d'
+        };
+
+        // const trace2 = {
+        //   x: unpack(rows, 'x2'), y: unpack(rows, 'y2'), z: unpack(rows, 'z2'),
+        //   mode: 'markers',
+        //   marker: {
+        //     color: 'rgb(127, 127, 127)',
+        //     size: 12,
+        //     symbol: 'circle',
+        //     line: {
+        //     color: 'rgb(204, 204, 204)',
+        //     width: 1},
+        //     opacity: 0.8},
+        //   type: 'scatter3d'};
+
+        const data = [trace1];
+        // console.log(data);
+          const layout = {
+            margin: {
+              l: 0,
+              r: 0,
+              b: 0,
+              t: 0,
+            },
+            scene: {
+
+              xaxis: {
+                title: 'x Axis',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              },
+              yaxis: {
+                title: 'y Axis',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              },
+              zaxis: {
+                title: 'y Axis',
+                titlefont: {
+                  family: 'Courier New, monospace',
+                  size: 18,
+                  color: '#7f7f7f'
+                }
+              }
+            }
+          };
+        Plotly.newPlot(this.test.element.nativeElement, data, layout);
+      });
+  }
   onHover(event) {
     this.commentService.toogleComment(event.activate ? event.name : null);
   }
@@ -147,4 +222,5 @@ export class ControlChartComponent implements OnInit {
     const date = selectedDate.toLocaleDateString().split('/');
     return `${date[2]}-${date[0]}-${date[1]}`;
   }
+
 }
