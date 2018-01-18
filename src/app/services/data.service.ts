@@ -54,9 +54,10 @@ export class DataService {
     this.warning = [];
     this.warning$ = new BehaviorSubject<WarningDict[]>([]);
     this.getData();
+    this.getData2();
   }
 
-  getData() {
+  getData2() {
     this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
       this.data = data;
       this.cf = crossfilter(data);
@@ -97,8 +98,33 @@ export class DataService {
           };
         }
       });
-
       this.data$.next([{name: 'Fuel Price', series: fuelPriceToSend}, {name: 'Unemployment', series: unemploymentToSend}]);
+    });
+  }
+
+  getData() {
+    this.http.get<SampleData[]>('/assets/codebeautify.json').subscribe((data) => {
+      this.data = data;
+      const addReduce = (p, v) => {
+        const k = {};
+        k[v['kpi_descripcion']] = {
+          fase: v['Fase'],
+          valor: v['valor'],
+          fecha: v['Fecha']
+        };
+        return [...p, k];
+      };
+      const prueba = data.reduce(addReduce, []);
+      // this.cf = crossfilter(data);
+
+      // this.dataByDate = this.cf.dimension((row) => row['Fecha']);
+      const field = 'kpi_nombre';
+      const field2 = 'valor';
+
+
+
+      // const fuelPriceToSend = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all();
+      // console.log(fuelPriceToSend);
     });
   }
 

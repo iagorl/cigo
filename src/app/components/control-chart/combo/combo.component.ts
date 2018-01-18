@@ -100,7 +100,7 @@ export class ComboComponent extends BaseChartComponent {
   timelinePadding: number = 10;
 
   update(): void {
-    console.log(this.comments);
+    // console.log(this.comments);
 
     super.update();
 
