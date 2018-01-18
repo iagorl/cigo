@@ -36,34 +36,39 @@ export class TargetService {
   }
 
   generateData(target: string, field: string, fase: string) {
-    const cf = crossfilter(this.originalData);
     const targetString = `${target}.${field}.${fase}`;
+    if (this.dataDict[targetString]) {
+      this.target$.next([this.dataDict[targetString]]);
+      return;
+    }
+    const cf = crossfilter(this.originalData);
     const dataByDate = cf.dimension((row) => row['fecha']);
+    console.log('pase');
 
-      const addReduce = (p, v) => {
-        p.push({
-          key: `${v['tipo_target']}.${v['kpi_nombre']}.${v['fase']}`,
-          valor: v['valor_target']
-        });
-        return p;
-      };
-      const removeReduce = (p, v) => {
-        return p;
-      };
-      const initReduce = () => {
-        return [];
-      };
-
-      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().map(elem => {
-        const datum = elem.value.find(e => e.key === targetString);
-        return {
-          name: new Date(elem.key),
-          value: datum ? datum.valor : null
-        };
+    const addReduce = (p, v) => {
+      p.push({
+        key: `${v['tipo_target']}.${v['kpi_nombre']}.${v['fase']}`,
+        valor: v['valor_target']
       });
+      return p;
+    };
+    const removeReduce = (p, v) => {
+      return p;
+    };
+    const initReduce = () => {
+      return [];
+    };
 
-      this.dataDict[targetString] = {name: 'Target', series: chartsValue};
-      this.target$.next([{name: 'Target', series: chartsValue}]);
+    const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().map(elem => {
+      const datum = elem.value.find(e => e.key === targetString);
+      return {
+        name: new Date(elem.key),
+        value: datum ? datum.valor : null
+      };
+    });
+
+    this.dataDict[targetString] = {name: 'Target', series: chartsValue};
+    this.target$.next([{name: 'Target', series: chartsValue}]);
   }
 
 }
