@@ -29,6 +29,8 @@ import { ViewService } from './services/view.service';
 import { RangeService } from './services/range.service';
 import { FilterComponent } from './components/filter/filter.component';
 import { TargetService } from './services/target.service';
+import { ScatterChartComponent } from './components/scatter-chart/scatter-chart.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { TargetService } from './services/target.service';
     CommentComponent,
     NewRangeFormComponent,
     InputComponent,
-    FilterComponent
+    FilterComponent,
+    ScatterChartComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -52,6 +55,7 @@ import { TargetService } from './services/target.service';
     MatListModule,
     MatCheckboxModule,
     FormsModule,
+    CommonModule,
     NgxChartsModule,
     MatButtonModule,
     MatSelectModule,

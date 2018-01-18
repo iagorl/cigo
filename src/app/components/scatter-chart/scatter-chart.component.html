@@ -1,0 +1,6 @@
+<div class="chart-container second">
+  <div class="filter-box">
+      <app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions" [scatter]="true"></app-filter>
+  </div>
+  <div #test class="scatter-chart"></div>
+</div>
