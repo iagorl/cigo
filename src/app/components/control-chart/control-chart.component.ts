@@ -73,7 +73,7 @@ export class ControlChartComponent implements OnInit {
         return [];
       }
       return [{
-        name: 'a',
+        name: 'Comment',
         series: [
           {
             name: comment.target,
@@ -88,7 +88,7 @@ export class ControlChartComponent implements OnInit {
     this.comments$ = this.commentService.comments$.map(comments => {
       return comments.map((comment) => {
         return {
-          name: 'a',
+          name: 'Comment',
           series: [
             {
               name: comment.target,
