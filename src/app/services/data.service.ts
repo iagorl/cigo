@@ -40,7 +40,8 @@ export interface WarningDict {
 
 @Injectable()
 export class DataService {
-  data: SampleData[];
+  originalData: SampleData[];
+  data: ChartData[];
   data$: BehaviorSubject<ChartData[]>;
   warning: WarningDict[];
   warning$: BehaviorSubject<WarningDict[]>;
@@ -54,78 +55,68 @@ export class DataService {
     this.warning = [];
     this.warning$ = new BehaviorSubject<WarningDict[]>([]);
     this.getData();
-    this.getData2();
-  }
-
-  getData2() {
-    this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
-      this.data = data;
-      this.cf = crossfilter(data);
-
-      this.dataByDate = this.cf.dimension((row) => row['date']);
-      const field = 'fuel_price';
-      const field2 = 'unemployment';
-
-      const addReduce = (p, v) => {
-        p = {
-          fuel_price: v[field],
-          unemployment: v[field2]
-        };
-        return p;
-      };
-      const removeReduce = (p, v) => {
-        return p;
-      };
-      const initReduce = () => {
-        return {
-        };
-      };
-
-      const fuelPriceToSend = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().map(elem => {
-        return {
-          name: new Date(elem.key),
-          value: elem.value.fuel_price
-        };
-      });
-
-      const unemploymentToSend = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().filter(elem => {
-        return elem.value.unemployment !== 'NA';
-      }).map(elem => {
-        if (elem.value.unemployment !== 'NA') {
-          return {
-            name: new Date(elem.key),
-            value: elem.value.unemployment !== 'NA' ? elem.value.unemployment : 0
-          };
-        }
-      });
-      this.data$.next([{name: 'Fuel Price', series: fuelPriceToSend}, {name: 'Unemployment', series: unemploymentToSend}]);
-    });
   }
 
   getData() {
     this.http.get<SampleData[]>('/assets/codebeautify.json').subscribe((data) => {
-      this.data = data;
+      this.originalData = data;
       const addReduce = (p, v) => {
-        const k = {};
-        k[v['kpi_descripcion']] = {
+        const k = {
           fase: v['Fase'],
           valor: v['valor'],
           fecha: v['Fecha']
         };
-        return [...p, k];
+        if (!p[v['kpi_descripcion']]) {
+          p[v['kpi_descripcion']] = [];
+        }
+        if (!isNaN(k.valor)) {
+          p[v['kpi_descripcion']].push(k);
+        }
+        return p;
       };
-      const prueba = data.reduce(addReduce, []);
-      // this.cf = crossfilter(data);
+      const prueba = data.reduce(addReduce, {});
 
-      // this.dataByDate = this.cf.dimension((row) => row['Fecha']);
-      const field = 'kpi_nombre';
-      const field2 = 'valor';
-
-
-
-      // const fuelPriceToSend = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all();
-      // console.log(fuelPriceToSend);
+      const finalData = [];
+      Object.keys(prueba).map(p => {
+        if (p !== 'kpi_nombre' && p !== 'undefined') {
+          const subDataObject = this.getSubData(p, prueba[p]);
+          finalData.push(subDataObject);
+        }
+      });
+      this.data = finalData;
+      this.data$.next(finalData);
     });
+  }
+
+  getSubData(name: string, data: any) {
+    const crossf = crossfilter(data);
+
+    const dataByDate = crossf.dimension((row) => row['fecha']);
+    const field = 'fase';
+    const field2 = 'valor';
+
+    const addReduce = (p, v) => {
+      p = {
+        fase: v[field],
+        valor: v[field2]
+      };
+      return p;
+    };
+    const removeReduce = (p, v) => {
+      return p;
+    };
+    const initReduce = () => {
+      return {
+      };
+    };
+
+    const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all().map(elem => {
+      return {
+        name: new Date(elem.key),
+        value: elem.value.valor
+      };
+    });
+    return {name: name, series: chartsValue};
   }
 
   studyData(range: Range) {
@@ -230,7 +221,7 @@ export class DataService {
     const minX = initialPoint ? new Date(initialPoint).getTime() : null;
     const maxX = finalPoint ? new Date(finalPoint).getTime() : null;
     this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
-      this.data = data;
+      this.originalData = data;
       this.cf = crossfilter(data);
 
       this.dataByDate = this.cf.dimension((row) => row['date']);
