@@ -4,8 +4,8 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="charts-container">
-    <app-filter (change)="test($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
-    <app-control-chart></app-control-chart>
+    <app-control-chart (change)="test($event)" [fieldOptions]="fieldOptions" [budgetOptions]="budgetOptions"></app-control-chart>
+    <app-scatter-chart></app-scatter-chart>
   </div>
   <div class="sidebar-container right">
     <app-comment-section></app-comment-section>

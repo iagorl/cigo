@@ -19,6 +19,7 @@ export interface FieldOption {
 export class FilterComponent implements OnInit {
   @Input() options: FieldDescription[] = [];
   @Input() targetOptions: FieldDescription;
+  @Input() scatter: boolean = false;
 
   @Output() change = new EventEmitter<{field: string, value: any}>();
 

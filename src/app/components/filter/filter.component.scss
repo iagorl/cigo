@@ -1,24 +1,33 @@
 .container {
-  border-radius: 3px;
   background-color: #ffffff;
-  box-shadow: 0px 0px 1px #4981FD;
   padding: 10px;
-  height: 60px;
-  margin: 0 0 10px 0;
+  height: 40px;
+  margin: 0 0 5px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   .fields {
+    width: calc(100% - 315px);
+    margin-top: -13px;
     mat-form-field {
-      margin: 2px;
+      margin: 4px;
+      height: 30px;
+      font-size: 14px;
+      &.first {
+        width: 22%;      
+      }
     }
   }
 
   mat-button-toggle-group {
-    height: 40px;
+    height: 30px;
+    font-size: 14px;
     // box-shadow: none;
   }
 
 
+}
+.filter-cont {
+  padding: 0px;
 }

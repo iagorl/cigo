@@ -1,4 +1,6 @@
 <div class="chart-container" #target>
+<app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
+  
     <app-combo
     [view]="[width, height]"
     [scheme]="colorScheme"
@@ -32,4 +34,3 @@
     (createRange)="createRange($event)">
   </app-new-range-form>
 </div>
-<div class="chart-container second" #test></div>

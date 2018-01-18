@@ -44,6 +44,8 @@ export class DataService {
   originalData: SampleData[];
   data: ChartData[];
   data$: BehaviorSubject<ChartData[]>;
+  dataScatter: {x: ChartData, y: ChartData, z: ChartData};
+  dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
   warning: WarningDict[];
   warning$: BehaviorSubject<WarningDict[]>;
   cf: any;
@@ -58,6 +60,12 @@ export class DataService {
     this.warning = [];
     this.warning$ = new BehaviorSubject<WarningDict[]>([]);
     this.getData();
+    this.dataScatter = {
+      'x': null,
+      'y': null,
+      'z': null
+    };
+    this.dataScatter$ = new BehaviorSubject(this.dataScatter);
   }
 
   getData() {
@@ -93,6 +101,10 @@ export class DataService {
       });
       this.data = finalData;
       this.changeData('Distancia', 'Total Fases');
+      this.changeScatterData('x', 'Distancia', 'Total Fases');
+      this.changeScatterData('y', 'Extraccion', 'Total Fases');
+      this.changeScatterData('z', 'Oper. Truck', 'Total Fases');
+      // this.data$.next(finalData);
       this.fasesList = Object.keys(fases);
     });
   }
@@ -102,6 +114,13 @@ export class DataService {
     const newSeries = dataForField.series.filter((d) => d.fase === fase);
 
     this.data$.next([{name: field, series: newSeries}]);
+  }
+
+  changeScatterData(chartKey: string, field: string, fase: string) {
+    const dataForField = this.data.find(d => d.name === field);
+    const newSeries = dataForField.series.filter((d) => d.fase === fase);
+    this.dataScatter[chartKey] = {name: field, series: newSeries};
+    this.dataScatter$.next(this.dataScatter);
   }
 
   getSubData(name: string, data: any) {
