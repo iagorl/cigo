@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/combineLatest';
+import { TargetService } from '../../services/target.service';
 
 declare var Plotly: any;
 
@@ -38,13 +39,20 @@ export class ControlChartComponent implements OnInit {
   openFormContainer = false;
 
   data$: Observable<ChartData[]>;
+  targetData$: Observable<ChartData[]>;
+  fullData$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
   fullComments$: Observable<any[]>;
   commentsVisible: boolean;
   commentsVisible$: Observable<boolean>;
   activeComment$: Observable<any[]>;
 
-  constructor(private dataService: DataService, private commentService: CommentsService, private rangeService: RangeService) { }
+  constructor(
+    private dataService: DataService,
+    private commentService: CommentsService,
+    private rangeService: RangeService,
+    private targetService: TargetService
+  ) { }
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
@@ -52,6 +60,11 @@ export class ControlChartComponent implements OnInit {
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 60;
     this.data$ = this.dataService.data$;
+    this.targetData$ = this.targetService.target$;
+    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$)
+      .map(data => {
+        return [...data[0], ...data[1]];
+      });
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {
