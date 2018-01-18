@@ -93,8 +93,7 @@ export class DataService {
       this.data = finalData;
       this.data$.next(finalData);
       this.fasesList = Object.keys(fases);
-      console.log(this.fasesList);
-      console.log(this.kpiList);
+      console.log(this.fasesList, this.kpiList);
     });
   }
 
