@@ -22,7 +22,7 @@ export class ControlChartComponent implements OnInit {
   @Output() change = new EventEmitter();
 
   colorScheme = {
-    domain: ['#1774F0', 'red']
+    domain: ['#1774F0', 'red', 'black']
   };
   width: number;
   height: number;
@@ -42,6 +42,7 @@ export class ControlChartComponent implements OnInit {
 
   data$: Observable<ChartData[]>;
   targetData$: Observable<ChartData[]>;
+  rangeData$: Observable<ChartData[]>;
   fullData$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
   fullComments$: Observable<any[]>;
@@ -58,14 +59,14 @@ export class ControlChartComponent implements OnInit {
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
-    // this.width -= 100;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 110;
     this.data$ = this.dataService.data$;
     this.targetData$ = this.targetService.target$;
-    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$)
+    this.rangeData$ = this.rangeService.rangeData$;
+    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
       .map(data => {
-        return [...data[0], ...data[1]];
+        return [...data[0], ...data[1], ...data[2]];
       });
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {

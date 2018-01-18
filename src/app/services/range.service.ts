@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { DataService } from './data.service';
+import { DataService, ChartData } from './data.service';
 
 export interface Offset {
   value: number;
@@ -28,6 +28,7 @@ export class RangeService {
   possibleID: number;
   ranges: Range[];
   ranges$: BehaviorSubject<Range[]>;
+  rangeData$: BehaviorSubject<ChartData[]>;
   activated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   alerts: {};
@@ -38,6 +39,7 @@ export class RangeService {
     this.possibleID = 0;
     this.ranges = [];
     this.ranges$ = new BehaviorSubject<Range[]>(this.ranges);
+    this.rangeData$ = new BehaviorSubject<ChartData[]>([]);
   }
 
   addRange(name: string, minX: string, maxX: string, limitPoints: Offset[]) {
@@ -51,6 +53,15 @@ export class RangeService {
     this.possibleID += 1;
     this.ranges.push(newRange);
     this.ranges$.next(this.ranges);
+    this.rangeData$.next(this.ranges.map(range => {
+      return {
+        name: name,
+        series: [
+          {name: new Date(minX), value: limitPoints[0].value },
+          {name: new Date(maxX), value: limitPoints[0].value },
+        ]
+      };
+    }));
     this.dataservice.studyData(newRange);
   }
 

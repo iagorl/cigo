@@ -11,6 +11,9 @@ declare var Plotly: any;
 export class ScatterChartComponent implements OnInit {
 
   @ViewChild('test', { read: ViewContainerRef }) test: ViewContainerRef;
+  fieldX: string = 'Distancia';
+  fieldY: string = 'Extraccion';
+  fieldZ: string = 'Oper. Truck';
 
   constructor(
     private data: DataService
@@ -67,16 +70,6 @@ export class ScatterChartComponent implements OnInit {
   selectedFase: string = 'Total Fases';
   selectedKey: string = 'x';
   selectedField: string = 'Distancia';
-  budgetOptions = {
-    name: 'Budget',
-    options: [
-      {value: 'WK', text: 'Weekly'},
-      {value: 'ST', text: 'Monthly'},
-      {value: 'OL', text: 'Outlook'},
-      {value: 'BUDGET', text: 'Budget'},
-    ],
-    selected: 'WK'
-  };
 
   ngOnInit() {
     this.drawScatter();
@@ -95,11 +88,11 @@ export class ScatterChartComponent implements OnInit {
           x: this.unpack(elem, 'x'), y: this.unpack(elem, 'y'), z: this.unpack(elem, 'z'),
           mode: 'markers',
           marker: {
-            size: 12,
+            size: 5,
             line: {
             color: 'rgba(217, 217, 217, 0.14)',
             width: 0.5},
-            opacity: 0.8},
+            opacity: 1},
           type: 'scatter3d'
         }];
         const layout = {
@@ -111,7 +104,7 @@ export class ScatterChartComponent implements OnInit {
           },
           scene: {
             xaxis: {
-              title: 'x Axis',
+              title: this.fieldX,
               titlefont: {
                 family: 'Courier New, monospace',
                 size: 18,
@@ -119,7 +112,7 @@ export class ScatterChartComponent implements OnInit {
               }
             },
             yaxis: {
-              title: 'y Axis',
+              title: this.fieldY,
               titlefont: {
                 family: 'Courier New, monospace',
                 size: 18,
@@ -127,7 +120,7 @@ export class ScatterChartComponent implements OnInit {
               }
             },
             zaxis: {
-              title: 'y Axis',
+              title: this.fieldZ,
               titlefont: {
                 family: 'Courier New, monospace',
                 size: 18,
@@ -145,16 +138,19 @@ export class ScatterChartComponent implements OnInit {
     switch (event.field) {
       case 'KPI1':
         this.selectedKey = 'x';
+        this.fieldX = event.value;
         this.selectedField = event.value;
         this.data.changeScatterData('x', event.value, this.selectedFase);
         break;
-      case 'KPI2':
+        case 'KPI2':
         this.selectedKey = 'y';
+        this.fieldY = event.value;
         this.selectedField = event.value;
         this.data.changeScatterData('y', event.value, this.selectedFase);
         break;
-      case 'KPI3':
+        case 'KPI3':
         this.selectedKey = 'z';
+        this.fieldZ = event.value;
         this.selectedField = event.value;
         this.data.changeScatterData('z', event.value, this.selectedFase);
         break;

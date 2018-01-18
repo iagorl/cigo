@@ -262,14 +262,8 @@ export class DataService {
       this.cf = crossfilter(data);
 
       this.dataByDate = this.cf.dimension((row) => row['date']);
-      const field = 'fuel_price';
-      const field2 = 'unemployment';
 
       const addReduce = (p, v) => {
-        p = {
-          fuel_price: v[field],
-          unemployment: v[field2]
-        };
         return p;
       };
       const removeReduce = (p, v) => {
