@@ -48,7 +48,7 @@ export class DataService {
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
   colorSet$: BehaviorSubject<string[]>;
-  defaultDomain = ['#1774F0', 'red', 'black'];
+  defaultDomain = ['#1774F0', 'red', 'black', 'black', 'green'];
   warnings: WarningDict[];
   innerWarnings$: BehaviorSubject<WarningDict[]>;
   cf: any;
@@ -160,7 +160,10 @@ export class DataService {
     return {name: name, series: chartsValue};
   }
 
-  studyData(range) {
+  studyData(range: Range) {
+    if (!range.alerts) {
+      return;
+    }
     const data = this.currentData.series;
     const warningsByKey = {};
     for (const elem of data) {

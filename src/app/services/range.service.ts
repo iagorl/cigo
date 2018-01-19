@@ -4,6 +4,7 @@ import { DataService, ChartData } from './data.service';
 import { ViewService } from './view.service';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { HttpClient } from '@angular/common/http';
 
 export interface Offset {
   value: number;
@@ -17,6 +18,7 @@ export interface Range {
   maxX: string;
   limitPoints: Offset[];
   field?: string;
+  alerts?: boolean;
 }
 
 export interface Alerts {
@@ -42,6 +44,7 @@ export class RangeService {
   constructor(
     private dataservice: DataService,
     private view: ViewService,
+    private http: HttpClient,
   ) {
     this.possibleID = 0;
     this.ranges = [];
@@ -49,10 +52,24 @@ export class RangeService {
     this.rangeData$ = new BehaviorSubject<ChartData[]>([]);
     this.activated$ = this.view.activeView$.map(val => val === 'range');
 
+    this.dataservice.data$.map(d => d.length > 0).take(2).subscribe(val => {
+      if (val && this.ranges.length === 0) {
+        this.getRanges();
+      }
+    });
+
     this.subscription = Observable.combineLatest(this.view.activeField$, this.view.activeFase$)
       .subscribe(([field, fase]) => {
         this.sendRange(field, fase);
       });
+  }
+
+  getRanges() {
+    this.http.get<Range[]>('/assets/limits.json').subscribe((data) => {
+      data.map((d, idx) => {
+        this.addRangeByData(d);
+      });
+    });
   }
 
   sendRange(field: string, fase: string) {
@@ -78,6 +95,21 @@ export class RangeService {
     }
   }
 
+  addRangeByData(range: Range) {
+    this.ranges.push(range);
+    this.ranges$.next(this.ranges);
+    this.rangeData$.next(this.ranges.map(r => {
+      return {
+        name: r.name,
+        series: [
+          {name: new Date(r.minX), value: r.limitPoints[0].value },
+          {name: new Date(r.maxX), value: r.limitPoints[0].value },
+        ]
+      };
+    }));
+    this.dataservice.studyData(range);
+  }
+
   addRange(name: string, minX: string, maxX: string, limitPoints: Offset[]) {
     console.log(name, minX, maxX, limitPoints);
     const newRange = {
@@ -87,16 +119,17 @@ export class RangeService {
       'maxX': maxX,
       'limitPoints': limitPoints,
       'field': this.view.field,
+      'alerts': true
     };
     this.possibleID += 1;
     this.ranges.push(newRange);
     this.ranges$.next(this.ranges);
     this.rangeData$.next(this.ranges.map(range => {
       return {
-        name: name,
+        name: range.name,
         series: [
-          {name: new Date(minX), value: limitPoints[0].value },
-          {name: new Date(maxX), value: limitPoints[0].value },
+          {name: new Date(range.minX), value: range.limitPoints[0].value },
+          {name: new Date(range.maxX), value: range.limitPoints[0].value },
         ]
       };
     }));
@@ -110,7 +143,8 @@ export class RangeService {
       'name': name,
       'minX': minX,
       'maxX': maxX,
-      'limitPoints': limitPoints
+      'limitPoints': limitPoints,
+      'alerts': true
     };
     const newRanges = [
       ...this.ranges.slice(0, index),

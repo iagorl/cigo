@@ -10,6 +10,16 @@
   }
   .card-content {
     padding: 0 13px 0px 13px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5
+
+  }
+
+  &:hover {
+    .card-content {
+      max-height: 1000000px;
+    }
   }
 }
 .color-box {
