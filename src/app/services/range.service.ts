@@ -111,7 +111,6 @@ export class RangeService {
   }
 
   addRange(name: string, minX: string, maxX: string, limitPoints: Offset[]) {
-    console.log(name, minX, maxX, limitPoints);
     const newRange = {
       'id': this.possibleID,
       'name': name,

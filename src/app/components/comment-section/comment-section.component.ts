@@ -18,7 +18,7 @@ export class CommentSectionComponent implements OnInit {
   constructor(private commentService: CommentsService, private viewService: ViewService) { }
 
   ngOnInit() {
-    this.comments$ = this.commentService.comments$.do(d => console.log('comments', d));
+    this.comments$ = this.commentService.comments$;
     this.active$ = this.commentService.activeComment$.map(elem => elem ? elem.id : null);
     this.commentService.activated$.do(val => {
       if (!val) {

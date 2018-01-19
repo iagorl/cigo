@@ -11,7 +11,7 @@ export type View = 'comment'|'range'|'';
 @Injectable()
 export class ViewService {
   active: View;
-  activeTarget: Target = 'BUDGET';
+  activeTarget: Target = 'WK';
   field: string = 'Distancia';
   fase: string = 'Total Fases';
 

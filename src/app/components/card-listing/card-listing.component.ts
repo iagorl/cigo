@@ -35,10 +35,9 @@ export class CardListingComponent implements OnInit {
     this.activeCoords$ = this.commentsService.activeCoordinates$;
     this.warnings$ = Observable.combineLatest(this.dataService.innerWarnings$, this.viewService.activeField$)
       .map(([warnings, field]) => {
-        console.log('w', warnings);
         const newW = warnings.filter(warning => warning.hasOwnProperty(field));
         return newW.map(warning => warning[field]['0']);
-      }).do(d => console.log(d));
+      });
 
     this.ranges$ = this.rangeService.ranges$;
   }
