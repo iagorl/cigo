@@ -23,7 +23,7 @@ export class ControlChartComponent implements OnInit {
   @Output() change = new EventEmitter();
 
   colorScheme = {
-    domain: ['#1774F0', 'red', 'black']
+    domain: []
   };
   width: number;
   height: number;
@@ -63,6 +63,7 @@ export class ControlChartComponent implements OnInit {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 110;
+    this.dataService.colorSet$.do(set => this.colorScheme = {domain: set}).subscribe();
     this.data$ = this.dataService.data$;
     this.targetData$ = this.targetService.target$;
     this.rangeData$ = this.rangeService.rangeData$;

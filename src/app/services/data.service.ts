@@ -47,6 +47,8 @@ export class DataService {
   data$: BehaviorSubject<ChartData[]>;
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
+  colorSet$: BehaviorSubject<string[]>;
+  defaultDomain = ['#1774F0', 'red', 'black'];
   warning: WarningDict[];
   warning$: BehaviorSubject<WarningDict[]>;
   cf: any;
@@ -67,6 +69,7 @@ export class DataService {
       'z': null
     };
     this.dataScatter$ = new BehaviorSubject(this.dataScatter);
+    this.colorSet$ = new BehaviorSubject(this.defaultDomain);
   }
 
   getData() {

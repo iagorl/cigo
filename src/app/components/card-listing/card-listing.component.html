@@ -13,7 +13,9 @@
         (cancel)="onCancel()"
         (createRange)="createRange($event)">
       </app-new-range-form>
-      <app-card *ngFor="let warning of warnings$ | async" [title]="'Out of range'" [content]="formatWarningContent(warning)"></app-card>
+      <ng-template [ngIf]="(warnings$ | async)?.length">
+        <app-card *ngFor="let warning of warnings$ | async" [color]="'#FF8033'" [title]="'Out of range'" [content]="formatWarningContent(warning)"></app-card>
+      </ng-template>
     </div>
   </div>
   <mat-divider></mat-divider>

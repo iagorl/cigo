@@ -83,6 +83,7 @@ export class CardListingComponent implements OnInit {
       value: range.value,
       condition: range.condition
     }];
+    this.dataService.colorSet$.next(this.dataService.colorSet$.getValue().concat('black'));
     this.rangeService.addRange(range.name, range.minX, range.maxX, limitPoint);
     // this.dataService.setRange(range.name, range.minX, range.maxX, range.value);
     this.onCancel();
