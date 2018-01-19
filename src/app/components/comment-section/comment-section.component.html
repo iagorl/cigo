@@ -8,7 +8,7 @@
       <mat-checkbox [ngModel]="commentService.activated$ | async" (ngModelChange)="toggle($event)">
         Show on table
       </mat-checkbox>
-      <app-input *ngIf="activeCoords$ | async" (submit)="addComment($event)" (cancel)="onCancel()" [coordX]="(activeCoords$ | async)?.x" [coordY]="(activeCoords$ | async)?.y"></app-input>
+      <app-input *ngIf="(commentService.activated$ | async) && (activeCoords$ | async)" (submit)="addComment($event)" (cancel)="onCancel()" [coordX]="(activeCoords$ | async)?.x" [coordY]="(activeCoords$ | async)?.y"></app-input>
       <ng-template ngFor let-comment let-i="index" [ngForOf]="comments$ | async">
         <app-comment [comment]="comment" [active]="comment.id === (active$ | async)" [color]="'rgba(255, 64, 129, 0.7)'" (click)="activateComment(comment.id)"></app-comment>
       </ng-template>

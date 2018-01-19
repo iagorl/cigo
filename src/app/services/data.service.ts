@@ -43,9 +43,12 @@ export interface WarningDict {
 export class DataService {
   originalData: SampleData[];
   data: ChartData[];
+  currentData: ChartData;
   data$: BehaviorSubject<ChartData[]>;
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
+  colorSet$: BehaviorSubject<string[]>;
+  defaultDomain = ['#1774F0', 'red', 'black'];
   warning: WarningDict[];
   warning$: BehaviorSubject<WarningDict[]>;
   cf: any;
@@ -66,6 +69,7 @@ export class DataService {
       'z': null
     };
     this.dataScatter$ = new BehaviorSubject(this.dataScatter);
+    this.colorSet$ = new BehaviorSubject(this.defaultDomain);
   }
 
   getData() {
@@ -112,7 +116,7 @@ export class DataService {
   changeData(field: string, fase: string) {
     const dataForField = this.data.find(d => d.name === field);
     const newSeries = dataForField.series.filter((d) => d.fase === fase);
-
+    this.currentData = {name: field, series: newSeries};
     this.data$.next([{name: field, series: newSeries}]);
   }
 
@@ -156,40 +160,17 @@ export class DataService {
     return {name: name, series: chartsValue};
   }
 
-  studyData(range: Range) {
-
-    const field = 'fuel_price';
-    const field2 = 'unemployment';
-
-    const addReduce = (p, v) => {
-      p = {
-        fuel_price: v[field],
-        unemployment: v[field2]
-      };
-      return p;
-    };
-    const removeReduce = (p, v) => {
-      return p;
-    };
-    const initReduce = () => {
-      return {
-      };
-    };
-
+  studyData(range) {
+    const data = this.currentData.series;
     const warningsByKey = {};
-    const data = this.dataByDate
-        .group()
-        .reduce(addReduce, removeReduce, initReduce)
-        .all();
     for (const elem of data) {
-      const currentElem = new Date(elem.key);
+      const currentElem = new Date(elem.name);
       const minDate = new Date(range.minX);
       const maxDate = new Date(range.maxX);
       if ( currentElem.getTime() > maxDate.getTime()) {
         break;
       } else if (currentElem.getTime() >= minDate.getTime()) {
-        const keys = Object.keys(data[0].value);
-        keys.map(key => {
+        const key = this.currentData.name;
           if (!warningsByKey[key]) {
             warningsByKey[key] = {};
           }
@@ -209,13 +190,11 @@ export class DataService {
             const equals = (limit.condition === 'equal' || limit.condition === 'gte' || limit.condition === 'lte');
             const greater = (limit.condition === 'gt' || limit.condition === 'gte');
             const lower = (limit.condition === 'lt' || limit.condition === 'lte');
-
             let passed = false;
             if (
-              ((limit.value < elem.value[key]) && greater) ||
-              ((limit.value > elem.value[key]) && lower) ||
-              ((limit.value === elem.value[key]) && equals)) {
-
+              ((limit.value < elem.value) && greater) ||
+              ((limit.value > elem.value) && lower) ||
+              ((limit.value === elem.value) && equals)) {
                 actualWarning.condition = limit.condition;
                 if (!actualWarning.first) {
                   actualWarning.first = currentElem;
@@ -225,7 +204,6 @@ export class DataService {
                 }
               passed = true;
             }
-
           if (!passed && !actualWarning.complete && actualWarning.last !== null) {
             actualWarning.complete = true;
             warningsByKey[key][limitIndex].push(actualWarning);
@@ -244,8 +222,6 @@ export class DataService {
           } else {
             warningsByKey[key][limitIndex].push(actualWarning);
           }
-
-          });
         });
       }
     }
@@ -257,11 +233,11 @@ export class DataService {
     let rangeData: ChartSeries[];
     const minX = initialPoint ? new Date(initialPoint).getTime() : null;
     const maxX = finalPoint ? new Date(finalPoint).getTime() : null;
-    this.http.get<SampleData[]>('/assets/newData.json').subscribe((data) => {
+    this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
       this.originalData = data;
       this.cf = crossfilter(data);
 
-      this.dataByDate = this.cf.dimension((row) => row['date']);
+      this.dataByDate = this.cf.dimension((row) => row['fecha']);
 
       const addReduce = (p, v) => {
         return p;

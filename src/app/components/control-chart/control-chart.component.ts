@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, Input, Output, EventEmitter } from '@angular/core';
 import { DataService, ChartData } from '../../services/data.service';
 import { RangeService, Offset } from '../../services/range.service';
+import { ViewService } from '../../services/view.service';
 import { Observable } from 'rxjs/Observable';
 import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
@@ -22,7 +23,7 @@ export class ControlChartComponent implements OnInit {
   @Output() change = new EventEmitter();
 
   colorScheme = {
-    domain: ['#1774F0', 'red', 'black']
+    domain: []
   };
   width: number;
   height: number;
@@ -38,7 +39,6 @@ export class ControlChartComponent implements OnInit {
   animations = false;
   selectedX = '';
   selectedY = 0;
-  openFormContainer = false;
 
   data$: Observable<ChartData[]>;
   targetData$: Observable<ChartData[]>;
@@ -48,22 +48,26 @@ export class ControlChartComponent implements OnInit {
   fullComments$: Observable<any[]>;
   commentsVisible: boolean;
   commentsVisible$: Observable<boolean>;
+  selectedView: boolean;
   activeComment$: Observable<any[]>;
 
   constructor(
     private dataService: DataService,
     private commentService: CommentsService,
     private rangeService: RangeService,
-    private targetService: TargetService
+    private targetService: TargetService,
+    private viewService: ViewService
   ) { }
 
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 110;
+    this.dataService.colorSet$.do(set => this.colorScheme = {domain: set}).subscribe();
     this.data$ = this.dataService.data$;
     this.targetData$ = this.targetService.target$;
     this.rangeData$ = this.rangeService.rangeData$;
+    this.viewService.activeView$.do( view => this.selectedView = view.length ? true : false).subscribe();
     this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
       .map(data => {
         return [...data[0], ...data[1], ...data[2]];
@@ -132,34 +136,17 @@ export class ControlChartComponent implements OnInit {
   onClicked(event) {
     this.selectedX = this.formatDate(event.xScale);
     this.selectedY = event.yScale;
-    if (!this.openFormContainer && !this.commentsVisible) {
-      this.toggleForm();
-    }
     this.activateCoordinate(this.selectedX, event.yScale);
   }
 
   activateCoordinate(x, y) {
-    if (this.commentsVisible) {
+    if (this.selectedView) {
       this.commentService.activateCoordinate(x, y);
     }
   }
 
   onHover(event: {name: string, series: {name: string, id: number, radius: number, x: Date, y: number}[]}) {
     this.commentService.toogleComment(event ? event.series ? event.series[0].id : null : null);
-  }
-
-  toggleForm() {
-    this.openFormContainer = !this.openFormContainer;
-  }
-
-  createRange(range: any) {
-    const limitPoint: Offset[] = [{
-      value: range.value,
-      condition: range.condition
-    }];
-    this.rangeService.addRange(range.name, range.minX, range.maxX, limitPoint);
-    this.dataService.setRange(range.name, range.minX, range.maxX, range.value);
-    this.colorScheme.domain.push('black');
   }
 
   formatDate(selectedDate): string {
