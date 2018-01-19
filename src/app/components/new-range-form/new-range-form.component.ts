@@ -18,7 +18,7 @@ export class NewRangeFormComponent implements OnInit, OnChanges {
   @Input() selectedY: number;
   @Input() openFormContainer = false;
 
-  @Output() toggleForm = new EventEmitter();
+  @Output() cancel = new EventEmitter();
   @Output() createRange = new EventEmitter();
 
   constructor() { }
@@ -33,16 +33,13 @@ export class NewRangeFormComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  toggleContainer() {
-    this.toggleForm.emit();
-    if (!this.openFormContainer) {
-      this.resetForm();
-    }
+  onCancel() {
+    this.cancel.emit();
   }
 
   saveRange() {
     this.createRange.emit(this.range);
-    this.toggleContainer();
+    this.onCancel();
     this.resetForm();
   }
 

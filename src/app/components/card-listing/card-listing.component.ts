@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ViewService } from '../../services/view.service';
-import { RangeService } from '../../services/range.service';
+import { RangeService, Offset } from '../../services/range.service';
+import { CommentsService } from '../../services/comments.service';
 import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
@@ -14,14 +15,25 @@ export class CardListingComponent implements OnInit {
 
   warnings$: Observable<any[]>;
   ranges$: Observable<any[]>;
+  activeCoords$: Observable<any>;
   filter: string;
+  showForm = false;
 
   @Input() commentList = false;
 
-  constructor(private dataService: DataService, private rangeService: RangeService, private viewService: ViewService) { }
+  constructor(private dataService: DataService,
+    private rangeService: RangeService,
+    private viewService: ViewService,
+    private commentsService: CommentsService) { }
 
   ngOnInit() {
     this.viewService.activeField$.do( filter => this.filter = filter).subscribe();
+    this.rangeService.activated$.do(val => {
+      if (!val) {
+        this.onCancel();
+      }
+    }).subscribe();
+    this.activeCoords$ = this.commentsService.activeCoordinates$;
     this.warnings$ = this.dataService.warning$.map( data => {
       return data.map(warning => {
         if (warning.hasOwnProperty(this.filter)) {
@@ -34,7 +46,7 @@ export class CardListingComponent implements OnInit {
   }
 
   toggle() {
-    this.viewService.activate('range');
+    this.viewService.activate(event ? 'range' : '');
   }
 
   formatWarningContent(data: any[]): string {
@@ -64,6 +76,20 @@ export class CardListingComponent implements OnInit {
   formatDate(selectedDate): string {
     const date = selectedDate.toLocaleDateString().split('/');
     return `${date[2]}-${date[0]}-${date[1]}`;
+  }
+
+  createRange(range: any) {
+    const limitPoint: Offset[] = [{
+      value: range.value,
+      condition: range.condition
+    }];
+    this.rangeService.addRange(range.name, range.minX, range.maxX, limitPoint);
+    // this.dataService.setRange(range.name, range.minX, range.maxX, range.value);
+    this.onCancel();
+  }
+
+  onCancel() {
+    this.commentsService.activateCoordinate();
   }
 
 }

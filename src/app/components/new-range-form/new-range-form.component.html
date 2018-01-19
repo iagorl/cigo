@@ -1,34 +1,32 @@
-<div class="form-container visible-form">
-  <div class="card">
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Range name" [(ngModel)]="range.name">
-    </mat-form-field>
+<div class="card">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Range name" [(ngModel)]="range.name">
+  </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Min X" [(ngModel)]="range.minX">
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Min X" [(ngModel)]="range.minX">
+  </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Max Y" [(ngModel)]="range.minY">
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Max Y" [(ngModel)]="range.minY">
+  </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Value" [(ngModel)]="range.value">
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Value" [(ngModel)]="range.value">
+  </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <mat-select [(ngModel)]="range.condition">
-        <mat-option value="gt">></mat-option>
-        <mat-option value="gte">>=</mat-option>
-        <mat-option value="equal">=</mat-option>
-        <mat-option value="lt"><</mat-option>
-        <mat-option value="lte"><=</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-select [(ngModel)]="range.condition">
+      <mat-option value="gt">></mat-option>
+      <mat-option value="gte">>=</mat-option>
+      <mat-option value="equal">=</mat-option>
+      <mat-option value="lt"><</mat-option>
+      <mat-option value="lte"><=</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <div class="buttons">
-      <button mat-raised-button color="primary" (click)="saveRange()">Create Range</button>
-      <button mat-raised-button color="warn" (click)="toggleContainer()">Discard</button>
-    </div>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="saveRange()">Create Range</button>
+    <button mat-icon-button color="warn" (click)="onCancel()">Cancel</button>
   </div>
 </div>

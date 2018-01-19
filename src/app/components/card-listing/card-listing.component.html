@@ -5,7 +5,14 @@
     </div>
     <div class="items-list">
       <mat-divider></mat-divider>
-      <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle()">Add new limit</mat-checkbox>
+      <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle($event)">Add new limit</mat-checkbox>
+      <app-new-range-form
+        *ngIf="(rangeService.activated$  | async) && (activeCoords$ | async)"
+        [selectedX]="(activeCoords$ | async)?.x"
+        [selectedY]="(activeCoords$ | async)?.y"
+        (cancel)="onCancel()"
+        (createRange)="createRange($event)">
+      </app-new-range-form>
       <app-card *ngFor="let warning of warnings$ | async" [title]="'Out of range'" [content]="formatWarningContent(warning)"></app-card>
     </div>
   </div>
