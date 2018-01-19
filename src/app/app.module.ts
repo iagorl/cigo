@@ -62,6 +62,7 @@ import { CommonModule } from '@angular/common';
     MatButtonToggleModule,
     MatInputModule,
     MatIconModule,
+    MatSelectModule,
     HttpClientModule,
     FormsModule
   ],
