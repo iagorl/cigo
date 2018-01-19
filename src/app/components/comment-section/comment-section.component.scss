@@ -12,25 +12,6 @@
   text-transform: uppercase;
   justify-content: center;
 }
-.list-global {
-  height: calc(100% - 40px);
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  .list-container {
-    flex: 1;
-    .list-header {
-      display: flex;
-      * {
-        flex: 1;
-      }
-    }
-    .items-list {
-      height: calc(100% - 70px);
-      overflow: auto;
-    }
-  }
-}
 
 .mat-checkbox {
   display: flex;
