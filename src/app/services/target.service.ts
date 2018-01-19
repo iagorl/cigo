@@ -31,7 +31,7 @@ export class TargetService {
   getData() {
     this.http.get<TargetData[]>('/assets/targets.json').subscribe((data) => {
       this.originalData = data;
-      this.generateData('BUDGET', 'Distancia', 'Total Fases');
+      this.generateData('WK', 'Distancia', 'Total Fases');
     });
   }
 
