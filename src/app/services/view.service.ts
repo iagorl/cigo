@@ -6,37 +6,28 @@ import { DataService } from './data.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export type Target = 'BUDGET'|'OL'|'ST'|'WK';
+export type View = 'comment'|'range'|'';
 
 @Injectable()
 export class ViewService {
-  active: 'comment'|'range'|'';
+  active: View;
   activeTarget: Target = 'BUDGET';
   field: string = 'Distancia';
   fase: string = 'Total Fases';
 
-  activeView$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  activeView$: BehaviorSubject<View> = new BehaviorSubject<View>('');
   activeTarget$: BehaviorSubject<Target> = new BehaviorSubject<Target>(this.activeTarget);
   activeField$: BehaviorSubject<string> = new BehaviorSubject<string>(this.field);
   activeFase$: BehaviorSubject<string> = new BehaviorSubject<string>(this.fase);
 
   constructor(
-    private ranges: RangeService,
     private target: TargetService,
     private data: DataService,
   ) { }
 
-  activate(section: 'comment'|'range'|'') {
+  activate(section: View) {
     this.active = section;
     this.activeView$.next(section);
-    if (section === '') {
-      this.ranges.toggle(true);
-    } else {
-      if (section === 'comment') {
-        this.ranges.toggle(true);
-      } else {
-        this.ranges.toggle(false);
-      }
-    }
   }
 
   changeTarget(target: Target) {

@@ -49,8 +49,8 @@ export class DataService {
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
   colorSet$: BehaviorSubject<string[]>;
   defaultDomain = ['#1774F0', 'red', 'black'];
-  warning: WarningDict[];
-  warning$: BehaviorSubject<WarningDict[]>;
+  warnings: WarningDict[];
+  innerWarnings$: BehaviorSubject<WarningDict[]>;
   cf: any;
   fasesList: string[];
   kpiList: string[] = [];
@@ -60,8 +60,8 @@ export class DataService {
   constructor(private http: HttpClient) {
     this.data = [];
     this.data$ = new BehaviorSubject<ChartData[]>([]);
-    this.warning = [];
-    this.warning$ = new BehaviorSubject<WarningDict[]>([]);
+    this.warnings = [];
+    this.innerWarnings$ = new BehaviorSubject<WarningDict[]>([]);
     this.getData();
     this.dataScatter = {
       'x': null,
@@ -225,8 +225,8 @@ export class DataService {
         });
       }
     }
-    this.warning.push(warningsByKey);
-    this.warning$.next(this.warning);
+    this.warnings.push(warningsByKey);
+    this.innerWarnings$.next(this.warnings);
   }
 
   setRange(name: string, initialPoint: string, finalPoint: string, functionValue: number) {

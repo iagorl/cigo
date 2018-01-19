@@ -27,20 +27,18 @@ export class CardListingComponent implements OnInit {
     private commentsService: CommentsService) { }
 
   ngOnInit() {
-    this.viewService.activeField$.do( filter => this.filter = filter).subscribe();
     this.rangeService.activated$.do(val => {
       if (!val) {
         this.onCancel();
       }
     }).subscribe();
     this.activeCoords$ = this.commentsService.activeCoordinates$;
-    this.warnings$ = this.dataService.warning$.map( data => {
-      return data.map(warning => {
-        if (warning.hasOwnProperty(this.filter)) {
-          return warning[this.filter]['0'];
-        }
-      });
-    });
+    this.warnings$ = Observable.combineLatest(this.dataService.innerWarnings$, this.viewService.activeField$)
+      .map(([warnings, field]) => {
+        console.log('w', warnings);
+        const newW = warnings.filter(warning => warning.hasOwnProperty(field));
+        return newW.map(warning => warning[field]['0']);
+      }).do(d => console.log(d));
 
     this.ranges$ = this.rangeService.ranges$;
   }
