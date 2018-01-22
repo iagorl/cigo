@@ -35,7 +35,6 @@ export class RangeService {
   ranges: Range[];
   ranges$: BehaviorSubject<Range[]>;
   rangeData$: BehaviorSubject<ChartData[]>;
-  // activated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   activated$: Observable<boolean>;
   subscription: Subscription;
 

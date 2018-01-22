@@ -42,7 +42,7 @@ export class CardListingComponent implements OnInit {
     this.ranges$ = this.rangeService.ranges$;
   }
 
-  toggle() {
+  toggle(event) {
     this.viewService.activate(event ? 'range' : '');
   }
 
