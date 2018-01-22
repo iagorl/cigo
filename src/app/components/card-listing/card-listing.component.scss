@@ -14,7 +14,8 @@
 }
 
 .list-global {
-  height: 100%;
+  height: calc(100% - 40px);
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   .list-container {
