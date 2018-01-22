@@ -9,47 +9,70 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-
-import { AppComponent } from './app.component';
-import { ControlChartComponent } from './components/control-chart/control-chart.component';
-import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ComboComponent } from './components/control-chart/combo/combo.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CommentsService } from './services/comments.service';
+import { DataService } from './services/data.service';
+import { RangeService } from './services/range.service';
+import { TargetService } from './services/target.service';
+import { ViewService } from './services/view.service';
+
+import { ControlChartComponent } from './components/control-chart/control-chart.component';
+import { ComboComponent } from './components/control-chart/combo/combo.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardListingComponent } from './components/card-listing/card-listing.component';
 import { CardComponent } from './components/card/card.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentComponent } from './components/comment-section/comment/comment.component';
-import { FormsModule } from '@angular/forms';
 import { NewRangeFormComponent } from './components/new-range-form/new-range-form.component';
 import { InputComponent } from './components/comment-section/input/input.component';
-import { ViewService } from './services/view.service';
-import { RangeService } from './services/range.service';
 import { FilterComponent } from './components/filter/filter.component';
-import { TargetService } from './services/target.service';
 import { ScatterChartComponent } from './components/scatter-chart/scatter-chart.component';
-import { CommonModule } from '@angular/common';
+import { ParetoChartComponent } from './components/pareto-chart/pareto-chart.component';
+import { TableComponent } from './components/table/table.component';
+import { ParetoComboComponent } from './components/pareto-chart/combo/combo.component';
+import { ParetoVerticalSeriesComponent } from './components/pareto-chart/vertical-series/vertical-series.component';
 
+import { CgiPageComponent } from './pages/cgi/cgi.component';
+import { ParetoPageComponent } from './pages/pareto/pareto.component';
+
+const Components = [
+  ControlChartComponent,
+  ComboComponent,
+  TopBarComponent,
+  SidebarComponent,
+  CardListingComponent,
+  CardComponent,
+  CommentSectionComponent,
+  CommentComponent,
+  NewRangeFormComponent,
+  InputComponent,
+  FilterComponent,
+  ScatterChartComponent,
+  TableComponent,
+  ParetoChartComponent,
+  ParetoComboComponent,
+  ParetoVerticalSeriesComponent
+];
+
+const Pages = [
+  ParetoPageComponent,
+  CgiPageComponent,
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ControlChartComponent,
-    ComboComponent,
-    TopBarComponent,
-    SidebarComponent,
-    CardListingComponent,
-    CardComponent,
-    CommentSectionComponent,
-    CommentComponent,
-    NewRangeFormComponent,
-    InputComponent,
-    FilterComponent,
-    ScatterChartComponent
+    ...Components,
+    ...Pages,
   ],
   imports: [
+    AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     MatListModule,

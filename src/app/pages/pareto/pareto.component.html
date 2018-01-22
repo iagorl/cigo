@@ -1,0 +1,9 @@
+<div class="app-container">
+  <div class="charts-container">
+    <app-pareto-chart (change)="test($event)" [fieldOptions]="fieldOptions" [budgetOptions]="budgetOptions"></app-pareto-chart>
+    <app-scatter-chart></app-scatter-chart>
+  </div>
+  <div class="sidebar-container right">
+    <app-comment-section></app-comment-section>
+  </div>
+</div>

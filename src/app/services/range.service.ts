@@ -51,7 +51,7 @@ export class RangeService {
     this.rangeData$ = new BehaviorSubject<ChartData[]>([]);
     this.activated$ = this.view.activeView$.map(val => val === 'range');
 
-    this.dataservice.data$.map(d => d.length > 0).take(2).subscribe(val => {
+    this.dataservice.dataControl$.map(d => d.length > 0).take(2).subscribe(val => {
       if (val && this.ranges.length === 0) {
         this.getRanges();
       }

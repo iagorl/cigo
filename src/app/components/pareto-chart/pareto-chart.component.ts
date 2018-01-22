@@ -1,20 +1,17 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, Input, Output, EventEmitter } from '@angular/core';
-import { DataService, ChartData } from '../../services/data.service';
-import { RangeService, Offset } from '../../services/range.service';
-import { ViewService } from '../../services/view.service';
 import { Observable } from 'rxjs/Observable';
-import { CommentsService, Comment } from '../../services/comments.service';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/combineLatest';
+import { ChartData, DataService } from '../../services/data.service';
+import { CommentsService } from '../../services/comments.service';
+import { RangeService } from '../../services/range.service';
 import { TargetService } from '../../services/target.service';
-
+import { ViewService } from '../../services/view.service';
 
 @Component({
-  selector: 'app-control-chart',
-  templateUrl: './control-chart.component.html',
-  styleUrls: ['./control-chart.component.scss']
+  selector: 'app-pareto-chart',
+  templateUrl: './pareto-chart.component.html',
+  styleUrls: ['./pareto-chart.component.scss']
 })
-export class ControlChartComponent implements OnInit {
+export class ParetoChartComponent implements OnInit {
 
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
 
@@ -23,7 +20,10 @@ export class ControlChartComponent implements OnInit {
   @Output() change = new EventEmitter();
 
   colorScheme = {
-    domain: []
+    domain: ['#1774F0']
+  };
+  colorSchemeLine = {
+    domain: ['red', '#1774F0']
   };
   width: number;
   height: number;
@@ -34,7 +34,7 @@ export class ControlChartComponent implements OnInit {
   showXAxisLabel = true;
   showYAxisLabel = true;
   xAxisLabel = 'Date';
-  yAxisLabel = 'Total Fases Extraction';
+  yAxisLabel = 'ATM';
   autoScale = true;
   animations = false;
   selectedX = '';
@@ -44,6 +44,7 @@ export class ControlChartComponent implements OnInit {
   targetData$: Observable<ChartData[]>;
   rangeData$: Observable<ChartData[]>;
   fullData$: Observable<ChartData[]>;
+  cummData$: Observable<ChartData[]>;
   comments$: Observable<any[]>;
   fullComments$: Observable<any[]>;
   commentsVisible: boolean;
@@ -63,15 +64,11 @@ export class ControlChartComponent implements OnInit {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 110;
-    this.dataService.colorSet$.do(set => this.colorScheme = {domain: set}).subscribe();
-    this.data$ = this.dataService.dataControl$;
+    this.data$ = this.dataService.dataPareto$;
+    this.cummData$ = this.dataService.dataParetoCumm$.do(d => console.log(d));
     this.targetData$ = this.targetService.target$;
     this.rangeData$ = this.rangeService.rangeData$;
     this.viewService.activeView$.do( view => this.selectedView = view.length ? true : false).subscribe();
-    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
-      .map(data => {
-        return [...data[0], ...data[1], ...data[2]];
-      });
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {

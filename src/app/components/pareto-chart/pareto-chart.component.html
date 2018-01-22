@@ -1,0 +1,27 @@
+<div class="chart-container" #target>
+  <app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
+      
+  <pareto-combo
+    [view]="[width, height]"
+    [scheme]="colorScheme"
+    [colorSchemeLine]="colorSchemeLine"
+    [results]="data$ | async"
+    [animations]="animations"
+    [lineChart]="cummData$ | async"
+    [tooltipDisabled]="false"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [legendTitle]="'test title'"
+    [showGridLines]="false"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [showRightYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [yAxisLabelRight]="'Cummulative Percentage'"
+    (select)="onSelect($event)"
+    >
+  </pareto-combo>
+</div>

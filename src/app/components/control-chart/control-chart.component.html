@@ -1,7 +1,7 @@
 <div class="chart-container" #target>
 <app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
   
-    <app-combo
+  <app-combo
     [view]="[width, height]"
     [scheme]="colorScheme"
     [results]="fullData$ | async"

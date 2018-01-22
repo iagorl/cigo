@@ -25,12 +25,20 @@ export interface SampleData {
   is_holiday: boolean;
 }
 
+export interface SampleParetoData {
+  team: string;
+  date: string;
+  hours: number;
+  n: number;
+  mttr: number;
+}
+
 export interface Warning {
-      complete: boolean;
-      first: Date;
-      last: Date;
-      chartKey: string;
-      limitIndex: string;
+  complete: boolean;
+  first: Date;
+  last: Date;
+  chartKey: string;
+  limitIndex: string;
 }
 
 export interface WarningDict {
@@ -42,9 +50,12 @@ export interface WarningDict {
 @Injectable()
 export class DataService {
   originalData: SampleData[];
+  originalParetoData: SampleParetoData[];
   data: ChartData[];
   currentData: ChartData;
-  data$: BehaviorSubject<ChartData[]>;
+  dataControl$: BehaviorSubject<ChartData[]>;
+  dataPareto$: BehaviorSubject<ChartData[]>;
+  dataParetoCumm$: BehaviorSubject<ChartData[]>;
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
   colorSet$: BehaviorSubject<string[]>;
@@ -59,7 +70,9 @@ export class DataService {
 
   constructor(private http: HttpClient) {
     this.data = [];
-    this.data$ = new BehaviorSubject<ChartData[]>([]);
+    this.dataControl$ = new BehaviorSubject<ChartData[]>([]);
+    this.dataPareto$ = new BehaviorSubject<ChartData[]>([]);
+    this.dataParetoCumm$ = new BehaviorSubject<ChartData[]>([]);
     this.warnings = [];
     this.innerWarnings$ = new BehaviorSubject<WarningDict[]>([]);
     this.getData();
@@ -111,13 +124,57 @@ export class DataService {
       // this.data$.next(finalData);
       this.fasesList = Object.keys(fases);
     });
+    this.http.get<SampleParetoData[]>('/assets/paretoData.json').subscribe((data) => {
+      this.originalParetoData = data;
+      const crossf = crossfilter(this.originalParetoData);
+
+      const dataByDate = crossf.dimension((row) => row['date']);
+
+      const addReduce = (p, v) => {
+        p = {
+          team: v['team'],
+          value: v['hours']
+        };
+        return p;
+      };
+      const removeReduce = (p, v) => {
+        return p;
+      };
+      const initReduce = () => {
+        return {
+        };
+      };
+
+      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
+      .map(elem => {
+        return {
+          name: new Date(elem.key),
+          team: elem.value.team,
+          value: elem.value.value
+        };
+      });
+
+      const totalValue = chartsValue.reduce((cumm, next) => cumm + next.value, 0);
+
+      const chartsValue2 = chartsValue.map((elem, idx) => {
+        return {
+          name: elem.name,
+          team: elem.team,
+          value: chartsValue.slice(0, idx + 1).reduce((cumm, next) => {
+            return cumm + next.value;
+          }, 0) / totalValue
+        };
+      });
+      this.dataPareto$.next(chartsValue);
+      this.dataParetoCumm$.next([{name: 'Cummulative', series: chartsValue2}]);
+    });
   }
 
   changeData(field: string, fase: string) {
     const dataForField = this.data.find(d => d.name === field);
     const newSeries = dataForField.series.filter((d) => d.fase === fase);
     this.currentData = {name: field, series: newSeries};
-    this.data$.next([{name: field, series: newSeries}]);
+    this.dataControl$.next([{name: field, series: newSeries}]);
   }
 
   changeScatterData(chartKey: string, field: string, fase: string) {
@@ -264,7 +321,7 @@ export class DataService {
             value: functionValue
           };
       });
-      this.data$.next(this.data$.getValue().concat({name: name, series: rangeData}));
+      this.dataControl$.next(this.dataControl$.getValue().concat({name: name, series: rangeData}));
     });
   }
 
