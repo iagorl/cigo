@@ -1,12 +1,11 @@
-<app-top-bar [title]="'Control Diario Integrado'"></app-top-bar>
+<app-top-bar [title]="'Fuel Management'"></app-top-bar>
 <div class="app-container">
   <div class="sidebar-container left">
     <app-sidebar></app-sidebar>
   </div>
   <div class="charts-container">
     <app-control-chart (change)="test($event)" [fieldOptions]="fieldOptions" [budgetOptions]="budgetOptions"></app-control-chart>
-    <!-- <app-scatter-chart></app-scatter-chart> -->
-    <app-waterfall-chart></app-waterfall-chart>
+    <app-scatter-chart></app-scatter-chart>
   </div>
   <div class="sidebar-container right">
     <app-comment-section></app-comment-section>

@@ -40,6 +40,8 @@ import { ParetoVerticalSeriesComponent } from './components/pareto-chart/vertica
 
 import { CgiPageComponent } from './pages/cgi/cgi.component';
 import { ParetoPageComponent } from './pages/pareto/pareto.component';
+import { FuelPageComponent } from './pages/fuel/fuel.component';
+import { WaterfallChartComponent } from './components/waterfall-chart/waterfall-chart.component';
 
 const Components = [
   ControlChartComponent,
@@ -63,6 +65,7 @@ const Components = [
 const Pages = [
   ParetoPageComponent,
   CgiPageComponent,
+  FuelPageComponent,
 ];
 
 @NgModule({
@@ -70,6 +73,7 @@ const Pages = [
     AppComponent,
     ...Components,
     ...Pages,
+    WaterfallChartComponent,
   ],
   imports: [
     AppRoutingModule,
