@@ -67,6 +67,7 @@ export class DataService {
   kpiList: string[] = [];
 
   dataByDate: any;
+  originalDataByDate: any;
 
   constructor(private http: HttpClient) {
     this.data = [];
@@ -187,9 +188,12 @@ export class DataService {
   getSubData(name: string, data: any) {
     const crossf = crossfilter(data);
 
-    const dataByDate = crossf.dimension((row) => row['fecha']);
+    this.originalDataByDate = crossf.dimension((row) => row['fecha']);
     const field = 'fase';
     const field2 = 'valor';
+
+    console.log(this.data);
+    console.log('DATA', this.originalDataByDate.group().all());
 
     const addReduce = (p, v) => {
       p = {
@@ -206,7 +210,7 @@ export class DataService {
       };
     };
 
-    const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
+    const chartsValue = this.originalDataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
     .map(elem => {
       return {
         name: new Date(elem.key),

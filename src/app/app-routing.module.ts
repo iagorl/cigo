@@ -8,7 +8,7 @@ import { ParetoPageComponent } from './pages/pareto/pareto.component';
 import { FuelPageComponent } from './pages/fuel/fuel.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'fuel', pathMatch: 'full'},
+  { path: '', redirectTo: 'cdi', pathMatch: 'full'},
   { path: 'fuel', component: FuelPageComponent },
   { path: 'cdi', component: CgiPageComponent},
   { path: 'pareto', component: ParetoPageComponent },

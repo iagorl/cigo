@@ -50,7 +50,9 @@ export class TargetService {
       return;
     }
     const cf = crossfilter(this.originalData);
-    const dataByDate = cf.dimension((row) => row['fecha']);
+    this.dataByDate = cf.dimension((row) => row['fecha']);
+
+    console.log('TARGET', this.dataByDate.group().all());
 
     const addReduce = (p, v) => {
       p.push({
@@ -66,7 +68,7 @@ export class TargetService {
       return [];
     };
 
-    const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
+    const chartsValue = this.dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
     .filter(elem => {
       const datum = elem.value.find(e => e.key === targetString);
       return datum && datum.valor;

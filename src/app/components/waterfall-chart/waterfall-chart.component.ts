@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, Output, EventEmitter, Input } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { TargetService } from '../../services/target.service';
 
 declare var Plotly: any;
 
@@ -10,45 +12,13 @@ declare var Plotly: any;
 export class WaterfallChartComponent implements OnInit {
 
   @ViewChild('test', { read: ViewContainerRef }) test: ViewContainerRef;
+  @Input() fieldOptions;
+  @Output() change = new EventEmitter();
 
-  fieldOptions = [
-    {
-      name: 'KPI1',
-      options: [
-        {value: 'Distancia', text: 'Distancia'},
-        {value: 'Extraccion', text: 'Extraccion'},
-        {value: 'Oper. Truck', text: 'Oper. Truck'},
-        {value: 'Remanejo', text: 'Remanejo'},
-        {value: 'Velocidad', text: 'Velocidad'},
-      ],
-      selected: 'Distancia'
-    },
-    {
-      name: 'KPI2',
-      options: [
-        {value: 'Distancia', text: 'Distancia'},
-        {value: 'Extraccion', text: 'Extraccion'},
-        {value: 'Oper. Truck', text: 'Oper. Truck'},
-        {value: 'Remanejo', text: 'Remanejo'},
-        {value: 'Velocidad', text: 'Velocidad'},
-      ],
-      selected: 'Extraccion'
-    },
-    {
-      name: 'Fase',
-      options: [
-        {value: 'Casino 2', text: 'Casino 2'},
-        {value: 'Donoso 1', text: 'Donoso 1'},
-        {value: 'Donoso 2', text: 'Donoso 2'},
-        {value: 'Infiernillo 5', text: 'Infiernillo 5'},
-        {value: 'Infirenillo 7A', text: 'Infirenillo 7A'},
-        {value: 'Total Fases', text: 'Total Fases'},
-      ],
-      selected: 'Total Fases'
-    },
-  ];
-
-  constructor() { }
+  constructor(
+    private data: DataService,
+    private target: TargetService,
+  ) { }
 
   ngOnInit() {
     this.drawWaterfall();
@@ -150,29 +120,6 @@ export class WaterfallChartComponent implements OnInit {
   }
 
   doChange(event) {
-    // switch (event.field) {
-    //   case 'KPI1':
-    //     this.selectedKey = 'x';
-    //     this.fieldX = event.value;
-    //     this.selectedField = event.value;
-    //     this.data.changeScatterData('x', event.value, this.selectedFase);
-    //     break;
-    //     case 'KPI2':
-    //     this.selectedKey = 'y';
-    //     this.fieldY = event.value;
-    //     this.selectedField = event.value;
-    //     this.data.changeScatterData('y', event.value, this.selectedFase);
-    //     break;
-    //     case 'KPI3':
-    //     this.selectedKey = 'z';
-    //     this.fieldZ = event.value;
-    //     this.selectedField = event.value;
-    //     this.data.changeScatterData('z', event.value, this.selectedFase);
-    //     break;
-    //   case 'Fase':
-    //     this.selectedFase = event.value;
-    //     this.data.changeScatterData(this.selectedKey, this.selectedField, event.value);
-    //     break;
-    // }
+    this.change.emit(event);
   }
 }
