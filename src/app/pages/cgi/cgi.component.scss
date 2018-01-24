@@ -15,5 +15,18 @@
   .charts-container {
     padding: 10px 0;
     flex: 10;
+    .duo-charts-container {
+      display: flex;
+      flex: 1;
+      .duo-chart {
+        flex:1;
+        &.second {
+          margin-left: 5px;
+        }
+        &.first {
+          margin-right: 5px;
+        }
+      }
+    }
   }
 }

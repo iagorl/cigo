@@ -1,10 +1,19 @@
+<app-top-bar [title]="'Control Diario Integrado'"></app-top-bar>
 <div class="app-container">
   <div class="sidebar-container left">
     <app-sidebar></app-sidebar>
   </div>
   <div class="charts-container">
     <app-control-chart (change)="test($event)" [fieldOptions]="fieldOptions" [budgetOptions]="budgetOptions"></app-control-chart>
-    <app-scatter-chart></app-scatter-chart>
+    <!-- <app-scatter-chart></app-scatter-chart> -->
+    <div class="duo-charts-container">
+      <div class="duo-chart first">
+        <app-waterfall-chart (change)="test($event)" [fieldOptions]="fieldOptions" ></app-waterfall-chart>
+      </div>
+      <div class="duo-chart second">
+        <app-histogram-chart (change)="test($event)" [fieldOptions]="fieldOptions"></app-histogram-chart>
+      </div>
+    </div>
   </div>
   <div class="sidebar-container right">
     <app-comment-section></app-comment-section>

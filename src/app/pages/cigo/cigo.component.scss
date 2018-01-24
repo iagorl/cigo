@@ -1,0 +1,62 @@
+.cigo-container {
+  .body-container {
+    display: flex;
+    height: 100%;
+    .table-container {
+      .table-sub-container {
+        display: flex;
+        .table-field {
+          flex: 1;
+        }
+        .chart-container {
+          flex: 1;
+          width: 100%;
+          .prueba {
+            position: absolute;
+            margin-left: -120px;
+            margin-top: 170px;
+            transform: rotate(90deg);
+          }
+        }
+      }
+      &.first {
+        flex: 1
+      }
+      &.second {
+        flex: 1
+      }
+      &.last {
+        flex: 1
+      }
+      .datatable-header {
+        font-size: 10px;
+      }
+    }
+  }
+}
+tr {
+  text-align: center;
+  height: 30px;
+  font-size: 13px;
+}
+th {
+  height: 50px;
+  font-size: 13px;  
+}
+
+.subtitle-container {
+  display: flex;
+  .name-tab {
+    flex: 1;
+  }
+  .total-tab {
+    flex: 1;
+    display: flex;
+    .tons {
+      flex: 1;
+    }
+    .viajes {
+      flex: 1;
+    }
+  }
+}
