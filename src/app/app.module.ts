@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
@@ -42,6 +44,9 @@ import { CgiPageComponent } from './pages/cgi/cgi.component';
 import { ParetoPageComponent } from './pages/pareto/pareto.component';
 import { FuelPageComponent } from './pages/fuel/fuel.component';
 import { WaterfallChartComponent } from './components/waterfall-chart/waterfall-chart.component';
+import { HistogramChartComponent } from './components/histogram-chart/histogram-chart.component';
+import { CigoPageComponent } from './pages/cigo/cigo.component';
+import { CigoDataService } from './services/cigo-data.service';
 
 const Components = [
   ControlChartComponent,
@@ -66,6 +71,7 @@ const Pages = [
   ParetoPageComponent,
   CgiPageComponent,
   FuelPageComponent,
+  CigoPageComponent
 ];
 
 @NgModule({
@@ -74,6 +80,7 @@ const Pages = [
     ...Components,
     ...Pages,
     WaterfallChartComponent,
+    HistogramChartComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -84,6 +91,7 @@ const Pages = [
     FormsModule,
     CommonModule,
     NgxChartsModule,
+    NgxDatatableModule,
     MatButtonModule,
     MatSelectModule,
     MatButtonToggleModule,
@@ -98,6 +106,7 @@ const Pages = [
     CommentsService,
     RangeService,
     ViewService,
+    CigoDataService,
     TargetService
   ],
   bootstrap: [AppComponent]

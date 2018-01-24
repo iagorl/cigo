@@ -53,7 +53,9 @@ export class DataService {
   originalParetoData: SampleParetoData[];
   data: ChartData[];
   currentData: ChartData;
+  currentHistData: ChartData;
   dataControl$: BehaviorSubject<ChartData[]>;
+  dataHist$: BehaviorSubject<ChartData[]>;
   dataPareto$: BehaviorSubject<ChartData[]>;
   dataParetoCumm$: BehaviorSubject<ChartData[]>;
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
@@ -71,6 +73,7 @@ export class DataService {
 
   constructor(private http: HttpClient) {
     this.data = [];
+    this.dataHist$ = new BehaviorSubject<ChartData[]>([]);
     this.dataControl$ = new BehaviorSubject<ChartData[]>([]);
     this.dataPareto$ = new BehaviorSubject<ChartData[]>([]);
     this.dataParetoCumm$ = new BehaviorSubject<ChartData[]>([]);
@@ -119,6 +122,7 @@ export class DataService {
       });
       this.data = finalData;
       this.changeData('Distancia', 'Total Fases');
+      this.changeHistogramData('Extraccion', 'Total Fases');
       this.changeScatterData('x', 'Distancia', 'Total Fases');
       this.changeScatterData('y', 'Extraccion', 'Total Fases');
       this.changeScatterData('z', 'Oper. Truck', 'Total Fases');
@@ -178,6 +182,13 @@ export class DataService {
     this.dataControl$.next([{name: field, series: newSeries}]);
   }
 
+  changeHistogramData(field: string, fase: string) {
+    const dataForField = this.data.find(d => d.name === field);
+    const newSeries = dataForField.series.filter((d) => d.fase === fase);
+    this.currentHistData = {name: field, series: newSeries};
+    this.dataHist$.next([{name: field, series: newSeries}]);
+  }
+
   changeScatterData(chartKey: string, field: string, fase: string) {
     const dataForField = this.data.find(d => d.name === field);
     const newSeries = dataForField.series.filter((d) => d.fase === fase);
@@ -191,9 +202,6 @@ export class DataService {
     this.originalDataByDate = crossf.dimension((row) => row['fecha']);
     const field = 'fase';
     const field2 = 'valor';
-
-    console.log(this.data);
-    console.log('DATA', this.originalDataByDate.group().all());
 
     const addReduce = (p, v) => {
       p = {

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, Output, EventEmitter, Input } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { DataService, ChartData } from '../../services/data.service';
 import { TargetService } from '../../services/target.service';
+import { Observable } from 'rxjs/Observable';
 
 declare var Plotly: any;
 
@@ -10,59 +11,98 @@ declare var Plotly: any;
   styleUrls: ['./waterfall-chart.component.scss']
 })
 export class WaterfallChartComponent implements OnInit {
+  height: any;
+  width: any;
 
   @ViewChild('test', { read: ViewContainerRef }) test: ViewContainerRef;
+  @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
   @Input() fieldOptions;
   @Output() change = new EventEmitter();
 
+  fullData$: Observable<any[]>;
+
   constructor(
-    private data: DataService,
-    private target: TargetService,
+    private dataService: DataService,
+    private targetService: TargetService,
   ) { }
 
   ngOnInit() {
-    this.drawWaterfall();
+
+    this.width = this.target.element.nativeElement.getBoundingClientRect().width;
+    this.height = this.target.element.nativeElement.getBoundingClientRect().height;
+    const data$ = this.dataService.dataControl$;
+    const targetData$ = this.targetService.target$;
+
+    Observable.combineLatest(data$, targetData$)
+    .map(data => {
+      return [...data[0], ...data[1]];
+    }).subscribe(data => {
+      if (data.length > 1) {
+        this.processData(data[0], data[1]);
+      }
+    });
   }
 
-  drawWaterfall() {
-    const xData = ['Product Revenue', 'Services Revenue', 'Total Revenue', 'FixedCosts',
-    'Variable Costs', 'Total Costs', 'Total'];
+  processData(dataArray, targetArray) {
+    const xData = [];
+    const yDataProfit = [];
+    const yDataCost = [];
+    const yDataBase = [];
+    let previousY = 0;
 
-    const yData = [400, 660, 660, 590, 400, 400, 340];
+    dataArray.series.map((data, index) => {
+      xData.push(new Date(data.name));
+      const value = data.value - targetArray.series[index].value;
 
-    const textList = ['$430K', '$260K', '$690K', '$-120K', '$-200K', '$-320K', '$370K'];
+      yDataBase.push(previousY);
+
+      if (value < 0) {
+        yDataCost.push(value);
+        yDataProfit.push(0);
+      } else {
+        yDataCost.push(0);
+        yDataProfit.push(value);
+      }
+
+      previousY = previousY + value;
+
+    });
+    this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData);
+  }
+
+  drawWaterfall(yDataProfit, yDataCost, yDataBase, xData) {
 
     // Base
-
     const trace1 = {
       x: xData,
-      y: [0, 430, 0, 570, 370, 370, 0],
+      y: yDataBase,
+      name: 'Acumulative',
       marker: {
         color: 'rgba(1,1,1,0.0)'
       },
       type: 'bar'
     };
 
-    // Revenue
-
+    // Profit
     const trace2 = {
       x: xData,
-      y: [430, 260, 690, 0, 0, 0, 0],
+      y: yDataProfit,
       type: 'bar',
+      name: 'Positive',
       marker: {
-        color: 'rgba(55,128,191,0.7)',
+        color: 'rgba(50,171, 96, 0.7)',
         line: {
-          color: 'rgba(55,128,191,1.0)',
+          color: 'rgba(50,171,96,1.0)',
           width: 2
         }
       }
     };
 
     // Cost
-
     const trace3 = {
       x: xData,
-      y: [0, 0, 0, 120, 200, 320, 0],
+      y: yDataCost,
+      name: 'Negative',
       type: 'bar',
       marker: {
         color: 'rgba(219, 64, 82, 0.7)',
@@ -73,48 +113,15 @@ export class WaterfallChartComponent implements OnInit {
       }
     };
 
-    // Profit
-
-    const trace4 = {
-      x: xData,
-      y: [0, 0, 0, 0, 0, 0, 370],
-      type: 'bar',
-      marker: {
-        color: 'rgba(50,171, 96, 0.7)',
-        line: {
-          color: 'rgba(50,171,96,1.0)',
-          width: 2
-        }
-      }
-    };
-
-    const data = [trace1, trace2, trace3, trace4];
+    const data = [trace1, trace2, trace3];
 
     const layout = {
-      title: 'Annual Profit 2015',
       barmode: 'stack',
-      paper_bgcolor: 'rgba(245,246,249,1)',
-      plot_bgcolor: 'rgba(245,246,249,1)',
-      width: 600,
-      height: 600,
+      width: this.width,
+      height: this.height - 40,
       showlegend: false,
       annotations: []
     };
-
-    for ( let i = 0 ; i < 7 ; i++ ) {
-      const result = {
-        x: xData[i],
-        y: yData[i],
-        text: textList[i],
-        font: {
-          family: 'Arial',
-          size: 14,
-          color: 'rgba(245,246,249,1)'
-        },
-        showarrow: false
-      };
-      layout.annotations.push(result);
-    }
 
     Plotly.newPlot(this.test.element.nativeElement, data, layout);
   }

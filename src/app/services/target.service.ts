@@ -52,8 +52,6 @@ export class TargetService {
     const cf = crossfilter(this.originalData);
     this.dataByDate = cf.dimension((row) => row['fecha']);
 
-    console.log('TARGET', this.dataByDate.group().all());
-
     const addReduce = (p, v) => {
       p.push({
         key: `${v['tipo_target']}.${v['kpi_nombre']}.${v['fase']}`,

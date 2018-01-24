@@ -1,0 +1,126 @@
+<app-top-bar [title]="'CIGO'"></app-top-bar>
+<div class="cigo-container">
+  <div class="header-container">
+    <div class="title-container">
+
+    </div>
+    <div class="subtitle-container">
+      <div class="name-tab">
+        {{title}}
+      </div>
+      <div class="total-tab">
+        <div class="tons">
+          <p>Total Tons</p>
+          <p>{{totalTons}}</p>
+        </div>
+        <div class="viajes">
+            <p>Total Viajes</p>
+            <p>{{totalViajes}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body-container" *ngIf="showTable">
+    <div class="table-container first" >
+      <div class="table-sub-container">
+        <div class="table-field">
+            <table style="width:100%">
+                <tr>
+                  <th *ngFor="let col of columns">
+                    {{col.name}}
+                  </th>
+                </tr>
+                <tr *ngFor="let row of firstData">
+                  <td *ngFor="let col of columns">
+                    {{row[col.value]}}
+                  </td>
+                </tr>
+            </table>
+        </div>
+        <div class="chart-container">
+          <div class="prueba">
+            <ngx-charts-line-chart
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="firstTableData"
+              [gradient]="false"
+              [xAxis]="false"
+              [yAxis]="false"
+              [legend]="false"
+              [showXAxisLabel]="false"
+              [showYAxisLabel]="false"
+              [autoScale]="true"
+              (select)="onSelect($event)">
+            </ngx-charts-line-chart>
+          </div>
+          </div>
+      </div>
+    </div>
+    <div class="table-container second">
+      <div class="table-sub-container">
+        <div class="table-field">
+            <table style="width:100%">
+                <tr>
+                  <th *ngFor="let col of columns2">
+                    {{col.name}}
+                  </th>
+                </tr>
+                <tr *ngFor="let row of firstData">
+                  <td *ngFor="let col of columns2">
+                    {{row[col.value].toFixed(2)}}
+                  </td>
+                </tr>
+            </table>
+        </div>
+        <div class="chart-container">
+          <div class="prueba">          
+            <ngx-charts-line-chart
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="secondTableData"
+              [gradient]="false"
+              [xAxis]="false"
+              [yAxis]="false"
+              [legend]="false"
+              [showXAxisLabel]="false"
+              [showYAxisLabel]="false"
+              [autoScale]="true"
+              (select)="onSelect($event)">
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-container last">
+      <div class="table-sub-container">
+        <table style="width:100%">
+            <tr>
+              <th *ngFor="let col of columns3">
+                {{col.name}}
+              </th>
+            </tr>
+            <tr *ngFor="let row of firstData">
+              <td *ngFor="let col of columns3">
+                {{row[col.value].toFixed(2)}}
+              </td>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <!-- <div class="table-container last">
+      <ngx-datatable
+        class="table-chart"
+        [rows]="firstData"
+        [columns]="columns3"
+        [headerHeight]="50"
+        [rowHeight]="30"
+        [footerHeight]="50">
+        <ngx-datatable-column *ngFor="let col of columns3" [name]="col.name">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row[col.value].toFixed(2)}}
+        </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div> -->
+  </div>
+</div>

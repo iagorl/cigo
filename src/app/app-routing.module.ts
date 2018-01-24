@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CgiPageComponent } from './pages/cgi/cgi.component';
 import { ParetoPageComponent } from './pages/pareto/pareto.component';
 import { FuelPageComponent } from './pages/fuel/fuel.component';
+import { CigoPageComponent } from './pages/cigo/cigo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'cdi', pathMatch: 'full'},
   { path: 'fuel', component: FuelPageComponent },
   { path: 'cdi', component: CgiPageComponent},
+  { path: 'cigo', component: CigoPageComponent },
   { path: 'pareto', component: ParetoPageComponent },
   { path: '**', redirectTo: '' }
 ];
