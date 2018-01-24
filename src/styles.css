@@ -9,6 +9,12 @@ body {
   background-color: #DFE3EB;
   margin: 0px;
   height: 100vh;
+  color: rgba(1, 42, 119, 1);
+  font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+  letter-spacing: 2px;
 }
 
 div.mat-checkbox-inner-container {

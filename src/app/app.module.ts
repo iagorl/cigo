@@ -41,6 +41,7 @@ import { ParetoComboComponent } from './components/pareto-chart/combo/combo.comp
 import { ParetoVerticalSeriesComponent } from './components/pareto-chart/vertical-series/vertical-series.component';
 
 import { CgiPageComponent } from './pages/cgi/cgi.component';
+import { HomePageComponent } from './pages/home/home.component';
 import { ParetoPageComponent } from './pages/pareto/pareto.component';
 import { FuelPageComponent } from './pages/fuel/fuel.component';
 import { WaterfallChartComponent } from './components/waterfall-chart/waterfall-chart.component';
@@ -71,6 +72,7 @@ const Pages = [
   ParetoPageComponent,
   CgiPageComponent,
   FuelPageComponent,
+  HomePageComponent,
   CigoPageComponent
 ];
 
