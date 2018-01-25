@@ -40,7 +40,7 @@ import { TableComponent } from './components/table/table.component';
 import { ParetoComboComponent } from './components/pareto-chart/combo/combo.component';
 import { ParetoVerticalSeriesComponent } from './components/pareto-chart/vertical-series/vertical-series.component';
 
-import { CgiPageComponent } from './pages/cgi/cgi.component';
+import { CdiPageComponent } from './pages/cdi/cdi.component';
 import { HomePageComponent } from './pages/home/home.component';
 import { ParetoPageComponent } from './pages/pareto/pareto.component';
 import { FuelPageComponent } from './pages/fuel/fuel.component';
@@ -70,7 +70,7 @@ const Components = [
 
 const Pages = [
   ParetoPageComponent,
-  CgiPageComponent,
+  CdiPageComponent,
   FuelPageComponent,
   HomePageComponent,
   CigoPageComponent

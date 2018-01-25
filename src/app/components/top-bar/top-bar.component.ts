@@ -9,6 +9,8 @@ import { Location } from '@angular/common'
 })
 export class TopBarComponent implements OnInit {
   headerTitle: string = '';
+  router: Router;
+  location: Location;
   constructor(
     _router: Router,
     _location: Location

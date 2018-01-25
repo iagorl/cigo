@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ViewService } from '../../services/view.service';
 
 @Component({
-  selector: 'app-cgi',
-  templateUrl: './cgi.component.html',
-  styleUrls: ['./cgi.component.scss']
+  selector: 'app-cdi',
+  templateUrl: './cdi.component.html',
+  styleUrls: ['./cdi.component.scss']
 })
-export class CgiPageComponent {
+export class CdiPageComponent {
   title = 'app';
   fieldOptions = [
     {
