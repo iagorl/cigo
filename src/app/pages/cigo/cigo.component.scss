@@ -1,4 +1,9 @@
 .cigo-container {
+  margin: 10px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 1px #4981FD;
+  padding: 30px;
   .body-container {
     display: flex;
     height: 100%;
@@ -19,14 +24,25 @@
           }
         }
       }
+      &.first, &.second, &.last {
+        flex: 1;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 0 0 3px 3px;
+        th {
+          border-bottom: 1px solid #e2e2e2;
+        }
+        tr:last-child {
+          border-top: 1px solid #e2e2e2;
+        }
+      }
+      &.first, &.second {
+        margin-right: 10px;
+      }
       &.first {
-        flex: 1
-      }
-      &.second {
-        flex: 1
-      }
-      &.last {
-        flex: 1
+        td:first-child, th:first-child {
+          border-right: 1px solid #e2e2e2;
+        }
       }
       .datatable-header {
         font-size: 10px;
@@ -38,25 +54,40 @@ tr {
   text-align: center;
   height: 30px;
   font-size: 13px;
+  &:nth-of-type(odd){
+    background: #ffffff;
+  }
+}
+td, th {
+  padding: 5px;
 }
 th {
   height: 50px;
-  font-size: 13px;  
+  font-size: 13px;
 }
 
 .subtitle-container {
   display: flex;
-  .name-tab {
+  margin-bottom: 10px;
+  background-color: #e2e2e2;
+  border-radius: 3px 3px 0 0;
+  .name-tab, .total-tab {
+    display: flex;
     flex: 1;
+    padding: 15px 30px;
+    align-items: center;
+    h3, h2 {
+      margin: 0;
+      &:last-child {
+        font-weight: 400;
+      }
+    }
+  }
+  .name-tab {
+    flex-direction: column;
+    justify-content: center;
   }
   .total-tab {
-    flex: 1;
-    display: flex;
-    .tons {
-      flex: 1;
-    }
-    .viajes {
-      flex: 1;
-    }
+    justify-content: space-around;
   }
 }
