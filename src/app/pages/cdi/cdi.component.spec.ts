@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CgiComponent } from './cgi.component';
+import { CdiComponent } from './cdi.component';
 
-describe('CgiComponent', () => {
-  let component: CgiComponent;
-  let fixture: ComponentFixture<CgiComponent>;
+describe('CdiComponent', () => {
+  let component: CdiComponent;
+  let fixture: ComponentFixture<CdiComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CgiComponent ]
+      declarations: [ CdiComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CgiComponent);
+    fixture = TestBed.createComponent(CdiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, PreloadAllModules, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CgiPageComponent } from './pages/cgi/cgi.component';
+import { CdiPageComponent } from './pages/cdi/cdi.component';
+import { HomePageComponent } from './pages/home/home.component';
 import { ParetoPageComponent } from './pages/pareto/pareto.component';
 import { FuelPageComponent } from './pages/fuel/fuel.component';
 import { CigoPageComponent } from './pages/cigo/cigo.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'cdi', pathMatch: 'full'},
+  { path: '', component: HomePageComponent },
   { path: 'fuel', component: FuelPageComponent },
-  { path: 'cdi', component: CgiPageComponent},
+  { path: 'cdi', component: CdiPageComponent},
   { path: 'cigo', component: CigoPageComponent },
   { path: 'pareto', component: ParetoPageComponent },
   { path: '**', redirectTo: '' }
@@ -27,5 +28,3 @@ const routes: Routes = [
   providers: []
 })
 export class AppRoutingModule { }
-
-
