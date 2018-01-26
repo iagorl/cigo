@@ -55,7 +55,7 @@ div.mat-checkbox-inner-container {
   max-width: 100px;
 }
 .datatable-header-cell-label {
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 .datatable-body-row {
   font-size: 13px;
