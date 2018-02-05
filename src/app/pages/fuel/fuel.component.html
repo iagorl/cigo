@@ -3,7 +3,14 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="charts-container">
-    <app-control-chart (change)="test($event)" [fieldOptions]="fieldOptions" [budgetOptions]="budgetOptions"></app-control-chart>
+    <app-filter (change)="test($event)" [options]="fieldOptions"></app-filter>
+
+    <app-control-chart
+    [pageDescriptor]="'fuel'"
+    (change)="test($event)" 
+    [fieldOptions]="fieldOptions2" 
+    [budgetOptions]="budgetOptions">
+  </app-control-chart>
     <app-scatter-chart></app-scatter-chart>
   </div>
   <div class="sidebar-container right">

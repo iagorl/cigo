@@ -3,7 +3,12 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="charts-container">
-    <app-control-chart (change)="test($event)" [fieldOptions]="fieldOptions" [budgetOptions]="budgetOptions"></app-control-chart>
+    <app-control-chart 
+      [pageDescriptor]="'cdi'"
+      (change)="test($event)"
+      [fieldOptions]="fieldOptions"
+      [budgetOptions]="budgetOptions">
+    </app-control-chart>
     <!-- <app-scatter-chart></app-scatter-chart> -->
     <div class="duo-charts-container">
       <div class="duo-chart first">

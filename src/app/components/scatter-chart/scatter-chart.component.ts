@@ -23,53 +23,61 @@ export class ScatterChartComponent implements OnInit {
     {
       name: 'KPI1',
       options: [
-        {value: 'Distancia', text: 'Distancia'},
-        {value: 'Extraccion', text: 'Extraccion'},
-        {value: 'Oper. Truck', text: 'Oper. Truck'},
-        {value: 'Remanejo', text: 'Remanejo'},
-        {value: 'Velocidad', text: 'Velocidad'},
+        {value: 'litros', text: 'Litros'},
+        {value: 'consumo', text: 'Consumo'},
+        {value: 'energia', text: 'Energia'},
+        {value: 'co2_equiv', text: 'co2_equiv'},
+        {value: 'movimiento_total', text: 'Movimiento Total'},
+        {value: 'l_kt', text: 'l_kt'},
+        {value: 'tiempo_operativo', text: 'Tiempo Operativo'},
+        {value: 'l_h', text: 'l_h'},
+        {value: 'dist_media', text: 'Dist.Media'},
+        {value: 'l_kt_km', text: 'l_kt_km'},
+        {value: 't_h', text: 't_h'},
+        {value: 'kt_km', text: 'kt_km'},
       ],
-      selected: 'Distancia'
+      selected: 'consumo'
     },
     {
       name: 'KPI2',
       options: [
-        {value: 'Distancia', text: 'Distancia'},
-        {value: 'Extraccion', text: 'Extraccion'},
-        {value: 'Oper. Truck', text: 'Oper. Truck'},
-        {value: 'Remanejo', text: 'Remanejo'},
-        {value: 'Velocidad', text: 'Velocidad'},
+        {value: 'litros', text: 'Litros'},
+        {value: 'consumo', text: 'Consumo'},
+        {value: 'energia', text: 'Energia'},
+        {value: 'co2_equiv', text: 'co2_equiv'},
+        {value: 'movimiento_total', text: 'Movimiento Total'},
+        {value: 'l_kt', text: 'l_kt'},
+        {value: 'tiempo_operativo', text: 'Tiempo Operativo'},
+        {value: 'l_h', text: 'l_h'},
+        {value: 'dist_media', text: 'Dist.Media'},
+        {value: 'l_kt_km', text: 'l_kt_km'},
+        {value: 't_h', text: 't_h'},
+        {value: 'kt_km', text: 'kt_km'},
       ],
-      selected: 'Extraccion'
+      selected: 'movimiento_total'
     },
     {
       name: 'KPI3',
       options: [
-        {value: 'Distancia', text: 'Distancia'},
-        {value: 'Extraccion', text: 'Extraccion'},
-        {value: 'Oper. Truck', text: 'Oper. Truck'},
-        {value: 'Remanejo', text: 'Remanejo'},
-        {value: 'Velocidad', text: 'Velocidad'},
+        {value: 'litros', text: 'Litros'},
+        {value: 'consumo', text: 'Consumo'},
+        {value: 'energia', text: 'Energia'},
+        {value: 'co2_equiv', text: 'co2_equiv'},
+        {value: 'movimiento_total', text: 'Movimiento Total'},
+        {value: 'l_kt', text: 'l_kt'},
+        {value: 'tiempo_operativo', text: 'Tiempo Operativo'},
+        {value: 'l_h', text: 'l_h'},
+        {value: 'dist_media', text: 'Dist.Media'},
+        {value: 'l_kt_km', text: 'l_kt_km'},
+        {value: 't_h', text: 't_h'},
+        {value: 'kt_km', text: 'kt_km'},
       ],
-      selected: 'Oper. Truck'
-    },
-    {
-      name: 'Fase',
-      options: [
-        {value: 'Casino 2', text: 'Casino 2'},
-        {value: 'Donoso 1', text: 'Donoso 1'},
-        {value: 'Donoso 2', text: 'Donoso 2'},
-        {value: 'Infiernillo 5', text: 'Infiernillo 5'},
-        {value: 'Infirenillo 7A', text: 'Infirenillo 7A'},
-        {value: 'Total Fases', text: 'Total Fases'},
-      ],
-      selected: 'Total Fases'
+      selected: 'dist_media'
     },
   ];
 
-  selectedFase: string = 'Total Fases';
   selectedKey: string = 'x';
-  selectedField: string = 'Distancia';
+  selectedField: string = 'litros';
 
   ngOnInit() {
     this.drawScatter();
@@ -90,7 +98,7 @@ export class ScatterChartComponent implements OnInit {
           marker: {
             size: 5,
             line: {
-            color: 'rgba(217, 217, 217, 0.14)',
+            color: 'rgba(0, 0, 0, 0.75)',
             width: 0.5},
             opacity: 1},
           type: 'scatter3d'
@@ -140,23 +148,19 @@ export class ScatterChartComponent implements OnInit {
         this.selectedKey = 'x';
         this.fieldX = event.value;
         this.selectedField = event.value;
-        this.data.changeScatterData('x', event.value, this.selectedFase);
+        this.data.changeScatterFuelData('x', event.value);
         break;
         case 'KPI2':
         this.selectedKey = 'y';
         this.fieldY = event.value;
         this.selectedField = event.value;
-        this.data.changeScatterData('y', event.value, this.selectedFase);
+        this.data.changeScatterFuelData('y', event.value);
         break;
         case 'KPI3':
         this.selectedKey = 'z';
         this.fieldZ = event.value;
         this.selectedField = event.value;
-        this.data.changeScatterData('z', event.value, this.selectedFase);
-        break;
-      case 'Fase':
-        this.selectedFase = event.value;
-        this.data.changeScatterData(this.selectedKey, this.selectedField, event.value);
+        this.data.changeScatterFuelData('z', event.value);
         break;
     }
   }
