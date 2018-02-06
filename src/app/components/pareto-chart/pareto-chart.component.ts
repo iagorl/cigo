@@ -23,7 +23,7 @@ export class ParetoChartComponent implements OnInit {
     domain: ['#1774F0']
   };
   colorSchemeLine = {
-    domain: ['red', '#1774F0']
+    domain: ['#1774F0', 'red']
   };
   width: number;
   height: number;
@@ -31,10 +31,10 @@ export class ParetoChartComponent implements OnInit {
   showXAxis = true;
   showYAxis = true;
   showLegend = true;
-  showXAxisLabel = true;
+  showXAxisLabel = false;
   showYAxisLabel = true;
-  xAxisLabel = 'Date';
-  yAxisLabel = 'ATM';
+  xAxisLabel = 'Horas';
+  yAxisLabel = 'Horas';
   autoScale = true;
   animations = false;
   selectedX = '';
@@ -154,4 +154,5 @@ export class ParetoChartComponent implements OnInit {
   doChange(event) {
     this.change.emit(event);
   }
+
 }

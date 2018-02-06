@@ -1,5 +1,5 @@
 <div class="chart-container" #target>
-  <app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
+  <app-filter (change)="doChange($event)" [options]="fieldOptions" ></app-filter>
       
   <pareto-combo
     [view]="[width, height]"
@@ -20,7 +20,7 @@
     [showRightYAxisLabel]="showYAxisLabel"
     [xAxisLabel]="xAxisLabel"
     [yAxisLabel]="yAxisLabel"
-    [yAxisLabelRight]="'Cummulative Percentage'"
+    [yAxisLabelRight]="'Porcentaje Acumulado'"
     (select)="onSelect($event)"
     >
   </pareto-combo>

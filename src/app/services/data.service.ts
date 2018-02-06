@@ -70,7 +70,7 @@ export class DataService {
   dataSelectedScatter: { 'x': string; 'y': string; 'z': string; };
   selectedFuelControl: string;
   originalData: SampleData[];
-  originalParetoData: SampleParetoData[];
+  originalParetoData: SampleData[];
   originalFuelData: SampleFuelData[];
   data: ChartData[];
   currentData: ChartData;
@@ -79,7 +79,7 @@ export class DataService {
 
   dataHist$: BehaviorSubject<ChartData[]>;
   dataControlFuel$: BehaviorSubject<any[]>;
-  dataPareto$: BehaviorSubject<ChartData[]>;
+  dataPareto$: BehaviorSubject<any[]>;
   dataParetoCumm$: BehaviorSubject<ChartData[]>;
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
@@ -100,7 +100,7 @@ export class DataService {
     this.dataHist$ = new BehaviorSubject<ChartData[]>([]);
     this.dataControl$ = new BehaviorSubject<ChartData[]>([]);
     this.dataControlFuel$ = new BehaviorSubject<any[]>([]);
-    this.dataPareto$ = new BehaviorSubject<ChartData[]>([]);
+    this.dataPareto$ = new BehaviorSubject<any[]>([]);
     this.dataParetoCumm$ = new BehaviorSubject<ChartData[]>([]);
     this.warnings = [];
     this.innerWarnings$ = new BehaviorSubject<WarningDict[]>([]);
@@ -117,6 +117,48 @@ export class DataService {
   getData() {
     const fases = {};
     this.http.get<SampleData[]>('/assets/dataSEP.json').subscribe((data) => {
+      const crossf = crossfilter(data);
+
+      const dataByDate = crossf.dimension((row) =>
+      (row['Motivo_Nivel_1'] + '.' + row['ModoFallaDescripcion'] + '.' + row['EquipoId']));
+
+      const addReduce = (p, v) => {
+        p = {
+          id: v['EquipoId'],
+          nombre: v['EquipoNombre'],
+          falla: v['Motivo_Nivel_1'] + ' - ' + v['ModoFallaDescripcion'],
+          duracion: v['duracion_segs'],
+          fechaFin: v['FechaFin'],
+          fechaInicio: v['FechaInicio']
+        };
+        return p;
+      };
+      const removeReduce = (p, v) => {
+        return p;
+      };
+      const initReduce = () => {
+        return {
+        };
+      };
+
+
+      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
+      .map(elem => {
+        const timeInSec = Number(elem.value.duracion);
+        return {
+          key: elem.key,
+          fechaFin: elem.value.fechaFin,
+          fechaInicio: elem.value.fechaInicio,
+          falla: elem.value.falla,
+          value: timeInSec,
+          duracion: elem.value.duracion,
+          id: elem.value.id
+        };
+
+      });
+
+      this.originalParetoData = chartsValue;
+      this.chageParetoData('106');
     });
     this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
       this.originalData = data;
@@ -151,52 +193,6 @@ export class DataService {
       this.changeData('Distancia', 'Total Fases');
       this.changeHistogramData('Extraccion', 'Total Fases');
       this.fasesList = Object.keys(fases);
-    });
-    this.http.get<SampleParetoData[]>('/assets/paretoData.json').subscribe((data) => {
-      this.originalParetoData = data;
-      const crossf = crossfilter(this.originalParetoData);
-
-      const dataByDate = crossf.dimension((row) => row['date']);
-
-      const addReduce = (p, v) => {
-        p = {
-          team: v['team'],
-          value: v['hours']
-        };
-        return p;
-      };
-      const removeReduce = (p, v) => {
-        return p;
-      };
-      const initReduce = () => {
-        return {
-        };
-      };
-
-      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
-      .map(elem => {
-        return {
-          name: new Date(elem.key),
-          team: elem.value.team,
-          value: elem.value.value
-        };
-      });
-
-      const totalValue = chartsValue.reduce((cumm, next) => cumm + next.value, 0);
-
-      const chartsValue2 = chartsValue.map((elem, idx) => {
-        return {
-          name: elem.name,
-          team: elem.team,
-          value: chartsValue.slice(0, idx + 1).reduce((cumm, next) => {
-            return cumm + next.value;
-          }, 0) / totalValue
-        };
-      });
-      console.log('pareto', chartsValue);
-      console.log('parto Test', chartsValue2);
-      this.dataPareto$.next(chartsValue);
-      this.dataParetoCumm$.next([{name: 'Cummulative', series: chartsValue2}]);
     });
     this.http.get<SampleFuelData[]>('/assets/dataFuel.json').subscribe((data) => {
       const testTipo = {};
@@ -240,6 +236,35 @@ export class DataService {
     });
   }
 
+  chageParetoData(target: string) {
+    let totalValue = 0;
+    const filteredData = this.originalParetoData.filter(elem => {
+      if (elem['id'] === target) {
+        totalValue += elem['value'];
+        return true;
+      }
+      return false;
+    });
+    const orderedData = filteredData.sort((a, b) => {
+      return b['value'] - a['value'];
+    });
+    const toPercentaje = orderedData.map((elem, index) => {
+      elem['name'] = index;
+      elem['value'] = Number((elem['value'] * 100 / totalValue).toFixed(2));
+      return elem;
+    });
+    let totalSum = 0;
+    const chartsValue2 = toPercentaje.map((elem) => {
+      totalSum = Number((totalSum + elem['value']).toFixed(2));
+      return {
+        name: elem['name'],
+        value: totalSum
+      };
+    });
+    console.log(toPercentaje);
+    this.dataPareto$.next(toPercentaje);
+    this.dataParetoCumm$.next([{name: 'Acumulado', series: chartsValue2}]);
+  }
   changeData(field: string, fase: string) {
     const dataForField = this.data.find(d => d.name === field);
     const newSeries = dataForField.series.filter((d) => d.fase === fase);

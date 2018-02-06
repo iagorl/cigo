@@ -1,5 +1,4 @@
-{
-  "Datos diarios": [
+[
       {
           "EquipoId": "113",
           "EquipoNombre": "Circuito SAG 2",
@@ -16238,4 +16237,3 @@
           "duracion_segs": "3635"
       }
   ]
-}
