@@ -7,6 +7,7 @@ import { CommentsService, Comment } from '../../services/comments.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/combineLatest';
 import { TargetService } from '../../services/target.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Component({
@@ -17,6 +18,8 @@ import { TargetService } from '../../services/target.service';
 export class ControlChartComponent implements OnInit {
 
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
+
+  @Input() pageDescriptor: string;
 
   @Input() fieldOptions;
   @Input() budgetOptions;
@@ -64,14 +67,13 @@ export class ControlChartComponent implements OnInit {
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
     this.height -= 110;
     this.dataService.colorSet$.do(set => this.colorScheme = {domain: set}).subscribe();
-    this.data$ = this.dataService.dataControl$;
-    this.targetData$ = this.targetService.target$;
-    this.rangeData$ = this.rangeService.rangeData$;
     this.viewService.activeView$.do( view => this.selectedView = view.length ? true : false).subscribe();
-    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
-      .map(data => {
-        return [...data[0], ...data[1], ...data[2]];
-      });
+    if (this.pageDescriptor === 'cdi') {
+      this.setCdiPage();
+    } else {
+      this.setFuelPage();
+    }
+
     this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
     this.activeComment$ = this.commentService.activeComment$.map(comment => {
       if (!comment) {
@@ -127,6 +129,26 @@ export class ControlChartComponent implements OnInit {
           return data[0];
         }
       });
+  }
+
+  setFuelPage() {
+    this.targetData$ = new BehaviorSubject([]);
+    this.rangeData$ = this.rangeService.rangeData$;
+    this.data$ = this.dataService.dataControlFuel$;
+    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
+    .map(data => {
+      return [...data[0], ...data[1], ...data[2]];
+  });
+  }
+
+  setCdiPage() {
+    this.targetData$ = this.targetService.target$;
+    this.rangeData$ = this.rangeService.rangeData$;
+    this.data$ = this.dataService.dataControl$;
+    this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
+    .map(data => {
+      return [...data[0], ...data[1], ...data[2]];
+  });
   }
 
   onSelect(event) {

@@ -37,6 +37,7 @@ export class RangeService {
   rangeData$: BehaviorSubject<ChartData[]>;
   activated$: Observable<boolean>;
   subscription: Subscription;
+  isCdi: boolean;
 
   alerts: {};
 
@@ -45,14 +46,15 @@ export class RangeService {
     private view: ViewService,
     private http: HttpClient,
   ) {
+  }
+  initRanges(loadData: boolean) {
     this.possibleID = 0;
     this.ranges = [];
     this.ranges$ = new BehaviorSubject<Range[]>(this.ranges);
     this.rangeData$ = new BehaviorSubject<ChartData[]>([]);
     this.activated$ = this.view.activeView$.map(val => val === 'range');
-
     this.dataservice.dataControl$.map(d => d.length > 0).take(2).subscribe(val => {
-      if (val && this.ranges.length === 0) {
+      if (val && this.ranges.length === 0 && loadData) {
         this.getRanges();
       }
     });
@@ -106,7 +108,7 @@ export class RangeService {
         ]
       };
     }));
-    this.dataservice.studyData(range);
+    this.dataservice.studyData(range, this.isCdi);
   }
 
   addRange(name: string, minX: string, maxX: string, limitPoints: Offset[]) {
@@ -131,7 +133,7 @@ export class RangeService {
         ]
       };
     }));
-    this.dataservice.studyData(newRange);
+    this.dataservice.studyData(newRange, this.isCdi);
   }
 
   editRange(id: number, name: string, minX: string, maxX: string, limitPoints: Offset[]) {

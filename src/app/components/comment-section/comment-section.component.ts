@@ -13,6 +13,8 @@ import { ViewService } from '../../services/view.service';
 export class CommentSectionComponent implements OnInit {
   comments$: Observable<Comment[]>;
   active$: Observable<number|null>;
+  isActive = false;
+  toggleActive = false;
   activeCoords$: Observable<Coordinates>;
 
   constructor(private commentService: CommentsService, private viewService: ViewService) { }
@@ -30,7 +32,8 @@ export class CommentSectionComponent implements OnInit {
   }
 
   toggle(event) {
-    this.viewService.activate(event ? 'comment' : '');
+    this.toggleActive = !this.toggleActive;
+    this.viewService.activate(this.toggleActive ? 'comment' : '');
   }
 
   activateComment(id: number) {
@@ -41,9 +44,17 @@ export class CommentSectionComponent implements OnInit {
     this.commentService.addComment(comment.title, comment.text, comment.coordinates);
     this.onCancel();
   }
+  toggleClick() {
+    this.isActive = !this.isActive;
+    this.toggleActive = true;
+    this.viewService.activate(this.isActive ? 'comment' : '');
+  }
 
   onCancel() {
     this.commentService.activateCoordinate();
+    if (this.isActive) {
+      this.toggleClick();
+    }
   }
 
 }

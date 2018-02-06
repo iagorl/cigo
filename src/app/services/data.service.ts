@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import * as crossfilter from 'crossfilter2';
 import { Range, Offset } from './range.service';
+import * as moment from 'moment';
 
 export interface ChartSeries {
   name: any;
@@ -33,6 +34,23 @@ export interface SampleParetoData {
   mttr: number;
 }
 
+export interface SampleFuelData {
+  name: string;
+  fecha: Date;
+  litros: number;
+  consumo: number;
+  energia: number;
+  co2_equiv: number;
+  movimiento_total: number;
+  l_kt: number;
+  tiempo_operativo: number;
+  l_h: number;
+  dist_media: number;
+  l_kt_km: number;
+  t_h: number;
+  kt_km: number;
+}
+
 export interface Warning {
   complete: boolean;
   first: Date;
@@ -49,14 +67,19 @@ export interface WarningDict {
 
 @Injectable()
 export class DataService {
+  dataSelectedScatter: { 'x': string; 'y': string; 'z': string; };
+  selectedFuelControl: string;
   originalData: SampleData[];
-  originalParetoData: SampleParetoData[];
+  originalParetoData: SampleData[];
+  originalFuelData: SampleFuelData[];
   data: ChartData[];
   currentData: ChartData;
   currentHistData: ChartData;
   dataControl$: BehaviorSubject<ChartData[]>;
+
   dataHist$: BehaviorSubject<ChartData[]>;
-  dataPareto$: BehaviorSubject<ChartData[]>;
+  dataControlFuel$: BehaviorSubject<any[]>;
+  dataPareto$: BehaviorSubject<any[]>;
   dataParetoCumm$: BehaviorSubject<ChartData[]>;
   dataScatter: {x: ChartData, y: ChartData, z: ChartData};
   dataScatter$: BehaviorSubject<{x: ChartData, y: ChartData, z: ChartData}>;
@@ -67,6 +90,7 @@ export class DataService {
   cf: any;
   fasesList: string[];
   kpiList: string[] = [];
+  currentFuelData: any;
 
   dataByDate: any;
   originalDataByDate: any;
@@ -75,7 +99,8 @@ export class DataService {
     this.data = [];
     this.dataHist$ = new BehaviorSubject<ChartData[]>([]);
     this.dataControl$ = new BehaviorSubject<ChartData[]>([]);
-    this.dataPareto$ = new BehaviorSubject<ChartData[]>([]);
+    this.dataControlFuel$ = new BehaviorSubject<any[]>([]);
+    this.dataPareto$ = new BehaviorSubject<any[]>([]);
     this.dataParetoCumm$ = new BehaviorSubject<ChartData[]>([]);
     this.warnings = [];
     this.innerWarnings$ = new BehaviorSubject<WarningDict[]>([]);
@@ -91,6 +116,50 @@ export class DataService {
 
   getData() {
     const fases = {};
+    this.http.get<SampleData[]>('/assets/dataSEP.json').subscribe((data) => {
+      const crossf = crossfilter(data);
+
+      const dataByDate = crossf.dimension((row) =>
+      (row['Motivo_Nivel_1'] + '.' + row['ModoFallaDescripcion'] + '.' + row['EquipoId']));
+
+      const addReduce = (p, v) => {
+        p = {
+          id: v['EquipoId'],
+          nombre: v['EquipoNombre'],
+          falla: v['Motivo_Nivel_1'] + ' - ' + v['ModoFallaDescripcion'],
+          duracion: v['duracion_segs'],
+          fechaFin: v['FechaFin'],
+          fechaInicio: v['FechaInicio']
+        };
+        return p;
+      };
+      const removeReduce = (p, v) => {
+        return p;
+      };
+      const initReduce = () => {
+        return {
+        };
+      };
+
+
+      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
+      .map(elem => {
+        const timeInSec = Number(elem.value.duracion);
+        return {
+          key: elem.key,
+          fechaFin: elem.value.fechaFin,
+          fechaInicio: elem.value.fechaInicio,
+          falla: elem.value.falla,
+          value: timeInSec,
+          duracion: elem.value.duracion,
+          id: elem.value.id
+        };
+
+      });
+
+      this.originalParetoData = chartsValue;
+      this.chageParetoData('106');
+    });
     this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
       this.originalData = data;
       const addReduce = (p, v) => {
@@ -123,63 +192,120 @@ export class DataService {
       this.data = finalData;
       this.changeData('Distancia', 'Total Fases');
       this.changeHistogramData('Extraccion', 'Total Fases');
-      this.changeScatterData('x', 'Distancia', 'Total Fases');
-      this.changeScatterData('y', 'Extraccion', 'Total Fases');
-      this.changeScatterData('z', 'Oper. Truck', 'Total Fases');
-      // this.data$.next(finalData);
       this.fasesList = Object.keys(fases);
     });
-    this.http.get<SampleParetoData[]>('/assets/paretoData.json').subscribe((data) => {
-      this.originalParetoData = data;
-      const crossf = crossfilter(this.originalParetoData);
-
-      const dataByDate = crossf.dimension((row) => row['date']);
+    this.http.get<SampleFuelData[]>('/assets/dataFuel.json').subscribe((data) => {
+      const testTipo = {};
+      const testFlota = {};
+      const testEquipo = {};
+      this.originalFuelData = data;
 
       const addReduce = (p, v) => {
-        p = {
-          team: v['team'],
-          value: v['hours']
+        const realDate =
+          ( '' + v['fecha']).substring(0, 4) + '-' +
+          ( '' + v['fecha']).substring(4, 6) + '-' +
+          ( '' + v['fecha']).substring(6, 8);
+        const elem = {
+          name: v['tipo'] + '.' + v['flota'] + '.' + v['equipo'],
+          fecha: realDate,
+          litros: v['litros'],
+          consumo: Number(( '' + v['consumo']).replace(',', '.')),
+          energia: Number(( '' + v['energia']).replace(',', '.')),
+          co2_equiv: Number(( '' + v['co2_equiv']).replace(',', '.')),
+          movimiento_total: Number(( '' + v['movimiento_total']).replace(',', '.')),
+          l_kt: Number(( '' + v['l_kt']).replace(',', '.')),
+          tiempo_operativo: Number(( '' + v['tiempo_operativo']).replace(',', '.')),
+          l_h: Number(( '' + v['l_h']).replace(',', '.')),
+          dist_media: Number(( '' + v['dist_media']).replace(',', '.')),
+          l_kt_km: Number(( '' + v['l_kt_km']).replace(',', '.')),
+          t_h: Number(( '' + v['t_h']).replace(',', '.')),
+          kt_km: Number(( '' + v['kt_km']).replace(',', '.')),
         };
+        p.push(elem);
         return p;
       };
-      const removeReduce = (p, v) => {
-        return p;
+      this.originalFuelData = this.originalFuelData.reduce(addReduce, []);
+      this.selectedFuelControl = 'litros';
+      this.dataSelectedScatter = {
+        'x': 'consumo',
+        'y': 'movimiento_total',
+        'z': 'dist_media'
       };
-      const initReduce = () => {
-        return {
-        };
-      };
 
-      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
-      .map(elem => {
-        return {
-          name: new Date(elem.key),
-          team: elem.value.team,
-          value: elem.value.value
-        };
-      });
-
-      const totalValue = chartsValue.reduce((cumm, next) => cumm + next.value, 0);
-
-      const chartsValue2 = chartsValue.map((elem, idx) => {
-        return {
-          name: elem.name,
-          team: elem.team,
-          value: chartsValue.slice(0, idx + 1).reduce((cumm, next) => {
-            return cumm + next.value;
-          }, 0) / totalValue
-        };
-      });
-      this.dataPareto$.next(chartsValue);
-      this.dataParetoCumm$.next([{name: 'Cummulative', series: chartsValue2}]);
+      this.changeFuelData('Camion', 'CAT 795F', 'CAC201');
     });
   }
 
+  chageParetoData(target: string) {
+    let totalValue = 0;
+    const filteredData = this.originalParetoData.filter(elem => {
+      if (elem['id'] === target) {
+        totalValue += elem['value'];
+        return true;
+      }
+      return false;
+    });
+    const orderedData = filteredData.sort((a, b) => {
+      return b['value'] - a['value'];
+    });
+    const toPercentaje = orderedData.map((elem, index) => {
+      elem['name'] = index;
+      elem['value'] = Number((elem['value'] * 100 / totalValue).toFixed(2));
+      return elem;
+    });
+    let totalSum = 0;
+    const chartsValue2 = toPercentaje.map((elem) => {
+      totalSum = Number((totalSum + elem['value']).toFixed(2));
+      return {
+        name: elem['name'],
+        value: totalSum
+      };
+    });
+    this.dataPareto$.next(toPercentaje);
+    this.dataParetoCumm$.next([{name: 'Acumulado', series: chartsValue2}]);
+  }
   changeData(field: string, fase: string) {
     const dataForField = this.data.find(d => d.name === field);
     const newSeries = dataForField.series.filter((d) => d.fase === fase);
     this.currentData = {name: field, series: newSeries};
     this.dataControl$.next([{name: field, series: newSeries}]);
+  }
+
+  changeFuelData(tipo: string, flota: string, equipo: string) {
+    const compareString = tipo + '.' + flota + '.' + equipo;
+    const newSerie = this.originalFuelData.filter((d) => d.name === compareString);
+    const crossf = crossfilter(newSerie);
+    const dataByDate = crossf.dimension((row) => row['fecha']);
+    this.currentFuelData = dataByDate;
+    this.changeFuelControlData(this.selectedFuelControl);
+    this.changeScatterFuelData('x', this.dataSelectedScatter['x']);
+    this.changeScatterFuelData('y', this.dataSelectedScatter['y']);
+    this.changeScatterFuelData('z', this.dataSelectedScatter['z']);
+  }
+  changeFuelControlData(target: string) {
+    const addReduce = (p, v) => {
+      p = {
+        value: v[target]
+      };
+      return p;
+    };
+    const removeReduce = (p, v) => {
+      return p;
+    };
+    const initReduce = () => {
+      return {
+      };
+    };
+
+    const chartsValue = this.currentFuelData.group().reduce(addReduce, removeReduce, initReduce).all()
+    .map(elem => {
+      return {
+        name: new Date(elem.key),
+        value: elem.value.value
+      };
+    });
+    this.dataControlFuel$.next([{name: target, series: chartsValue}]);
+    this.selectedFuelControl = target;
   }
 
   changeHistogramData(field: string, fase: string) {
@@ -189,12 +315,39 @@ export class DataService {
     this.dataHist$.next([{name: field, series: newSeries}]);
   }
 
-  changeScatterData(chartKey: string, field: string, fase: string) {
-    const dataForField = this.data.find(d => d.name === field);
-    const newSeries = dataForField.series.filter((d) => d.fase === fase);
-    this.dataScatter[chartKey] = {name: field, series: newSeries};
+  changeScatterFuelData(chartKey: string, target: string) {
+    this.dataSelectedScatter[chartKey] = target;
+    const addReduce = (p, v) => {
+      p = {
+        value: v[target]
+      };
+      return p;
+    };
+    const removeReduce = (p, v) => {
+      return p;
+    };
+    const initReduce = () => {
+      return {
+      };
+    };
+
+    const chartsValue = this.currentFuelData.group().reduce(addReduce, removeReduce, initReduce).all()
+    .map(elem => {
+      return {
+        name: new Date(elem.key),
+        value: elem.value.value
+      };
+    });
+    this.dataScatter[chartKey] = {name: target, series: chartsValue};
     this.dataScatter$.next(this.dataScatter);
   }
+
+  // changeScatterData(chartKey: string, field: string, fase: string) {
+  //   const dataForField = this.data.find(d => d.name === field);
+  //   const newSeries = dataForField.series.filter((d) => d.fase === fase);
+  //   this.dataScatter[chartKey] = {name: field, series: newSeries};
+  //   this.dataScatter$.next(this.dataScatter);
+  // }
 
   getSubData(name: string, data: any) {
     const crossf = crossfilter(data);
@@ -229,11 +382,17 @@ export class DataService {
     return {name: name, series: chartsValue};
   }
 
-  studyData(range: Range) {
+  clearWarnings() {
+    this.warnings = [];
+    this.innerWarnings$ = new BehaviorSubject<WarningDict[]>([]);
+  }
+
+  studyData(range: Range, isCdi: boolean) {
     if (!range.alerts) {
       return;
     }
-    const data = this.currentData.series;
+    const data = (isCdi) ? this.currentData.series : this.dataControlFuel$.getValue()[0].series;
+    console.log(data);
     const warningsByKey = {};
     for (const elem of data) {
       const currentElem = new Date(elem.name);

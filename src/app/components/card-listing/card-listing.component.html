@@ -4,10 +4,11 @@
       <h3 mat-subheader>Warnings</h3>
     </div>
     <div class="items-list">
-      <mat-divider></mat-divider>
-      <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle($event)">Add new limit</mat-checkbox>
+      <!-- <mat-checkbox [ngModel]="rangeService.activated$ | async"  (ngModelChange)="toggle($event)">Add new limit</mat-checkbox> -->
+      <!-- <mat-button-toggle [value]="rangeService.activated$ | async" (click)="toggle($event)">Add new Limit</mat-button-toggle> -->
+      <button mat-raised-button [color]="isActive ? '' : 'accent'" (click)="toggle($event)">New Limit</button>
       <app-new-range-form
-        *ngIf="(rangeService.activated$  | async) && (activeCoords$ | async)"
+        *ngIf="(rangeService.activated$  | async)"
         [selectedX]="(activeCoords$ | async)?.x"
         [selectedY]="(activeCoords$ | async)?.y"
         (cancel)="onCancel()"

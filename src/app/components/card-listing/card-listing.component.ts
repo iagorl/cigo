@@ -18,8 +18,10 @@ export class CardListingComponent implements OnInit {
   activeCoords$: Observable<any>;
   filter: string;
   showForm = false;
+  isActive = false;
 
   @Input() commentList = false;
+  @Input() isCdi = true;
 
   constructor(private dataService: DataService,
     private rangeService: RangeService,
@@ -27,6 +29,10 @@ export class CardListingComponent implements OnInit {
     private commentsService: CommentsService) { }
 
   ngOnInit() {
+    this.rangeService.isCdi= this.isCdi;
+    this.dataService.clearWarnings();
+    this.commentsService.initComments(this.isCdi);
+    this.rangeService.initRanges(this.isCdi);
     this.rangeService.activated$.do(val => {
       if (!val) {
         this.onCancel();
@@ -43,7 +49,8 @@ export class CardListingComponent implements OnInit {
   }
 
   toggle(event) {
-    this.viewService.activate(event ? 'range' : '');
+    this.isActive = !this.isActive;
+    this.viewService.activate(this.isActive ? 'range' : '');
   }
 
   formatWarningContent(data: any[]): string {
@@ -88,6 +95,9 @@ export class CardListingComponent implements OnInit {
 
   onCancel() {
     this.commentsService.activateCoordinate();
+    if (this.isActive) {
+      this.toggle(null);
+    }
   }
 
 }
