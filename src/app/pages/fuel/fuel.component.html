@@ -1,6 +1,6 @@
 <div class="app-container">
   <div class="sidebar-container left">
-    <app-sidebar></app-sidebar>
+      <app-card-listing [commentList]="false" [isCdi]="false"></app-card-listing>
   </div>
   <div class="charts-container">
     <app-filter (change)="test($event)" [options]="fieldOptions"></app-filter>

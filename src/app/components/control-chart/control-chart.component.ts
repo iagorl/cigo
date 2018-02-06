@@ -133,7 +133,7 @@ export class ControlChartComponent implements OnInit {
 
   setFuelPage() {
     this.targetData$ = new BehaviorSubject([]);
-    this.rangeData$ = new BehaviorSubject([]);
+    this.rangeData$ = this.rangeService.rangeData$;
     this.data$ = this.dataService.dataControlFuel$;
     this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
     .map(data => {

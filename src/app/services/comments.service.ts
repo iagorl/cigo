@@ -41,9 +41,11 @@ export class CommentsService {
   activated$: Observable<boolean>;
 
   constructor(private http: HttpClient, private target: TargetService, private view: ViewService) {
+  }
+  initComments(loadData: boolean) {
     this.comments = [];
     this.target.target$.map(d => d.length > 0).take(2).subscribe(val => {
-      if (val && this.comments.length === 0) {
+      if (val && this.comments.length === 0 && loadData) {
         this.getComments();
       }
     });

@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   styleUrls: ['./pareto.component.scss']
 })
 export class ParetoPageComponent implements OnInit {
-  data$: BehaviorSubject<any[]>;
+  data$: any;
   fieldOptions = [
     {
       name: 'Equipo',
@@ -34,7 +34,13 @@ export class ParetoPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.data$ = this.dataService.dataPareto$;
+    this.dataService.dataPareto$.subscribe(data => {
+      this.data$ = data.map( elem => {
+        const elem2 = elem;
+        elem2['duracion'] = ((elem['duracion'] / 60) / 60).toFixed(0);
+        return elem2;
+      });
+    });
   }
 
   test(e) {

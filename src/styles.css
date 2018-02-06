@@ -51,8 +51,14 @@ div.mat-checkbox-inner-container {
   display: none;
 }
 .datatable-header-cell {
+  height: 50px;
   font-size: 13px;
-  max-width: 100px;
+  font-size: 13px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.datatable-header-cell:first-child, .datatable-body-cell:first-child {
+    border-right: 1px solid #e2e2e2;
+    padding: 5px;
 }
 .datatable-header-cell-label {
   word-wrap: break-word;
@@ -60,6 +66,16 @@ div.mat-checkbox-inner-container {
 .datatable-body-row {
   font-size: 13px;
 }
-.datatable-body-cell {
-  max-width: 100px;
+.datatable-body-row:last-child {
+  border-top: 1px solid #e2e2e2;
+  text-align: center;
+  height: 30px;
+  font-size: 13px;
+}
+.datatable-body-row-odd {
+  background: #ffffff;
+}
+.datatable-body-cell, .datatable-header-cell {
+  text-align: center;
+  padding-top: 20px;
 }

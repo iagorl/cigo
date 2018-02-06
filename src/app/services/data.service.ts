@@ -261,7 +261,6 @@ export class DataService {
         value: totalSum
       };
     });
-    console.log(toPercentaje);
     this.dataPareto$.next(toPercentaje);
     this.dataParetoCumm$.next([{name: 'Acumulado', series: chartsValue2}]);
   }
@@ -383,11 +382,17 @@ export class DataService {
     return {name: name, series: chartsValue};
   }
 
-  studyData(range: Range) {
+  clearWarnings() {
+    this.warnings = [];
+    this.innerWarnings$ = new BehaviorSubject<WarningDict[]>([]);
+  }
+
+  studyData(range: Range, isCdi: boolean) {
     if (!range.alerts) {
       return;
     }
-    const data = this.currentData.series;
+    const data = (isCdi) ? this.currentData.series : this.dataControlFuel$.getValue()[0].series;
+    console.log(data);
     const warningsByKey = {};
     for (const elem of data) {
       const currentElem = new Date(elem.name);

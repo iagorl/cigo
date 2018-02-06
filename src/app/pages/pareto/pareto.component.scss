@@ -18,3 +18,60 @@
     flex: 10;
   }
 }
+
+tr {
+  text-align: center;
+  height: 30px;
+  font-size: 13px;
+  &:nth-of-type(odd){
+    background: #ffffff;
+  }
+}
+td, th {
+  padding: 5px;
+}
+th {
+  height: 50px;
+  font-size: 13px;
+}
+.table-container {
+  .table-sub-container {
+    display: flex;
+    .table-field {
+      flex: 1;
+    }
+    .chart-container {
+      flex: 1;
+      width: 100%;
+      .prueba {
+        position: absolute;
+        margin-left: -120px;
+        margin-top: 170px;
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &.first, &.second, &.last {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    th {
+      border-bottom: 1px solid #e2e2e2;
+    }
+    tr:last-child {
+      border-top: 1px solid #e2e2e2;
+    }
+  }
+  &.first, &.second {
+    margin-right: 10px;
+  }
+  &.first {
+    td:first-child, th:first-child {
+      border-right: 1px solid #e2e2e2;
+    }
+  }
+  .datatable-header {
+    font-size: 10px;
+  }
+}
