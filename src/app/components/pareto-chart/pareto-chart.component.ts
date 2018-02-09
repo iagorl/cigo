@@ -5,13 +5,23 @@ import { CommentsService } from '../../services/comments.service';
 import { RangeService } from '../../services/range.service';
 import { TargetService } from '../../services/target.service';
 import { ViewService } from '../../services/view.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-pareto-chart',
   templateUrl: './pareto-chart.component.html',
   styleUrls: ['./pareto-chart.component.scss']
 })
-export class ParetoChartComponent implements OnInit {
+export class ParetoChartComponent implements OnInit, OnDestroy {
+  mainFilter: any = '106';
+  originalData: any[];
+  subscription: Subscription;
+  finalDate: Date;
+  initialDate: any;
+  maxDate: Date;
+  minDate: any;
 
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
 
@@ -40,15 +50,11 @@ export class ParetoChartComponent implements OnInit {
   selectedX = '';
   selectedY = 0;
 
-  data$: Observable<ChartData[]>;
-  targetData$: Observable<ChartData[]>;
+  data$: ChartData[];
+  targetData$: BehaviorSubject<ChartData[]>;
   rangeData$: Observable<ChartData[]>;
   fullData$: Observable<ChartData[]>;
-  cummData$: Observable<ChartData[]>;
-  comments$: Observable<any[]>;
-  fullComments$: Observable<any[]>;
-  commentsVisible: boolean;
-  commentsVisible$: Observable<boolean>;
+  cummData$: BehaviorSubject<ChartData[]>;
   selectedView: boolean;
   activeComment$: Observable<any[]>;
 
@@ -63,77 +69,42 @@ export class ParetoChartComponent implements OnInit {
   ngOnInit() {
     this.width = this.target.element.nativeElement.getBoundingClientRect().width;
     this.height = this.target.element.nativeElement.getBoundingClientRect().height;
-    this.height -= 110;
-    this.data$ = this.dataService.dataPareto$;
-    this.cummData$ = this.dataService.dataParetoCumm$.do(d => console.log(d));
+    this.height -= 200;
+    this.subscription = this.dataService.dataPareto$.subscribe(elem => {
+      this.data$ = elem;
+      this.originalData = elem;
+      this.maxDate = this.dataService.paretoEndDay;
+      this.minDate = this.dataService.paretoInitDay;
+      this.initialDate = this.dataService.paretoInitDay;
+      this.finalDate = this.dataService.paretoEndDay;
+      this.getAcumulative();
+    });
+
     this.targetData$ = this.targetService.target$;
-    this.rangeData$ = this.rangeService.rangeData$;
     this.viewService.activeView$.do( view => this.selectedView = view.length ? true : false).subscribe();
-    this.commentsVisible$ = this.commentService.activated$.do(data => this.commentsVisible = data);
-    this.activeComment$ = this.commentService.activeComment$.map(comment => {
-      if (!comment) {
-        return [];
-      }
-      return [{
-        name: 'Comment',
-        series: [
-          {
-            name: comment.target,
-            id: comment.id,
-            y: comment.coordinates.y,
-            x: new Date(comment.coordinates.x),
-            radius: 5,
-          }
-        ]
-      }];
+  }
+
+  getAcumulative() {
+    this.cummData$ = new BehaviorSubject([]);
+    let totalSum = 0;
+    const chartsValue2 = this.data$.map((elem) => {
+      totalSum = Number((totalSum + elem['value']).toFixed(2));
+      return {
+        name: elem['name'],
+        value: totalSum
+      };
     });
-    this.comments$ = this.commentService.comments$.map(comments => {
-      return comments.map((comment) => {
-        return {
-          name: 'Comment',
-          series: [
-            {
-              name: comment.target,
-              id: comment.id,
-              y: comment.coordinates.y,
-              x: new Date(comment.coordinates.x),
-              radius: 5,
-            }
-          ]
-        };
-      });
-    });
-    this.fullComments$ = Observable.combineLatest(this.comments$, this.commentService.activeCoordinates$)
-      .map(data => {
-        if (data[1]) {
-          return [
-            ...data[0],
-            {
-              name: 'Placeholder',
-              series: [
-                {
-                  name: `: Placeholder`,
-                  y: data[1].y,
-                  x: new Date(data[1].x),
-                  radius: 5,
-                }
-              ]
-            }
-          ];
-        } else {
-          return data[0];
-        }
-      });
+    this.cummData$.next([{name: 'Acumulado', series: chartsValue2}]);
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   onSelect(event) {
     this.activateCoordinate(this.formatDate(event.name), event.value);
-  }
-
-  onClicked(event) {
-    this.selectedX = this.formatDate(event.xScale);
-    this.selectedY = event.yScale;
-    this.activateCoordinate(this.selectedX, event.yScale);
   }
 
   activateCoordinate(x, y) {
@@ -152,7 +123,13 @@ export class ParetoChartComponent implements OnInit {
   }
 
   doChange(event) {
+    this.mainFilter = event.value;
     this.change.emit(event);
+  }
+
+  changeDate(event, target) {
+    (target === 'final') ? this.finalDate = event.value : this.initialDate = event.value;
+    this.dataService.chageParetoData(this.mainFilter, this.initialDate, this.finalDate);
   }
 
 }

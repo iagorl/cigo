@@ -5,6 +5,19 @@
   padding: 10px 15px 15px 15px;
   // height: calc(100% - 150px);
   height: calc((100vh - 220px) / 2);
+  display: flex;
+  .waterfall-container {
+    flex: 3;
+  }
+  .numbers-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .numbers-elem {
+      flex: 1;
+    }
+  }
+
   &.second {
     margin-top: 10px;
   }

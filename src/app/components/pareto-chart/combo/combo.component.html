@@ -1,5 +1,5 @@
 <ngx-charts-chart
-  [view]="[width + legendSpacing, height]"
+  [view]="[width, height]"
   [showLegend]="legend"
   [legendOptions]="legendOptions"
   [activeEntries]="activeEntries"
@@ -10,7 +10,7 @@
   <svg:g [attr.transform]="transform" class="bar-chart chart">
       <svg:g ngx-charts-x-axis
       *ngIf="xAxis"
-      [xScale]="xScale"
+      [xScale]="[]"
       [dims]="dims"
       [showLabel]="showXAxisLabel"
       [labelText]="xAxisLabel"

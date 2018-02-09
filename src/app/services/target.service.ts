@@ -15,6 +15,8 @@ export interface TargetData {
 
 @Injectable()
 export class TargetService {
+  originalChartsValue: any;
+  lastTarget: string;
   originalData: TargetData[];
   target$: BehaviorSubject<ChartData[]>;
   dataDict: {[name: string]: ChartData};
@@ -49,6 +51,7 @@ export class TargetService {
       this.target$.next([this.dataDict[targetString]]);
       return;
     }
+    console.log(this.originalData);
     const cf = crossfilter(this.originalData);
     this.dataByDate = cf.dimension((row) => row['fecha']);
 
@@ -78,9 +81,19 @@ export class TargetService {
         value: datum ? datum.valor : null
       };
     });
+    this.lastTarget = targetString;
+    this.originalChartsValue = chartsValue;
 
     this.dataDict[targetString] = {name: 'Target', series: chartsValue};
     this.target$.next([{name: 'Target', series: chartsValue}]);
+  }
+
+  changeTargetData(initDate: Date = null, endDate: Date = null) {
+    const newSerie = this.originalChartsValue.filter(elem => {
+      return (elem.name >= initDate && elem.name <= endDate);
+    });
+    this.dataDict[this.lastTarget] = {name: 'Target', series: newSerie};
+    this.target$.next([{name: 'Target', series: newSerie}]);
   }
 
 }

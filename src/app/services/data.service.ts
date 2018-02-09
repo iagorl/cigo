@@ -67,6 +67,12 @@ export interface WarningDict {
 
 @Injectable()
 export class DataService {
+  fuelEndDay: any;
+  fuelInitDay: any;
+  cdiEndDay: any;
+  cdiInitDay: any;
+  paretoEndDay: Date;
+  paretoInitDay: Date;
   dataSelectedScatter: { 'x': string; 'y': string; 'z': string; };
   selectedFuelControl: string;
   originalData: SampleData[];
@@ -123,13 +129,26 @@ export class DataService {
       (row['Motivo_Nivel_1'] + '.' + row['ModoFallaDescripcion'] + '.' + row['EquipoId']));
 
       const addReduce = (p, v) => {
+
+        const emptyP = (Object.keys(p).length === 0);
+        let actualDuracion = Number(v['duracion_segs']);
+        const fallaV = v['Motivo_Nivel_1'] + ' - ' + v['ModoFallaDescripcion'];
+
+        let actualTimes;
+        if (emptyP) {
+          actualTimes = 1;
+        } else if ((p.falla === fallaV) && (p.id === v['EquipoId'])) {
+          actualTimes = 1 + p.veces;
+          actualDuracion += p.duracion;
+        }
         p = {
           id: v['EquipoId'],
           nombre: v['EquipoNombre'],
           falla: v['Motivo_Nivel_1'] + ' - ' + v['ModoFallaDescripcion'],
-          duracion: v['duracion_segs'],
+          duracion: actualDuracion,
           fechaFin: v['FechaFin'],
-          fechaInicio: v['FechaInicio']
+          fechaInicio: v['FechaInicio'],
+          veces: actualTimes
         };
         return p;
       };
@@ -145,24 +164,49 @@ export class DataService {
       const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
       .map(elem => {
         const timeInSec = Number(elem.value.duracion);
+        const fInit = new Date(elem.value.fechaInicio);
+        const fEnd = new Date(elem.value.fechaFin);
+        if (!this.paretoInitDay) {
+          this.paretoInitDay = fInit;
+          this.paretoEndDay = fEnd;
+        } else {
+          if (this.paretoInitDay > fInit) {
+            this.paretoInitDay = fInit;
+          }
+          if (this.paretoEndDay < fEnd) {
+            this.paretoEndDay = fEnd;
+          }
+        }
         return {
           key: elem.key,
           fechaFin: elem.value.fechaFin,
           fechaInicio: elem.value.fechaInicio,
           falla: elem.value.falla,
           value: timeInSec,
+          veces: elem.value.veces,
           duracion: elem.value.duracion,
           id: elem.value.id
         };
 
       });
-
       this.originalParetoData = chartsValue;
       this.chageParetoData('106');
     });
     this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
       this.originalData = data;
       const addReduce = (p, v) => {
+        const dateElem = new Date(v['Fecha']);
+        if (!this.cdiInitDay) {
+          this.cdiInitDay = dateElem;
+          this.cdiEndDay = dateElem;
+        } else {
+          if (this.cdiInitDay > dateElem) {
+            this.cdiInitDay = dateElem;
+          }
+          if (this.cdiEndDay < dateElem) {
+            this.cdiEndDay = dateElem;
+          }
+        }
         const k = {
           fase: v['Fase'],
           valor: v['valor'],
@@ -191,7 +235,6 @@ export class DataService {
       });
       this.data = finalData;
       this.changeData('Distancia', 'Total Fases');
-      this.changeHistogramData('Extraccion', 'Total Fases');
       this.fasesList = Object.keys(fases);
     });
     this.http.get<SampleFuelData[]>('/assets/dataFuel.json').subscribe((data) => {
@@ -205,8 +248,20 @@ export class DataService {
           ( '' + v['fecha']).substring(0, 4) + '-' +
           ( '' + v['fecha']).substring(4, 6) + '-' +
           ( '' + v['fecha']).substring(6, 8);
+        const dateElem = new Date(realDate);
+        if (!this.fuelInitDay) {
+          this.fuelInitDay = dateElem;
+          this.fuelEndDay = dateElem;
+        } else {
+          if (this.fuelInitDay > dateElem) {
+            this.fuelInitDay = dateElem;
+          }
+          if (this.fuelEndDay < dateElem) {
+            this.fuelEndDay = dateElem;
+          }
+        }
         const elem = {
-          name: v['tipo'] + '.' + v['flota'] + '.' + v['equipo'],
+          name: v['tipo'] + '.' + v['flota'],
           fecha: realDate,
           litros: v['litros'],
           consumo: Number(( '' + v['consumo']).replace(',', '.')),
@@ -232,19 +287,26 @@ export class DataService {
         'z': 'dist_media'
       };
 
-      this.changeFuelData('Camion', 'CAT 795F', 'CAC201');
+      this.changeFuelData('Camion', 'all');
     });
   }
 
-  chageParetoData(target: string) {
+  chageParetoData(target: string, initDate: Date = null, endDate: Date = null) {
     let totalValue = 0;
-    const filteredData = this.originalParetoData.filter(elem => {
+    let filteredData = this.originalParetoData.filter(elem => {
       if (elem['id'] === target) {
         totalValue += elem['value'];
         return true;
       }
       return false;
     });
+    if (initDate !== null) {
+      filteredData = filteredData.filter(elem => {
+        const elemDate = new Date(elem['fechaInicio']);
+        return (elemDate >= initDate && elemDate <= endDate);
+
+      });
+    }
     const orderedData = filteredData.sort((a, b) => {
       return b['value'] - a['value'];
     });
@@ -264,16 +326,34 @@ export class DataService {
     this.dataPareto$.next(toPercentaje);
     this.dataParetoCumm$.next([{name: 'Acumulado', series: chartsValue2}]);
   }
-  changeData(field: string, fase: string) {
+  changeData(field: string, fase: string, initDate: Date = null, endDate: Date = null) {
     const dataForField = this.data.find(d => d.name === field);
-    const newSeries = dataForField.series.filter((d) => d.fase === fase);
+    let newSeries = dataForField.series.filter((d) => d.fase === fase);
+    if (initDate !== null) {
+      newSeries = newSeries.filter(elem => {
+        return (elem.name >= initDate && elem.name <= endDate);
+      });
+    }
     this.currentData = {name: field, series: newSeries};
     this.dataControl$.next([{name: field, series: newSeries}]);
+    this.changeHistogramData('Extraccion', 'Total Fases');
   }
 
-  changeFuelData(tipo: string, flota: string, equipo: string) {
-    const compareString = tipo + '.' + flota + '.' + equipo;
-    const newSerie = this.originalFuelData.filter((d) => d.name === compareString);
+  changeFuelData(tipo: string, flota: string, initDate: Date = null, endDate: Date = null) {
+    let newSerie;
+    if (flota === 'all' ) {
+      newSerie = this.originalFuelData.filter((d) => d.name.includes(tipo));
+    }else  {
+      const compareString = tipo + '.' + flota;
+      newSerie = this.originalFuelData.filter((d) => d.name === compareString);
+    }
+    if (initDate !== null) {
+      newSerie = newSerie.filter(elem => {
+        const elemDate = new Date(elem['fecha']);
+        return (elemDate >= initDate && elemDate <= endDate);
+
+      });
+    }
     const crossf = crossfilter(newSerie);
     const dataByDate = crossf.dimension((row) => row['fecha']);
     this.currentFuelData = dataByDate;
@@ -296,6 +376,7 @@ export class DataService {
       return {
       };
     };
+    console.log(this.currentFuelData);
 
     const chartsValue = this.currentFuelData.group().reduce(addReduce, removeReduce, initReduce).all()
     .map(elem => {
@@ -392,7 +473,6 @@ export class DataService {
       return;
     }
     const data = (isCdi) ? this.currentData.series : this.dataControlFuel$.getValue()[0].series;
-    console.log(data);
     const warningsByKey = {};
     for (const elem of data) {
       const currentElem = new Date(elem.name);

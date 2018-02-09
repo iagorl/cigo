@@ -84,7 +84,7 @@ export class ComboComponent extends BaseChartComponent {
   clipPathId: string;
   series: any;
   areaPath: any;
-  margin = [10, 20, 10, 20];
+  margin = [0, 20, 0, 20];
   hoveredVertical: any; // the value of the x axis that is hovered over
   xAxisHeight: number = 0;
   yAxisWidth: number = 0;
@@ -92,7 +92,7 @@ export class ComboComponent extends BaseChartComponent {
   legendOptions: any;
   hasRange: boolean; // whether the line has a min-max range around it
   timelineWidth: any;
-  timelineHeight: number = 50;
+  timelineHeight: number = 30;
   timelineXScale: any;
   timelineYScale: any;
   timelineXDomain: any;
@@ -120,6 +120,7 @@ export class ComboComponent extends BaseChartComponent {
 
     if (this.timeline) {
       this.dims.height -= (this.timelineHeight + this.margin[2] + this.timelinePadding);
+      this.dims.height += 20;
     }
 
     this.xDomain = this.getXDomain();
@@ -309,6 +310,7 @@ export class ComboComponent extends BaseChartComponent {
   }
 
   updateDomain(domain): void {
+    console.log('AQUI',domain);
     this.filteredDomain = domain;
     this.xDomain = this.filteredDomain;
     this.xScale = this.getXScale(this.xDomain, this.dims.width);

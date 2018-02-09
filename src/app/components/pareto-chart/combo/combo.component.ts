@@ -70,7 +70,7 @@ export class ParetoComboComponent extends BaseChartComponent {
   transform: string;
   colors: ColorHelper;
   colorsLine: ColorHelper;
-  margin: any[] = [10, 20, 10, 20];
+  margin: any[] = [10, 10, 10, -80];
   xAxisHeight: number = 0;
   yAxisWidth: number = 0;
   legendOptions: any;
@@ -202,7 +202,6 @@ export class ParetoComboComponent extends BaseChartComponent {
 
   getXDomainLine(): any[] {
     let values = [];
-
     for (const results of this.lineChart) {
       for (const d of results.series){
         if (!values.includes(d.name)) {
@@ -369,7 +368,6 @@ export class ParetoComboComponent extends BaseChartComponent {
   updateLineWidth(width): void {
     this.bandwidth = width;
     this.update();
-    console.log('new bw', this.bandwidth);
   }
 
   updateYAxisWidth({ width }): void {

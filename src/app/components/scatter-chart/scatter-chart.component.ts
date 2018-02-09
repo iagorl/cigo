@@ -11,13 +11,28 @@ declare var Plotly: any;
 export class ScatterChartComponent implements OnInit {
 
   @ViewChild('test', { read: ViewContainerRef }) test: ViewContainerRef;
-  fieldX: string = 'Distancia';
-  fieldY: string = 'Extraccion';
-  fieldZ: string = 'Oper. Truck';
+  fieldX: string = 'Consumo';
+  fieldY: string = 'Movimiento Total';
+  fieldZ: string = 'Distancia Media';
 
   constructor(
     private data: DataService
   ) { }
+
+  labels = {
+    'litros': 'Litros',
+    'consumo': 'Consumo',
+    'energia': 'Energia',
+    'co2_equiv': 'CO2 Equiv',
+    'movimiento_total': 'Movimiento Total',
+    'l_kt': 'l/kt',
+    'tiempo_operativo': 'Tiempo',
+    'l_h': 'l/h',
+    'dist_media': 'Distancia Media',
+    'l_kt_km': 'l/(kt*km)',
+    't_h': 't/h',
+    'kt_km': 'kt*km'
+  };
 
   fieldOptions = [
     {
@@ -26,15 +41,15 @@ export class ScatterChartComponent implements OnInit {
         {value: 'litros', text: 'Litros'},
         {value: 'consumo', text: 'Consumo'},
         {value: 'energia', text: 'Energia'},
-        {value: 'co2_equiv', text: 'co2_equiv'},
+        {value: 'co2_equiv', text: 'CO2 Equiv'},
         {value: 'movimiento_total', text: 'Movimiento Total'},
-        {value: 'l_kt', text: 'l_kt'},
-        {value: 'tiempo_operativo', text: 'Tiempo Operativo'},
-        {value: 'l_h', text: 'l_h'},
-        {value: 'dist_media', text: 'Dist.Media'},
-        {value: 'l_kt_km', text: 'l_kt_km'},
-        {value: 't_h', text: 't_h'},
-        {value: 'kt_km', text: 'kt_km'},
+        {value: 'l_kt', text: 'l/kt'},
+        {value: 'tiempo_operativo', text: 'Tiempo'},
+        {value: 'l_h', text: 'l/h'},
+        {value: 'dist_media', text: 'Distancia Media'},
+        {value: 'l_kt_km', text: 'l/(kt*km)'},
+        {value: 't_h', text: 't/h'},
+        {value: 'kt_km', text: 'kt*km'},
       ],
       selected: 'consumo'
     },
@@ -44,15 +59,15 @@ export class ScatterChartComponent implements OnInit {
         {value: 'litros', text: 'Litros'},
         {value: 'consumo', text: 'Consumo'},
         {value: 'energia', text: 'Energia'},
-        {value: 'co2_equiv', text: 'co2_equiv'},
+        {value: 'co2_equiv', text: 'CO2 Equiv'},
         {value: 'movimiento_total', text: 'Movimiento Total'},
-        {value: 'l_kt', text: 'l_kt'},
-        {value: 'tiempo_operativo', text: 'Tiempo Operativo'},
-        {value: 'l_h', text: 'l_h'},
-        {value: 'dist_media', text: 'Dist.Media'},
-        {value: 'l_kt_km', text: 'l_kt_km'},
-        {value: 't_h', text: 't_h'},
-        {value: 'kt_km', text: 'kt_km'},
+        {value: 'l_kt', text: 'l/kt'},
+        {value: 'tiempo_operativo', text: 'Tiempo'},
+        {value: 'l_h', text: 'l/h'},
+        {value: 'dist_media', text: 'Distancia Media'},
+        {value: 'l_kt_km', text: 'l/(kt*km)'},
+        {value: 't_h', text: 't/h'},
+        {value: 'kt_km', text: 'kt*km'},
       ],
       selected: 'movimiento_total'
     },
@@ -62,15 +77,15 @@ export class ScatterChartComponent implements OnInit {
         {value: 'litros', text: 'Litros'},
         {value: 'consumo', text: 'Consumo'},
         {value: 'energia', text: 'Energia'},
-        {value: 'co2_equiv', text: 'co2_equiv'},
+        {value: 'co2_equiv', text: 'CO2 Equiv'},
         {value: 'movimiento_total', text: 'Movimiento Total'},
-        {value: 'l_kt', text: 'l_kt'},
-        {value: 'tiempo_operativo', text: 'Tiempo Operativo'},
-        {value: 'l_h', text: 'l_h'},
-        {value: 'dist_media', text: 'Dist.Media'},
-        {value: 'l_kt_km', text: 'l_kt_km'},
-        {value: 't_h', text: 't_h'},
-        {value: 'kt_km', text: 'kt_km'},
+        {value: 'l_kt', text: 'l/kt'},
+        {value: 'tiempo_operativo', text: 'Tiempo'},
+        {value: 'l_h', text: 'l/h'},
+        {value: 'dist_media', text: 'Distancia Media'},
+        {value: 'l_kt_km', text: 'l/(kt*km)'},
+        {value: 't_h', text: 't/h'},
+        {value: 'kt_km', text: 'kt*km'},
       ],
       selected: 'dist_media'
     },
@@ -145,20 +160,21 @@ export class ScatterChartComponent implements OnInit {
   doChange(event) {
     switch (event.field) {
       case 'KPI1':
+        console.log(event);
         this.selectedKey = 'x';
-        this.fieldX = event.value;
+        this.fieldX = this.labels[event.value];
         this.selectedField = event.value;
         this.data.changeScatterFuelData('x', event.value);
         break;
         case 'KPI2':
         this.selectedKey = 'y';
-        this.fieldY = event.value;
+        this.fieldY = this.labels[event.value];
         this.selectedField = event.value;
         this.data.changeScatterFuelData('y', event.value);
         break;
         case 'KPI3':
         this.selectedKey = 'z';
-        this.fieldZ = event.value;
+        this.fieldZ = this.labels[event.value];
         this.selectedField = event.value;
         this.data.changeScatterFuelData('z', event.value);
         break;
