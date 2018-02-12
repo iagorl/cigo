@@ -1,6 +1,27 @@
+<div class="filters-box" *ngIf="fieldOptions.length > 0">
+  <app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
+</div>
 <div class="chart-container" #target>
-<app-filter (change)="doChange($event)" [options]="fieldOptions" [targetOptions]="budgetOptions"></app-filter>
-  
+    <mat-form-field>
+        <input matInput
+          [matDatepicker]="picker"
+          [value]="initialDate"
+          [min]="minDate"
+          [max]="maxDate"
+          (dateChange)="onChangeDate($event, 'initial')">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput 
+          [matDatepicker]="picker2"
+          [value]="finalDate"
+          [min]="minDate"
+          [max]="maxDate"
+          (dateChange)="onChangeDate($event, 'final')" >
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>  
   <app-combo
     [view]="[width, height]"
     [scheme]="colorScheme"
@@ -15,11 +36,9 @@
     [legend]="showLegend"
     [showGridLines]="true"
     [timeline]="true"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
+    [showXAxisLabel]="false"
+    [showYAxisLabel]="false"
     [showRefLabels]="false"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
     [autoScale]="autoScale"
     (clicked)="onClicked($event)"
     (hover)="onHover($event)"

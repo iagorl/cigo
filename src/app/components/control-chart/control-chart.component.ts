@@ -16,6 +16,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   styleUrls: ['./control-chart.component.scss']
 })
 export class ControlChartComponent implements OnInit {
+  currentFase: any = 'Total Fases';
+  currentKpi: any = 'Distancia';
+  currentTipo: any = 'Camion';
+  currentFlota: any = 'all';
 
   @ViewChild('target', { read: ViewContainerRef }) target: ViewContainerRef;
 
@@ -23,7 +27,13 @@ export class ControlChartComponent implements OnInit {
 
   @Input() fieldOptions;
   @Input() budgetOptions;
+  initialDate: Date;
+  finalDate: Date;
+  minDate: Date;
+  maxDate: Date;
   @Output() change = new EventEmitter();
+  @Output() changeDate = new EventEmitter();
+
 
   colorScheme = {
     domain: []
@@ -33,7 +43,7 @@ export class ControlChartComponent implements OnInit {
   gradient = true;
   showXAxis = true;
   showYAxis = true;
-  showLegend = true;
+  @Input() showLegend = true;
   showXAxisLabel = true;
   showYAxisLabel = true;
   xAxisLabel = 'Date';
@@ -135,6 +145,10 @@ export class ControlChartComponent implements OnInit {
     this.targetData$ = new BehaviorSubject([]);
     this.rangeData$ = this.rangeService.rangeData$;
     this.data$ = this.dataService.dataControlFuel$;
+    this.initialDate = this.dataService.fuelInitDay;
+    this.finalDate = this.dataService.fuelEndDay;
+    this.minDate = this.dataService.fuelInitDay;
+    this.maxDate = this.dataService.fuelEndDay;
     this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
     .map(data => {
       return [...data[0], ...data[1], ...data[2]];
@@ -144,6 +158,10 @@ export class ControlChartComponent implements OnInit {
   setCdiPage() {
     this.targetData$ = this.targetService.target$;
     this.rangeData$ = this.rangeService.rangeData$;
+    this.initialDate = this.dataService.cdiInitDay;
+    this.finalDate = this.dataService.cdiEndDay;
+    this.minDate = this.dataService.cdiInitDay;
+    this.maxDate = this.dataService.cdiEndDay;
     this.data$ = this.dataService.dataControl$;
     this.fullData$ = Observable.combineLatest(this.data$, this.targetData$, this.rangeData$)
     .map(data => {
@@ -177,6 +195,32 @@ export class ControlChartComponent implements OnInit {
   }
 
   doChange(event) {
+    switch (event.field) {
+      case 'Tipo':
+        this.currentTipo = event.value;
+        break;
+      case 'Flota':
+        this.currentFlota = event.value;
+        break;
+      case 'KPI':
+        this.currentKpi = event.value;
+        break;
+      case 'Fase':
+        this.currentFase = event.value;
+        break;
+    }
     this.change.emit(event);
+  }
+  onChangeDate(event, target) {
+    (target === 'final') ? this.finalDate = event.value : this.initialDate = event.value;
+    if (this.pageDescriptor === 'cdi') {
+      console.log('aqui');
+      this.dataService.changeData(this.currentKpi, this.currentFase, this.initialDate, this.finalDate);
+      this.targetService.changeTargetData(this.initialDate, this.finalDate);
+      this.rangeService.changeRangeData(this.initialDate, this.finalDate);
+    } else {
+      this.dataService.changeFuelData(this.currentTipo, this.currentFlota, this.initialDate, this.finalDate);
+    }
+
   }
 }

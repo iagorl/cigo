@@ -8,8 +8,9 @@ import {TimerObservable} from 'rxjs/observable/TimerObservable';
   styleUrls: ['./cigo.component.scss']
 })
 export class CigoPageComponent implements OnInit {
+  viewPrim: boolean;
   totalViajes: number;
-  totalTons: number;
+  totalTons: string;
 
   view: any[] = [400, 160];
 
@@ -38,27 +39,40 @@ export class CigoPageComponent implements OnInit {
   secondTableData = [];
   firstData = [];
   showTable = false;
+  progressValue: any;
 
   constructor(
     private dataService: CigoDataService
   ) { }
 
   ngOnInit() {
-    const timer = TimerObservable.create(0, 10000);
+    this.progressValue = 0;
+    this.viewPrim = true;
+    const timer = TimerObservable.create(0, 100);
+    const number = 123456789;
     timer.subscribe(t => {
-      console.log(t % 2);
-      (t % 2 === 0) ? this.changeData('PRIM') : this.changeData('PRIM DOS');
+      if (t % 100 === 0) {
+        this.progressValue = 0;
+        (this.viewPrim) ? this.changeData('PRIM') : this.changeData('PRIM DOS');
+      } else  {
+        this.progressValue = t % 100;
+      }
     });
+
   }
 
   changeData(chart: string) {
+    this.viewPrim = !this.viewPrim;
     this.showTable = false;
     this.firstData = [];
     this.firstTableData = [];
     this.secondTableData = [];
-    for (let i = 0; i < 12; i++) {
+    const actualHour = (new Date()).getHours();
+    const initialHour = (actualHour > 12) ? actualHour - 12 : 0;
+    for (let i = initialHour; i <= actualHour; i++) {
+      const printHout = (i > 9) ? `${i}:00` : `0${i}:00`;
       this.firstData.push({
-        hora: `0${i}:00`,
+        hora: printHout,
         viajes: 0,
         tons: 0,
         tiempo: 0,
@@ -90,7 +104,7 @@ export class CigoPageComponent implements OnInit {
         let promLey = 0;
         data[chart].series.map(elem => {
           const hour = elem.fecha.getHours();
-          if (hour <= 11) {
+          if (hour <= actualHour && hour >= initialHour) {
             this.firstData[hour].viajes += elem.viajes;
             this.firstData[hour].tons += elem.tons;
 
@@ -151,7 +165,7 @@ export class CigoPageComponent implements OnInit {
             value: Math.floor(promTiempo / 12)
         });
         }
-        this.totalTons = promTons;
+        this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons));
         this.totalViajes = promViaje;
         this.firstTableData.push(firstTableObject);
         this.secondTableData.push(secondTableObject);
@@ -166,9 +180,6 @@ export class CigoPageComponent implements OnInit {
   onSelect(event) {
     console.log(event);
   }
-  go () {
-    console.log('hola');
-    setTimeout(this.go(), 10000); // callback
-  }
+
 
 }

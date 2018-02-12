@@ -5,6 +5,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -48,6 +50,7 @@ import { WaterfallChartComponent } from './components/waterfall-chart/waterfall-
 import { HistogramChartComponent } from './components/histogram-chart/histogram-chart.component';
 import { CigoPageComponent } from './pages/cigo/cigo.component';
 import { CigoDataService } from './services/cigo-data.service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const Components = [
   ControlChartComponent,
@@ -101,7 +104,10 @@ const Pages = [
     MatIconModule,
     MatSelectModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     DataService,

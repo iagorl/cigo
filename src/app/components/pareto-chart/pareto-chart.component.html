@@ -1,11 +1,32 @@
 <div class="chart-container" #target>
   <app-filter (change)="doChange($event)" [options]="fieldOptions" ></app-filter>
-      
+  <div class="date-filters">
+    <mat-form-field>
+        <input matInput
+          [matDatepicker]="picker"
+          [value]="initialDate"
+          [min]="minDate"
+          [max]="maxDate"
+          (dateChange)="changeDate($event, 'initial')">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput 
+          [matDatepicker]="picker2"
+          [value]="finalDate"
+          [min]="minDate"
+          [max]="maxDate"
+          (dateChange)="changeDate($event, 'final')" >
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  </div>
   <pareto-combo
     [view]="[width, height]"
     [scheme]="colorScheme"
     [colorSchemeLine]="colorSchemeLine"
-    [results]="data$ | async"
+    [results]="data$"
     [animations]="animations"
     [lineChart]="cummData$ | async"
     [tooltipDisabled]="false"

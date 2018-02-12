@@ -161,4 +161,34 @@ export class RangeService {
     this.ranges$.next(this.ranges);
   }
 
+  changeRangeData(initDate: Date = null, endDate: Date = null) {
+    const newRanges = this.ranges.map(range => {
+      const newRange = Object.assign({}, range);
+      const minX = new Date(range.minX);
+      const maxX = new Date(range.maxX);
+      newRange.minX = (minX < initDate) ? this.getDateFormat(initDate) : range.minX;
+      newRange.maxX = (maxX > endDate) ? this.getDateFormat(endDate) : range.maxX;
+      return newRange;
+    });
+    console.log(newRanges);
+
+    this.ranges$.next(newRanges);
+    this.rangeData$.next(newRanges.map(range => {
+      return {
+        name: range.name,
+        series: [
+          {name: new Date(range.minX), value: range.limitPoints[0].value },
+          {name: new Date(range.maxX), value: range.limitPoints[0].value },
+        ]
+      };
+    }));
+  }
+
+  getDateFormat(foo: Date) {
+    const monthvalue = foo.getMonth() + 1 ;
+    const month = (foo.getMonth() < 10) ? '0' + monthvalue : monthvalue;
+    const date = (foo.getDate() < 10) ? '0' + foo.getDate() : foo.getDate();
+    return (foo.getFullYear() + '-' + month + '-' + date);
+  }
+
 }

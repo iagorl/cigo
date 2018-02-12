@@ -7,8 +7,10 @@
 
     <app-control-chart
     [pageDescriptor]="'fuel'"
-    (change)="test($event)" 
-    [fieldOptions]="fieldOptions2" 
+    [showLegend]="false"
+    (change)="test($event)"
+    (changeDate)="onChangeDate($event)"
+    [fieldOptions]="[]" 
     [budgetOptions]="budgetOptions">
   </app-control-chart>
     <app-scatter-chart></app-scatter-chart>

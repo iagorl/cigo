@@ -62,7 +62,7 @@ export class ViewService {
     this.fuelTipo = tipo;
     this.activeFuelTipo$.next(this.fuelTipo);
     // this.target.generateFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
-    this.data.changeFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
+    this.data.changeFuelData(this.fuelTipo, this.fuelFlota);
 
   }
 
@@ -70,14 +70,14 @@ export class ViewService {
     this.fuelFlota = flota;
     this.activeFuelFlota$.next(this.fuelFlota);
     // this.target.generateFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
-    this.data.changeFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
+    this.data.changeFuelData(this.fuelTipo, this.fuelFlota);
   }
 
   changeEquipo(equipo: string) {
     this.fuelEquipo = equipo;
     this.activeFuelEquipo$.next(this.fuelEquipo);
     // this.target.generateFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
-    this.data.changeFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
+    this.data.changeFuelData(this.fuelTipo, this.fuelFlota);
   }
 
   changeFuelTarget(target: string) {

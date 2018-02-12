@@ -11,6 +11,8 @@ declare var Plotly: any;
   styleUrls: ['./waterfall-chart.component.scss']
 })
 export class WaterfallChartComponent implements OnInit {
+  waterfallInit: number = 0;
+  waterfallTotal: number = 0;
   height: any;
   width: any;
 
@@ -45,16 +47,35 @@ export class WaterfallChartComponent implements OnInit {
 
   processData(dataArray, targetArray) {
     const xData = [];
-    const yDataProfit = [];
-    const yDataCost = [];
-    const yDataBase = [];
-    let previousY = 0;
+    const yDataProfit = [0];
+    const yDataCost = [0];
+    const yDataBase = [0];
+    let totalTarget = 0;
+    let totalValue = 0;
 
     dataArray.series.map((data, index) => {
+      if (targetArray.series[index]) {
+        totalTarget += targetArray.series[index].value;
+      }
+      totalValue += data.value;
+    });
+    const yDataBudget = [totalTarget];
+    const yDataRevenue = [0];
+    let previousY = totalTarget;
+
+    let dateDummy = new Date(dataArray.series[0].name);
+    dateDummy.setDate(dateDummy.getDate() - 1);
+    xData.push(dateDummy);
+    let finalIndex = 0;
+    dataArray.series.map((data, index) => {
       xData.push(new Date(data.name));
-      const value = data.value - targetArray.series[index].value;
+
+      const value = (targetArray.series[index]) ?
+        data.value - (targetArray.series[index].value) : data.value;
 
       yDataBase.push(previousY);
+      yDataRevenue.push(0);
+      yDataBudget.push(0);
 
       if (value < 0) {
         yDataCost.push(value);
@@ -65,12 +86,22 @@ export class WaterfallChartComponent implements OnInit {
       }
 
       previousY = previousY + value;
-
+      finalIndex = index;
     });
-    this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData);
+    dateDummy = new Date(dataArray.series[finalIndex].name);
+    dateDummy.setDate(dateDummy.getDate() + 1);
+    xData.push(dateDummy);
+    yDataProfit.push(0);
+    yDataCost.push(0);
+    yDataBase.push(0);
+    yDataBudget.push(0);
+    yDataRevenue.push(totalValue);
+    this.waterfallTotal = totalValue;
+    this.waterfallInit = totalTarget;
+    this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue, yDataBudget);
   }
 
-  drawWaterfall(yDataProfit, yDataCost, yDataBase, xData) {
+  drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue, yDataBudget) {
 
     // Base
     const trace1 = {
@@ -112,18 +143,49 @@ export class WaterfallChartComponent implements OnInit {
         }
       }
     };
+    const trace4 = {
+      x: xData,
+      y: yDataRevenue,
+      type: 'bar',
+      marker: {
+        color: 'rgba(55,128,191,0.7)',
+        line: {
+          color: 'rgba(55,128,191,1.0)',
+          width: 2
+        }
+      }
+    };
+    const budget = {
+      x: xData,
+      y: yDataBudget,
+      type: 'bar',
+      marker: {
+        color: 'rgba(0, 0, 0, 0.60)',
+        line: {
+          color: 'rgba(0, 0, 0, 0.60)',
+          width: 2
+        }
+      }
+    };
 
-    const data = [trace1, trace2, trace3];
+    const data = [trace1, trace2, trace3, trace4, budget];
 
     const layout = {
       barmode: 'stack',
       width: this.width,
       height: this.height - 40,
       showlegend: false,
-      annotations: []
+      annotations: [],
+      margin: {
+        l: 50,
+        r: 50,
+        b: 20,
+        t: 20,
+        pad: 4
+      },
     };
 
-    Plotly.newPlot(this.test.element.nativeElement, data, layout);
+    Plotly.newPlot(this.test.element.nativeElement, data, layout, {displayModeBar: false});
   }
 
   doChange(event) {

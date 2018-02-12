@@ -3,12 +3,14 @@
       <app-card-listing [commentList]="false"></app-card-listing>
   </div>
   <div class="charts-container">
-    <app-control-chart 
-      [pageDescriptor]="'cdi'"
-      (change)="test($event)"
-      [fieldOptions]="fieldOptions"
-      [budgetOptions]="budgetOptions">
-    </app-control-chart>
+    <div class="one-charts-container">
+      <app-control-chart 
+        [pageDescriptor]="'cdi'"
+        (change)="test($event)"
+        [fieldOptions]="fieldOptions"
+        [budgetOptions]="budgetOptions">
+      </app-control-chart>
+    </div>
     <!-- <app-scatter-chart></app-scatter-chart> -->
     <div class="duo-charts-container">
       <div class="duo-chart first">

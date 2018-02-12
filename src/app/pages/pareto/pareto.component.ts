@@ -26,7 +26,9 @@ export class ParetoPageComponent implements OnInit {
   columns = [
     {label: 'Index', value: 'name'},
     {label: 'Motivo y Falla', value: 'falla'},
-    {label: 'Hrs', value: 'duracion'}
+    {label: 'Hrs', value: 'duracion'},
+    {label: 'N', value: 'veces'},
+    {label: 'MTTR', value: 'promedioD'}
   ];
 
   constructor(
@@ -37,7 +39,8 @@ export class ParetoPageComponent implements OnInit {
     this.dataService.dataPareto$.subscribe(data => {
       this.data$ = data.map( elem => {
         const elem2 = elem;
-        elem2['duracion'] = ((elem['duracion'] / 60) / 60).toFixed(0);
+        elem2['promedioD'] = (((elem['duracion'] / elem['veces']) / 60) / 60).toFixed(1);
+        elem2['duracion'] = ((elem['duracion'] / 60) / 60).toFixed(1);
         return elem2;
       });
     });
