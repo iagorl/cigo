@@ -59,7 +59,8 @@ export class WaterfallChartComponent implements OnInit {
       }
       totalValue += data.value;
     });
-    const yDataRevenue = [totalTarget];
+    const yDataBudget = [totalTarget];
+    const yDataRevenue = [0];
     let previousY = totalTarget;
 
     let dateDummy = new Date(dataArray.series[0].name);
@@ -74,6 +75,7 @@ export class WaterfallChartComponent implements OnInit {
 
       yDataBase.push(previousY);
       yDataRevenue.push(0);
+      yDataBudget.push(0);
 
       if (value < 0) {
         yDataCost.push(value);
@@ -92,13 +94,14 @@ export class WaterfallChartComponent implements OnInit {
     yDataProfit.push(0);
     yDataCost.push(0);
     yDataBase.push(0);
+    yDataBudget.push(0);
     yDataRevenue.push(totalValue);
     this.waterfallTotal = totalValue;
     this.waterfallInit = totalTarget;
-    this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue);
+    this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue, yDataBudget);
   }
 
-  drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue) {
+  drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue, yDataBudget) {
 
     // Base
     const trace1 = {
@@ -152,8 +155,20 @@ export class WaterfallChartComponent implements OnInit {
         }
       }
     };
+    const budget = {
+      x: xData,
+      y: yDataBudget,
+      type: 'bar',
+      marker: {
+        color: 'rgba(0, 0, 0, 0.60)',
+        line: {
+          color: 'rgba(0, 0, 0, 0.60)',
+          width: 2
+        }
+      }
+    };
 
-    const data = [trace1, trace2, trace3, trace4];
+    const data = [trace1, trace2, trace3, trace4, budget];
 
     const layout = {
       barmode: 'stack',

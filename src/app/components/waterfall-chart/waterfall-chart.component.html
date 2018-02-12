@@ -2,10 +2,24 @@
   <div #test class="waterfall-container"></div>
   <div class="numbers-container">
     <div class="numbers-elem">
-      <p>Budget:  <span>{{waterfallInit.toFixed(2)}}</span></p>
+      <!-- <app-card [title]="'Budget'" [content]="waterfallInit.toFixed(2)"></app-card> -->
+      <div class="card budget">
+        <div class="color-box" [ngStyle]="{'background-color': color}"></div>
+        <p class="card-content">{{waterfallInit.toFixed(2)}}</p>
+        <p class="card-title">Budget</p>
+      </div>
+        
+        <!-- <p>Budget:  <span>{{waterfallInit.toFixed(2)}}</span></p> -->
     </div>
     <div class="numbers-elem">
-      <p>Total Value: <span>{{waterfallTotal.toFixed(2)}}</span></p>
+        <div class="card value">
+            <div class="color-box" [ngStyle]="{'background-color': color}"></div>
+            <p class="card-content">{{waterfallTotal.toFixed(2)}}</p>
+            <p class="card-title">Value</p>
+          </div>
+      <!-- <app-card [title]="'Val;ue'" [content]="waterfallTotal.toFixed(2)"></app-card> -->
+      
+      <!-- <p>Total Value: <span>{{waterfallTotal.toFixed(2)}}</span></p> -->
     </div>
   </div>
 </div>

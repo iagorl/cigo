@@ -7,10 +7,10 @@
   height: calc((100vh - 220px) / 2);
   display: flex;
   .waterfall-container {
-    flex: 3;
+    flex: 5;
   }
   .numbers-container {
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-direction: column;
     .numbers-elem {
@@ -29,4 +29,36 @@
     padding-top: 10px;
     height: calc(100% - 40px);
   }
+}
+
+.card {
+  color: #353535;
+  font-size: small;
+  height: calc(100% - 15px);
+  width: 100%;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  .card-title {
+    margin: 0px;
+    padding: 3px 13px 3px 13px;
+    font-size: 11px;
+    margin-top: 40%;    
+  }
+  .card-content {
+    transition: all 0.5s;
+    padding: 0 13px 0px 13px;
+    overflow: hidden;
+    margin-top: 40%;
+    font-size: 1.2em;
+  }
+  &.budget {
+    margin-bottom: 5px;
+    border-bottom: 10px rgba(0, 0, 0, 0.60) solid;
+  }
+  &.value {
+    margin-top: 5px;
+    border-bottom: 10px rgba(55,128,191,1.0) solid;
+  }
+
 }
