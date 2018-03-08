@@ -24,11 +24,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_cdi_cdi_component__ = __webpack_require__("../../../../../src/app/pages/cdi/cdi.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_pareto_pareto_component__ = __webpack_require__("../../../../../src/app/pages/pareto/pareto.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_fuel_fuel_component__ = __webpack_require__("../../../../../src/app/pages/fuel/fuel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_cigo_cigo_component__ = __webpack_require__("../../../../../src/app/pages/cigo/cigo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_cigo_cigo_component__ = __webpack_require__("../../../../../src/app/pages/cigo/cigo.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,16 +34,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-
-
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_3__pages_home_home_component__["a" /* HomePageComponent */] },
-    { path: 'fuel', component: __WEBPACK_IMPORTED_MODULE_5__pages_fuel_fuel_component__["a" /* FuelPageComponent */] },
-    { path: 'cdi', component: __WEBPACK_IMPORTED_MODULE_2__pages_cdi_cdi_component__["a" /* CdiPageComponent */] },
-    { path: 'cigo', component: __WEBPACK_IMPORTED_MODULE_6__pages_cigo_cigo_component__["a" /* CigoPageComponent */] },
-    { path: 'pareto', component: __WEBPACK_IMPORTED_MODULE_4__pages_pareto_pareto_component__["a" /* ParetoPageComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pages_cigo_cigo_component__["a" /* CigoPageComponent */] },
     { path: '**', redirectTo: '' }
 ];
 var AppRoutingModule = (function () {
@@ -3903,8 +3891,9 @@ var CigoPageComponent = (function () {
                 var promSpi_1 = 0;
                 var promLey_1 = 0;
                 data[chart].series.map(function (elem) {
-                    var hour = elem.fecha.getHours();
-                    if (hour <= actualHour && hour >= initialHour) {
+                    var baseHour = elem.fecha.getHours();
+                    var hour = baseHour - initialHour;
+                    if (baseHour <= actualHour && baseHour >= initialHour) {
                         _this.firstData[hour].viajes += elem.viajes;
                         _this.firstData[hour].tons += elem.tons;
                         promViaje_1 += elem.viajes;
