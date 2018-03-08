@@ -195,46 +195,49 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__ = __webpack_require__("../../../../@swimlane/ngx-datatable/release/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material_list__ = __webpack_require__("../../../material/esm5/list.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material_checkbox__ = __webpack_require__("../../../material/esm5/checkbox.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material_input__ = __webpack_require__("../../../material/esm5/input.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_material_button__ = __webpack_require__("../../../material/esm5/button.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_material_button_toggle__ = __webpack_require__("../../../material/esm5/button-toggle.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_material_icon__ = __webpack_require__("../../../material/esm5/icon.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_material_select__ = __webpack_require__("../../../material/esm5/select.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_comments_service__ = __webpack_require__("../../../../../src/app/services/comments.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_range_service__ = __webpack_require__("../../../../../src/app/services/range.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_target_service__ = __webpack_require__("../../../../../src/app/services/target.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_view_service__ = __webpack_require__("../../../../../src/app/services/view.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_control_chart_control_chart_component__ = __webpack_require__("../../../../../src/app/components/control-chart/control-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_control_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/control-chart/combo/combo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_top_bar_top_bar_component__ = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_card_listing_card_listing_component__ = __webpack_require__("../../../../../src/app/components/card-listing/card-listing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_card_card_component__ = __webpack_require__("../../../../../src/app/components/card/card.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_comment_section_comment_section_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment-section.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_comment_section_comment_comment_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment/comment.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_new_range_form_new_range_form_component__ = __webpack_require__("../../../../../src/app/components/new-range-form/new-range-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_comment_section_input_input_component__ = __webpack_require__("../../../../../src/app/components/comment-section/input/input.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_filter_filter_component__ = __webpack_require__("../../../../../src/app/components/filter/filter.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_scatter_chart_scatter_chart_component__ = __webpack_require__("../../../../../src/app/components/scatter-chart/scatter-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_pareto_chart_pareto_chart_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/pareto-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_table_table_component__ = __webpack_require__("../../../../../src/app/components/table/table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_pareto_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/combo/combo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_pareto_chart_vertical_series_vertical_series_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/vertical-series/vertical-series.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_cdi_cdi_component__ = __webpack_require__("../../../../../src/app/pages/cdi/cdi.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_pareto_pareto_component__ = __webpack_require__("../../../../../src/app/pages/pareto/pareto.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_fuel_fuel_component__ = __webpack_require__("../../../../../src/app/pages/fuel/fuel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_waterfall_chart_waterfall_chart_component__ = __webpack_require__("../../../../../src/app/components/waterfall-chart/waterfall-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_histogram_chart_histogram_chart_component__ = __webpack_require__("../../../../../src/app/components/histogram-chart/histogram-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_cigo_cigo_component__ = __webpack_require__("../../../../../src/app/pages/cigo/cigo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__services_cigo_data_service__ = __webpack_require__("../../../../../src/app/services/cigo-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material_progress_bar__ = __webpack_require__("../../../material/esm5/progress-bar.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material_datepicker__ = __webpack_require__("../../../material/esm5/datepicker.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_material_checkbox__ = __webpack_require__("../../../material/esm5/checkbox.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_material_input__ = __webpack_require__("../../../material/esm5/input.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_material_button__ = __webpack_require__("../../../material/esm5/button.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_material_button_toggle__ = __webpack_require__("../../../material/esm5/button-toggle.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_material_icon__ = __webpack_require__("../../../material/esm5/icon.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_material_select__ = __webpack_require__("../../../material/esm5/select.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_comments_service__ = __webpack_require__("../../../../../src/app/services/comments.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_range_service__ = __webpack_require__("../../../../../src/app/services/range.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_target_service__ = __webpack_require__("../../../../../src/app/services/target.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_view_service__ = __webpack_require__("../../../../../src/app/services/view.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_control_chart_control_chart_component__ = __webpack_require__("../../../../../src/app/components/control-chart/control-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_control_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/control-chart/combo/combo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_top_bar_top_bar_component__ = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_card_listing_card_listing_component__ = __webpack_require__("../../../../../src/app/components/card-listing/card-listing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_card_card_component__ = __webpack_require__("../../../../../src/app/components/card/card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_comment_section_comment_section_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment-section.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_comment_section_comment_comment_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment/comment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_new_range_form_new_range_form_component__ = __webpack_require__("../../../../../src/app/components/new-range-form/new-range-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_comment_section_input_input_component__ = __webpack_require__("../../../../../src/app/components/comment-section/input/input.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_filter_filter_component__ = __webpack_require__("../../../../../src/app/components/filter/filter.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_scatter_chart_scatter_chart_component__ = __webpack_require__("../../../../../src/app/components/scatter-chart/scatter-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_pareto_chart_pareto_chart_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/pareto-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_table_table_component__ = __webpack_require__("../../../../../src/app/components/table/table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_pareto_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/combo/combo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_pareto_chart_vertical_series_vertical_series_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/vertical-series/vertical-series.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_cdi_cdi_component__ = __webpack_require__("../../../../../src/app/pages/cdi/cdi.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_pareto_pareto_component__ = __webpack_require__("../../../../../src/app/pages/pareto/pareto.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_fuel_fuel_component__ = __webpack_require__("../../../../../src/app/pages/fuel/fuel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_waterfall_chart_waterfall_chart_component__ = __webpack_require__("../../../../../src/app/components/waterfall-chart/waterfall-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_histogram_chart_histogram_chart_component__ = __webpack_require__("../../../../../src/app/components/histogram-chart/histogram-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_cigo_cigo_component__ = __webpack_require__("../../../../../src/app/pages/cigo/cigo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__services_cigo_data_service__ = __webpack_require__("../../../../../src/app/services/cigo-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__angular_material_core__ = __webpack_require__("../../../material/esm5/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -287,30 +290,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var Components = [
-    __WEBPACK_IMPORTED_MODULE_22__components_control_chart_control_chart_component__["a" /* ControlChartComponent */],
-    __WEBPACK_IMPORTED_MODULE_23__components_control_chart_combo_combo_component__["a" /* ComboComponent */],
-    __WEBPACK_IMPORTED_MODULE_24__components_top_bar_top_bar_component__["a" /* TopBarComponent */],
-    __WEBPACK_IMPORTED_MODULE_25__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
-    __WEBPACK_IMPORTED_MODULE_26__components_card_listing_card_listing_component__["a" /* CardListingComponent */],
-    __WEBPACK_IMPORTED_MODULE_27__components_card_card_component__["a" /* CardComponent */],
-    __WEBPACK_IMPORTED_MODULE_28__components_comment_section_comment_section_component__["a" /* CommentSectionComponent */],
-    __WEBPACK_IMPORTED_MODULE_29__components_comment_section_comment_comment_component__["a" /* CommentComponent */],
-    __WEBPACK_IMPORTED_MODULE_30__components_new_range_form_new_range_form_component__["a" /* NewRangeFormComponent */],
-    __WEBPACK_IMPORTED_MODULE_31__components_comment_section_input_input_component__["a" /* InputComponent */],
-    __WEBPACK_IMPORTED_MODULE_32__components_filter_filter_component__["a" /* FilterComponent */],
-    __WEBPACK_IMPORTED_MODULE_33__components_scatter_chart_scatter_chart_component__["a" /* ScatterChartComponent */],
-    __WEBPACK_IMPORTED_MODULE_35__components_table_table_component__["a" /* TableComponent */],
-    __WEBPACK_IMPORTED_MODULE_34__components_pareto_chart_pareto_chart_component__["a" /* ParetoChartComponent */],
-    __WEBPACK_IMPORTED_MODULE_36__components_pareto_chart_combo_combo_component__["a" /* ParetoComboComponent */],
-    __WEBPACK_IMPORTED_MODULE_37__components_pareto_chart_vertical_series_vertical_series_component__["a" /* ParetoVerticalSeriesComponent */]
+    __WEBPACK_IMPORTED_MODULE_24__components_control_chart_control_chart_component__["a" /* ControlChartComponent */],
+    __WEBPACK_IMPORTED_MODULE_25__components_control_chart_combo_combo_component__["a" /* ComboComponent */],
+    __WEBPACK_IMPORTED_MODULE_26__components_top_bar_top_bar_component__["a" /* TopBarComponent */],
+    __WEBPACK_IMPORTED_MODULE_27__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
+    __WEBPACK_IMPORTED_MODULE_28__components_card_listing_card_listing_component__["a" /* CardListingComponent */],
+    __WEBPACK_IMPORTED_MODULE_29__components_card_card_component__["a" /* CardComponent */],
+    __WEBPACK_IMPORTED_MODULE_30__components_comment_section_comment_section_component__["a" /* CommentSectionComponent */],
+    __WEBPACK_IMPORTED_MODULE_31__components_comment_section_comment_comment_component__["a" /* CommentComponent */],
+    __WEBPACK_IMPORTED_MODULE_32__components_new_range_form_new_range_form_component__["a" /* NewRangeFormComponent */],
+    __WEBPACK_IMPORTED_MODULE_33__components_comment_section_input_input_component__["a" /* InputComponent */],
+    __WEBPACK_IMPORTED_MODULE_34__components_filter_filter_component__["a" /* FilterComponent */],
+    __WEBPACK_IMPORTED_MODULE_35__components_scatter_chart_scatter_chart_component__["a" /* ScatterChartComponent */],
+    __WEBPACK_IMPORTED_MODULE_37__components_table_table_component__["a" /* TableComponent */],
+    __WEBPACK_IMPORTED_MODULE_36__components_pareto_chart_pareto_chart_component__["a" /* ParetoChartComponent */],
+    __WEBPACK_IMPORTED_MODULE_38__components_pareto_chart_combo_combo_component__["a" /* ParetoComboComponent */],
+    __WEBPACK_IMPORTED_MODULE_39__components_pareto_chart_vertical_series_vertical_series_component__["a" /* ParetoVerticalSeriesComponent */]
 ];
 var Pages = [
-    __WEBPACK_IMPORTED_MODULE_40__pages_pareto_pareto_component__["a" /* ParetoPageComponent */],
-    __WEBPACK_IMPORTED_MODULE_38__pages_cdi_cdi_component__["a" /* CdiPageComponent */],
-    __WEBPACK_IMPORTED_MODULE_41__pages_fuel_fuel_component__["a" /* FuelPageComponent */],
-    __WEBPACK_IMPORTED_MODULE_39__pages_home_home_component__["a" /* HomePageComponent */],
-    __WEBPACK_IMPORTED_MODULE_44__pages_cigo_cigo_component__["a" /* CigoPageComponent */]
+    __WEBPACK_IMPORTED_MODULE_42__pages_pareto_pareto_component__["a" /* ParetoPageComponent */],
+    __WEBPACK_IMPORTED_MODULE_40__pages_cdi_cdi_component__["a" /* CdiPageComponent */],
+    __WEBPACK_IMPORTED_MODULE_43__pages_fuel_fuel_component__["a" /* FuelPageComponent */],
+    __WEBPACK_IMPORTED_MODULE_41__pages_home_home_component__["a" /* HomePageComponent */],
+    __WEBPACK_IMPORTED_MODULE_46__pages_cigo_cigo_component__["a" /* CigoPageComponent */]
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -318,39 +324,42 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_16__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* AppComponent */]
             ].concat(Components, Pages, [
-                __WEBPACK_IMPORTED_MODULE_42__components_waterfall_chart_waterfall_chart_component__["a" /* WaterfallChartComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__components_histogram_chart_histogram_chart_component__["a" /* HistogramChartComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_waterfall_chart_waterfall_chart_component__["a" /* WaterfallChartComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_histogram_chart_histogram_chart_component__["a" /* HistogramChartComponent */],
             ]),
             imports: [
-                __WEBPACK_IMPORTED_MODULE_15__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_17__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"],
                 __WEBPACK_IMPORTED_MODULE_5__angular_material_list__["a" /* MatListModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_material_checkbox__["a" /* MatCheckboxModule */],
-                __WEBPACK_IMPORTED_MODULE_13__angular_forms__["c" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_8__angular_material_checkbox__["a" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_16__angular_common__["CommonModule"],
                 __WEBPACK_IMPORTED_MODULE_3__swimlane_ngx_charts__["NgxChartsModule"],
                 __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__["NgxDatatableModule"],
-                __WEBPACK_IMPORTED_MODULE_8__angular_material_button__["a" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_11__angular_material_select__["a" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_9__angular_material_button_toggle__["a" /* MatButtonToggleModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_material_input__["a" /* MatInputModule */],
-                __WEBPACK_IMPORTED_MODULE_10__angular_material_icon__["a" /* MatIconModule */],
-                __WEBPACK_IMPORTED_MODULE_11__angular_material_select__["a" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_12__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_13__angular_forms__["c" /* FormsModule */]
+                __WEBPACK_IMPORTED_MODULE_10__angular_material_button__["a" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_13__angular_material_select__["a" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_11__angular_material_button_toggle__["a" /* MatButtonToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material_input__["b" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_12__angular_material_icon__["a" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_13__angular_material_select__["a" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_14__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material_progress_bar__["a" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_material_datepicker__["a" /* MatDatepickerModule */],
+                __WEBPACK_IMPORTED_MODULE_48__angular_material_core__["j" /* MatNativeDateModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_18__services_data_service__["a" /* DataService */],
-                __WEBPACK_IMPORTED_MODULE_17__services_comments_service__["a" /* CommentsService */],
-                __WEBPACK_IMPORTED_MODULE_19__services_range_service__["a" /* RangeService */],
-                __WEBPACK_IMPORTED_MODULE_21__services_view_service__["a" /* ViewService */],
-                __WEBPACK_IMPORTED_MODULE_45__services_cigo_data_service__["a" /* CigoDataService */],
-                __WEBPACK_IMPORTED_MODULE_20__services_target_service__["a" /* TargetService */]
+                __WEBPACK_IMPORTED_MODULE_20__services_data_service__["a" /* DataService */],
+                __WEBPACK_IMPORTED_MODULE_19__services_comments_service__["a" /* CommentsService */],
+                __WEBPACK_IMPORTED_MODULE_21__services_range_service__["a" /* RangeService */],
+                __WEBPACK_IMPORTED_MODULE_23__services_view_service__["a" /* ViewService */],
+                __WEBPACK_IMPORTED_MODULE_47__services_cigo_data_service__["a" /* CigoDataService */],
+                __WEBPACK_IMPORTED_MODULE_22__services_target_service__["a" /* TargetService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_16__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -363,7 +372,7 @@ var AppModule = (function () {
 /***/ "../../../../../src/app/components/card-listing/card-listing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list role=\"list\" class=\"list-global\">\n  <div class=\"list-container\">\n    <div class=\"list-header\">\n      <h3 mat-subheader>Warnings</h3>\n    </div>\n    <div class=\"items-list\">\n      <!-- <mat-checkbox [ngModel]=\"rangeService.activated$ | async\"  (ngModelChange)=\"toggle($event)\">Add new limit</mat-checkbox> -->\n      <!-- <mat-button-toggle [value]=\"rangeService.activated$ | async\" (click)=\"toggle($event)\">Add new Limit</mat-button-toggle> -->\n      <button mat-raised-button [color]=\"isActive ? '' : 'accent'\" (click)=\"toggle($event)\">New Limit</button>\n      <app-new-range-form\n        *ngIf=\"(rangeService.activated$  | async)\"\n        [selectedX]=\"(activeCoords$ | async)?.x\"\n        [selectedY]=\"(activeCoords$ | async)?.y\"\n        (cancel)=\"onCancel()\"\n        (createRange)=\"createRange($event)\">\n      </app-new-range-form>\n      <ng-template [ngIf]=\"(warnings$ | async)?.length\">\n        <app-card *ngFor=\"let warning of warnings$ | async\" [color]=\"'#FF8033'\" [title]=\"'Out of range'\" [content]=\"formatWarningContent(warning)\"></app-card>\n      </ng-template>\n    </div>\n  </div>\n  <mat-divider></mat-divider>\n  <div class=\"list-container\" *ngIf=\"!commentList\" >\n    <h3 mat-subheader>Limits</h3>\n    <div class=\"items-list\">\n      <app-card *ngFor=\"let range of ranges$ | async\" [color]=\"'#4981FD'\" [title]=\"range.name\" [content]=\"formatRangeContent(range)\"></app-card>\n    </div>\n  </div>\n</mat-list>\n"
+module.exports = "<mat-list role=\"list\" class=\"list-global\" *ngIf=\"isCdi\">\n  <div class=\"list-container\">\n    <div class=\"list-header\">\n      <h3 mat-subheader>Warnings</h3>\n    </div>\n    <div class=\"items-list\">\n      <!-- <mat-checkbox [ngModel]=\"rangeService.activated$ | async\"  (ngModelChange)=\"toggle($event)\">Add new limit</mat-checkbox> -->\n      <!-- <mat-button-toggle [value]=\"rangeService.activated$ | async\" (click)=\"toggle($event)\">Add new Limit</mat-button-toggle> -->\n      <button mat-raised-button [color]=\"isActive ? '' : 'accent'\" (click)=\"toggle($event)\">New Limit</button>\n      <app-new-range-form\n        *ngIf=\"(rangeService.activated$  | async)\"\n        [selectedX]=\"(activeCoords$ | async)?.x\"\n        [selectedY]=\"(activeCoords$ | async)?.y\"\n        (cancel)=\"onCancel()\"\n        (createRange)=\"createRange($event)\">\n      </app-new-range-form>\n      <ng-template [ngIf]=\"(warnings$ | async)?.length\">\n        <app-card *ngFor=\"let warning of warnings$ | async\" [color]=\"'#FF8033'\" [title]=\"'Out of range'\" [content]=\"formatWarningContent(warning)\"></app-card>\n      </ng-template>\n    </div>\n  </div>\n  <mat-divider></mat-divider>\n  <div class=\"list-container\" *ngIf=\"!commentList\" >\n    <h3 mat-subheader>Limits</h3>\n    <div class=\"items-list\">\n      <app-card *ngFor=\"let range of ranges$ | async\" [color]=\"'#4981FD'\" [title]=\"range.name\" [content]=\"formatRangeContent(range)\"></app-card>\n    </div>\n  </div>\n</mat-list>\n"
 
 /***/ }),
 
@@ -863,7 +872,7 @@ var InputComponent = (function () {
 /***/ "../../../../../src/app/components/control-chart/combo/combo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ngx-charts-chart\n  [view]=\"[width, height]\"\n  [showLegend]=\"legend\"\n  [legendOptions]=\"legendOptions\"\n  [activeEntries]=\"activeEntries\"\n  [animations]=\"animations\"\n  (legendLabelClick)=\"onClick($event)\"\n  (legendLabelActivate)=\"onActivate($event)\"\n  (legendLabelDeactivate)=\"onDeactivate($event)\">\n  <svg:defs>\n    <svg:clipPath [attr.id]=\"clipPathId\">\n      <svg:rect\n        [attr.width]=\"dims.width + 10\"\n        [attr.height]=\"dims.height + 10\"\n        [attr.transform]=\"'translate(-5, -5)'\"/>\n    </svg:clipPath>\n  </svg:defs>\n  <svg:g [attr.transform]=\"transform\" class=\"line-chart chart\">\n    \n    <svg:g ngx-charts-x-axis\n      *ngIf=\"xAxis\"\n      [xScale]=\"xScale\"\n      [dims]=\"dims\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showXAxisLabel\"\n      [labelText]=\"xAxisLabel\"\n      [tickFormatting]=\"xAxisTickFormatting\"\n      (dimensionsChanged)=\"updateXAxisHeight($event)\">\n    </svg:g>\n    <svg:g ngx-charts-y-axis\n      *ngIf=\"yAxis\"\n      [yScale]=\"yScale\"\n      [dims]=\"dims\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showYAxisLabel\"\n      [labelText]=\"yAxisLabel\"\n      [tickFormatting]=\"yAxisTickFormatting\"\n      [referenceLines]=\"referenceLines\"\n      [showRefLines]=\"showRefLines\"\n      [showRefLabels]=\"showRefLabels\"\n      (dimensionsChanged)=\"updateYAxisWidth($event)\">\n    </svg:g>\n    <svg:g [attr.clip-path]=\"clipPath\">\n      <svg:g *ngFor=\"let series of results; trackBy:trackBy\" [@animationState]=\"'active'\">\n        <svg:g ngx-charts-line-series\n          [xScale]=\"xScale\"\n          [yScale]=\"yScale\"\n          [colors]=\"colors\"\n          [data]=\"series\"\n          [activeEntries]=\"activeEntries\"\n          [scaleType]=\"scaleType\"\n          [curve]=\"curve\"\n          [rangeFillOpacity]=\"rangeFillOpacity\"\n          [hasRange]=\"hasRange\"\n          [animations]=\"animations\"\n        />\n      </svg:g>\n\n      <svg:g *ngIf=\"!tooltipDisabled\" (mouseleave)=\"hideCircles()\">\n        <svg:g ngx-charts-tooltip-area\n          [dims]=\"dims\"\n          [xSet]=\"xSet\"\n          [xScale]=\"xScale\"\n          [yScale]=\"yScale\"\n          [results]=\"results\"\n          [colors]=\"colors\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          [tooltipTemplate]=\"seriesTooltipTemplate\"\n          (hover)=\"updateHoveredVertical($event)\"\n          (clicked)=\"areaClicked($event)\"\n        />\n\n        <svg:g *ngFor=\"let series of results\">\n          <svg:g ngx-charts-circle-series\n            [xScale]=\"xScale\"\n            [yScale]=\"yScale\"\n            [colors]=\"colors\"\n            [data]=\"series\"\n            [scaleType]=\"scaleType\"\n            [visibleValue]=\"hoveredVertical\"\n            [activeEntries]=\"activeEntries\"\n            [tooltipDisabled]=\"tooltipDisabled\"\n            [tooltipTemplate]=\"tooltipTemplate\"\n            (select)=\"onClick($event, series)\"\n            (activate)=\"onActivate($event)\"\n            (deactivate)=\"onDeactivate($event)\"\n          />\n        </svg:g>\n      </svg:g>\n      <ng-container *ngIf=\"commentsActive\">\n        <svg:g *ngFor=\"let series of comments\">\n            <svg:g ngx-charts-bubble-series\n            [xScale]=\"xScale\"\n            [yScale]=\"yScale\"\n            [rScale]=\"rScale\"\n            [xScaleType]=\"xScaleType\"\n            [yScaleType]=\"yScaleType\"\n            [xAxisLabel]=\"xAxisLabel\"\n            [yAxisLabel]=\"yAxisLabel\"\n            [colors]=\"secondaryColors\"\n            [data]=\"series\"\n            [activeEntries]=\"activeComment\"\n            [tooltipDisabled]=\"tooltipDisabled\"\n            [tooltipTemplate]=\"tooltipTemplate\"\n            (select)=\"onClick($event, series)\"\n            (activate)=\"onHover($event, series)\"\n            (deactivate)=\"onHover($event, null)\" />\n        </svg:g>\n      </ng-container>\n    </svg:g>\n  </svg:g>\n  <svg:g ngx-charts-timeline\n    *ngIf=\"timeline && scaleType != 'ordinal'\"\n    [attr.transform]=\"timelineTransform\"\n    [results]=\"results\"\n    [view]=\"[timelineWidth, height]\"\n    [height]=\"timelineHeight\"\n    [scheme]=\"scheme\"\n    [customColors]=\"customColors\"\n    [scaleType]=\"scaleType\"\n    [legend]=\"legend\"\n    (onDomainChange)=\"updateDomain($event)\">\n    <svg:g *ngFor=\"let series of results; trackBy:trackBy\">\n      <svg:g ngx-charts-line-series\n        [xScale]=\"timelineXScale\"\n        [yScale]=\"timelineYScale\"\n        [colors]=\"colors\"\n        [data]=\"series\"\n        [scaleType]=\"scaleType\"\n        [curve]=\"curve\"\n        [hasRange]=\"hasRange\"\n        [animations]=\"animations\"\n      />\n    </svg:g>\n  </svg:g>\n</ngx-charts-chart>"
+module.exports = "<ngx-charts-chart\n  [view]=\"[width, height]\"\n  [showLegend]=\"legend\"\n  [legendOptions]=\"legendOptions\"\n  [activeEntries]=\"activeEntries\"\n  [animations]=\"animations\"\n  (legendLabelClick)=\"onClick($event)\"\n  (legendLabelActivate)=\"onActivate($event)\"\n  (legendLabelDeactivate)=\"onDeactivate($event)\">\n  <svg:defs>\n    <svg:clipPath [attr.id]=\"clipPathId\">\n      <svg:rect\n        [attr.width]=\"dims.width + 10\"\n        [attr.height]=\"dims.height + 10\"\n        [attr.transform]=\"'translate(-5, -5)'\"/>\n    </svg:clipPath>\n  </svg:defs>\n  <svg:g [attr.transform]=\"transform\" class=\"line-chart chart\">\n    \n    <svg:g ngx-charts-x-axis\n      *ngIf=\"xAxis\"\n      [xScale]=\"xScale\"\n      [dims]=\"dims\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showXAxisLabel\"\n      [labelText]=\"xAxisLabel\"\n      [tickFormatting]=\"xAxisTickFormatting\"\n      (dimensionsChanged)=\"updateXAxisHeight($event)\">\n    </svg:g>\n    <svg:g ngx-charts-y-axis\n      *ngIf=\"yAxis\"\n      [yScale]=\"yScale\"\n      [dims]=\"dims\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showYAxisLabel\"\n      [labelText]=\"yAxisLabel\"\n      [tickFormatting]=\"yAxisTickFormatting\"\n      [referenceLines]=\"referenceLines\"\n      [showRefLines]=\"showRefLines\"\n      [showRefLabels]=\"showRefLabels\"\n      (dimensionsChanged)=\"updateYAxisWidth($event)\">\n    </svg:g>\n    <svg:g [attr.clip-path]=\"clipPath\">\n      <svg:g *ngFor=\"let series of results; trackBy:trackBy\" [@animationState]=\"'active'\">\n        <svg:g ngx-charts-line-series\n          [xScale]=\"xScale\"\n          [yScale]=\"yScale\"\n          [colors]=\"colors\"\n          [data]=\"series\"\n          [activeEntries]=\"activeEntries\"\n          [scaleType]=\"scaleType\"\n          [curve]=\"curve\"\n          [rangeFillOpacity]=\"rangeFillOpacity\"\n          [hasRange]=\"hasRange\"\n          [animations]=\"animations\"\n        />\n      </svg:g>\n\n      <svg:g *ngIf=\"!tooltipDisabled\" (mouseleave)=\"hideCircles()\">\n        <svg:g ngx-charts-tooltip-area\n          [dims]=\"dims\"\n          [xSet]=\"xSet\"\n          [xScale]=\"xScale\"\n          [yScale]=\"yScale\"\n          [results]=\"results\"\n          [colors]=\"colors\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          [tooltipTemplate]=\"seriesTooltipTemplate\"\n          (hover)=\"updateHoveredVertical($event)\"\n          (clicked)=\"areaClicked($event)\"\n        />\n\n        <svg:g *ngFor=\"let series of results\">\n          <svg:g ngx-charts-circle-series\n            [xScale]=\"xScale\"\n            [yScale]=\"yScale\"\n            [colors]=\"colors\"\n            [data]=\"series\"\n            [scaleType]=\"scaleType\"\n            [visibleValue]=\"hoveredVertical\"\n            [activeEntries]=\"activeEntries\"\n            [tooltipDisabled]=\"tooltipDisabled\"\n            [tooltipTemplate]=\"tooltipTemplate\"\n            (select)=\"onClick($event, series)\"\n            (activate)=\"onActivate($event)\"\n            (deactivate)=\"onDeactivate($event)\"\n          />\n        </svg:g>\n      </svg:g>\n      <ng-container *ngIf=\"commentsActive\">\n        <svg:g *ngFor=\"let series of comments\">\n            <svg:g ngx-charts-bubble-series\n            [xScale]=\"xScale\"\n            [yScale]=\"yScale\"\n            [rScale]=\"rScale\"\n            [xScaleType]=\"xScaleType\"\n            [yScaleType]=\"yScaleType\"\n            [xAxisLabel]=\"xAxisLabel\"\n            [yAxisLabel]=\"yAxisLabel\"\n            [colors]=\"secondaryColors\"\n            [data]=\"series\"\n            [activeEntries]=\"activeComment\"\n            [tooltipDisabled]=\"tooltipDisabled\"\n            [tooltipTemplate]=\"tooltipTemplate\"\n            (select)=\"onClick($event, series)\"\n            (activate)=\"onHover($event, series)\"\n            (deactivate)=\"onHover($event, null)\" />\n        </svg:g>\n      </ng-container>\n    </svg:g>\n  </svg:g>\n  <!-- <svg:g ngx-charts-timeline\n    *ngIf=\"timeline && scaleType != 'ordinal'\"\n    [attr.transform]=\"timelineTransform\"\n    [results]=\"results\"\n    [view]=\"[timelineWidth, height]\"\n    [height]=\"timelineHeight\"\n    [scheme]=\"scheme\"\n    [customColors]=\"customColors\"\n    [scaleType]=\"scaleType\"\n    [legend]=\"legend\"\n    (onDomainChange)=\"updateDomain($event)\">\n    <svg:g *ngFor=\"let series of results; trackBy:trackBy\">\n      <svg:g ngx-charts-line-series\n        [xScale]=\"timelineXScale\"\n        [yScale]=\"timelineYScale\"\n        [colors]=\"colors\"\n        [data]=\"series\"\n        [scaleType]=\"scaleType\"\n        [curve]=\"curve\"\n        [hasRange]=\"hasRange\"\n        [animations]=\"animations\"\n      />\n    </svg:g>\n  </svg:g> -->\n</ngx-charts-chart>"
 
 /***/ }),
 
@@ -941,10 +950,10 @@ var ComboComponent = (function (_super) {
         _this.clicked = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         _this.hover = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         _this.yScaleType = 'linear';
-        _this.margin = [10, 20, 10, 20];
+        _this.margin = [0, 20, 0, 20];
         _this.xAxisHeight = 0;
         _this.yAxisWidth = 0;
-        _this.timelineHeight = 50;
+        _this.timelineHeight = 30;
         _this.timelinePadding = 10;
         return _this;
     }
@@ -966,6 +975,7 @@ var ComboComponent = (function (_super) {
         this.rScale = Object(__WEBPACK_IMPORTED_MODULE_3_d3_scale__["scaleLinear"])().range([5, 10]).domain([1, 10]);
         if (this.timeline) {
             this.dims.height -= (this.timelineHeight + this.margin[2] + this.timelinePadding);
+            this.dims.height += 20;
         }
         this.xDomain = this.getXDomain();
         if (this.filteredDomain) {
@@ -1137,6 +1147,7 @@ var ComboComponent = (function (_super) {
         return false;
     };
     ComboComponent.prototype.updateDomain = function (domain) {
+        console.log('AQUI', domain);
         this.filteredDomain = domain;
         this.xDomain = this.filteredDomain;
         this.xScale = this.getXScale(this.xDomain, this.dims.width);
@@ -1416,7 +1427,7 @@ var ComboComponent = (function (_super) {
 /***/ "../../../../../src/app/components/control-chart/control-chart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"chart-container\" #target>\n<app-filter (change)=\"doChange($event)\" [options]=\"fieldOptions\" [targetOptions]=\"budgetOptions\"></app-filter>\n  \n  <app-combo\n    [view]=\"[width, height]\"\n    [scheme]=\"colorScheme\"\n    [results]=\"fullData$ | async\"\n    [comments]=\"fullComments$ | async\"\n    [commentsActive]=\"commentsVisible$ | async\"\n    [activeComment]=\"activeComment$ | async\"\n    [animations]=\"animations\"\n    [gradient]=\"gradient\"\n    [xAxis]=\"showXAxis\"\n    [yAxis]=\"showYAxis\"\n    [legend]=\"showLegend\"\n    [showGridLines]=\"true\"\n    [timeline]=\"true\"\n    [showXAxisLabel]=\"showXAxisLabel\"\n    [showYAxisLabel]=\"showYAxisLabel\"\n    [showRefLabels]=\"false\"\n    [xAxisLabel]=\"xAxisLabel\"\n    [yAxisLabel]=\"yAxisLabel\"\n    [autoScale]=\"autoScale\"\n    (clicked)=\"onClicked($event)\"\n    (hover)=\"onHover($event)\"\n    (select)=\"onSelect($event)\">\n  </app-combo>\n</div>\n"
+module.exports = "<div class=\"filters-box\" *ngIf=\"fieldOptions.length > 0\">\n  <app-filter (change)=\"doChange($event)\" [options]=\"fieldOptions\" [targetOptions]=\"budgetOptions\"></app-filter>\n</div>\n<div class=\"chart-container\" #target>\n    <mat-form-field>\n        <input matInput\n          [matDatepicker]=\"picker\"\n          [value]=\"initialDate\"\n          [min]=\"minDate\"\n          [max]=\"maxDate\"\n          (dateChange)=\"onChangeDate($event, 'initial')\">\n        <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n        <mat-datepicker #picker></mat-datepicker>\n    </mat-form-field>\n    <mat-form-field>\n        <input matInput \n          [matDatepicker]=\"picker2\"\n          [value]=\"finalDate\"\n          [min]=\"minDate\"\n          [max]=\"maxDate\"\n          (dateChange)=\"onChangeDate($event, 'final')\" >\n        <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n        <mat-datepicker #picker2></mat-datepicker>\n  </mat-form-field>  \n  <app-combo\n    [view]=\"[width, height]\"\n    [scheme]=\"colorScheme\"\n    [results]=\"fullData$ | async\"\n    [comments]=\"fullComments$ | async\"\n    [commentsActive]=\"commentsVisible$ | async\"\n    [activeComment]=\"activeComment$ | async\"\n    [animations]=\"animations\"\n    [gradient]=\"gradient\"\n    [xAxis]=\"showXAxis\"\n    [yAxis]=\"showYAxis\"\n    [legend]=\"showLegend\"\n    [showGridLines]=\"true\"\n    [timeline]=\"true\"\n    [showXAxisLabel]=\"false\"\n    [showYAxisLabel]=\"false\"\n    [showRefLabels]=\"false\"\n    [autoScale]=\"autoScale\"\n    (clicked)=\"onClicked($event)\"\n    (hover)=\"onHover($event)\"\n    (select)=\"onSelect($event)\">\n  </app-combo>\n</div>\n"
 
 /***/ }),
 
@@ -1428,7 +1439,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc(50% + 10px); }\n", ""]);
+exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: 85%; }\n", ""]);
 
 // exports
 
@@ -1479,7 +1490,12 @@ var ControlChartComponent = (function () {
         this.rangeService = rangeService;
         this.targetService = targetService;
         this.viewService = viewService;
+        this.currentFase = 'Total Fases';
+        this.currentKpi = 'Distancia';
+        this.currentTipo = 'Camion';
+        this.currentFlota = 'all';
         this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.changeDate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.colorScheme = {
             domain: []
         };
@@ -1569,6 +1585,10 @@ var ControlChartComponent = (function () {
         this.targetData$ = new __WEBPACK_IMPORTED_MODULE_9_rxjs_BehaviorSubject__["BehaviorSubject"]([]);
         this.rangeData$ = this.rangeService.rangeData$;
         this.data$ = this.dataService.dataControlFuel$;
+        this.initialDate = this.dataService.fuelInitDay;
+        this.finalDate = this.dataService.fuelEndDay;
+        this.minDate = this.dataService.fuelInitDay;
+        this.maxDate = this.dataService.fuelEndDay;
         this.fullData$ = __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["a" /* Observable */].combineLatest(this.data$, this.targetData$, this.rangeData$)
             .map(function (data) {
             return data[0].concat(data[1], data[2]);
@@ -1577,6 +1597,10 @@ var ControlChartComponent = (function () {
     ControlChartComponent.prototype.setCdiPage = function () {
         this.targetData$ = this.targetService.target$;
         this.rangeData$ = this.rangeService.rangeData$;
+        this.initialDate = this.dataService.cdiInitDay;
+        this.finalDate = this.dataService.cdiEndDay;
+        this.minDate = this.dataService.cdiInitDay;
+        this.maxDate = this.dataService.cdiEndDay;
         this.data$ = this.dataService.dataControl$;
         this.fullData$ = __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["a" /* Observable */].combineLatest(this.data$, this.targetData$, this.rangeData$)
             .map(function (data) {
@@ -1604,7 +1628,33 @@ var ControlChartComponent = (function () {
         return date[2] + "-" + date[0] + "-" + date[1];
     };
     ControlChartComponent.prototype.doChange = function (event) {
+        switch (event.field) {
+            case 'Tipo':
+                this.currentTipo = event.value;
+                break;
+            case 'Flota':
+                this.currentFlota = event.value;
+                break;
+            case 'KPI':
+                this.currentKpi = event.value;
+                break;
+            case 'Fase':
+                this.currentFase = event.value;
+                break;
+        }
         this.change.emit(event);
+    };
+    ControlChartComponent.prototype.onChangeDate = function (event, target) {
+        (target === 'final') ? this.finalDate = event.value : this.initialDate = event.value;
+        if (this.pageDescriptor === 'cdi') {
+            console.log('aqui');
+            this.dataService.changeData(this.currentKpi, this.currentFase, this.initialDate, this.finalDate);
+            this.targetService.changeTargetData(this.initialDate, this.finalDate);
+            this.rangeService.changeRangeData(this.initialDate, this.finalDate);
+        }
+        else {
+            this.dataService.changeFuelData(this.currentTipo, this.currentFlota, this.initialDate, this.finalDate);
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('target', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] }),
@@ -1626,6 +1676,14 @@ var ControlChartComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
         __metadata("design:type", Object)
     ], ControlChartComponent.prototype, "change", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], ControlChartComponent.prototype, "changeDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ControlChartComponent.prototype, "showLegend", void 0);
     ControlChartComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-control-chart',
@@ -1968,7 +2026,7 @@ var NewRangeFormComponent = (function () {
 /***/ "../../../../../src/app/components/pareto-chart/combo/combo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ngx-charts-chart\n  [view]=\"[width + legendSpacing, height]\"\n  [showLegend]=\"legend\"\n  [legendOptions]=\"legendOptions\"\n  [activeEntries]=\"activeEntries\"\n  [animations]=\"animations\"\n  (legendLabelClick)=\"onClick($event)\"\n  (legendLabelActivate)=\"onActivate($event)\"\n  (legendLabelDeactivate)=\"onDeactivate($event)\">\n  <svg:g [attr.transform]=\"transform\" class=\"bar-chart chart\">\n      <svg:g ngx-charts-x-axis\n      *ngIf=\"xAxis\"\n      [xScale]=\"xScale\"\n      [dims]=\"dims\"\n      [showLabel]=\"showXAxisLabel\"\n      [labelText]=\"xAxisLabel\"\n      [tickFormatting]=\"xAxisTickFormatting\"\n      (dimensionsChanged)=\"updateXAxisHeight($event)\">\n    </svg:g>\n    <svg:g ngx-charts-y-axis\n      *ngIf=\"yAxis\"\n      [yScale]=\"yScale\"\n      [dims]=\"dims\"\n      [yOrient]=\"yOrientLeft\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showYAxisLabel\"\n      [labelText]=\"yAxisLabel\"\n      [tickFormatting]=\"yAxisTickFormatting\"\n      (dimensionsChanged)=\"updateYAxisWidth($event)\">\n    </svg:g>\n    <svg:g ngx-charts-y-axis\n      *ngIf=\"yAxis\"\n      [yScale]=\"yScaleLine\"\n      [dims]=\"dims\"\n      [yOrient]=\"yOrientRight\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showRightYAxisLabel\"\n      [labelText]=\"yAxisLabelRight\"\n      [tickFormatting]=\"yRightAxisTickFormatting\"\n      (dimensionsChanged)=\"updateYAxisWidth($event)\">\n    </svg:g>\n    <svg:g ngx-combo-charts-series-vertical\n      [xScale]=\"xScale\"\n      [yScale]=\"yScale\"\n      [colors]=\"colors\"\n      [series]=\"results\"\n      [seriesLine]=\"lineChart\"\n      [dims]=\"dims\"\n      [gradient]=\"gradient\"\n      tooltipDisabled=\"true\"\n      [activeEntries]=\"activeEntries\"\n      [animations]=\"animations\"\n      (activate)=\"onActivate($event)\"\n      (deactivate)=\"onDeactivate($event)\"\n      (bandwidth)=\"updateLineWidth($event)\"\n      (select)=\"onClick($event)\">\n    </svg:g>\n  </svg:g>\n  <svg:g [attr.transform]=\"transform\" class=\"line-chart chart\">\n    <svg:g [attr.clip-path]=\"clipPath\">\n      <svg:g *ngFor=\"let series of lineChart; trackBy:trackBy\">\n        <svg:g ngx-charts-line-series\n          [xScale]=\"xScaleLine\"\n          [yScale]=\"yScaleLine\"\n          [colors]=\"colorsLine\"\n          [data]=\"series\"\n          [activeEntries]=\"activeEntries\"\n          [scaleType]=\"scaleType\"\n          [curve]=\"curve\"\n          [rangeFillOpacity]=\"rangeFillOpacity\"\n          [animations]=\"animations\"\n        />\n      </svg:g>\n      <svg:g ngx-charts-tooltip-area\n        *ngIf=\"!tooltipDisabled\"\n        [dims]=\"dims\"\n        [xSet]=\"xSet\"\n        [xScale]=\"xScaleLine\"\n        [yScale]=\"yScaleLine\"\n        [results]=\"combinedSeries\"\n        [colors]=\"colorsLine\"\n        [tooltipDisabled]=\"tooltipDisabled\"\n        (hover)=\"updateHoveredVertical($event)\"\n      />\n      <svg:g *ngFor=\"let series of lineChart\">\n        <svg:g ngx-charts-circle-series\n          [xScale]=\"xScaleLine\"\n          [yScale]=\"yScaleLine\"\n          [colors]=\"colorsLine\"\n          [data]=\"series\"\n          [scaleType]=\"scaleType\"\n          [visibleValue]=\"hoveredVertical\"\n          [activeEntries]=\"activeEntries\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          (select)=\"onClick($event, series)\"\n          (activate)=\"onActivate($event)\"\n          (deactivate)=\"onDeactivate($event)\"\n        />\n      </svg:g>\n    </svg:g>\n  </svg:g>\n</ngx-charts-chart>"
+module.exports = "<ngx-charts-chart\n  [view]=\"[width, height]\"\n  [showLegend]=\"legend\"\n  [legendOptions]=\"legendOptions\"\n  [activeEntries]=\"activeEntries\"\n  [animations]=\"animations\"\n  (legendLabelClick)=\"onClick($event)\"\n  (legendLabelActivate)=\"onActivate($event)\"\n  (legendLabelDeactivate)=\"onDeactivate($event)\">\n  <svg:g [attr.transform]=\"transform\" class=\"bar-chart chart\">\n      <svg:g ngx-charts-x-axis\n      *ngIf=\"xAxis\"\n      [xScale]=\"[]\"\n      [dims]=\"dims\"\n      [showLabel]=\"showXAxisLabel\"\n      [labelText]=\"xAxisLabel\"\n      [tickFormatting]=\"xAxisTickFormatting\"\n      (dimensionsChanged)=\"updateXAxisHeight($event)\">\n    </svg:g>\n    <svg:g ngx-charts-y-axis\n      *ngIf=\"yAxis\"\n      [yScale]=\"yScale\"\n      [dims]=\"dims\"\n      [yOrient]=\"yOrientLeft\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showYAxisLabel\"\n      [labelText]=\"yAxisLabel\"\n      [tickFormatting]=\"yAxisTickFormatting\"\n      (dimensionsChanged)=\"updateYAxisWidth($event)\">\n    </svg:g>\n    <svg:g ngx-charts-y-axis\n      *ngIf=\"yAxis\"\n      [yScale]=\"yScaleLine\"\n      [dims]=\"dims\"\n      [yOrient]=\"yOrientRight\"\n      [showGridLines]=\"showGridLines\"\n      [showLabel]=\"showRightYAxisLabel\"\n      [labelText]=\"yAxisLabelRight\"\n      [tickFormatting]=\"yRightAxisTickFormatting\"\n      (dimensionsChanged)=\"updateYAxisWidth($event)\">\n    </svg:g>\n    <svg:g ngx-combo-charts-series-vertical\n      [xScale]=\"xScale\"\n      [yScale]=\"yScale\"\n      [colors]=\"colors\"\n      [series]=\"results\"\n      [seriesLine]=\"lineChart\"\n      [dims]=\"dims\"\n      [gradient]=\"gradient\"\n      tooltipDisabled=\"true\"\n      [activeEntries]=\"activeEntries\"\n      [animations]=\"animations\"\n      (activate)=\"onActivate($event)\"\n      (deactivate)=\"onDeactivate($event)\"\n      (bandwidth)=\"updateLineWidth($event)\"\n      (select)=\"onClick($event)\">\n    </svg:g>\n  </svg:g>\n  <svg:g [attr.transform]=\"transform\" class=\"line-chart chart\">\n    <svg:g [attr.clip-path]=\"clipPath\">\n      <svg:g *ngFor=\"let series of lineChart; trackBy:trackBy\">\n        <svg:g ngx-charts-line-series\n          [xScale]=\"xScaleLine\"\n          [yScale]=\"yScaleLine\"\n          [colors]=\"colorsLine\"\n          [data]=\"series\"\n          [activeEntries]=\"activeEntries\"\n          [scaleType]=\"scaleType\"\n          [curve]=\"curve\"\n          [rangeFillOpacity]=\"rangeFillOpacity\"\n          [animations]=\"animations\"\n        />\n      </svg:g>\n      <svg:g ngx-charts-tooltip-area\n        *ngIf=\"!tooltipDisabled\"\n        [dims]=\"dims\"\n        [xSet]=\"xSet\"\n        [xScale]=\"xScaleLine\"\n        [yScale]=\"yScaleLine\"\n        [results]=\"combinedSeries\"\n        [colors]=\"colorsLine\"\n        [tooltipDisabled]=\"tooltipDisabled\"\n        (hover)=\"updateHoveredVertical($event)\"\n      />\n      <svg:g *ngFor=\"let series of lineChart\">\n        <svg:g ngx-charts-circle-series\n          [xScale]=\"xScaleLine\"\n          [yScale]=\"yScaleLine\"\n          [colors]=\"colorsLine\"\n          [data]=\"series\"\n          [scaleType]=\"scaleType\"\n          [visibleValue]=\"hoveredVertical\"\n          [activeEntries]=\"activeEntries\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          (select)=\"onClick($event, series)\"\n          (activate)=\"onActivate($event)\"\n          (deactivate)=\"onDeactivate($event)\"\n        />\n      </svg:g>\n    </svg:g>\n  </svg:g>\n</ngx-charts-chart>"
 
 /***/ }),
 
@@ -2039,7 +2097,7 @@ var ParetoComboComponent = (function (_super) {
         _this.animations = true;
         _this.activate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         _this.deactivate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        _this.margin = [10, 20, 10, 20];
+        _this.margin = [10, 10, 10, -80];
         _this.xAxisHeight = 0;
         _this.yAxisWidth = 0;
         _this.scaleType = 'linear';
@@ -2304,7 +2362,6 @@ var ParetoComboComponent = (function (_super) {
     ParetoComboComponent.prototype.updateLineWidth = function (width) {
         this.bandwidth = width;
         this.update();
-        console.log('new bw', this.bandwidth);
     };
     ParetoComboComponent.prototype.updateYAxisWidth = function (_a) {
         var width = _a.width;
@@ -2499,7 +2556,7 @@ var ParetoComboComponent = (function (_super) {
 /***/ "../../../../../src/app/components/pareto-chart/pareto-chart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"chart-container\" #target>\n  <app-filter (change)=\"doChange($event)\" [options]=\"fieldOptions\" ></app-filter>\n      \n  <pareto-combo\n    [view]=\"[width, height]\"\n    [scheme]=\"colorScheme\"\n    [colorSchemeLine]=\"colorSchemeLine\"\n    [results]=\"data$ | async\"\n    [animations]=\"animations\"\n    [lineChart]=\"cummData$ | async\"\n    [tooltipDisabled]=\"false\"\n    [gradient]=\"gradient\"\n    [xAxis]=\"showXAxis\"\n    [yAxis]=\"showYAxis\"\n    [legend]=\"showLegend\"\n    [legendTitle]=\"'test title'\"\n    [showGridLines]=\"false\"\n    [showXAxisLabel]=\"showXAxisLabel\"\n    [showYAxisLabel]=\"showYAxisLabel\"\n    [showRightYAxisLabel]=\"showYAxisLabel\"\n    [xAxisLabel]=\"xAxisLabel\"\n    [yAxisLabel]=\"yAxisLabel\"\n    [yAxisLabelRight]=\"'Porcentaje Acumulado'\"\n    (select)=\"onSelect($event)\"\n    >\n  </pareto-combo>\n</div>"
+module.exports = "<div class=\"chart-container\" #target>\n  <app-filter (change)=\"doChange($event)\" [options]=\"fieldOptions\" ></app-filter>\n  <div class=\"date-filters\">\n    <mat-form-field>\n        <input matInput\n          [matDatepicker]=\"picker\"\n          [value]=\"initialDate\"\n          [min]=\"minDate\"\n          [max]=\"maxDate\"\n          (dateChange)=\"changeDate($event, 'initial')\">\n        <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n        <mat-datepicker #picker></mat-datepicker>\n    </mat-form-field>\n    <mat-form-field>\n        <input matInput \n          [matDatepicker]=\"picker2\"\n          [value]=\"finalDate\"\n          [min]=\"minDate\"\n          [max]=\"maxDate\"\n          (dateChange)=\"changeDate($event, 'final')\" >\n        <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n        <mat-datepicker #picker2></mat-datepicker>\n    </mat-form-field>\n  </div>\n  <pareto-combo\n    [view]=\"[width, height]\"\n    [scheme]=\"colorScheme\"\n    [colorSchemeLine]=\"colorSchemeLine\"\n    [results]=\"data$\"\n    [animations]=\"animations\"\n    [lineChart]=\"cummData$ | async\"\n    [tooltipDisabled]=\"false\"\n    [gradient]=\"gradient\"\n    [xAxis]=\"showXAxis\"\n    [yAxis]=\"showYAxis\"\n    [legend]=\"showLegend\"\n    [legendTitle]=\"'test title'\"\n    [showGridLines]=\"false\"\n    [showXAxisLabel]=\"showXAxisLabel\"\n    [showYAxisLabel]=\"showYAxisLabel\"\n    [showRightYAxisLabel]=\"showYAxisLabel\"\n    [xAxisLabel]=\"xAxisLabel\"\n    [yAxisLabel]=\"yAxisLabel\"\n    [yAxisLabelRight]=\"'Porcentaje Acumulado'\"\n    (select)=\"onSelect($event)\"\n    >\n  </pareto-combo>\n</div>"
 
 /***/ }),
 
@@ -2511,7 +2568,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc(50% + 10px); }\n", ""]);
+exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc(100% - 25px); }\n", ""]);
 
 // exports
 
@@ -2527,12 +2584,12 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParetoChartComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_comments_service__ = __webpack_require__("../../../../../src/app/services/comments.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_range_service__ = __webpack_require__("../../../../../src/app/services/range.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_target_service__ = __webpack_require__("../../../../../src/app/services/target.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_view_service__ = __webpack_require__("../../../../../src/app/services/view.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_comments_service__ = __webpack_require__("../../../../../src/app/services/comments.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_range_service__ = __webpack_require__("../../../../../src/app/services/range.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_target_service__ = __webpack_require__("../../../../../src/app/services/target.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_view_service__ = __webpack_require__("../../../../../src/app/services/view.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2556,6 +2613,7 @@ var ParetoChartComponent = (function () {
         this.rangeService = rangeService;
         this.targetService = targetService;
         this.viewService = viewService;
+        this.mainFilter = '106';
         this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.colorScheme = {
             domain: ['#1774F0']
@@ -2580,75 +2638,38 @@ var ParetoChartComponent = (function () {
         var _this = this;
         this.width = this.target.element.nativeElement.getBoundingClientRect().width;
         this.height = this.target.element.nativeElement.getBoundingClientRect().height;
-        this.height -= 110;
-        this.data$ = this.dataService.dataPareto$;
-        this.cummData$ = this.dataService.dataParetoCumm$.do(function (d) { return console.log(d); });
+        this.height -= 200;
+        this.subscription = this.dataService.dataPareto$.subscribe(function (elem) {
+            _this.data$ = elem;
+            _this.originalData = elem;
+            _this.maxDate = _this.dataService.paretoEndDay;
+            _this.minDate = _this.dataService.paretoInitDay;
+            _this.initialDate = _this.dataService.paretoInitDay;
+            _this.finalDate = _this.dataService.paretoEndDay;
+            _this.getAcumulative();
+        });
         this.targetData$ = this.targetService.target$;
-        this.rangeData$ = this.rangeService.rangeData$;
         this.viewService.activeView$.do(function (view) { return _this.selectedView = view.length ? true : false; }).subscribe();
-        this.commentsVisible$ = this.commentService.activated$.do(function (data) { return _this.commentsVisible = data; });
-        this.activeComment$ = this.commentService.activeComment$.map(function (comment) {
-            if (!comment) {
-                return [];
-            }
-            return [{
-                    name: 'Comment',
-                    series: [
-                        {
-                            name: comment.target,
-                            id: comment.id,
-                            y: comment.coordinates.y,
-                            x: new Date(comment.coordinates.x),
-                            radius: 5,
-                        }
-                    ]
-                }];
+    };
+    ParetoChartComponent.prototype.getAcumulative = function () {
+        this.cummData$ = new __WEBPACK_IMPORTED_MODULE_6_rxjs_BehaviorSubject__["BehaviorSubject"]([]);
+        var totalSum = 0;
+        var chartsValue2 = this.data$.map(function (elem) {
+            totalSum = Number((totalSum + elem['value']).toFixed(2));
+            return {
+                name: elem['name'],
+                value: totalSum
+            };
         });
-        this.comments$ = this.commentService.comments$.map(function (comments) {
-            return comments.map(function (comment) {
-                return {
-                    name: 'Comment',
-                    series: [
-                        {
-                            name: comment.target,
-                            id: comment.id,
-                            y: comment.coordinates.y,
-                            x: new Date(comment.coordinates.x),
-                            radius: 5,
-                        }
-                    ]
-                };
-            });
-        });
-        this.fullComments$ = __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */].combineLatest(this.comments$, this.commentService.activeCoordinates$)
-            .map(function (data) {
-            if (data[1]) {
-                return data[0].concat([
-                    {
-                        name: 'Placeholder',
-                        series: [
-                            {
-                                name: ": Placeholder",
-                                y: data[1].y,
-                                x: new Date(data[1].x),
-                                radius: 5,
-                            }
-                        ]
-                    }
-                ]);
-            }
-            else {
-                return data[0];
-            }
-        });
+        this.cummData$.next([{ name: 'Acumulado', series: chartsValue2 }]);
+    };
+    ParetoChartComponent.prototype.ngOnDestroy = function () {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     };
     ParetoChartComponent.prototype.onSelect = function (event) {
         this.activateCoordinate(this.formatDate(event.name), event.value);
-    };
-    ParetoChartComponent.prototype.onClicked = function (event) {
-        this.selectedX = this.formatDate(event.xScale);
-        this.selectedY = event.yScale;
-        this.activateCoordinate(this.selectedX, event.yScale);
     };
     ParetoChartComponent.prototype.activateCoordinate = function (x, y) {
         if (this.selectedView) {
@@ -2663,7 +2684,12 @@ var ParetoChartComponent = (function () {
         return date[2] + "-" + date[0] + "-" + date[1];
     };
     ParetoChartComponent.prototype.doChange = function (event) {
+        this.mainFilter = event.value;
         this.change.emit(event);
+    };
+    ParetoChartComponent.prototype.changeDate = function (event, target) {
+        (target === 'final') ? this.finalDate = event.value : this.initialDate = event.value;
+        this.dataService.chageParetoData(this.mainFilter, this.initialDate, this.finalDate);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('target', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] }),
@@ -2687,11 +2713,11 @@ var ParetoChartComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/pareto-chart/pareto-chart.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/pareto-chart/pareto-chart.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */],
-            __WEBPACK_IMPORTED_MODULE_3__services_comments_service__["a" /* CommentsService */],
-            __WEBPACK_IMPORTED_MODULE_4__services_range_service__["a" /* RangeService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_target_service__["a" /* TargetService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_view_service__["a" /* ViewService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_data_service__["a" /* DataService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_comments_service__["a" /* CommentsService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_range_service__["a" /* RangeService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_target_service__["a" /* TargetService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_view_service__["a" /* ViewService */]])
     ], ParetoChartComponent);
     return ParetoChartComponent;
 }());
@@ -3005,9 +3031,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ScatterChartComponent = (function () {
     function ScatterChartComponent(data) {
         this.data = data;
-        this.fieldX = 'Distancia';
-        this.fieldY = 'Extraccion';
-        this.fieldZ = 'Oper. Truck';
+        this.fieldX = 'Consumo';
+        this.fieldY = 'Movimiento Total';
+        this.fieldZ = 'Distancia Media';
+        this.labels = {
+            'litros': 'Litros',
+            'consumo': 'Consumo',
+            'energia': 'Energia',
+            'co2_equiv': 'CO2 Equiv',
+            'movimiento_total': 'Movimiento Total',
+            'l_kt': 'l/kt',
+            'tiempo_operativo': 'Tiempo',
+            'l_h': 'l/h',
+            'dist_media': 'Distancia Media',
+            'l_kt_km': 'l/(kt*km)',
+            't_h': 't/h',
+            'kt_km': 'kt*km'
+        };
         this.fieldOptions = [
             {
                 name: 'KPI1',
@@ -3015,15 +3055,15 @@ var ScatterChartComponent = (function () {
                     { value: 'litros', text: 'Litros' },
                     { value: 'consumo', text: 'Consumo' },
                     { value: 'energia', text: 'Energia' },
-                    { value: 'co2_equiv', text: 'co2_equiv' },
+                    { value: 'co2_equiv', text: 'CO2 Equiv' },
                     { value: 'movimiento_total', text: 'Movimiento Total' },
-                    { value: 'l_kt', text: 'l_kt' },
-                    { value: 'tiempo_operativo', text: 'Tiempo Operativo' },
-                    { value: 'l_h', text: 'l_h' },
-                    { value: 'dist_media', text: 'Dist.Media' },
-                    { value: 'l_kt_km', text: 'l_kt_km' },
-                    { value: 't_h', text: 't_h' },
-                    { value: 'kt_km', text: 'kt_km' },
+                    { value: 'l_kt', text: 'l/kt' },
+                    { value: 'tiempo_operativo', text: 'Tiempo' },
+                    { value: 'l_h', text: 'l/h' },
+                    { value: 'dist_media', text: 'Distancia Media' },
+                    { value: 'l_kt_km', text: 'l/(kt*km)' },
+                    { value: 't_h', text: 't/h' },
+                    { value: 'kt_km', text: 'kt*km' },
                 ],
                 selected: 'consumo'
             },
@@ -3033,15 +3073,15 @@ var ScatterChartComponent = (function () {
                     { value: 'litros', text: 'Litros' },
                     { value: 'consumo', text: 'Consumo' },
                     { value: 'energia', text: 'Energia' },
-                    { value: 'co2_equiv', text: 'co2_equiv' },
+                    { value: 'co2_equiv', text: 'CO2 Equiv' },
                     { value: 'movimiento_total', text: 'Movimiento Total' },
-                    { value: 'l_kt', text: 'l_kt' },
-                    { value: 'tiempo_operativo', text: 'Tiempo Operativo' },
-                    { value: 'l_h', text: 'l_h' },
-                    { value: 'dist_media', text: 'Dist.Media' },
-                    { value: 'l_kt_km', text: 'l_kt_km' },
-                    { value: 't_h', text: 't_h' },
-                    { value: 'kt_km', text: 'kt_km' },
+                    { value: 'l_kt', text: 'l/kt' },
+                    { value: 'tiempo_operativo', text: 'Tiempo' },
+                    { value: 'l_h', text: 'l/h' },
+                    { value: 'dist_media', text: 'Distancia Media' },
+                    { value: 'l_kt_km', text: 'l/(kt*km)' },
+                    { value: 't_h', text: 't/h' },
+                    { value: 'kt_km', text: 'kt*km' },
                 ],
                 selected: 'movimiento_total'
             },
@@ -3051,15 +3091,15 @@ var ScatterChartComponent = (function () {
                     { value: 'litros', text: 'Litros' },
                     { value: 'consumo', text: 'Consumo' },
                     { value: 'energia', text: 'Energia' },
-                    { value: 'co2_equiv', text: 'co2_equiv' },
+                    { value: 'co2_equiv', text: 'CO2 Equiv' },
                     { value: 'movimiento_total', text: 'Movimiento Total' },
-                    { value: 'l_kt', text: 'l_kt' },
-                    { value: 'tiempo_operativo', text: 'Tiempo Operativo' },
-                    { value: 'l_h', text: 'l_h' },
-                    { value: 'dist_media', text: 'Dist.Media' },
-                    { value: 'l_kt_km', text: 'l_kt_km' },
-                    { value: 't_h', text: 't_h' },
-                    { value: 'kt_km', text: 'kt_km' },
+                    { value: 'l_kt', text: 'l/kt' },
+                    { value: 'tiempo_operativo', text: 'Tiempo' },
+                    { value: 'l_h', text: 'l/h' },
+                    { value: 'dist_media', text: 'Distancia Media' },
+                    { value: 'l_kt_km', text: 'l/(kt*km)' },
+                    { value: 't_h', text: 't/h' },
+                    { value: 'kt_km', text: 'kt*km' },
                 ],
                 selected: 'dist_media'
             },
@@ -3133,20 +3173,21 @@ var ScatterChartComponent = (function () {
     ScatterChartComponent.prototype.doChange = function (event) {
         switch (event.field) {
             case 'KPI1':
+                console.log(event);
                 this.selectedKey = 'x';
-                this.fieldX = event.value;
+                this.fieldX = this.labels[event.value];
                 this.selectedField = event.value;
                 this.data.changeScatterFuelData('x', event.value);
                 break;
             case 'KPI2':
                 this.selectedKey = 'y';
-                this.fieldY = event.value;
+                this.fieldY = this.labels[event.value];
                 this.selectedField = event.value;
                 this.data.changeScatterFuelData('y', event.value);
                 break;
             case 'KPI3':
                 this.selectedKey = 'z';
-                this.fieldZ = event.value;
+                this.fieldZ = this.labels[event.value];
                 this.selectedField = event.value;
                 this.data.changeScatterFuelData('z', event.value);
                 break;
@@ -3388,7 +3429,7 @@ var TopBarComponent = (function () {
 /***/ "../../../../../src/app/components/waterfall-chart/waterfall-chart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"chart-container second\" #target>\n  <div #test class=\"waterfall-container\"></div>\n</div>"
+module.exports = "<div class=\"chart-container second\" #target>\n  <div #test class=\"waterfall-container\"></div>\n  <div class=\"numbers-container\">\n    <div class=\"numbers-elem\">\n      <!-- <app-card [title]=\"'Budget'\" [content]=\"waterfallInit.toFixed(2)\"></app-card> -->\n      <div class=\"card budget\">\n        <div class=\"color-box\" [ngStyle]=\"{'background-color': color}\"></div>\n        <p class=\"card-content\">{{waterfallInit.toFixed(2)}}</p>\n        <p class=\"card-title\">Budget</p>\n      </div>\n        \n        <!-- <p>Budget:  <span>{{waterfallInit.toFixed(2)}}</span></p> -->\n    </div>\n    <div class=\"numbers-elem\">\n        <div class=\"card value\">\n            <div class=\"color-box\" [ngStyle]=\"{'background-color': color}\"></div>\n            <p class=\"card-content\">{{waterfallTotal.toFixed(2)}}</p>\n            <p class=\"card-title\">Value</p>\n          </div>\n      <!-- <app-card [title]=\"'Val;ue'\" [content]=\"waterfallTotal.toFixed(2)\"></app-card> -->\n      \n      <!-- <p>Total Value: <span>{{waterfallTotal.toFixed(2)}}</span></p> -->\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3400,7 +3441,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc((100vh - 220px) / 2); }\n  .chart-container.second {\n    margin-top: 10px; }\n  .chart-container .filter-box {\n    height: 40px;\n    width: 100%; }\n  .chart-container .waterfall-chart {\n    padding-top: 10px;\n    height: calc(100% - 40px); }\n", ""]);
+exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc((100vh - 220px) / 2);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  .chart-container .waterfall-container {\n    -webkit-box-flex: 5;\n        -ms-flex: 5;\n            flex: 5; }\n  .chart-container .numbers-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .chart-container .numbers-container .numbers-elem {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n  .chart-container.second {\n    margin-top: 10px; }\n  .chart-container .filter-box {\n    height: 40px;\n    width: 100%; }\n  .chart-container .waterfall-chart {\n    padding-top: 10px;\n    height: calc(100% - 40px); }\n\n.card {\n  color: #353535;\n  font-size: small;\n  height: calc(100% - 15px);\n  width: 100%;\n  border-radius: 3px;\n  background-color: #ffffff;\n  border: 1px solid rgba(0, 0, 0, 0.16); }\n  .card .card-title {\n    margin: 0px;\n    padding: 3px 13px 3px 13px;\n    font-size: 11px;\n    margin-top: 40%; }\n  .card .card-content {\n    transition: all 0.5s;\n    padding: 0 13px 0px 13px;\n    overflow: hidden;\n    margin-top: 40%;\n    font-size: 1.2em; }\n  .card.budget {\n    margin-bottom: 5px;\n    border-bottom: 10px rgba(0, 0, 0, 0.6) solid; }\n  .card.value {\n    margin-top: 5px;\n    border-bottom: 10px #3780bf solid; }\n", ""]);
 
 // exports
 
@@ -3436,6 +3477,8 @@ var WaterfallChartComponent = (function () {
     function WaterfallChartComponent(dataService, targetService) {
         this.dataService = dataService;
         this.targetService = targetService;
+        this.waterfallInit = 0;
+        this.waterfallTotal = 0;
         this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     WaterfallChartComponent.prototype.ngOnInit = function () {
@@ -3455,14 +3498,31 @@ var WaterfallChartComponent = (function () {
     };
     WaterfallChartComponent.prototype.processData = function (dataArray, targetArray) {
         var xData = [];
-        var yDataProfit = [];
-        var yDataCost = [];
-        var yDataBase = [];
-        var previousY = 0;
+        var yDataProfit = [0];
+        var yDataCost = [0];
+        var yDataBase = [0];
+        var totalTarget = 0;
+        var totalValue = 0;
+        dataArray.series.map(function (data, index) {
+            if (targetArray.series[index]) {
+                totalTarget += targetArray.series[index].value;
+            }
+            totalValue += data.value;
+        });
+        var yDataBudget = [totalTarget];
+        var yDataRevenue = [0];
+        var previousY = totalTarget;
+        var dateDummy = new Date(dataArray.series[0].name);
+        dateDummy.setDate(dateDummy.getDate() - 1);
+        xData.push(dateDummy);
+        var finalIndex = 0;
         dataArray.series.map(function (data, index) {
             xData.push(new Date(data.name));
-            var value = data.value - targetArray.series[index].value;
+            var value = (targetArray.series[index]) ?
+                data.value - (targetArray.series[index].value) : data.value;
             yDataBase.push(previousY);
+            yDataRevenue.push(0);
+            yDataBudget.push(0);
             if (value < 0) {
                 yDataCost.push(value);
                 yDataProfit.push(0);
@@ -3472,10 +3532,21 @@ var WaterfallChartComponent = (function () {
                 yDataProfit.push(value);
             }
             previousY = previousY + value;
+            finalIndex = index;
         });
-        this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData);
+        dateDummy = new Date(dataArray.series[finalIndex].name);
+        dateDummy.setDate(dateDummy.getDate() + 1);
+        xData.push(dateDummy);
+        yDataProfit.push(0);
+        yDataCost.push(0);
+        yDataBase.push(0);
+        yDataBudget.push(0);
+        yDataRevenue.push(totalValue);
+        this.waterfallTotal = totalValue;
+        this.waterfallInit = totalTarget;
+        this.drawWaterfall(yDataProfit, yDataCost, yDataBase, xData, yDataRevenue, yDataBudget);
     };
-    WaterfallChartComponent.prototype.drawWaterfall = function (yDataProfit, yDataCost, yDataBase, xData) {
+    WaterfallChartComponent.prototype.drawWaterfall = function (yDataProfit, yDataCost, yDataBase, xData, yDataRevenue, yDataBudget) {
         // Base
         var trace1 = {
             x: xData,
@@ -3514,15 +3585,46 @@ var WaterfallChartComponent = (function () {
                 }
             }
         };
-        var data = [trace1, trace2, trace3];
+        var trace4 = {
+            x: xData,
+            y: yDataRevenue,
+            type: 'bar',
+            marker: {
+                color: 'rgba(55,128,191,0.7)',
+                line: {
+                    color: 'rgba(55,128,191,1.0)',
+                    width: 2
+                }
+            }
+        };
+        var budget = {
+            x: xData,
+            y: yDataBudget,
+            type: 'bar',
+            marker: {
+                color: 'rgba(0, 0, 0, 0.60)',
+                line: {
+                    color: 'rgba(0, 0, 0, 0.60)',
+                    width: 2
+                }
+            }
+        };
+        var data = [trace1, trace2, trace3, trace4, budget];
         var layout = {
             barmode: 'stack',
             width: this.width,
             height: this.height - 40,
             showlegend: false,
-            annotations: []
+            annotations: [],
+            margin: {
+                l: 50,
+                r: 50,
+                b: 20,
+                t: 20,
+                pad: 4
+            },
         };
-        Plotly.newPlot(this.test.element.nativeElement, data, layout);
+        Plotly.newPlot(this.test.element.nativeElement, data, layout, { displayModeBar: false });
     };
     WaterfallChartComponent.prototype.doChange = function (event) {
         this.change.emit(event);
@@ -3562,7 +3664,7 @@ var WaterfallChartComponent = (function () {
 /***/ "../../../../../src/app/pages/cdi/cdi.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-container\">\n  <div class=\"sidebar-container left\">\n      <app-card-listing [commentList]=\"false\"></app-card-listing>\n  </div>\n  <div class=\"charts-container\">\n    <app-control-chart \n      [pageDescriptor]=\"'cdi'\"\n      (change)=\"test($event)\"\n      [fieldOptions]=\"fieldOptions\"\n      [budgetOptions]=\"budgetOptions\">\n    </app-control-chart>\n    <!-- <app-scatter-chart></app-scatter-chart> -->\n    <div class=\"duo-charts-container\">\n      <div class=\"duo-chart first\">\n        <app-waterfall-chart (change)=\"test($event)\" [fieldOptions]=\"fieldOptions\" ></app-waterfall-chart>\n      </div>\n      <div class=\"duo-chart second\">\n        <app-histogram-chart (change)=\"test($event)\" [fieldOptions]=\"fieldOptions\"></app-histogram-chart>\n      </div>\n    </div>\n  </div>\n  <div class=\"sidebar-container right\">\n    <app-comment-section></app-comment-section>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-container\">\n  <div class=\"sidebar-container left\">\n      <app-card-listing [commentList]=\"false\"></app-card-listing>\n  </div>\n  <div class=\"charts-container\">\n    <div class=\"one-charts-container\">\n      <app-control-chart \n        [pageDescriptor]=\"'cdi'\"\n        (change)=\"test($event)\"\n        [fieldOptions]=\"fieldOptions\"\n        [budgetOptions]=\"budgetOptions\">\n      </app-control-chart>\n    </div>\n    <!-- <app-scatter-chart></app-scatter-chart> -->\n    <div class=\"duo-charts-container\">\n      <div class=\"duo-chart first\">\n        <app-waterfall-chart (change)=\"test($event)\" [fieldOptions]=\"fieldOptions\" ></app-waterfall-chart>\n      </div>\n      <div class=\"duo-chart second\">\n        <app-histogram-chart (change)=\"test($event)\" [fieldOptions]=\"fieldOptions\"></app-histogram-chart>\n      </div>\n    </div>\n  </div>\n  <div class=\"sidebar-container right\">\n    <app-comment-section></app-comment-section>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3574,7 +3676,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10; }\n    .app-container .charts-container .duo-charts-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n      .app-container .charts-container .duo-charts-container .duo-chart {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n        .app-container .charts-container .duo-charts-container .duo-chart.second {\n          margin-left: 5px; }\n        .app-container .charts-container .duo-charts-container .duo-chart.first {\n          margin-right: 5px; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10;\n    height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .app-container .charts-container .one-charts-container {\n      -webkit-box-flex: 3;\n          -ms-flex: 3;\n              flex: 3; }\n    .app-container .charts-container .duo-charts-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n      .app-container .charts-container .duo-charts-container .duo-chart.second {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        margin-left: 5px; }\n      .app-container .charts-container .duo-charts-container .duo-chart.first {\n        -webkit-box-flex: 2;\n            -ms-flex: 2;\n                flex: 2;\n        margin-right: 5px; }\n", ""]);
 
 // exports
 
@@ -3673,7 +3775,7 @@ var CdiPageComponent = (function () {
 /***/ "../../../../../src/app/pages/cigo/cigo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData\">\n                  <td *ngFor=\"let col of columns\">\n                    {{row[col.value]}}\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData\">\n                  <td *ngFor=\"let col of columns2\">\n                    {{row[col.value].toFixed(2)}}\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData\">\n              <td *ngFor=\"let col of columns3\">\n                {{row[col.value].toFixed(2)}}\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData\">\n                  <td *ngFor=\"let col of columns\">\n                    {{row[col.value]}}\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData\">\n                  <td *ngFor=\"let col of columns2\">\n                    {{row[col.value].toFixed(2)}}\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData\">\n              <td *ngFor=\"let col of columns3\">\n                {{row[col.value].toFixed(2)}}\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3685,7 +3787,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n          margin-left: -120px;\n          margin-top: 170px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg); }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
+exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n          margin-left: -120px;\n          margin-top: 180px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg); }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
 
 // exports
 
@@ -3744,21 +3846,33 @@ var CigoPageComponent = (function () {
     }
     CigoPageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var timer = __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_TimerObservable__["a" /* TimerObservable */].create(0, 10000);
+        this.progressValue = 0;
+        this.viewPrim = true;
+        var timer = __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_TimerObservable__["a" /* TimerObservable */].create(0, 100);
+        var number = 123456789;
         timer.subscribe(function (t) {
-            console.log(t % 2);
-            (t % 2 === 0) ? _this.changeData('PRIM') : _this.changeData('PRIM DOS');
+            if (t % 100 === 0) {
+                _this.progressValue = 0;
+                (_this.viewPrim) ? _this.changeData('PRIM') : _this.changeData('PRIM DOS');
+            }
+            else {
+                _this.progressValue = t % 100;
+            }
         });
     };
     CigoPageComponent.prototype.changeData = function (chart) {
         var _this = this;
+        this.viewPrim = !this.viewPrim;
         this.showTable = false;
         this.firstData = [];
         this.firstTableData = [];
         this.secondTableData = [];
-        for (var i = 0; i < 12; i++) {
+        var actualHour = (new Date()).getHours();
+        var initialHour = (actualHour > 12) ? actualHour - 12 : 0;
+        for (var i = initialHour; i <= actualHour; i++) {
+            var printHout = (i > 9) ? i + ":00" : "0" + i + ":00";
             this.firstData.push({
-                hora: "0" + i + ":00",
+                hora: printHout,
                 viajes: 0,
                 tons: 0,
                 tiempo: 0,
@@ -3790,7 +3904,7 @@ var CigoPageComponent = (function () {
                 var promLey_1 = 0;
                 data[chart].series.map(function (elem) {
                     var hour = elem.fecha.getHours();
-                    if (hour <= 11) {
+                    if (hour <= actualHour && hour >= initialHour) {
                         _this.firstData[hour].viajes += elem.viajes;
                         _this.firstData[hour].tons += elem.tons;
                         promViaje_1 += elem.viajes;
@@ -3847,7 +3961,7 @@ var CigoPageComponent = (function () {
                         value: Math.floor(promTiempo_1 / 12)
                     });
                 }
-                _this.totalTons = promTons_1;
+                _this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons_1));
                 _this.totalViajes = promViaje_1;
                 _this.firstTableData.push(firstTableObject);
                 _this.secondTableData.push(secondTableObject);
@@ -3859,10 +3973,6 @@ var CigoPageComponent = (function () {
     };
     CigoPageComponent.prototype.onSelect = function (event) {
         console.log(event);
-    };
-    CigoPageComponent.prototype.go = function () {
-        console.log('hola');
-        setTimeout(this.go(), 10000); // callback
     };
     CigoPageComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -3882,7 +3992,7 @@ var CigoPageComponent = (function () {
 /***/ "../../../../../src/app/pages/fuel/fuel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-container\">\n  <div class=\"sidebar-container left\">\n      <app-card-listing [commentList]=\"false\" [isCdi]=\"false\"></app-card-listing>\n  </div>\n  <div class=\"charts-container\">\n    <app-filter (change)=\"test($event)\" [options]=\"fieldOptions\"></app-filter>\n\n    <app-control-chart\n    [pageDescriptor]=\"'fuel'\"\n    (change)=\"test($event)\" \n    [fieldOptions]=\"fieldOptions2\" \n    [budgetOptions]=\"budgetOptions\">\n  </app-control-chart>\n    <app-scatter-chart></app-scatter-chart>\n  </div>\n  <div class=\"sidebar-container right\">\n    <app-comment-section></app-comment-section>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-container\">\n  <div class=\"sidebar-container left\">\n      <app-card-listing [commentList]=\"false\" [isCdi]=\"false\"></app-card-listing>\n  </div>\n  <div class=\"charts-container\">\n    <app-filter (change)=\"test($event)\" [options]=\"fieldOptions\"></app-filter>\n\n    <app-control-chart\n    [pageDescriptor]=\"'fuel'\"\n    [showLegend]=\"false\"\n    (change)=\"test($event)\"\n    (changeDate)=\"onChangeDate($event)\"\n    [fieldOptions]=\"[]\" \n    [budgetOptions]=\"budgetOptions\">\n  </app-control-chart>\n    <app-scatter-chart></app-scatter-chart>\n  </div>\n  <div class=\"sidebar-container right\">\n    <app-comment-section></app-comment-section>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3894,7 +4004,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 0;\n        -ms-flex: 0;\n            flex: 0;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10;\n    margin-right: 40px;\n    margin-left: 20px; }\n", ""]);
 
 // exports
 
@@ -3926,26 +4036,6 @@ var FuelPageComponent = (function () {
     function FuelPageComponent(view) {
         this.view = view;
         this.title = 'app';
-        this.fieldOptions2 = [
-            {
-                name: 'Field_Target',
-                options: [
-                    { value: 'litros', text: 'litros' },
-                    { value: 'consumo', text: 'consumo' },
-                    { value: 'energia', text: 'energia' },
-                    { value: 'co2_equiv', text: 'co2_equiv' },
-                    { value: 'movimiento_total', text: 'movimiento_total' },
-                    { value: 'l_kt', text: 'l_kt' },
-                    { value: 'tiempo_operativo', text: 'tiempo_operativo' },
-                    { value: 'l_h', text: 'l_h' },
-                    { value: 'dist_media', text: 'dist_media' },
-                    { value: 'l_kt_km', text: 'l_kt_km' },
-                    { value: 't_h', text: 't_h' },
-                    { value: 'kt_km', text: 'kt_km' },
-                ],
-                selected: 'litros'
-            },
-        ];
         this.fieldOptions = [
             {
                 name: 'Tipo',
@@ -3957,95 +4047,31 @@ var FuelPageComponent = (function () {
             {
                 name: 'Flota',
                 options: [
+                    { value: 'all', text: 'Todas las flotas' },
                     { value: 'CAT 795F', text: 'CAT 795F' },
                     { value: 'KOM 830E', text: 'KOM 830E' },
                     { value: 'KOM 930E', text: 'KOM 930E' },
                     { value: 'KOM 960E', text: 'KOM 960E' },
                 ],
-                selected: 'CAT 795F'
+                selected: 'all'
             },
             {
-                name: 'Equipo',
+                name: 'Field_Target',
                 options: [
-                    { value: 'CAC201', text: 'CAC201' },
-                    { value: 'CAC202', text: 'CAC202' },
-                    { value: 'CAC203', text: 'CAC203' },
-                    { value: 'CAC204', text: 'CAC204' },
-                    { value: 'CAC205', text: 'CAC205' },
-                    { value: 'CAC206', text: 'CAC206' },
-                    { value: 'CAC207', text: 'CAC207' },
-                    { value: 'CAC208', text: 'CAC208' },
-                    { value: 'CAC209', text: 'CAC209' },
-                    { value: 'CAC210', text: 'CAC210' },
-                    { value: 'CAC211', text: 'CAC211' },
-                    { value: 'CDH16', text: 'CDH16' },
-                    { value: 'CDH17', text: 'CDH17' },
-                    { value: 'CDH19', text: 'CDH19' },
-                    { value: 'CDH20', text: 'CDH20' },
-                    { value: 'CDH21', text: 'CDH21' },
-                    { value: 'CDH22', text: 'CDH22' },
-                    { value: 'CDH24', text: 'CDH24' },
-                    { value: 'CDH25', text: 'CDH25' },
-                    { value: 'CDH39', text: 'CDH39' },
-                    { value: 'CDH40', text: 'CDH40' },
-                    { value: 'CDH41', text: 'CDH41' },
-                    { value: 'CDH42', text: 'CDH42' },
-                    { value: 'CDH43', text: 'CDH43' },
-                    { value: 'CDH44', text: 'CDH44' },
-                    { value: 'CDH45', text: 'CDH45' },
-                    { value: 'CDH46', text: 'CDH46' },
-                    { value: 'CDH47', text: 'CDH47' },
-                    { value: 'CDH48', text: 'CDH48' },
-                    { value: 'CDH49', text: 'CDH49' },
-                    { value: 'CDH50', text: 'CDH50' },
-                    { value: 'CDH51', text: 'CDH51' },
-                    { value: 'CDH52', text: 'CDH52' },
-                    { value: 'CDH53', text: 'CDH53' },
-                    { value: 'CDH54', text: 'CDH54' },
-                    { value: 'CDH55', text: 'CDH55' },
-                    { value: 'CDH56', text: 'CDH56' },
-                    { value: 'CDH57', text: 'CDH57' },
-                    { value: 'CDH58', text: 'CDH58' },
-                    { value: 'CDH59', text: 'CDH59' },
-                    { value: 'CDH60', text: 'CDH60' },
-                    { value: 'CDH61', text: 'CDH61' },
-                    { value: 'CDH62', text: 'CDH62' },
-                    { value: 'CDH63', text: 'CDH63' },
-                    { value: 'CDH64', text: 'CDH64' },
-                    { value: 'CDH65', text: 'CDH65' },
-                    { value: 'CDH66', text: 'CDH66' },
-                    { value: 'CDH67', text: 'CDH67' },
-                    { value: 'CDH68', text: 'CDH68' },
-                    { value: 'CDH69', text: 'CDH69' },
-                    { value: 'CDH70', text: 'CDH70' },
-                    { value: 'CDH71', text: 'CDH71' },
-                    { value: 'CDH72', text: 'CDH72' },
-                    { value: 'CDH73', text: 'CDH73' },
-                    { value: 'CDH74', text: 'CDH74' },
-                    { value: 'CDH75', text: 'CDH75' },
-                    { value: 'CDH76', text: 'CDH76' },
-                    { value: 'CDH77', text: 'CDH77' },
-                    { value: 'CDH78', text: 'CDH78' },
-                    { value: 'CDH79', text: 'CDH79' },
-                    { value: 'CDH80', text: 'CDH80' },
-                    { value: 'CDH81', text: 'CDH81' },
-                    { value: 'CDH82', text: 'CDH82' },
-                    { value: 'CDH83', text: 'CDH83' },
-                    { value: 'CDH84', text: 'CDH84' },
-                    { value: 'CDH85', text: 'CDH85' },
-                    { value: 'CDH86', text: 'CDH86' },
-                    { value: 'CDH87', text: 'CDH87' },
-                    { value: 'CDH88', text: 'CDH88' },
-                    { value: 'CDH89', text: 'CDH89' },
-                    { value: 'CDH90', text: 'CDH90' },
-                    { value: 'CDH91', text: 'CDH91' },
-                    { value: 'CDH92', text: 'CDH92' },
-                    { value: 'CDH93', text: 'CDH93' },
-                    { value: 'CDH94', text: 'CDH94' },
-                    { value: 'CDH101', text: 'CDH101' },
-                    { value: 'CDH102', text: 'CDH102' },
+                    { value: 'litros', text: 'Litros' },
+                    { value: 'consumo', text: 'Consumo' },
+                    { value: 'energia', text: 'Energia' },
+                    { value: 'co2_equiv', text: 'CO2 Equiv' },
+                    { value: 'movimiento_total', text: 'Movimiento Total' },
+                    { value: 'l_kt', text: 'l/kt' },
+                    { value: 'tiempo_operativo', text: 'Tiempo' },
+                    { value: 'l_h', text: 'l/h' },
+                    { value: 'dist_media', text: 'Distancia Media' },
+                    { value: 'l_kt_km', text: 'l/(kt*km)' },
+                    { value: 't_h', text: 't/h' },
+                    { value: 'kt_km', text: 'kt*km' },
                 ],
-                selected: 'CAC201'
+                selected: 'litros'
             },
         ];
         this.budgetOptions = {
@@ -4069,6 +4095,9 @@ var FuelPageComponent = (function () {
                 this.view.changeFuelTarget(event.value);
                 break;
         }
+    };
+    FuelPageComponent.prototype.onChangeDate = function (event) {
+        console.log(event);
     };
     FuelPageComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -4155,7 +4184,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 4;\n        -ms-flex: 4;\n            flex: 4;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    margin-left: 10px;\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.table-container .table-sub-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  .table-container .table-sub-container .table-field {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n  .table-container .table-sub-container .chart-container {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    width: 100%; }\n    .table-container .table-sub-container .chart-container .prueba {\n      position: absolute;\n      margin-left: -120px;\n      margin-top: 170px;\n      -webkit-transform: rotate(90deg);\n              transform: rotate(90deg); }\n\n.table-container.first, .table-container.second, .table-container.last {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  background-color: #f9f9f9;\n  padding: 10px;\n  border-radius: 0 0 3px 3px; }\n  .table-container.first th, .table-container.second th, .table-container.last th {\n    border-bottom: 1px solid #e2e2e2; }\n  .table-container.first tr:last-child, .table-container.second tr:last-child, .table-container.last tr:last-child {\n    border-top: 1px solid #e2e2e2; }\n\n.table-container.first, .table-container.second {\n  margin-right: 10px; }\n\n.table-container.first td:first-child, .table-container.first th:first-child {\n  border-right: 1px solid #e2e2e2; }\n\n.table-container .datatable-header {\n  font-size: 10px; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 5;\n        -ms-flex: 5;\n            flex: 5;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    margin-left: 10px;\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n  tr td:nth-child(2) {\n    text-align: left; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.table-container .table-sub-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  .table-container .table-sub-container .table-field {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n  .table-container .table-sub-container .chart-container {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    width: 100%; }\n    .table-container .table-sub-container .chart-container .prueba {\n      position: absolute;\n      margin-left: -120px;\n      margin-top: 170px;\n      -webkit-transform: rotate(90deg);\n              transform: rotate(90deg); }\n\n.table-container.first, .table-container.second, .table-container.last {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  background-color: #f9f9f9;\n  padding: 10px;\n  border-radius: 0 0 3px 3px; }\n  .table-container.first th, .table-container.second th, .table-container.last th {\n    border-bottom: 1px solid #e2e2e2; }\n  .table-container.first tr:last-child, .table-container.second tr:last-child, .table-container.last tr:last-child {\n    border-top: 1px solid #e2e2e2; }\n\n.table-container.first, .table-container.second {\n  margin-right: 10px; }\n\n.table-container.first td:first-child, .table-container.first th:first-child {\n  border-right: 1px solid #e2e2e2; }\n\n.table-container .datatable-header {\n  font-size: 10px; }\n", ""]);
 
 // exports
 
@@ -4202,7 +4231,9 @@ var ParetoPageComponent = (function () {
         this.columns = [
             { label: 'Index', value: 'name' },
             { label: 'Motivo y Falla', value: 'falla' },
-            { label: 'Hrs', value: 'duracion' }
+            { label: 'Hrs', value: 'duracion' },
+            { label: 'N', value: 'veces' },
+            { label: 'MTTR', value: 'promedioD' }
         ];
     }
     ParetoPageComponent.prototype.ngOnInit = function () {
@@ -4210,7 +4241,8 @@ var ParetoPageComponent = (function () {
         this.dataService.dataPareto$.subscribe(function (data) {
             _this.data$ = data.map(function (elem) {
                 var elem2 = elem;
-                elem2['duracion'] = ((elem['duracion'] / 60) / 60).toFixed(0);
+                elem2['promedioD'] = (((elem['duracion'] / elem['veces']) / 60) / 60).toFixed(1);
+                elem2['duracion'] = ((elem['duracion'] / 60) / 60).toFixed(1);
                 return elem2;
             });
         });
@@ -4511,13 +4543,25 @@ var DataService = (function () {
                 return (row['Motivo_Nivel_1'] + '.' + row['ModoFallaDescripcion'] + '.' + row['EquipoId']);
             });
             var addReduce = function (p, v) {
+                var emptyP = (Object.keys(p).length === 0);
+                var actualDuracion = Number(v['duracion_segs']);
+                var fallaV = v['Motivo_Nivel_1'] + ' - ' + v['ModoFallaDescripcion'];
+                var actualTimes;
+                if (emptyP) {
+                    actualTimes = 1;
+                }
+                else if ((p.falla === fallaV) && (p.id === v['EquipoId'])) {
+                    actualTimes = 1 + p.veces;
+                    actualDuracion += p.duracion;
+                }
                 p = {
                     id: v['EquipoId'],
                     nombre: v['EquipoNombre'],
                     falla: v['Motivo_Nivel_1'] + ' - ' + v['ModoFallaDescripcion'],
-                    duracion: v['duracion_segs'],
+                    duracion: actualDuracion,
                     fechaFin: v['FechaFin'],
-                    fechaInicio: v['FechaInicio']
+                    fechaInicio: v['FechaInicio'],
+                    veces: actualTimes
                 };
                 return p;
             };
@@ -4530,12 +4574,27 @@ var DataService = (function () {
             var chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
                 .map(function (elem) {
                 var timeInSec = Number(elem.value.duracion);
+                var fInit = new Date(elem.value.fechaInicio);
+                var fEnd = new Date(elem.value.fechaFin);
+                if (!_this.paretoInitDay) {
+                    _this.paretoInitDay = fInit;
+                    _this.paretoEndDay = fEnd;
+                }
+                else {
+                    if (_this.paretoInitDay > fInit) {
+                        _this.paretoInitDay = fInit;
+                    }
+                    if (_this.paretoEndDay < fEnd) {
+                        _this.paretoEndDay = fEnd;
+                    }
+                }
                 return {
                     key: elem.key,
                     fechaFin: elem.value.fechaFin,
                     fechaInicio: elem.value.fechaInicio,
                     falla: elem.value.falla,
                     value: timeInSec,
+                    veces: elem.value.veces,
                     duracion: elem.value.duracion,
                     id: elem.value.id
                 };
@@ -4546,6 +4605,19 @@ var DataService = (function () {
         this.http.get('/assets/daily.json').subscribe(function (data) {
             _this.originalData = data;
             var addReduce = function (p, v) {
+                var dateElem = new Date(v['Fecha']);
+                if (!_this.cdiInitDay) {
+                    _this.cdiInitDay = dateElem;
+                    _this.cdiEndDay = dateElem;
+                }
+                else {
+                    if (_this.cdiInitDay > dateElem) {
+                        _this.cdiInitDay = dateElem;
+                    }
+                    if (_this.cdiEndDay < dateElem) {
+                        _this.cdiEndDay = dateElem;
+                    }
+                }
                 var k = {
                     fase: v['Fase'],
                     valor: v['valor'],
@@ -4573,7 +4645,6 @@ var DataService = (function () {
             });
             _this.data = finalData;
             _this.changeData('Distancia', 'Total Fases');
-            _this.changeHistogramData('Extraccion', 'Total Fases');
             _this.fasesList = Object.keys(fases);
         });
         this.http.get('/assets/dataFuel.json').subscribe(function (data) {
@@ -4585,8 +4656,21 @@ var DataService = (function () {
                 var realDate = ('' + v['fecha']).substring(0, 4) + '-' +
                     ('' + v['fecha']).substring(4, 6) + '-' +
                     ('' + v['fecha']).substring(6, 8);
+                var dateElem = new Date(realDate);
+                if (!_this.fuelInitDay) {
+                    _this.fuelInitDay = dateElem;
+                    _this.fuelEndDay = dateElem;
+                }
+                else {
+                    if (_this.fuelInitDay > dateElem) {
+                        _this.fuelInitDay = dateElem;
+                    }
+                    if (_this.fuelEndDay < dateElem) {
+                        _this.fuelEndDay = dateElem;
+                    }
+                }
                 var elem = {
-                    name: v['tipo'] + '.' + v['flota'] + '.' + v['equipo'],
+                    name: v['tipo'] + '.' + v['flota'],
                     fecha: realDate,
                     litros: v['litros'],
                     consumo: Number(('' + v['consumo']).replace(',', '.')),
@@ -4611,10 +4695,12 @@ var DataService = (function () {
                 'y': 'movimiento_total',
                 'z': 'dist_media'
             };
-            _this.changeFuelData('Camion', 'CAT 795F', 'CAC201');
+            _this.changeFuelData('Camion', 'all');
         });
     };
-    DataService.prototype.chageParetoData = function (target) {
+    DataService.prototype.chageParetoData = function (target, initDate, endDate) {
+        if (initDate === void 0) { initDate = null; }
+        if (endDate === void 0) { endDate = null; }
         var totalValue = 0;
         var filteredData = this.originalParetoData.filter(function (elem) {
             if (elem['id'] === target) {
@@ -4623,6 +4709,12 @@ var DataService = (function () {
             }
             return false;
         });
+        if (initDate !== null) {
+            filteredData = filteredData.filter(function (elem) {
+                var elemDate = new Date(elem['fechaInicio']);
+                return (elemDate >= initDate && elemDate <= endDate);
+            });
+        }
         var orderedData = filteredData.sort(function (a, b) {
             return b['value'] - a['value'];
         });
@@ -4642,15 +4734,37 @@ var DataService = (function () {
         this.dataPareto$.next(toPercentaje);
         this.dataParetoCumm$.next([{ name: 'Acumulado', series: chartsValue2 }]);
     };
-    DataService.prototype.changeData = function (field, fase) {
+    DataService.prototype.changeData = function (field, fase, initDate, endDate) {
+        if (initDate === void 0) { initDate = null; }
+        if (endDate === void 0) { endDate = null; }
         var dataForField = this.data.find(function (d) { return d.name === field; });
         var newSeries = dataForField.series.filter(function (d) { return d.fase === fase; });
+        if (initDate !== null) {
+            newSeries = newSeries.filter(function (elem) {
+                return (elem.name >= initDate && elem.name <= endDate);
+            });
+        }
         this.currentData = { name: field, series: newSeries };
         this.dataControl$.next([{ name: field, series: newSeries }]);
+        this.changeHistogramData('Extraccion', 'Total Fases');
     };
-    DataService.prototype.changeFuelData = function (tipo, flota, equipo) {
-        var compareString = tipo + '.' + flota + '.' + equipo;
-        var newSerie = this.originalFuelData.filter(function (d) { return d.name === compareString; });
+    DataService.prototype.changeFuelData = function (tipo, flota, initDate, endDate) {
+        if (initDate === void 0) { initDate = null; }
+        if (endDate === void 0) { endDate = null; }
+        var newSerie;
+        if (flota === 'all') {
+            newSerie = this.originalFuelData.filter(function (d) { return d.name.includes(tipo); });
+        }
+        else {
+            var compareString_1 = tipo + '.' + flota;
+            newSerie = this.originalFuelData.filter(function (d) { return d.name === compareString_1; });
+        }
+        if (initDate !== null) {
+            newSerie = newSerie.filter(function (elem) {
+                var elemDate = new Date(elem['fecha']);
+                return (elemDate >= initDate && elemDate <= endDate);
+            });
+        }
         var crossf = __WEBPACK_IMPORTED_MODULE_3_crossfilter2__(newSerie);
         var dataByDate = crossf.dimension(function (row) { return row['fecha']; });
         this.currentFuelData = dataByDate;
@@ -4672,6 +4786,7 @@ var DataService = (function () {
         var initReduce = function () {
             return {};
         };
+        console.log(this.currentFuelData);
         var chartsValue = this.currentFuelData.group().reduce(addReduce, removeReduce, initReduce).all()
             .map(function (elem) {
             return {
@@ -4755,7 +4870,6 @@ var DataService = (function () {
             return;
         }
         var data = (isCdi) ? this.currentData.series : this.dataControlFuel$.getValue()[0].series;
-        console.log(data);
         var warningsByKey = {};
         var _loop_1 = function (elem) {
             var currentElem = new Date(elem.name);
@@ -5025,6 +5139,36 @@ var RangeService = (function () {
         this.ranges.splice(index, 1);
         this.ranges$.next(this.ranges);
     };
+    RangeService.prototype.changeRangeData = function (initDate, endDate) {
+        var _this = this;
+        if (initDate === void 0) { initDate = null; }
+        if (endDate === void 0) { endDate = null; }
+        var newRanges = this.ranges.map(function (range) {
+            var newRange = Object.assign({}, range);
+            var minX = new Date(range.minX);
+            var maxX = new Date(range.maxX);
+            newRange.minX = (minX < initDate) ? _this.getDateFormat(initDate) : range.minX;
+            newRange.maxX = (maxX > endDate) ? _this.getDateFormat(endDate) : range.maxX;
+            return newRange;
+        });
+        console.log(newRanges);
+        this.ranges$.next(newRanges);
+        this.rangeData$.next(newRanges.map(function (range) {
+            return {
+                name: range.name,
+                series: [
+                    { name: new Date(range.minX), value: range.limitPoints[0].value },
+                    { name: new Date(range.maxX), value: range.limitPoints[0].value },
+                ]
+            };
+        }));
+    };
+    RangeService.prototype.getDateFormat = function (foo) {
+        var monthvalue = foo.getMonth() + 1;
+        var month = (foo.getMonth() < 10) ? '0' + monthvalue : monthvalue;
+        var date = (foo.getDate() < 10) ? '0' + foo.getDate() : foo.getDate();
+        return (foo.getFullYear() + '-' + month + '-' + date);
+    };
     RangeService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */],
@@ -5087,6 +5231,7 @@ var TargetService = (function () {
             this.target$.next([this.dataDict[targetString]]);
             return;
         }
+        console.log(this.originalData);
         var cf = __WEBPACK_IMPORTED_MODULE_2_crossfilter2__(this.originalData);
         this.dataByDate = cf.dimension(function (row) { return row['fecha']; });
         var addReduce = function (p, v) {
@@ -5114,8 +5259,19 @@ var TargetService = (function () {
                 value: datum ? datum.valor : null
             };
         });
+        this.lastTarget = targetString;
+        this.originalChartsValue = chartsValue;
         this.dataDict[targetString] = { name: 'Target', series: chartsValue };
         this.target$.next([{ name: 'Target', series: chartsValue }]);
+    };
+    TargetService.prototype.changeTargetData = function (initDate, endDate) {
+        if (initDate === void 0) { initDate = null; }
+        if (endDate === void 0) { endDate = null; }
+        var newSerie = this.originalChartsValue.filter(function (elem) {
+            return (elem.name >= initDate && elem.name <= endDate);
+        });
+        this.dataDict[this.lastTarget] = { name: 'Target', series: newSerie };
+        this.target$.next([{ name: 'Target', series: newSerie }]);
     };
     TargetService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
@@ -5194,19 +5350,19 @@ var ViewService = (function () {
         this.fuelTipo = tipo;
         this.activeFuelTipo$.next(this.fuelTipo);
         // this.target.generateFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
-        this.data.changeFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
+        this.data.changeFuelData(this.fuelTipo, this.fuelFlota);
     };
     ViewService.prototype.changeFlota = function (flota) {
         this.fuelFlota = flota;
         this.activeFuelFlota$.next(this.fuelFlota);
         // this.target.generateFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
-        this.data.changeFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
+        this.data.changeFuelData(this.fuelTipo, this.fuelFlota);
     };
     ViewService.prototype.changeEquipo = function (equipo) {
         this.fuelEquipo = equipo;
         this.activeFuelEquipo$.next(this.fuelEquipo);
         // this.target.generateFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
-        this.data.changeFuelData(this.fuelTipo, this.fuelFlota, this.fuelEquipo);
+        this.data.changeFuelData(this.fuelTipo, this.fuelFlota);
     };
     ViewService.prototype.changeFuelTarget = function (target) {
         this.fuelTarget = target;
