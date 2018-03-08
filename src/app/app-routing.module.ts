@@ -10,11 +10,7 @@ import { FuelPageComponent } from './pages/fuel/fuel.component';
 import { CigoPageComponent } from './pages/cigo/cigo.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'fuel', component: FuelPageComponent },
-  { path: 'cdi', component: CdiPageComponent},
-  { path: 'cigo', component: CigoPageComponent },
-  { path: 'pareto', component: ParetoPageComponent },
+  { path: '', component: CigoPageComponent },
   { path: '**', redirectTo: '' }
 ];
 

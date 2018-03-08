@@ -103,8 +103,9 @@ export class CigoPageComponent implements OnInit {
         let promSpi = 0;
         let promLey = 0;
         data[chart].series.map(elem => {
-          const hour = elem.fecha.getHours();
-          if (hour <= actualHour && hour >= initialHour) {
+          const baseHour = elem.fecha.getHours();
+          const hour = baseHour - initialHour;
+          if (baseHour <= actualHour && baseHour >= initialHour) {
             this.firstData[hour].viajes += elem.viajes;
             this.firstData[hour].tons += elem.tons;
 
