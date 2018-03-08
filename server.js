@@ -5,7 +5,9 @@ const express = require('express');
 const morgan = require('morgan'); // log requests to the console (express4)
 const bodyParser = require('body-parser'); // pull information from HTML POST (express4)
 const methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-const api = require('./api');
+const path = require('path');
+const http = require('http');
+const api = require('./api/api');
 
 
 // configuration =================
@@ -34,37 +36,3 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port, () => console.log(`API running on localhost:${port}`));
-
-
-
-(async function() {
-    try {
-        const pool = await sql.connect('mssql://tableau:sord@GSCLSCL6019/BI')
-            // Stored procedure
-        let result = await pool.request()
-            .execute('sp_get_cigo')
-
-        console.dir(result2)
-    } catch (err) {
-        console.log("error connecting to the DB")
-    }
-})()
-
-
-sql.on('error', err => {
-    console.log("Query error")
-})
-
-
-app.get('/api/data', function(req, res) {
-
-    // use mongoose to get all todos in the database
-    Todo.find(function(err, todos) {
-
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-        if (err)
-            res.send(err)
-
-        res.json(todos); // return all todos in JSON format
-    });
-});
