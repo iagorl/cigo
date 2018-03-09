@@ -22,7 +22,7 @@ var executeQuery = function(res) {
                         request.execute('sp_get_cigo', function(err, res) {
                                     if (err) {
                                         console.log("Error while querying database :- " + err);
-                                        res.send(data);
+                                        res.send(err);
                                     } else {
                                         res.send(res);
                                     }
