@@ -11,6 +11,7 @@ export class CigoDataService {
   data: any;
   originalData: ChartData[];
   dataCigo$: BehaviorSubject<any>;
+  apiUrl = 'http://localhost:8090/api';
 
   constructor(private http: HttpClient) {
     this.data = {};
@@ -20,36 +21,36 @@ export class CigoDataService {
 
   getData() {
     const fases = {};
-    this.http.get<ChartData[]>('/assets/dataCigo.json').subscribe((data) => {
+    this.http.get<ChartData[]>(this.apiUrl).subscribe((data) => {
       this.originalData = data;
       const crossf = crossfilter(this.originalData);
 
-      const dataByField = crossf.dimension((row) => row['chancador']);
+      const dataByField = crossf.dimension((row) => row['FIELD2']);
 
       const addReduce = (p, v) => {
-        const fecha = new Date(v['fecha_hora']);
+        const fecha = new Date(v['FIELD1']);
         const k = {
-          distancia: Number(v['Distancia']),
+          distancia: Number(v['FIELD8']),
           fecha: fecha,
           hora: fecha.getHours() + ':00',
-          viajes: Number(v['viajes']),
-          tons: Number(v['tons']),
-          tons_promedio: Number(v['tons_promedio']),
-          tiempo: Number(v['tiempo_cola']),
-          velocidad: Number(v['velocidad']),
-          ley: Number(v['ley']),
-          spi: Number(v['SPI'])
+          viajes: Number(v['FIELD4']),
+          tons: Number(v['FIELD5']),
+          tons_promedio: Number(v['FIELD6']),
+          tiempo: Number(v['FIELD7']),
+          velocidad: Number(v['FIELD9']),
+          ley: Number(v['FIELD11']),
+          spi: Number(v['FIELD10'])
         };
-        if ((!p[v['chancador']])) {
-          p[v['chancador']] = {
+        if ((!p[v['FIELD2']])) {
+          p[v['FIELD2']] = {
             series: [],
             total_tons: 0,
             total_viajes: 0
           };
         }
-        p[v['chancador']].series.push(k);
-        p[v['chancador']].total_tons += k.tons;
-        p[v['chancador']].total_viajes += k.viajes;
+        p[v['FIELD2']].series.push(k);
+        p[v['FIELD2']].total_tons += k.tons;
+        p[v['FIELD2']].total_viajes += k.viajes;
         return p;
       };
       const removeReduce = (p, v) => {
