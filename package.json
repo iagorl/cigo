@@ -1,15 +1,12 @@
 {
-    "name": "dashboard",
-    "version": "0.0.0",
+    "name": "cigo-dashboard",
+    "version": "0.0.1",
     "license": "MIT",
+    "engines": {
+        "node": ">=6.9.1"
+    },
     "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "test": "ng test",
-        "lint": "ng lint",
-        "e2e": "ng e2e",
-        "local-install": "rimraf package-lock.json && rimraf node_modules/@swimlane && npm install"
+        "start": "node server.js"
     },
     "private": true,
     "dependencies": {

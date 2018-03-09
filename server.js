@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 });
 
 
-const port = process.env.PORT || '8090';
+const port = process.env.PORT || '1337';
 app.set('port', port);
 
 /**

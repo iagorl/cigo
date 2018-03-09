@@ -13,7 +13,7 @@ var executeQuery = function(res) {
         sql.connect('mssql://tableau:sord@GSCLSCL6019/BI/SORD', function(err) {
                     if (err) {
                         console.log("Error while connecting database :- " + err);
-                        res.send(err);
+                        res.send(data);
                     } else {
                         // create Request object
                         var request = pool.request();
