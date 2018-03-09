@@ -21,7 +21,7 @@
         "@angular/platform-browser": "^5.0.0",
         "@angular/platform-browser-dynamic": "^5.0.0",
         "@angular/router": "^5.0.0",
-        "@swimlane/ngx-charts": "git+ssh://git@code.agiledevers.com:all/ngx-charts-fork.git",
+        "@swimlane/ngx-charts": "git+ssh://git@github.com:iagorl/ngxcharts.git",
         "@swimlane/ngx-datatable": "^11.1.7",
         "@types/moment": "^2.13.0",
         "core-js": "^2.4.1",
