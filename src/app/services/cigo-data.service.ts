@@ -30,16 +30,16 @@ export class CigoDataService {
       const addReduce = (p, v) => {
         const fecha = new Date(v['FIELD1']);
         const k = {
-          distancia: Number(v['FIELD8']),
+          distancia: parseFloat(v['FIELD8']),
           fecha: fecha,
           hora: fecha.getHours() + ':00',
-          viajes: Number(v['FIELD4']),
-          tons: Number(v['FIELD5']),
-          tons_promedio: Number(v['FIELD6']),
-          tiempo: Number(v['FIELD7']),
-          velocidad: Number(v['FIELD9']),
-          ley: Number(v['FIELD11']),
-          spi: Number(v['FIELD10'])
+          viajes: parseFloat(v['FIELD4']),
+          tons: parseFloat(v['FIELD5']),
+          tons_promedio: parseFloat(v['FIELD6']),
+          tiempo: parseFloat(v['FIELD7']),
+          velocidad: parseFloat(v['FIELD9']),
+          ley: parseFloat(v['FIELD11']),
+          spi: parseFloat(v['FIELD10'])
         };
         if ((!p[v['FIELD2']])) {
           p[v['FIELD2']] = {
