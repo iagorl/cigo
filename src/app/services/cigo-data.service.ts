@@ -11,7 +11,7 @@ export class CigoDataService {
   data: any;
   originalData: ChartData[];
   dataCigo$: BehaviorSubject<any>;
-  apiUrl = 'http://localhost:8090/api';
+  apiUrl = 'https://cigo-deploy.azurewebsites.net/api';
 
   constructor(private http: HttpClient) {
     this.data = {};

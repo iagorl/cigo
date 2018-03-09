@@ -4280,7 +4280,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CigoDataService = (function () {
     function CigoDataService(http) {
         this.http = http;
-        this.apiUrl = 'http://localhost:8090/api';
+        this.apiUrl = 'https://cigo-deploy.azurewebsites.net/api';
         this.data = {};
         this.dataCigo$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]({});
         this.getData();
