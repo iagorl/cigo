@@ -10,25 +10,26 @@ router.get('/', (req, res) => {
 
 
 var executeQuery = function(res) {
-        sql.connect('mssql://tableau:sord@GSCLSCL6019/BI/SORD', function(err) {
-                    if (err) {
-                        console.log("Error while connecting database :- " + err);
-                        res.send(data);
-                    } else {
-                        // create Request object
-                        var request = pool.request();
+    res.send(data);
+        // sql.connect('mssql://tableau:sord@GSCLSCL6019/BI/SORD', function(err) {
+        //             if (err) {
+        //                 console.log("Error while connecting database :- " + err);
+        //                 res.send(data);
+        //             } else {
+        //                 // create Request object
+        //                 var request = pool.request();
 
-                        // query to the database 
-                        request.execute('sp_get_cigo', function(err, res) {
-                                    if (err) {
-                                        console.log("Error while querying database :- " + err);
-                                        res.send(err);
-                                    } else {
-                                        res.send(res);
-                                    }
-                                });
-                            }
-                        });
+        //                 // query to the database 
+        //                 request.execute('sp_get_cigo', function(err, res) {
+        //                             if (err) {
+        //                                 console.log("Error while querying database :- " + err);
+        //                                 res.send(err);
+        //                             } else {
+        //                                 res.send(res);
+        //                             }
+        //                         });
+        //                     }
+        //                 });
                 }
 
 
