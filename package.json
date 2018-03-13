@@ -31,6 +31,7 @@
     "d3": "^4.12.2",
     "express": "^4.10.8",
     "glslify": "^6.1.0",
+    "hyco-ws": "^1.0.5",
     "method-override": "^2.3.10",
     "moment": "^2.20.1",
     "morgan": "^1.9.0",
