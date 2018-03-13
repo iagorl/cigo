@@ -10,26 +10,34 @@ router.get('/', (req, res) => {
 
 
 var executeQuery = function(res) {
-        sql.connect('mssql://tableau:sord@GSCLSCL6019/BI/SORD', function(err) {
-                    if (err) {
-                        console.log("Error while connecting database :- " + err);
-                        res.send(data);
-                    } else {
-                        // create Request object
-                        var request = pool.request();
+    var config = {
+        user: 'tableau',
+        password: 'sord',
+        server: 'GSCLSCL6019.anglo.local', 
+        database: 'SORD',
+        port: 1433
+    };
+    // sql.connect('mssql://tableau:sord@GSCLSCL6019/BI/SORD', function(err) {
+    sql.connect(config, function (err) {
+        if (err) {
+            console.log("Error while connecting database :- " + err);
+            res.send(data);
+        } else {
+            // create Request object
+            var request = new sql.Request();
 
-                        // query to the database 
-                        request.execute('sp_get_cigo', function(err, res) {
-                                    if (err) {
-                                        console.log("Error while querying database :- " + err);
-                                        res.send(err);
-                                    } else {
-                                        res.send(res);
-                                    }
-                                });
-                            }
-                        });
+            // query to the database 
+            request.execute('sp_get_cigo', function(err, res) {
+                if (err) {
+                    console.log("Error while querying database :- " + err);
+                    res.send(err);
+                } else {
+                    res.send(res);
                 }
+            });
+        }
+    });
+}
 
 
 
