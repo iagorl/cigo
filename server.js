@@ -8,11 +8,13 @@ const methodOverride = require('method-override'); // simulate DELETE and PUT (e
 const path = require('path');
 const http = require('http');
 const api = require('./api/api');
+const cors = require('cors')
 
 
 // configuration =================
 
 var app = express(); // create our app w/ express
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
