@@ -25,14 +25,13 @@ var executeQuery = function(res) {
         } else {
             // create Request object
             var request = new sql.Request();
-
             // query to the database 
-            request.execute('sp_get_cigo', function(err, res) {
+            request.query('SELECT * FROM vw_cigo_data ORDER BY  FECHA_HORA, EQUIPO', function(err, recordset) {
                 if (err) {
                     console.log("Error while querying database :- " + err);
                     res.send(err);
                 } else {
-                    res.send(res);
+                    res.send(recordset.recordsets[0].concat(recordset.recordset));
                 }
             });
         }
