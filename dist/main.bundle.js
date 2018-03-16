@@ -4291,32 +4291,32 @@ var CigoDataService = (function () {
         this.http.get(this.apiUrl).subscribe(function (data) {
             _this.originalData = data;
             var crossf = __WEBPACK_IMPORTED_MODULE_3_crossfilter2__(_this.originalData);
-            var dataByField = crossf.dimension(function (row) { return row['FIELD2']; });
-            var addReduce = function (p, v) {
-                var fecha = new Date(v['FIELD1']);
-                var k = {
-                    distancia: parseFloat(v['FIELD8']),
-                    fecha: fecha,
-                    hora: fecha.getHours() + ':00',
-                    viajes: parseFloat(v['FIELD4']),
-                    tons: parseFloat(v['FIELD5']),
-                    tons_promedio: parseFloat(v['FIELD6']),
-                    tiempo: parseFloat(v['FIELD7']),
-                    velocidad: parseFloat(v['FIELD9']),
-                    ley: parseFloat(v['FIELD11']),
-                    spi: parseFloat(v['FIELD10'])
+            var dataByField = crossf.dimension((row) => row['EQUIPO']);
+            var addReduce = (p, v) => {
+            var fecha = new Date(v['FECHA_HORA']);
+              var k = {
+                distancia: parseFloat(v['VALOR_05']),
+                fecha: fecha,
+                hora: fecha.getHours() + ':00',
+                viajes: parseFloat(v['VALOR_01']),
+                tons: parseFloat(v['VALOR_02']),
+                tons_promedio: parseFloat(v['VALOR_03']),
+                tiempo: parseFloat(v['VALOR_04']),
+                velocidad: parseFloat(v['VALOR_06']),
+                ley: parseFloat(v['VALOR_08']),
+                spi: parseFloat(v['VALOR_07'])
+              };
+              if ((!p[v['EQUIPO']])) {
+                p[v['EQUIPO']] = {
+                  series: [],
+                  total_tons: 0,
+                  total_viajes: 0
                 };
-                if ((!p[v['FIELD2']])) {
-                    p[v['FIELD2']] = {
-                        series: [],
-                        total_tons: 0,
-                        total_viajes: 0
-                    };
-                }
-                p[v['FIELD2']].series.push(k);
-                p[v['FIELD2']].total_tons += k.tons;
-                p[v['FIELD2']].total_viajes += k.viajes;
-                return p;
+              }
+              p[v['EQUIPO']].series.push(k);
+              p[v['EQUIPO']].total_tons += k.tons;
+              p[v['EQUIPO']].total_viajes += k.viajes;
+            return p;
             };
             var removeReduce = function (p, v) {
                 return p;

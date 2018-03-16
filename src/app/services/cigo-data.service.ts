@@ -25,7 +25,7 @@ export class CigoDataService {
       this.originalData = data;
       const crossf = crossfilter(this.originalData);
 
-      const dataByField = crossf.dimension((row) => row['TIPO_EQUIPO']);
+      const dataByField = crossf.dimension((row) => row['EQUIPO']);
 
       const addReduce = (p, v) => {
         const fecha = new Date(v['FECHA_HORA']);
@@ -41,16 +41,16 @@ export class CigoDataService {
           ley: parseFloat(v['VALOR_08']),
           spi: parseFloat(v['VALOR_07'])
         };
-        if ((!p[v['TIPO_EQUIPO']])) {
-          p[v['TIPO_EQUIPO']] = {
+        if ((!p[v['EQUIPO']])) {
+          p[v['EQUIPO']] = {
             series: [],
             total_tons: 0,
             total_viajes: 0
           };
         }
-        p[v['TIPO_EQUIPO']].series.push(k);
-        p[v['TIPO_EQUIPO']].total_tons += k.tons;
-        p[v['TIPO_EQUIPO']].total_viajes += k.viajes;
+        p[v['EQUIPO']].series.push(k);
+        p[v['EQUIPO']].total_tons += k.tons;
+        p[v['EQUIPO']].total_viajes += k.viajes;
         return p;
       };
       const removeReduce = (p, v) => {
