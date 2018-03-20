@@ -12,7 +12,10 @@ export class CigoPageComponent implements OnInit {
   totalViajes: number;
   totalTons: string;
 
-  view: any[] = [400, 160];
+  title_from = '';
+  title_to = '';
+
+  view: any[] = [50, 160];
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -62,6 +65,7 @@ export class CigoPageComponent implements OnInit {
   }
 
   changeData(chart: string) {
+    this.view = [50, 160];
     this.viewPrim = !this.viewPrim;
     this.showTable = false;
     this.firstData = [];
@@ -69,19 +73,6 @@ export class CigoPageComponent implements OnInit {
     this.secondTableData = [];
     const actualHour = (new Date()).getHours();
     const initialHour = (actualHour > 12) ? actualHour - 12 : 0;
-    for (let i = initialHour; i <= actualHour; i++) {
-      const printHout = (i > 9) ? `${i}:00` : `0${i}:00`;
-      this.firstData.push({
-        hora: printHout,
-        viajes: 0,
-        tons: 0,
-        tiempo: 0,
-        tons_promedio: 0,
-        spi: 0,
-        distancia: 0,
-        velocidad: 0,
-        ley: 0});
-    }
     this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
 
     this.dataService.dataCigo$.subscribe(data => {
@@ -105,47 +96,59 @@ export class CigoPageComponent implements OnInit {
         data[chart].series.map(elem => {
           const baseHour = elem.fecha.getHours();
           const hour = baseHour - initialHour;
+          const printHour = (baseHour > 9) ? `${baseHour}:00` : `0${baseHour}:00`;
           if (baseHour <= actualHour && baseHour >= initialHour) {
-            this.firstData[hour].viajes += elem.viajes;
-            this.firstData[hour].tons += elem.tons;
+            if (elem.data_type === '1_VAL') {
+              this.title_from = this.firstData.length ? this.title_from : elem.fecha;
+              this.firstData.push({
+                hora: printHour,
+                viajes: elem.viajes,
+                tons: elem.tons,
+                tiempo: elem.tiempo,
+                tons_promedio: elem.tons_promedio,
+                spi: elem.spi,
+                distancia: elem.distancia,
+                velocidad: elem.velocidad,
+                ley: elem.ley
+              });
 
-            promViaje += elem.viajes;
-            promTons += elem.tons;
+              promViaje += elem.viajes;
+              promTons += elem.tons;
 
-            this.firstData[hour].tiempo += elem.tiempo;
-            this.firstData[hour].tons_promedio += elem.tons_promedio;
+              promPromTons += elem.tons_promedio;
+              promTiempo += elem.tiempo;
 
-            promPromTons += elem.tons_promedio;
-            promTiempo += elem.tiempo;
+              promSpi += elem.spi;
+              promLey += elem.ley;
+              promVel += elem.velocidad;
+              promDist += elem.distancia;
+            }
 
-            this.firstData[hour].spi += elem.spi;
-            this.firstData[hour].ley += elem.ley;
-            this.firstData[hour].velocidad += elem.velocidad;
-            this.firstData[hour].distancia += elem.distancia;
-
-            promSpi += elem.spi;
-            promLey += elem.ley;
-            promVel += elem.velocidad;
-            promDist += elem.distancia;
+            if (elem.data_type === '2_AVG') {
+              this.title_to = elem.fecha;
+              this.firstData.push({
+              hora: 'Prom',
+              viajes: elem.viajes,
+              tons: elem.tons,
+              tiempo: elem.tiempo,
+              tons_promedio: elem.tons_promedio,
+              spi: elem.spi,
+              distancia: elem.distancia,
+              velocidad: elem.velocidad,
+              ley: elem.ley});
+            }
           }
         });
-        this.firstData.push({
-          hora: 'Prom',
-          viajes: Math.floor(promViaje / 12),
-          tons: Math.floor(promTons / 12),
-          tiempo: Math.floor(promTiempo / 12),
-          tons_promedio: Math.floor(promPromTons / 12),
-          spi: Math.floor(promSpi / 12),
-          distancia: Math.floor(promDist / 12),
-          velocidad: Math.floor(promVel / 12),
-          ley: Math.floor(promLey / 12)});
+
+        this.view[0] = this.view[0] * (this.firstData.length - 1) / 2;
+        console.log(this.view);
 
         const firstPromTableObject = {
           name: 'Prom',
           series: []
         };
         const secondPromTableObject = {
-          name: 'pron',
+          name: 'Prom',
           series: []
         };
         for (const elem of this.firstData) {
@@ -155,7 +158,7 @@ export class CigoPageComponent implements OnInit {
           });
           firstPromTableObject.series.push({
               name: '' + elem.tons,
-              value: Math.floor(promTons / 12)
+              value: Math.floor(promTons / (this.firstData.length - 1))
           });
           secondTableObject.series.push({
             name: '' + elem.tiempo,
@@ -163,9 +166,9 @@ export class CigoPageComponent implements OnInit {
           });
           secondPromTableObject.series.push({
             name: '' + elem.tiempo,
-            value: Math.floor(promTiempo / 12)
+            value: Math.floor(promTiempo / (this.firstData.length - 1))
         });
-        }
+      }
         this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons));
         this.totalViajes = promViaje;
         this.firstTableData.push(firstTableObject);

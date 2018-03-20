@@ -7,6 +7,10 @@
       <div class="name-tab">
         <h2>{{title}}</h2>
       </div>
+      <div>
+        <p><strong>Desde {{title_from}}</strong></p>
+        <p><strong>Hasta {{title_to}}</strong></p>
+      </div>
       <div class="total-tab">
         <div class="tons">
           <h3>Total Tons</h3>
@@ -30,9 +34,10 @@
                     {{col.name}}
                   </th>
                 </tr>
-                <tr *ngFor="let row of firstData">
+                <tr *ngFor="let row of firstData; let i = index">
                   <td *ngFor="let col of columns">
-                    {{row[col.value]}}
+                    <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
+                    <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
                   </td>
                 </tr>
             </table>
@@ -65,9 +70,10 @@
                     {{col.name}}
                   </th>
                 </tr>
-                <tr *ngFor="let row of firstData">
+                <tr *ngFor="let row of firstData; let i = index">
                   <td *ngFor="let col of columns2">
-                    {{row[col.value].toFixed(2)}}
+                    <strong *ngIf="i === firstData.length - 1">{{row[col.value].toFixed(2)}}</strong>
+                    <span *ngIf="i < firstData.length - 1">{{row[col.value].toFixed(2)}}</span>
                   </td>
                 </tr>
             </table>
@@ -99,9 +105,10 @@
                 {{col.name}}
               </th>
             </tr>
-            <tr *ngFor="let row of firstData">
+            <tr *ngFor="let row of firstData; let i = index">
               <td *ngFor="let col of columns3">
-                {{row[col.value].toFixed(2)}}
+                <strong *ngIf="i === firstData.length - 1">{{row[col.value].toFixed(2)}}</strong>
+                <span *ngIf="i < firstData.length - 1">{{row[col.value].toFixed(2)}}</span>
               </td>
             </tr>
         </table>

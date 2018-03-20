@@ -31,6 +31,7 @@ export class CigoDataService {
         const fecha = new Date(v['FECHA_HORA']);
         const k = {
           distancia: parseFloat(v['VALOR_05']),
+          data_type: v['TIPO_REG'],
           fecha: fecha,
           hora: fecha.getHours() + ':00',
           viajes: parseFloat(v['VALOR_01']),
