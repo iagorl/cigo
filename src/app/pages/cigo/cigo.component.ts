@@ -94,12 +94,19 @@ export class CigoPageComponent implements OnInit {
         let promSpi = 0;
         let promLey = 0;
         data[chart].series.map(elem => {
-          const baseHour = elem.fecha.getHours();
+          const baseHour = elem.fecha.getHours() + 3;
           const hour = baseHour - initialHour;
           const printHour = (baseHour > 9) ? `${baseHour}:00` : `0${baseHour}:00`;
           if (baseHour <= actualHour && baseHour >= initialHour) {
+            if (this.firstData.length) {
+              this.title_from = this.title_from;
+            } else {
+              this.title_from = elem.fecha.toGMTString().split(',')[1];
+              let finalDate = new Date(elem.fecha.getTime());
+              finalDate.setHours(finalDate.getHours() + 12);
+              this.title_to = finalDate.toGMTString().split(',')[1];
+            }
             if (elem.data_type === '1_VAL') {
-              this.title_from = this.firstData.length ? this.title_from : elem.fecha;
               this.firstData.push({
                 hora: printHour,
                 viajes: elem.viajes,
@@ -125,11 +132,10 @@ export class CigoPageComponent implements OnInit {
             }
 
             if (elem.data_type === '2_AVG') {
-              this.title_to = elem.fecha;
               this.firstData.push({
               hora: 'Prom',
               viajes: elem.viajes,
-              tons: elem.tons,
+              tons: elem.tons.toFixed(2),
               tiempo: elem.tiempo,
               tons_promedio: elem.tons_promedio,
               spi: elem.spi,
@@ -139,9 +145,7 @@ export class CigoPageComponent implements OnInit {
             }
           }
         });
-
-        this.view[0] = this.view[0] * (this.firstData.length - 1) / 2;
-        console.log(this.view);
+        this.view[0] = this.firstData.length ? this.view[0] * (this.firstData.length - 1) : this.view[0];
 
         const firstPromTableObject = {
           name: 'Prom',
