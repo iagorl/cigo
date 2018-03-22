@@ -65,7 +65,6 @@ export class CigoPageComponent implements OnInit {
   }
 
   changeData(chart: string) {
-    this.view = [50, 160];
     this.viewPrim = !this.viewPrim;
     this.showTable = false;
     this.firstData = [];
@@ -74,6 +73,9 @@ export class CigoPageComponent implements OnInit {
     const actualHour = (new Date()).getHours();
     const initialHour = (actualHour > 12) ? actualHour - 12 : 0;
     this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
+    this.totalTons = (new Intl.NumberFormat('de-DE').format(0));
+    this.totalViajes = 0;
+    this.view = [undefined, undefined];
 
     this.dataService.dataCigo$.subscribe(data => {
       if (chart in data) {
@@ -145,7 +147,8 @@ export class CigoPageComponent implements OnInit {
             }
           }
         });
-        this.view[0] = this.firstData.length ? this.view[0] * (this.firstData.length - 1) : this.view[0];
+        this.view[0] = 30 * this.firstData.length;
+        this.view[1] = 150 * this.firstData.length / 12;
 
         const firstPromTableObject = {
           name: 'Prom',
