@@ -3395,7 +3395,7 @@ var TopBarComponent = (function () {
             case '/cigo':
                 return 'CIGO';
             default:
-                return 'Reportes';
+                return 'CIGO';
         }
     };
     TopBarComponent = __decorate([
@@ -3840,7 +3840,7 @@ var CigoPageComponent = (function () {
         var number = 123456789;
         timer.subscribe(function (t) {
             if (t % 100 === 0) {
-                if (t % 6000 === 0) {
+                if (t % 600 === 0) {
                     _this.dataService.getData();
                 }
                 _this.progressValue = 0;
@@ -3883,52 +3883,48 @@ var CigoPageComponent = (function () {
                 var promSpi_1 = 0;
                 var promLey_1 = 0;
                 data[chart].series.map(function (elem) {
-                    var baseHour = elem.fecha.getHours() + 3;
+                    var baseHour = new Date(elem.fecha.getTime() + (3 * 3600000)).getHours();
                     var hour = baseHour - initialHour;
                     var printHour = (baseHour > 9) ? `${baseHour}:00` : `0${baseHour}:00`;
-                    if (baseHour <= actualHour && baseHour >= initialHour) {
-                        if (_this.firstData.length) {
-                          _this.title_from = _this.title_from;
-                        } else {
-                          _this.title_from = elem.fecha.toGMTString().split(',')[1];
-                          let finalDate = new Date(elem.fecha.getTime());
-                          finalDate.setHours(finalDate.getHours() + 12);
-                          _this.title_to = finalDate.toGMTString().split(',')[1];
-                        }
-                        if (elem.data_type === '1_VAL') {
-                            _this.firstData.push({
-                                hora: printHour,
-                                viajes: elem.viajes,
-                                tons: elem.tons,
-                                tiempo: elem.tiempo,
-                                tons_promedio: elem.tons_promedio,
-                                spi: elem.spi,
-                                distancia: elem.distancia,
-                                velocidad: elem.velocidad,
-                                ley: elem.ley
-                            });
-                            promViaje_1 += elem.viajes;
-                            promTons_1 += elem.tons;
-                            promPromTons_1 += elem.tons_promedio;
-                            promTiempo_1 += elem.tiempo;
-                            promSpi_1 += elem.spi;
-                            promLey_1 += elem.ley;
-                            promVel_1 += elem.velocidad;
-                            promDist_1 += elem.distancia;
-                        }
-                        if (elem.data_type === '2_AVG') {
-                            _this.firstData.push({
-                                hora: 'Prom',
-                                viajes: elem.viajes,
-                                tons: elem.tons.toFixed(2),
-                                tiempo: elem.tiempo,
-                                tons_promedio: elem.tons_promedio,
-                                spi: elem.spi,
-                                distancia: elem.distancia,
-                                velocidad: elem.velocidad,
-                                ley: elem.ley
-                            });
-                        }
+                    if (_this.firstData.length) {
+                        _this.title_from = _this.title_from;
+                    } else {
+                        _this.title_from = _this.setRequestTitle(15);
+                        _this.title_to = _this.setRequestTitle(3);
+                    }
+                    if (elem.data_type === '1_VAL') {
+                        _this.firstData.push({
+                            hora: printHour,
+                            viajes: elem.viajes,
+                            tons: elem.tons,
+                            tiempo: elem.tiempo,
+                            tons_promedio: elem.tons_promedio,
+                            spi: elem.spi,
+                            distancia: elem.distancia,
+                            velocidad: elem.velocidad,
+                            ley: elem.ley
+                        });
+                        promViaje_1 += elem.viajes;
+                        promTons_1 += elem.tons;
+                        promPromTons_1 += elem.tons_promedio;
+                        promTiempo_1 += elem.tiempo;
+                        promSpi_1 += elem.spi;
+                        promLey_1 += elem.ley;
+                        promVel_1 += elem.velocidad;
+                        promDist_1 += elem.distancia;
+                    }
+                    if (elem.data_type === '2_AVG') {
+                        _this.firstData.push({
+                            hora: 'Prom',
+                            viajes: elem.viajes,
+                            tons: elem.tons.toFixed(2),
+                            tiempo: elem.tiempo,
+                            tons_promedio: elem.tons_promedio,
+                            spi: elem.spi,
+                            distancia: elem.distancia,
+                            velocidad: elem.velocidad,
+                            ley: elem.ley
+                        });
                     }
                 });
                 _this.view[0] = 30 * _this.firstData.length;
@@ -3969,6 +3965,12 @@ var CigoPageComponent = (function () {
                 _this.showTable = true;
             }
         });
+    };
+    CigoPageComponent.prototype.setRequestTitle = function (hours) {
+        let baseDate = new Date(Date.now() - (hours * 3600000));
+        baseDate.setMinutes(0);
+        baseDate.setSeconds(0);
+        return baseDate.toUTCString().split(',')[1].split('GMT')[0];
     };
     CigoPageComponent.prototype.onSelect = function (event) {
         console.log(event);
