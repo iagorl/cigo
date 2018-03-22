@@ -55,6 +55,9 @@ export class CigoPageComponent implements OnInit {
     const number = 123456789;
     timer.subscribe(t => {
       if (t % 100 === 0) {
+        if (t % 6000 === 0) {
+          this.dataService.getData();
+        }
         this.progressValue = 0;
         (this.viewPrim) ? this.changeData('PRIM') : this.changeData('PRIM DOS');
       } else  {

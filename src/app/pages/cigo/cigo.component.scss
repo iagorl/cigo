@@ -16,10 +16,13 @@
         .chart-container {
           flex: 1;
           width: 100%;
+          position: relative;
           .prueba {
             position: absolute;
-            margin-top: 180px;
             transform: rotate(90deg);
+            transform-origin: top left;
+            top: 65px;
+            left: 100%;
           }
         }
       }
