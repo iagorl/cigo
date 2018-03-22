@@ -3763,7 +3763,7 @@ var CdiPageComponent = (function () {
 /***/ "../../../../../src/app/pages/cigo/cigo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData\">\n                  <td *ngFor=\"let col of columns\">\n                    {{row[col.value]}}\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData\">\n                  <td *ngFor=\"let col of columns2\">\n                    {{row[col.value].toFixed(2)}}\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData\">\n              <td *ngFor=\"let col of columns3\">\n                {{row[col.value].toFixed(2)}}\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div>\n        <p><strong>Desde {{title_from}}</strong></p>\n      <p><strong>Hasta {{title_to}}</strong></p>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3775,7 +3775,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n          margin-left: -120px;\n          margin-top: 180px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg); }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
+exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n                    margin-top: 180px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg); }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
 
 // exports
 
@@ -3808,7 +3808,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CigoPageComponent = (function () {
     function CigoPageComponent(dataService) {
         this.dataService = dataService;
-        this.view = [400, 160];
+        this.view = [50, 160];
         this.colorScheme = {
             domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
         };
@@ -3850,29 +3850,18 @@ var CigoPageComponent = (function () {
     };
     CigoPageComponent.prototype.changeData = function (chart) {
         var _this = this;
-        this.viewPrim = !this.viewPrim;
-        this.showTable = false;
-        this.firstData = [];
-        this.firstTableData = [];
-        this.secondTableData = [];
+        _this.viewPrim = !this.viewPrim;
+        _this.showTable = false;
+        _this.firstData = [];
+        _this.firstTableData = [];
+        _this.secondTableData = [];
         var actualHour = (new Date()).getHours();
         var initialHour = (actualHour > 12) ? actualHour - 12 : 0;
-        for (var i = initialHour; i <= actualHour; i++) {
-            var printHout = (i > 9) ? i + ":00" : "0" + i + ":00";
-            this.firstData.push({
-                hora: printHout,
-                viajes: 0,
-                tons: 0,
-                tiempo: 0,
-                tons_promedio: 0,
-                spi: 0,
-                distancia: 0,
-                velocidad: 0,
-                ley: 0
-            });
-        }
-        this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
-        this.dataService.dataCigo$.subscribe(function (data) {
+        _this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
+        _this.totalTons = (new Intl.NumberFormat('de-DE').format(0));
+        _this.totalViajes = 0;
+        _this.view = [undefined, undefined];
+        _this.dataService.dataCigo$.subscribe(function (data) {
             if (chart in data) {
                 var firstTableObject = {
                     name: '',
@@ -3891,44 +3880,62 @@ var CigoPageComponent = (function () {
                 var promSpi_1 = 0;
                 var promLey_1 = 0;
                 data[chart].series.map(function (elem) {
-                    var baseHour = elem.fecha.getHours();
+                    var baseHour = elem.fecha.getHours() + 3;
                     var hour = baseHour - initialHour;
+                    var printHour = (baseHour > 9) ? `${baseHour}:00` : `0${baseHour}:00`;
                     if (baseHour <= actualHour && baseHour >= initialHour) {
-                        _this.firstData[hour].viajes += elem.viajes;
-                        _this.firstData[hour].tons += elem.tons;
-                        promViaje_1 += elem.viajes;
-                        promTons_1 += elem.tons;
-                        _this.firstData[hour].tiempo += elem.tiempo;
-                        _this.firstData[hour].tons_promedio += elem.tons_promedio;
-                        promPromTons_1 += elem.tons_promedio;
-                        promTiempo_1 += elem.tiempo;
-                        _this.firstData[hour].spi += elem.spi;
-                        _this.firstData[hour].ley += elem.ley;
-                        _this.firstData[hour].velocidad += elem.velocidad;
-                        _this.firstData[hour].distancia += elem.distancia;
-                        promSpi_1 += elem.spi;
-                        promLey_1 += elem.ley;
-                        promVel_1 += elem.velocidad;
-                        promDist_1 += elem.distancia;
+                        if (_this.firstData.length) {
+                          _this.title_from = _this.title_from;
+                        } else {
+                          _this.title_from = elem.fecha.toGMTString().split(',')[1];
+                          let finalDate = new Date(elem.fecha.getTime());
+                          finalDate.setHours(finalDate.getHours() + 12);
+                          _this.title_to = finalDate.toGMTString().split(',')[1];
+                        }
+                        if (elem.data_type === '1_VAL') {
+                            _this.firstData.push({
+                                hora: printHour,
+                                viajes: elem.viajes,
+                                tons: elem.tons,
+                                tiempo: elem.tiempo,
+                                tons_promedio: elem.tons_promedio,
+                                spi: elem.spi,
+                                distancia: elem.distancia,
+                                velocidad: elem.velocidad,
+                                ley: elem.ley
+                            });
+                            promViaje_1 += elem.viajes;
+                            promTons_1 += elem.tons;
+                            promPromTons_1 += elem.tons_promedio;
+                            promTiempo_1 += elem.tiempo;
+                            promSpi_1 += elem.spi;
+                            promLey_1 += elem.ley;
+                            promVel_1 += elem.velocidad;
+                            promDist_1 += elem.distancia;
+                        }
+                        if (elem.data_type === '2_AVG') {
+                            _this.firstData.push({
+                                hora: 'Prom',
+                                viajes: elem.viajes,
+                                tons: elem.tons.toFixed(2),
+                                tiempo: elem.tiempo,
+                                tons_promedio: elem.tons_promedio,
+                                spi: elem.spi,
+                                distancia: elem.distancia,
+                                velocidad: elem.velocidad,
+                                ley: elem.ley
+                            });
+                        }
                     }
                 });
-                _this.firstData.push({
-                    hora: 'Prom',
-                    viajes: Math.floor(promViaje_1 / 12),
-                    tons: Math.floor(promTons_1 / 12),
-                    tiempo: Math.floor(promTiempo_1 / 12),
-                    tons_promedio: Math.floor(promPromTons_1 / 12),
-                    spi: Math.floor(promSpi_1 / 12),
-                    distancia: Math.floor(promDist_1 / 12),
-                    velocidad: Math.floor(promVel_1 / 12),
-                    ley: Math.floor(promLey_1 / 12)
-                });
+                _this.view[0] = 30 * _this.firstData.length;
+                _this.view[1] = 150 * _this.firstData.length / 12;
                 var firstPromTableObject = {
                     name: 'Prom',
                     series: []
                 };
                 var secondPromTableObject = {
-                    name: 'pron',
+                    name: 'Prom',
                     series: []
                 };
                 for (var _i = 0, _a = _this.firstData; _i < _a.length; _i++) {
@@ -3939,7 +3946,7 @@ var CigoPageComponent = (function () {
                     });
                     firstPromTableObject.series.push({
                         name: '' + elem.tons,
-                        value: Math.floor(promTons_1 / 12)
+                        value: Math.floor(promTons_1 / (_this.firstData.length - 1))
                     });
                     secondTableObject.series.push({
                         name: '' + elem.tiempo,
@@ -3947,7 +3954,7 @@ var CigoPageComponent = (function () {
                     });
                     secondPromTableObject.series.push({
                         name: '' + elem.tiempo,
-                        value: Math.floor(promTiempo_1 / 12)
+                        value: Math.floor(promTiempo_1 / (_this.firstData.length - 1))
                     });
                 }
                 _this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons_1));
@@ -4295,6 +4302,7 @@ var CigoDataService = (function () {
             var addReduce = (p, v) => {
             var fecha = new Date(v['FECHA_HORA']);
               var k = {
+                data_type: v['TIPO_REG'],
                 distancia: parseFloat(v['VALOR_05']),
                 fecha: fecha,
                 hora: fecha.getHours() + ':00',
