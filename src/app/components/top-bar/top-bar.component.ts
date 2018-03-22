@@ -36,7 +36,7 @@ export class TopBarComponent implements OnInit {
       case '/cigo':
         return 'CIGO'
       default:
-        return 'Reportes';
+        return 'CIGO';
     }
   }
 }

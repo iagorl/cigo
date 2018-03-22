@@ -99,46 +99,18 @@ export class CigoPageComponent implements OnInit {
         let promSpi = 0;
         let promLey = 0;
         data[chart].series.map(elem => {
-          const baseHour = elem.fecha.getHours() + 3;
+          const baseHour = new Date(elem.fecha.getTime() + (3 * 3600000)).getHours();
           const hour = baseHour - initialHour;
           const printHour = (baseHour > 9) ? `${baseHour}:00` : `0${baseHour}:00`;
-          if (baseHour <= actualHour && baseHour >= initialHour) {
-            if (this.firstData.length) {
-              this.title_from = this.title_from;
-            } else {
-              this.title_from = elem.fecha.toGMTString().split(',')[1];
-              let finalDate = new Date(elem.fecha.getTime());
-              finalDate.setHours(finalDate.getHours() + 12);
-              this.title_to = finalDate.toGMTString().split(',')[1];
-            }
-            if (elem.data_type === '1_VAL') {
-              this.firstData.push({
-                hora: printHour,
-                viajes: elem.viajes,
-                tons: elem.tons,
-                tiempo: elem.tiempo,
-                tons_promedio: elem.tons_promedio,
-                spi: elem.spi,
-                distancia: elem.distancia,
-                velocidad: elem.velocidad,
-                ley: elem.ley
-              });
-
-              promViaje += elem.viajes;
-              promTons += elem.tons;
-
-              promPromTons += elem.tons_promedio;
-              promTiempo += elem.tiempo;
-
-              promSpi += elem.spi;
-              promLey += elem.ley;
-              promVel += elem.velocidad;
-              promDist += elem.distancia;
-            }
-
-            if (elem.data_type === '2_AVG') {
-              this.firstData.push({
-              hora: 'Prom',
+          if (this.firstData.length) {
+            this.title_from = this.title_from;
+          } else {
+            this.title_from = this.setRequestTitle(15);
+            this.title_to = this.setRequestTitle(3);
+          }
+          if (elem.data_type === '1_VAL') {
+            this.firstData.push({
+              hora: printHour,
               viajes: elem.viajes,
               tons: elem.tons.toFixed(2),
               tiempo: elem.tiempo,
@@ -146,8 +118,32 @@ export class CigoPageComponent implements OnInit {
               spi: elem.spi,
               distancia: elem.distancia,
               velocidad: elem.velocidad,
-              ley: elem.ley});
-            }
+              ley: elem.ley
+            });
+
+            promViaje += elem.viajes;
+            promTons += elem.tons;
+
+            promPromTons += elem.tons_promedio;
+            promTiempo += elem.tiempo;
+
+            promSpi += elem.spi;
+            promLey += elem.ley;
+            promVel += elem.velocidad;
+            promDist += elem.distancia;
+          }
+
+          if (elem.data_type === '2_AVG') {
+            this.firstData.push({
+            hora: 'Prom',
+            viajes: elem.viajes,
+            tons: elem.tons.toFixed(2),
+            tiempo: elem.tiempo,
+            tons_promedio: elem.tons_promedio,
+            spi: elem.spi,
+            distancia: elem.distancia,
+            velocidad: elem.velocidad,
+            ley: elem.ley});
           }
         });
         this.view[0] = 30 * this.firstData.length;
@@ -189,6 +185,13 @@ export class CigoPageComponent implements OnInit {
         this.showTable = true;
       }
     });
+  }
+
+  setRequestTitle(hours: number): string {
+    let baseDate = new Date(Date.now() - (hours * 3600000));
+    baseDate.setMinutes(0);
+    baseDate.setSeconds(0);
+    return baseDate.toUTCString().split(',')[1].split('GMT')[0];
   }
 
   onSelect(event) {
