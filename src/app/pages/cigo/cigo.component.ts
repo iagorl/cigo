@@ -129,9 +129,6 @@ export class CigoPageComponent implements OnInit {
             promViaje += elem.viajes;
             promTons += elem.tons;
 
-            promPromTons += elem.tons_promedio;
-            promTiempo += elem.tiempo;
-
             promSpi += elem.spi;
             promLey += elem.ley;
             promVel += elem.velocidad;
@@ -139,6 +136,8 @@ export class CigoPageComponent implements OnInit {
           }
 
           if (elem.data_type === '2_AVG') {
+            promPromTons = elem.tons.toFixed(2);
+            promTiempo = elem.tiempo;
             this.firstData.push({
             hora: 'Prom',
             viajes: elem.viajes,
@@ -152,7 +151,7 @@ export class CigoPageComponent implements OnInit {
           }
         });
         this.view[0] = 30 * this.firstData.length;
-        this.view[1] = 150 * this.firstData.length / 12;
+        this.view[1] = 150 * this.firstData.length / 13;
 
         const firstPromTableObject = {
           name: 'Prom',
@@ -163,23 +162,25 @@ export class CigoPageComponent implements OnInit {
           series: []
         };
         for (const elem of this.firstData) {
-          firstTableObject.series.push({
-            name: '' + elem.tons,
-            value: elem.tons
-          });
-          firstPromTableObject.series.push({
+          if (elem.hora !== 'Prom') {
+            firstTableObject.series.push({
               name: '' + elem.tons,
-              value: Math.floor(promTons / (this.firstData.length - 1))
-          });
-          secondTableObject.series.push({
-            name: '' + elem.tiempo,
-            value: elem.tiempo
-          });
-          secondPromTableObject.series.push({
-            name: '' + elem.tiempo,
-            value: Math.floor(promTiempo / (this.firstData.length - 1))
-        });
-      }
+              value: elem.tons
+            });
+            firstPromTableObject.series.push({
+                name: '' + elem.tons,
+                value: promPromTons
+            });
+            secondTableObject.series.push({
+              name: '' + elem.tiempo,
+              value: elem.tiempo
+            });
+            secondPromTableObject.series.push({
+              name: '' + elem.tiempo,
+              value: promTiempo
+            });
+          }
+        }
         this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons));
         this.totalViajes = promViaje;
         this.firstTableData.push(firstTableObject);
