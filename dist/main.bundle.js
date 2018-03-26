@@ -3763,7 +3763,7 @@ var CdiPageComponent = (function () {
 /***/ "../../../../../src/app/pages/cigo/cigo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div>\n        <p><strong>Desde {{title_from}}</strong></p>\n      <p><strong>Hasta {{title_to}}</strong></p>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div>\n        <p><strong>Desde {{title_from}}</strong></p>\n      <p><strong>Hasta {{title_to}}</strong></p>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable && dataUpdated\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3831,6 +3831,7 @@ var CigoPageComponent = (function () {
         this.secondTableData = [];
         this.firstData = [];
         this.showTable = false;
+        this.dataUpdated = false;
     }
     CigoPageComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -3838,6 +3839,10 @@ var CigoPageComponent = (function () {
         this.viewPrim = true;
         var timer = __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_TimerObservable__["a" /* TimerObservable */].create(0, 100);
         var number = 123456789;
+        _this.dataService.dataAvailable$.subscribe( data => {
+            (_this.viewPrim) ? _this.changeData('PRIM') : _this.changeData('PRIM DOS');
+            _this.dataUpdated = data;}
+        );
         timer.subscribe(function (t) {
             if (t % 100 === 0) {
                 if (t % 600 === 0) {
@@ -3906,14 +3911,14 @@ var CigoPageComponent = (function () {
                         });
                         promViaje_1 += elem.viajes;
                         promTons_1 += elem.tons;
-                        promPromTons_1 += elem.tons_promedio;
-                        promTiempo_1 += elem.tiempo;
                         promSpi_1 += elem.spi;
                         promLey_1 += elem.ley;
                         promVel_1 += elem.velocidad;
                         promDist_1 += elem.distancia;
                     }
                     if (elem.data_type === '2_AVG') {
+                        promPromTons_1 = elem.tons.toFixed(2);
+                        promTiempo_1 = elem.tiempo;
                         _this.firstData.push({
                             hora: 'Prom',
                             viajes: elem.viajes,
@@ -3928,7 +3933,7 @@ var CigoPageComponent = (function () {
                     }
                 });
                 _this.view[0] = 30 * _this.firstData.length;
-                _this.view[1] = 150 * _this.firstData.length / 12;
+                _this.view[1] = 150 * _this.firstData.length / 13;
                 var firstPromTableObject = {
                     name: 'Prom',
                     series: []
@@ -3938,23 +3943,25 @@ var CigoPageComponent = (function () {
                     series: []
                 };
                 for (var _i = 0, _a = _this.firstData; _i < _a.length; _i++) {
-                    var elem = _a[_i];
+                  var elem = _a[_i];
+                  if (elem.hora !== 'Prom') {
                     firstTableObject.series.push({
-                        name: '' + elem.tons,
-                        value: elem.tons
+                      name: '' + elem.tons,
+                      value: elem.tons
                     });
                     firstPromTableObject.series.push({
                         name: '' + elem.tons,
-                        value: Math.floor(promTons_1 / (_this.firstData.length - 1))
+                        value: promPromTons_1
                     });
                     secondTableObject.series.push({
-                        name: '' + elem.tiempo,
-                        value: elem.tiempo
+                      name: '' + elem.tiempo,
+                      value: elem.tiempo
                     });
                     secondPromTableObject.series.push({
-                        name: '' + elem.tiempo,
-                        value: Math.floor(promTiempo_1 / (_this.firstData.length - 1))
+                      name: '' + elem.tiempo,
+                      value: promTiempo_1
                     });
+                  }
                 }
                 _this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons_1));
                 _this.totalViajes = promViaje_1;
@@ -4295,10 +4302,12 @@ var CigoDataService = (function () {
         this.apiUrl = 'https://cigo-deploy.azurewebsites.net/api';
         this.data = {};
         this.dataCigo$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]({});
+        this.dataAvailable$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"](false);
         this.getData();
     }
     CigoDataService.prototype.getData = function () {
         var _this = this;
+        _this.dataAvailable$.next(false);
         var fases = {};
         this.http.get(this.apiUrl).subscribe(function (data) {
             _this.originalData = data;
@@ -4341,6 +4350,7 @@ var CigoDataService = (function () {
             var pruebaArray = [];
             _this.data = prueba;
             _this.dataCigo$.next(_this.data);
+            _this.dataAvailable$.next(true);
         });
     };
     CigoDataService = __decorate([
