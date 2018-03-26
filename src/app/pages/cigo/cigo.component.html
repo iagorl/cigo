@@ -24,7 +24,7 @@
     </div>
     <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
   </div>
-  <div class="body-container" *ngIf="showTable">
+  <div class="body-container" *ngIf="showTable && dataUpdated">
     <div class="table-container first" >
       <div class="table-sub-container">
         <div class="table-field">

@@ -11,15 +11,18 @@ export class CigoDataService {
   data: any;
   originalData: ChartData[];
   dataCigo$: BehaviorSubject<any>;
+  dataAvailable$: BehaviorSubject<boolean>
   apiUrl = 'https://cigo-deploy.azurewebsites.net/api';
 
   constructor(private http: HttpClient) {
     this.data = {};
     this.dataCigo$ = new BehaviorSubject({});
+    this.dataAvailable$ = new BehaviorSubject(false);
     this.getData();
   }
 
   getData() {
+    this.dataAvailable$.next(false);
     const fases = {};
     this.http.get<ChartData[]>(this.apiUrl).subscribe((data) => {
       this.originalData = data;
@@ -66,6 +69,7 @@ export class CigoDataService {
       const pruebaArray = [];
       this.data = prueba;
       this.dataCigo$.next(this.data);
+      this.dataAvailable$.next(true);
     });
   }
 

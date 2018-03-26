@@ -42,6 +42,7 @@ export class CigoPageComponent implements OnInit {
   secondTableData = [];
   firstData = [];
   showTable = false;
+  dataUpdated = false;
   progressValue: any;
 
   constructor(
@@ -53,9 +54,13 @@ export class CigoPageComponent implements OnInit {
     this.viewPrim = true;
     const timer = TimerObservable.create(0, 100);
     const number = 123456789;
+    this.dataService.dataAvailable$.subscribe( data => {
+      this.dataUpdated = data;
+      (this.viewPrim) ? this.changeData('PRIM') : this.changeData('PRIM DOS');
+    });
     timer.subscribe(t => {
       if (t % 100 === 0) {
-        if (t % 6000 === 0) {
+        if (t % 600 === 0) {
           this.dataService.getData();
         }
         this.progressValue = 0;
