@@ -42,7 +42,6 @@ export class CigoPageComponent implements OnInit {
   secondTableData = [];
   firstData = [];
   showTable = false;
-  dataUpdated = false;
   progressValue: any;
 
   constructor(
@@ -54,10 +53,6 @@ export class CigoPageComponent implements OnInit {
     this.viewPrim = true;
     const timer = TimerObservable.create(0, 100);
     const number = 123456789;
-    this.dataService.dataAvailable$.subscribe( data => {
-      this.dataUpdated = data;
-      (this.viewPrim) ? this.changeData('PRIM') : this.changeData('PRIM DOS');
-    });
     timer.subscribe(t => {
       if (t % 100 === 0) {
         if (t % 600 === 0) {
@@ -74,10 +69,6 @@ export class CigoPageComponent implements OnInit {
 
   changeData(chart: string) {
     this.viewPrim = !this.viewPrim;
-    this.showTable = false;
-    this.firstData = [];
-    this.firstTableData = [];
-    this.secondTableData = [];
     const actualHour = (new Date()).getHours();
     const initialHour = (actualHour > 12) ? actualHour - 12 : 0;
     this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
@@ -86,6 +77,10 @@ export class CigoPageComponent implements OnInit {
     this.view = [undefined, undefined];
 
     this.dataService.dataCigo$.subscribe(data => {
+      this.showTable = false;
+      this.firstData = [];
+      this.firstTableData = [];
+      this.secondTableData = [];
       if (chart in data) {
         const firstTableObject = {
           name: '',
@@ -164,19 +159,19 @@ export class CigoPageComponent implements OnInit {
         for (const elem of this.firstData) {
           if (elem.hora !== 'Prom') {
             firstTableObject.series.push({
-              name: '' + elem.tons,
+              name: '' + elem.hora,
               value: elem.tons
             });
             firstPromTableObject.series.push({
-                name: '' + elem.tons,
+                name: '' + elem.hora,
                 value: promPromTons
             });
             secondTableObject.series.push({
-              name: '' + elem.tiempo,
+              name: '' + elem.hora,
               value: elem.tiempo
             });
             secondPromTableObject.series.push({
-              name: '' + elem.tiempo,
+              name: '' + elem.hora,
               value: promTiempo
             });
           }
