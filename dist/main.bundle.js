@@ -3775,7 +3775,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n     position: relative;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n                    top: 65px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg);\n    -webkit-transform-origin: top left;\n   transform-origin: top left;\n   left: 100%; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
+exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n     position: relative;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n                    top: 65px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg);\n    -webkit-transform-origin: top left;\n   transform-origin: top left;\n   left: 100%; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px;\n  white-space: pre-line; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
 
 // exports
 
@@ -3814,16 +3814,16 @@ var CigoPageComponent = (function () {
         };
         this.columns = [
             { name: 'Hora', value: 'hora' },
-            { name: 'Viajes [N]', value: 'viajes' },
-            { name: 'Toneladas [Ton]', value: 'tons' },
+            { name: 'Viajes \n [N]', value: 'viajes' },
+            { name: 'Toneladas \n [Ton]', value: 'tons' },
         ];
         this.columns2 = [
-            { name: 'Prom. Tons [Ton]', value: 'tons_promedio' },
-            { name: 'T. Cola [min]', value: 'tiempo' },
+            { name: 'Prom. Tons \n [Ton]', value: 'tons_promedio' },
+            { name: 'T. Cola \n [min]', value: 'tiempo' },
         ];
         this.columns3 = [
-            { name: 'Distancia [Km]', value: 'distancia' },
-            { name: 'Velocidad [Km/Hrs]', value: 'velocidad' },
+            { name: 'Distancia \n [Km]', value: 'distancia'},
+            { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad'},
             { name: 'SPI', value: 'spi' },
             { name: 'LEY', value: 'ley' },
         ];
@@ -3839,7 +3839,7 @@ var CigoPageComponent = (function () {
         var timer = __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_TimerObservable__["a" /* TimerObservable */].create(0, 100);
         var number = 123456789;
         timer.subscribe(function (t) {
-            if (t % 100 === 0) {
+            if (t % 200 === 0) {
                 if (t % 600 === 0) {
                     _this.dataService.getData();
                 }
@@ -3847,7 +3847,7 @@ var CigoPageComponent = (function () {
                 (_this.viewPrim) ? _this.changeData('PRIM') : _this.changeData('PRIM DOS');
             }
             else {
-                _this.progressValue = t % 100;
+                _this.progressValue = t/2 % 100;
             }
         });
     };

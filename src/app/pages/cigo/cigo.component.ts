@@ -25,16 +25,16 @@ export class CigoPageComponent implements OnInit {
 
   columns = [
     { name: 'Hora', value: 'hora'},
-    { name: 'Viajes [N]', value: 'viajes'},
-    { name: 'Toneladas [Ton]', value: 'tons'},
+    { name: 'Viajes \n [N]', value: 'viajes'},
+    { name: 'Toneladas \n [Ton]', value: 'tons'},
   ];
   columns2 = [
-    { name: 'Prom. Tons [Ton]', value: 'tons_promedio'},
-    { name: 'T. Cola [min]', value: 'tiempo'},
+    { name: 'Prom. Tons \n [Ton]', value: 'tons_promedio'},
+    { name: 'T. Cola \n [min]', value: 'tiempo'},
   ];
   columns3 = [
-    { name: 'Distancia [Km]', value: 'distancia'},
-    { name: 'Velocidad [Km/Hrs]', value: 'velocidad'},
+    { name: 'Distancia \n [Km]', value: 'distancia'},
+    { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad'},
     { name: 'SPI', value: 'spi'},
     { name: 'LEY', value: 'ley'},
   ];
@@ -54,14 +54,14 @@ export class CigoPageComponent implements OnInit {
     const timer = TimerObservable.create(0, 100);
     const number = 123456789;
     timer.subscribe(t => {
-      if (t % 100 === 0) {
+      if (t % 200 === 0) {
         if (t % 600 === 0) {
           this.dataService.getData();
         }
         this.progressValue = 0;
         (this.viewPrim) ? this.changeData('PRIM') : this.changeData('PRIM DOS');
       } else  {
-        this.progressValue = t % 100;
+        this.progressValue = t/2 % 100;
       }
     });
 
