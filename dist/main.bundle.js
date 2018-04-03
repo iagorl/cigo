@@ -74,7 +74,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "* {\n  font-family: Helvetica, sans-serif; }\n\n.app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10; }\n", ""]);
+exports.push([module.i, "* {\n  font-family: Helvetica, sans-serif; }\n\n.app-container {\n  height: calc(100vh - 60px);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1;\n      flex: 1; }\n  .app-container .sidebar-container {\n    -ms-flex: 2;\n        flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -ms-flex: 10;\n        flex: 10; }\n", ""]);
 
 // exports
 
@@ -372,7 +372,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".mat-list-item-content:ng-deep {\n  padding: 0px !important; }\n\n.mat-divider {\n  border-top-color: rgba(0, 0, 0, 0.12);\n  margin-right: 10px;\n  margin-left: 10px; }\n\n.mat-subheader {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: small;\n  text-transform: uppercase;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.list-global {\n  height: calc(100% - 40px);\n  overflow: scroll;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  .list-global .list-container {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n    .list-global .list-container .items-list {\n      height: calc(100% - 70px);\n      overflow: auto; }\n\n.mat-checkbox {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-size: 12px;\n  color: #353535; }\n\nbutton {\n  font-size: 12px;\n  height: 30px;\n  width: 90%;\n  margin-left: 5%; }\n", ""]);
+exports.push([module.i, ".mat-list-item-content:ng-deep {\n  padding: 0px !important; }\n\n.mat-divider {\n  border-top-color: rgba(0, 0, 0, 0.12);\n  margin-right: 10px;\n  margin-left: 10px; }\n\n.mat-subheader {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: small;\n  text-transform: uppercase;\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.list-global {\n  height: calc(100% - 40px);\n  overflow: scroll;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column;\n      flex-direction: column; }\n  .list-global .list-container {\n    -ms-flex: 1;\n        flex: 1; }\n    .list-global .list-container .items-list {\n      height: calc(100% - 70px);\n      overflow: auto; }\n\n.mat-checkbox {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: center;\n      justify-content: center;\n  font-size: 12px;\n  color: #353535; }\n\nbutton {\n  font-size: 12px;\n  height: 30px;\n  width: 90%;\n  margin-left: 5%; }\n", ""]);
 
 // exports
 
@@ -603,7 +603,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".mat-list-item-content:ng-deep {\n  padding: 0px !important; }\n\n.mat-divider {\n  border-top-color: rgba(0, 0, 0, 0.12);\n  margin-right: 10px;\n  margin-left: 10px; }\n\n.mat-subheader {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: small;\n  text-transform: uppercase;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.mat-checkbox {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: left;\n      -ms-flex-pack: left;\n          justify-content: left;\n  margin-left: 5%;\n  margin-top: 20px;\n  font-size: 12px;\n  color: #353535; }\n\nbutton {\n  font-size: 12px;\n  height: 30px;\n  width: 90%;\n  margin-left: 5%; }\n", ""]);
+exports.push([module.i, ".mat-list-item-content:ng-deep {\n  padding: 0px !important; }\n\n.mat-divider {\n  border-top-color: rgba(0, 0, 0, 0.12);\n  margin-right: 10px;\n  margin-left: 10px; }\n\n.mat-subheader {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: small;\n  text-transform: uppercase;\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.mat-checkbox {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: left;\n      justify-content: left;\n  margin-left: 5%;\n  margin-top: 20px;\n  font-size: 12px;\n  color: #353535; }\n\nbutton {\n  font-size: 12px;\n  height: 30px;\n  width: 90%;\n  margin-left: 5%; }\n", ""]);
 
 // exports
 
@@ -779,7 +779,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".coords {\n  width: 100%; }\n\n.card {\n  border-top: 2px solid #4981FD;\n  border-bottom: 2px solid #4981FD;\n  background-color: white;\n  font-size: 14px;\n  padding: 10px;\n  margin: 10px; }\n\ndiv.buttons {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n", ""]);
+exports.push([module.i, ".coords {\n  width: 100%; }\n\n.card {\n  border-top: 2px solid #4981FD;\n  border-bottom: 2px solid #4981FD;\n  background-color: white;\n  font-size: 14px;\n  padding: 10px;\n  margin: 10px; }\n\ndiv.buttons {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: row;\n      flex-direction: row;\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n", ""]);
 
 // exports
 
@@ -872,7 +872,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ngx-charts {\n  float: left;\n  overflow: visible; }\n  .ngx-charts .circle,\n  .ngx-charts .bar,\n  .ngx-charts .arc {\n    cursor: pointer; }\n  .ngx-charts .bar.active, .ngx-charts .bar:hover,\n  .ngx-charts .cell.active,\n  .ngx-charts .cell:hover,\n  .ngx-charts .arc.active,\n  .ngx-charts .arc:hover,\n  .ngx-charts .card.active,\n  .ngx-charts .card:hover {\n    opacity: 0.8;\n    transition: opacity 100ms ease-in-out; }\n  .ngx-charts .bar:focus,\n  .ngx-charts .cell:focus,\n  .ngx-charts .arc:focus,\n  .ngx-charts .card:focus {\n    outline: none; }\n  .ngx-charts g:focus {\n    outline: none; }\n  .ngx-charts .line-series.inactive,\n  .ngx-charts .line-series-range.inactive,\n  .ngx-charts .polar-series-path.inactive,\n  .ngx-charts .polar-series-area.inactive,\n  .ngx-charts .area-series.inactive {\n    transition: opacity 100ms ease-in-out;\n    opacity: .2; }\n  .ngx-charts .line-highlight {\n    display: none; }\n    .ngx-charts .line-highlight.active {\n      display: block; }\n  .ngx-charts .area {\n    opacity: 0.6; }\n  .ngx-charts .circle:hover {\n    cursor: pointer; }\n  .ngx-charts .label {\n    font-size: 12px;\n    font-weight: normal; }\n  .ngx-charts .tooltip-anchor {\n    fill: black; }\n  .ngx-charts .gridline-path {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none; }\n  .ngx-charts .refline-path {\n    stroke: #a8b2c7;\n    stroke-width: 1;\n    stroke-dasharray: 5;\n    stroke-dashoffset: 5; }\n  .ngx-charts .refline-label {\n    font-size: 9px; }\n  .ngx-charts .reference-area {\n    fill-opacity: 0.05;\n    fill: #000; }\n  .ngx-charts .gridline-path-dotted {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none;\n    stroke-dasharray: 1, 20;\n    stroke-dashoffset: 3; }\n  .ngx-charts .grid-panel rect {\n    fill: none; }\n  .ngx-charts .grid-panel.odd rect {\n    fill: rgba(0, 0, 0, 0.05); }\n\n.ngx-charts-outer {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n      -ms-flex-direction: column-reverse;\n          flex-direction: column-reverse;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 100%; }\n  .ngx-charts-outer .chart-legend {\n    min-width: 500px !important; }\n    .ngx-charts-outer .chart-legend > div {\n      width: 100% !important; }\n      .ngx-charts-outer .chart-legend > div .legend-labels {\n        background: transparent;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: horizontal;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: row;\n                flex-direction: row;\n        -ms-flex-pack: distribute;\n            justify-content: space-around; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label {\n          color: rgba(35, 35, 35, 0.6); }\n        .ngx-charts-outer .chart-legend > div .legend-labels span:focus {\n          outline: none; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label-color {\n          border-radius: 0;\n          height: 7px; }\n      .ngx-charts-outer .chart-legend > div header {\n        display: none; }\n  .ngx-charts-outer .axis text {\n    font-size: 12px;\n    fill: rgba(35, 35, 35, 0.6); }\n  .ngx-charts-outer rect.overlay {\n    stroke-width: 1;\n    stroke: rgba(35, 35, 35, 0.6);\n    shape-rendering: crispedges;\n    cursor: crosshair; }\n", ""]);
+exports.push([module.i, ".ngx-charts {\n  float: left;\n  overflow: visible; }\n  .ngx-charts .circle,\n  .ngx-charts .bar,\n  .ngx-charts .arc {\n    cursor: pointer; }\n  .ngx-charts .bar.active, .ngx-charts .bar:hover,\n  .ngx-charts .cell.active,\n  .ngx-charts .cell:hover,\n  .ngx-charts .arc.active,\n  .ngx-charts .arc:hover,\n  .ngx-charts .card.active,\n  .ngx-charts .card:hover {\n    opacity: 0.8;\n    transition: opacity 100ms ease-in-out; }\n  .ngx-charts .bar:focus,\n  .ngx-charts .cell:focus,\n  .ngx-charts .arc:focus,\n  .ngx-charts .card:focus {\n    outline: none; }\n  .ngx-charts g:focus {\n    outline: none; }\n  .ngx-charts .line-series.inactive,\n  .ngx-charts .line-series-range.inactive,\n  .ngx-charts .polar-series-path.inactive,\n  .ngx-charts .polar-series-area.inactive,\n  .ngx-charts .area-series.inactive {\n    transition: opacity 100ms ease-in-out;\n    opacity: .2; }\n  .ngx-charts .line-highlight {\n    display: none; }\n    .ngx-charts .line-highlight.active {\n      display: block; }\n  .ngx-charts .area {\n    opacity: 0.6; }\n  .ngx-charts .circle:hover {\n    cursor: pointer; }\n  .ngx-charts .label {\n    font-size: 12px;\n    font-weight: normal; }\n  .ngx-charts .tooltip-anchor {\n    fill: black; }\n  .ngx-charts .gridline-path {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none; }\n  .ngx-charts .refline-path {\n    stroke: #a8b2c7;\n    stroke-width: 1;\n    stroke-dasharray: 5;\n    stroke-dashoffset: 5; }\n  .ngx-charts .refline-label {\n    font-size: 9px; }\n  .ngx-charts .reference-area {\n    fill-opacity: 0.05;\n    fill: #000; }\n  .ngx-charts .gridline-path-dotted {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none;\n    stroke-dasharray: 1, 20;\n    stroke-dashoffset: 3; }\n  .ngx-charts .grid-panel rect {\n    fill: none; }\n  .ngx-charts .grid-panel.odd rect {\n    fill: rgba(0, 0, 0, 0.05); }\n\n.ngx-charts-outer {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column-reverse;\n      flex-direction: column-reverse;\n  -ms-flex-align: center;\n      align-items: center;\n  width: 100%; }\n  .ngx-charts-outer .chart-legend {\n    min-width: 500px !important; }\n    .ngx-charts-outer .chart-legend > div {\n      width: 100% !important; }\n      .ngx-charts-outer .chart-legend > div .legend-labels {\n        background: transparent;\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-direction: row;\n            flex-direction: row;\n        -ms-flex-pack: distribute;\n            justify-content: space-around; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label {\n          color: rgba(35, 35, 35, 0.6); }\n        .ngx-charts-outer .chart-legend > div .legend-labels span:focus {\n          outline: none; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label-color {\n          border-radius: 0;\n          height: 7px; }\n      .ngx-charts-outer .chart-legend > div header {\n        display: none; }\n  .ngx-charts-outer .axis text {\n    font-size: 12px;\n    fill: rgba(35, 35, 35, 0.6); }\n  .ngx-charts-outer rect.overlay {\n    stroke-width: 1;\n    stroke: rgba(35, 35, 35, 0.6);\n    shape-rendering: crispedges;\n    cursor: crosshair; }\n", ""]);
 
 // exports
 
@@ -1706,7 +1706,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\n  background-color: #ffffff;\n  padding: 10px;\n  height: 40px;\n  margin: 0 0 5px 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n  .container .fields {\n    width: calc(100% - 315px);\n    margin-top: -13px; }\n    .container .fields mat-form-field {\n      margin: 4px;\n      height: 30px;\n      font-size: 14px; }\n      .container .fields mat-form-field.first {\n        width: 22%; }\n  .container mat-button-toggle-group, .container mat-option, .container mat-form-field {\n    height: 30px;\n    font-size: 14px;\n    color: #353535; }\n  .container .mat-button-toggle-checked {\n    background-color: #a59cb6;\n    color: #f9f9f9; }\n\n.filter-cont {\n  padding: 0px; }\n", ""]);
+exports.push([module.i, ".container {\n  background-color: #ffffff;\n  padding: 10px;\n  height: 40px;\n  margin: 0 0 5px 0;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n  .container .fields {\n    width: calc(100% - 315px);\n    margin-top: -13px; }\n    .container .fields mat-form-field {\n      margin: 4px;\n      height: 30px;\n      font-size: 14px; }\n      .container .fields mat-form-field.first {\n        width: 22%; }\n  .container mat-button-toggle-group, .container mat-option, .container mat-form-field {\n    height: 30px;\n    font-size: 14px;\n    color: #353535; }\n  .container .mat-button-toggle-checked {\n    background-color: #a59cb6;\n    color: #f9f9f9; }\n\n.filter-cont {\n  padding: 0px; }\n", ""]);
 
 // exports
 
@@ -1912,7 +1912,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".form-container {\n  background-color: #ffffff;\n  border: 1px solid #D4E3E8; }\n\n.card {\n  border-top: 2px solid #4981FD;\n  border-bottom: 2px solid #4981FD;\n  background-color: white;\n  font-size: 14px;\n  padding: 10px;\n  margin: 10px; }\n  .card .full-width {\n    width: 100%; }\n\ndiv.buttons {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n", ""]);
+exports.push([module.i, ".form-container {\n  background-color: #ffffff;\n  border: 1px solid #D4E3E8; }\n\n.card {\n  border-top: 2px solid #4981FD;\n  border-bottom: 2px solid #4981FD;\n  background-color: white;\n  font-size: 14px;\n  padding: 10px;\n  margin: 10px; }\n  .card .full-width {\n    width: 100%; }\n\ndiv.buttons {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: row;\n      flex-direction: row;\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n", ""]);
 
 // exports
 
@@ -2026,7 +2026,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ngx-charts {\n  float: left;\n  overflow: visible; }\n  .ngx-charts .circle,\n  .ngx-charts .bar,\n  .ngx-charts .arc {\n    cursor: pointer; }\n  .ngx-charts .bar.active, .ngx-charts .bar:hover,\n  .ngx-charts .cell.active,\n  .ngx-charts .cell:hover,\n  .ngx-charts .arc.active,\n  .ngx-charts .arc:hover,\n  .ngx-charts .card.active,\n  .ngx-charts .card:hover {\n    opacity: 0.8;\n    transition: opacity 100ms ease-in-out; }\n  .ngx-charts .bar:focus,\n  .ngx-charts .cell:focus,\n  .ngx-charts .arc:focus,\n  .ngx-charts .card:focus {\n    outline: none; }\n  .ngx-charts g:focus {\n    outline: none; }\n  .ngx-charts .line-series.inactive,\n  .ngx-charts .line-series-range.inactive,\n  .ngx-charts .polar-series-path.inactive,\n  .ngx-charts .polar-series-area.inactive,\n  .ngx-charts .area-series.inactive {\n    transition: opacity 100ms ease-in-out;\n    opacity: .2; }\n  .ngx-charts .line-highlight {\n    display: none; }\n    .ngx-charts .line-highlight.active {\n      display: block; }\n  .ngx-charts .area {\n    opacity: 0.6; }\n  .ngx-charts .circle:hover {\n    cursor: pointer; }\n  .ngx-charts .label {\n    font-size: 12px;\n    font-weight: normal; }\n  .ngx-charts .tooltip-anchor {\n    fill: black; }\n  .ngx-charts .gridline-path {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none; }\n  .ngx-charts .refline-path {\n    stroke: #a8b2c7;\n    stroke-width: 1;\n    stroke-dasharray: 5;\n    stroke-dashoffset: 5; }\n  .ngx-charts .refline-label {\n    font-size: 9px; }\n  .ngx-charts .reference-area {\n    fill-opacity: 0.05;\n    fill: #000; }\n  .ngx-charts .gridline-path-dotted {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none;\n    stroke-dasharray: 1, 20;\n    stroke-dashoffset: 3; }\n  .ngx-charts .grid-panel rect {\n    fill: none; }\n  .ngx-charts .grid-panel.odd rect {\n    fill: rgba(0, 0, 0, 0.05); }\n\n.ngx-charts-outer {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n      -ms-flex-direction: column-reverse;\n          flex-direction: column-reverse;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 100%; }\n  .ngx-charts-outer .chart-legend {\n    min-width: 500px !important; }\n    .ngx-charts-outer .chart-legend > div {\n      width: 100% !important; }\n      .ngx-charts-outer .chart-legend > div .legend-labels {\n        background: transparent;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: horizontal;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: row;\n                flex-direction: row;\n        -ms-flex-pack: distribute;\n            justify-content: space-around; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label {\n          color: rgba(35, 35, 35, 0.6); }\n        .ngx-charts-outer .chart-legend > div .legend-labels span:focus {\n          outline: none; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label-color {\n          border-radius: 0;\n          height: 7px; }\n      .ngx-charts-outer .chart-legend > div header {\n        display: none; }\n  .ngx-charts-outer .axis text {\n    font-size: 12px;\n    fill: rgba(35, 35, 35, 0.6); }\n  .ngx-charts-outer rect.overlay {\n    stroke-width: 1;\n    stroke: rgba(35, 35, 35, 0.6);\n    shape-rendering: crispedges;\n    cursor: crosshair; }\n", ""]);
+exports.push([module.i, ".ngx-charts {\n  float: left;\n  overflow: visible; }\n  .ngx-charts .circle,\n  .ngx-charts .bar,\n  .ngx-charts .arc {\n    cursor: pointer; }\n  .ngx-charts .bar.active, .ngx-charts .bar:hover,\n  .ngx-charts .cell.active,\n  .ngx-charts .cell:hover,\n  .ngx-charts .arc.active,\n  .ngx-charts .arc:hover,\n  .ngx-charts .card.active,\n  .ngx-charts .card:hover {\n    opacity: 0.8;\n    transition: opacity 100ms ease-in-out; }\n  .ngx-charts .bar:focus,\n  .ngx-charts .cell:focus,\n  .ngx-charts .arc:focus,\n  .ngx-charts .card:focus {\n    outline: none; }\n  .ngx-charts g:focus {\n    outline: none; }\n  .ngx-charts .line-series.inactive,\n  .ngx-charts .line-series-range.inactive,\n  .ngx-charts .polar-series-path.inactive,\n  .ngx-charts .polar-series-area.inactive,\n  .ngx-charts .area-series.inactive {\n    transition: opacity 100ms ease-in-out;\n    opacity: .2; }\n  .ngx-charts .line-highlight {\n    display: none; }\n    .ngx-charts .line-highlight.active {\n      display: block; }\n  .ngx-charts .area {\n    opacity: 0.6; }\n  .ngx-charts .circle:hover {\n    cursor: pointer; }\n  .ngx-charts .label {\n    font-size: 12px;\n    font-weight: normal; }\n  .ngx-charts .tooltip-anchor {\n    fill: black; }\n  .ngx-charts .gridline-path {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none; }\n  .ngx-charts .refline-path {\n    stroke: #a8b2c7;\n    stroke-width: 1;\n    stroke-dasharray: 5;\n    stroke-dashoffset: 5; }\n  .ngx-charts .refline-label {\n    font-size: 9px; }\n  .ngx-charts .reference-area {\n    fill-opacity: 0.05;\n    fill: #000; }\n  .ngx-charts .gridline-path-dotted {\n    stroke: #ddd;\n    stroke-width: 1;\n    fill: none;\n    stroke-dasharray: 1, 20;\n    stroke-dashoffset: 3; }\n  .ngx-charts .grid-panel rect {\n    fill: none; }\n  .ngx-charts .grid-panel.odd rect {\n    fill: rgba(0, 0, 0, 0.05); }\n\n.ngx-charts-outer {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column-reverse;\n      flex-direction: column-reverse;\n  -ms-flex-align: center;\n      align-items: center;\n  width: 100%; }\n  .ngx-charts-outer .chart-legend {\n    min-width: 500px !important; }\n    .ngx-charts-outer .chart-legend > div {\n      width: 100% !important; }\n      .ngx-charts-outer .chart-legend > div .legend-labels {\n        background: transparent;\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-direction: row;\n            flex-direction: row;\n        -ms-flex-pack: distribute;\n            justify-content: space-around; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label {\n          color: rgba(35, 35, 35, 0.6); }\n        .ngx-charts-outer .chart-legend > div .legend-labels span:focus {\n          outline: none; }\n        .ngx-charts-outer .chart-legend > div .legend-labels .legend-label-color {\n          border-radius: 0;\n          height: 7px; }\n      .ngx-charts-outer .chart-legend > div header {\n        display: none; }\n  .ngx-charts-outer .axis text {\n    font-size: 12px;\n    fill: rgba(35, 35, 35, 0.6); }\n  .ngx-charts-outer rect.overlay {\n    stroke-width: 1;\n    stroke: rgba(35, 35, 35, 0.6);\n    shape-rendering: crispedges;\n    cursor: crosshair; }\n", ""]);
 
 // exports
 
@@ -3342,7 +3342,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".navbar-be {\n  background-color: white; }\n\n.navbar {\n  height: 60px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n  .navbar a {\n    z-index: 1;\n    margin-left: 20px; }\n    .navbar a img {\n      width: 200px; }\n  .navbar h3 {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: center; }\n\ndiv.title-wrapper {\n  position: absolute;\n  float: left;\n  width: 100vw;\n  text-align: center;\n  margin-bottom: 5px; }\n  div.title-wrapper h3 {\n    font-family: 'Open Sans', sans-serif;\n    text-transform: uppercase;\n    margin: 10px 0 5px;\n    color: #012a77; }\n\n.navbar-container {\n  box-shadow: 0 0 1px #012a77; }\n", ""]);
+exports.push([module.i, ".navbar-be {\n  background-color: white; }\n\n.navbar {\n  height: 60px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center; }\n  .navbar a {\n    z-index: 1;\n    margin-left: 20px; }\n    .navbar a img {\n      width: 200px; }\n  .navbar h3 {\n    -ms-flex: 1;\n        flex: 1;\n    text-align: center; }\n\ndiv.title-wrapper {\n  position: absolute;\n  float: left;\n  width: 100vw;\n  text-align: center;\n  margin-bottom: 5px; }\n  div.title-wrapper h3 {\n    font-family: 'Open Sans', sans-serif;\n    text-transform: uppercase;\n    margin: 10px 0 5px;\n    color: #012a77; }\n\n.navbar-container {\n  box-shadow: 0 0 1px #012a77; }\n\n@media only screen and (max-width: 768px) {\n  div.title-wrapper {\n    position: static; } }\n", ""]);
 
 // exports
 
@@ -3429,7 +3429,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc((100vh - 220px) / 2);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  .chart-container .waterfall-container {\n    -webkit-box-flex: 5;\n        -ms-flex: 5;\n            flex: 5; }\n  .chart-container .numbers-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .chart-container .numbers-container .numbers-elem {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n  .chart-container.second {\n    margin-top: 10px; }\n  .chart-container .filter-box {\n    height: 40px;\n    width: 100%; }\n  .chart-container .waterfall-chart {\n    padding-top: 10px;\n    height: calc(100% - 40px); }\n\n.card {\n  color: #353535;\n  font-size: small;\n  height: calc(100% - 15px);\n  width: 100%;\n  border-radius: 3px;\n  background-color: #ffffff;\n  border: 1px solid rgba(0, 0, 0, 0.16); }\n  .card .card-title {\n    margin: 0px;\n    padding: 3px 13px 3px 13px;\n    font-size: 11px;\n    margin-top: 40%; }\n  .card .card-content {\n    transition: all 0.5s;\n    padding: 0 13px 0px 13px;\n    overflow: hidden;\n    margin-top: 40%;\n    font-size: 1.2em; }\n  .card.budget {\n    margin-bottom: 5px;\n    border-bottom: 10px rgba(0, 0, 0, 0.6) solid; }\n  .card.value {\n    margin-top: 5px;\n    border-bottom: 10px #3780bf solid; }\n", ""]);
+exports.push([module.i, ".chart-container {\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 10px 15px 15px 15px;\n  height: calc((100vh - 220px) / 2);\n  display: -ms-flexbox;\n  display: flex; }\n  .chart-container .waterfall-container {\n    -ms-flex: 5;\n        flex: 5; }\n  .chart-container .numbers-container {\n    -ms-flex: 2;\n        flex: 2;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column; }\n    .chart-container .numbers-container .numbers-elem {\n      -ms-flex: 1;\n          flex: 1; }\n  .chart-container.second {\n    margin-top: 10px; }\n  .chart-container .filter-box {\n    height: 40px;\n    width: 100%; }\n  .chart-container .waterfall-chart {\n    padding-top: 10px;\n    height: calc(100% - 40px); }\n\n.card {\n  color: #353535;\n  font-size: small;\n  height: calc(100% - 15px);\n  width: 100%;\n  border-radius: 3px;\n  background-color: #ffffff;\n  border: 1px solid rgba(0, 0, 0, 0.16); }\n  .card .card-title {\n    margin: 0px;\n    padding: 3px 13px 3px 13px;\n    font-size: 11px;\n    margin-top: 40%; }\n  .card .card-content {\n    transition: all 0.5s;\n    padding: 0 13px 0px 13px;\n    overflow: hidden;\n    margin-top: 40%;\n    font-size: 1.2em; }\n  .card.budget {\n    margin-bottom: 5px;\n    border-bottom: 10px rgba(0, 0, 0, 0.6) solid; }\n  .card.value {\n    margin-top: 5px;\n    border-bottom: 10px #3780bf solid; }\n", ""]);
 
 // exports
 
@@ -3664,7 +3664,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10;\n    height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .app-container .charts-container .one-charts-container {\n      -webkit-box-flex: 3;\n          -ms-flex: 3;\n              flex: 3; }\n    .app-container .charts-container .duo-charts-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n      .app-container .charts-container .duo-charts-container .duo-chart.second {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n        margin-left: 5px; }\n      .app-container .charts-container .duo-charts-container .duo-chart.first {\n        -webkit-box-flex: 2;\n            -ms-flex: 2;\n                flex: 2;\n        margin-right: 5px; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1;\n      flex: 1; }\n  .app-container .sidebar-container {\n    -ms-flex: 2;\n        flex: 2;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -ms-flex: 10;\n        flex: 10;\n    height: 100%;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column; }\n    .app-container .charts-container .one-charts-container {\n      -ms-flex: 3;\n          flex: 3; }\n    .app-container .charts-container .duo-charts-container {\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex: 1;\n          flex: 1; }\n      .app-container .charts-container .duo-charts-container .duo-chart.second {\n        -ms-flex: 1;\n            flex: 1;\n        margin-left: 5px; }\n      .app-container .charts-container .duo-charts-container .duo-chart.first {\n        -ms-flex: 2;\n            flex: 2;\n        margin-right: 5px; }\n", ""]);
 
 // exports
 
@@ -3763,7 +3763,7 @@ var CdiPageComponent = (function () {
 /***/ "../../../../../src/app/pages/cigo/cigo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div>\n        <p><strong>Desde {{title_from}}</strong></p>\n      <p><strong>Hasta {{title_to}}</strong></p>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong><span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h2>{{title}}</h2>\n      </div>\n      <div class=\"name-tab\">\n        <p><strong>Desde</strong> {{title_from}}</p>\n        <p><strong>Hasta</strong> {{title_to}}</p>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"prueba\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong>\n                <span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3775,7 +3775,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -webkit-box-flex: 1;\n            -ms-flex: 1;\n                flex: 1;\n     position: relative;\n        width: 100%; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n                    top: 65px;\n          -webkit-transform: rotate(90deg);\n                  transform: rotate(90deg);\n    -webkit-transform-origin: top left;\n   transform-origin: top left;\n   left: 100%; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px;\n  white-space: pre-line; }\n\n.subtitle-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding: 15px 30px;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n", ""]);
+exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -ms-flex: 1;\n            flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -ms-flex: 1;\n            flex: 1;\n        width: 100%;\n        position: relative; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .prueba {\n          position: absolute;\n          transform: rotate(90deg);\n          transform-origin: top left;\n          top: 65px;\n          left: 100%; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -ms-flex: 1;\n          flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border-bottom: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border-top: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.first th:first-child {\n      border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px;\n  white-space: pre-line; }\n\n.subtitle-container {\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex: 1;\n        flex: 1;\n    padding: 15px 30px;\n    -ms-flex-align: center;\n        align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -ms-flex-direction: column;\n        flex-direction: column;\n    -ms-flex-pack: center;\n        justify-content: center; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n\n@media only screen and (max-width: 768px) {\n  .cigo-container {\n    margin: 10px 0;\n    border-radius: 0;\n    padding: 10px; }\n    .cigo-container .body-container {\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  .prueba {\n    left: 70%; }\n  .header-container {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column; }\n  .subtitle-container {\n    display: -ms-grid;\n    display: grid; }\n    .subtitle-container .name-tab {\n      -ms-flex-direction: initial;\n          flex-direction: initial;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n      padding: 5px 18px; } }\n", ""]);
 
 // exports
 
@@ -3808,6 +3808,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CigoPageComponent = (function () {
     function CigoPageComponent(dataService) {
         this.dataService = dataService;
+        this.title_from = '';
+        this.title_to = '';
         this.view = [50, 160];
         this.colorScheme = {
             domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -3822,8 +3824,8 @@ var CigoPageComponent = (function () {
             { name: 'T. Cola \n [min]', value: 'tiempo' },
         ];
         this.columns3 = [
-            { name: 'Distancia \n [Km]', value: 'distancia'},
-            { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad'},
+            { name: 'Distancia \n [Km]', value: 'distancia' },
+            { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad' },
             { name: 'SPI', value: 'spi' },
             { name: 'LEY', value: 'ley' },
         ];
@@ -3847,20 +3849,20 @@ var CigoPageComponent = (function () {
                 (_this.viewPrim) ? _this.changeData('PRIM') : _this.changeData('PRIM DOS');
             }
             else {
-                _this.progressValue = t/2 % 100;
+                _this.progressValue = t / 2 % 100;
             }
         });
     };
     CigoPageComponent.prototype.changeData = function (chart) {
         var _this = this;
-        _this.viewPrim = !this.viewPrim;
+        this.viewPrim = !this.viewPrim;
         var actualHour = (new Date()).getHours();
         var initialHour = (actualHour > 12) ? actualHour - 12 : 0;
-        _this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
-        _this.totalTons = (new Intl.NumberFormat('de-DE').format(0));
-        _this.totalViajes = 0;
-        _this.view = [undefined, undefined];
-        _this.dataService.dataCigo$.subscribe(function (data) {
+        this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
+        this.totalTons = (new Intl.NumberFormat('de-DE').format(0));
+        this.totalViajes = 0;
+        this.view = [undefined, undefined];
+        this.dataService.dataCigo$.subscribe(function (data) {
             _this.showTable = false;
             _this.firstData = [];
             _this.firstTableData = [];
@@ -3885,10 +3887,11 @@ var CigoPageComponent = (function () {
                 data[chart].series.map(function (elem) {
                     var baseHour = new Date(elem.fecha.getTime() + (3 * 3600000)).getHours();
                     var hour = baseHour - initialHour;
-                    var printHour = (baseHour > 9) ? `${baseHour}:00` : `0${baseHour}:00`;
+                    var printHour = (baseHour > 9) ? baseHour + ":00" : "0" + baseHour + ":00";
                     if (_this.firstData.length) {
                         _this.title_from = _this.title_from;
-                    } else {
+                    }
+                    else {
                         _this.title_from = _this.setRequestTitle(15);
                         _this.title_to = _this.setRequestTitle(3);
                     }
@@ -3896,7 +3899,7 @@ var CigoPageComponent = (function () {
                         _this.firstData.push({
                             hora: printHour,
                             viajes: elem.viajes,
-                            tons: elem.tons,
+                            tons: elem.tons.toFixed(2),
                             tiempo: elem.tiempo,
                             tons_promedio: elem.tons_promedio,
                             spi: elem.spi,
@@ -3938,25 +3941,25 @@ var CigoPageComponent = (function () {
                     series: []
                 };
                 for (var _i = 0, _a = _this.firstData; _i < _a.length; _i++) {
-                  var elem = _a[_i];
-                  if (elem.hora !== 'Prom') {
-                    firstTableObject.series.push({
-                      name: '' + elem.hora,
-                      value: elem.tons
-                    });
-                    firstPromTableObject.series.push({
-                        name: '' + elem.hora,
-                        value: promPromTons_1
-                    });
-                    secondTableObject.series.push({
-                      name: '' + elem.hora,
-                      value: elem.tiempo
-                    });
-                    secondPromTableObject.series.push({
-                      name: '' + elem.hora,
-                      value: promTiempo_1
-                    });
-                  }
+                    var elem = _a[_i];
+                    if (elem.hora !== 'Prom') {
+                        firstTableObject.series.push({
+                            name: '' + elem.hora,
+                            value: elem.tons
+                        });
+                        firstPromTableObject.series.push({
+                            name: '' + elem.hora,
+                            value: promPromTons_1
+                        });
+                        secondTableObject.series.push({
+                            name: '' + elem.hora,
+                            value: elem.tiempo
+                        });
+                        secondPromTableObject.series.push({
+                            name: '' + elem.hora,
+                            value: promTiempo_1
+                        });
+                    }
                 }
                 _this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons_1));
                 _this.totalViajes = promViaje_1;
@@ -3969,7 +3972,7 @@ var CigoPageComponent = (function () {
         });
     };
     CigoPageComponent.prototype.setRequestTitle = function (hours) {
-        let baseDate = new Date(Date.now() - (hours * 3600000));
+        var baseDate = new Date(Date.now() - (hours * 3600000));
         baseDate.setMinutes(0);
         baseDate.setSeconds(0);
         return baseDate.toUTCString().split(',')[1].split('GMT')[0];
@@ -4007,7 +4010,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 0;\n        -ms-flex: 0;\n            flex: 0;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10;\n    margin-right: 40px;\n    margin-left: 20px; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1;\n      flex: 1; }\n  .app-container .sidebar-container {\n    -ms-flex: 0;\n        flex: 0;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    padding: 10px 0;\n    -ms-flex: 10;\n        flex: 10;\n    margin-right: 40px;\n    margin-left: 20px; }\n", ""]);
 
 // exports
 
@@ -4132,7 +4135,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n  .app-container .nav-card {\n    cursor: pointer;\n    text-align: center;\n    background: #FFFFFF;\n    padding: 20px 40px;\n    margin: 1.5em;\n    border-radius: 2px;\n    max-width: 500px;\n    min-width: 320px;\n    text-transform: uppercase;\n    box-shadow: 0px 3px 10px 0px rgba(1, 42, 119, 0.5);\n    transition: box-shadow ease 0.3s; }\n    .app-container .nav-card:hover {\n      box-shadow: 0px 3px 10px -3px rgba(1, 42, 119, 0.5); }\n    .app-container .nav-card:focus {\n      box-shadow: none;\n      outline: none; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1;\n      flex: 1;\n  -ms-flex-direction: column;\n      flex-direction: column;\n  -ms-flex-pack: center;\n      justify-content: center;\n  -ms-flex-align: center;\n      align-items: center; }\n  .app-container .nav-card {\n    cursor: pointer;\n    text-align: center;\n    background: #FFFFFF;\n    padding: 20px 40px;\n    margin: 1.5em;\n    border-radius: 2px;\n    max-width: 500px;\n    min-width: 320px;\n    text-transform: uppercase;\n    box-shadow: 0px 3px 10px 0px rgba(1, 42, 119, 0.5);\n    transition: box-shadow ease 0.3s; }\n    .app-container .nav-card:hover {\n      box-shadow: 0px 3px 10px -3px rgba(1, 42, 119, 0.5); }\n    .app-container .nav-card:focus {\n      box-shadow: none;\n      outline: none; }\n", ""]);
 
 // exports
 
@@ -4187,7 +4190,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n  .app-container .sidebar-container {\n    -webkit-box-flex: 5;\n        -ms-flex: 5;\n            flex: 5;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    margin-left: 10px;\n    padding: 10px 0;\n    -webkit-box-flex: 10;\n        -ms-flex: 10;\n            flex: 10; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n  tr td:nth-child(2) {\n    text-align: left; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.table-container .table-sub-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  .table-container .table-sub-container .table-field {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1; }\n  .table-container .table-sub-container .chart-container {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    width: 100%; }\n    .table-container .table-sub-container .chart-container .prueba {\n      position: absolute;\n      margin-left: -120px;\n      margin-top: 170px;\n      -webkit-transform: rotate(90deg);\n              transform: rotate(90deg); }\n\n.table-container.first, .table-container.second, .table-container.last {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  background-color: #f9f9f9;\n  padding: 10px;\n  border-radius: 0 0 3px 3px; }\n  .table-container.first th, .table-container.second th, .table-container.last th {\n    border-bottom: 1px solid #e2e2e2; }\n  .table-container.first tr:last-child, .table-container.second tr:last-child, .table-container.last tr:last-child {\n    border-top: 1px solid #e2e2e2; }\n\n.table-container.first, .table-container.second {\n  margin-right: 10px; }\n\n.table-container.first td:first-child, .table-container.first th:first-child {\n  border-right: 1px solid #e2e2e2; }\n\n.table-container .datatable-header {\n  font-size: 10px; }\n", ""]);
+exports.push([module.i, ".app-container {\n  height: calc(100vh - 60px);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex: 1;\n      flex: 1; }\n  .app-container .sidebar-container {\n    -ms-flex: 5;\n        flex: 5;\n    border-radius: 3px;\n    background-color: #f9f9f9;\n    box-shadow: 0px 0px 1px #4981FD;\n    margin: 10px; }\n    .app-container .sidebar-container.right {\n      overflow: auto; }\n  .app-container .charts-container {\n    margin-left: 10px;\n    padding: 10px 0;\n    -ms-flex: 10;\n        flex: 10; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n  tr td:nth-child(2) {\n    text-align: left; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 13px; }\n\n.table-container .table-sub-container {\n  display: -ms-flexbox;\n  display: flex; }\n  .table-container .table-sub-container .table-field {\n    -ms-flex: 1;\n        flex: 1; }\n  .table-container .table-sub-container .chart-container {\n    -ms-flex: 1;\n        flex: 1;\n    width: 100%; }\n    .table-container .table-sub-container .chart-container .prueba {\n      position: absolute;\n      margin-left: -120px;\n      margin-top: 170px;\n      transform: rotate(90deg); }\n\n.table-container.first, .table-container.second, .table-container.last {\n  -ms-flex: 1;\n      flex: 1;\n  background-color: #f9f9f9;\n  padding: 10px;\n  border-radius: 0 0 3px 3px; }\n  .table-container.first th, .table-container.second th, .table-container.last th {\n    border-bottom: 1px solid #e2e2e2; }\n  .table-container.first tr:last-child, .table-container.second tr:last-child, .table-container.last tr:last-child {\n    border-top: 1px solid #e2e2e2; }\n\n.table-container.first, .table-container.second {\n  margin-right: 10px; }\n\n.table-container.first td:first-child, .table-container.first th:first-child {\n  border-right: 1px solid #e2e2e2; }\n\n.table-container .datatable-header {\n  font-size: 10px; }\n", ""]);
 
 // exports
 
@@ -4302,38 +4305,38 @@ var CigoDataService = (function () {
     }
     CigoDataService.prototype.getData = function () {
         var _this = this;
-        _this.dataAvailable$.next(false);
+        this.dataAvailable$.next(false);
         var fases = {};
         this.http.get(this.apiUrl).subscribe(function (data) {
             _this.originalData = data;
             var crossf = __WEBPACK_IMPORTED_MODULE_3_crossfilter2__(_this.originalData);
-            var dataByField = crossf.dimension((row) => row['EQUIPO']);
-            var addReduce = (p, v) => {
-            var fecha = new Date(v['FECHA_HORA']);
-              var k = {
-                data_type: v['TIPO_REG'],
-                distancia: parseFloat(v['VALOR_05']),
-                fecha: fecha,
-                hora: fecha.getHours() + ':00',
-                viajes: parseFloat(v['VALOR_01']),
-                tons: parseFloat(v['VALOR_02']),
-                tons_promedio: parseFloat(v['VALOR_03']),
-                tiempo: parseFloat(v['VALOR_04']),
-                velocidad: parseFloat(v['VALOR_06']),
-                ley: parseFloat(v['VALOR_08']),
-                spi: parseFloat(v['VALOR_07'])
-              };
-              if ((!p[v['EQUIPO']])) {
-                p[v['EQUIPO']] = {
-                  series: [],
-                  total_tons: 0,
-                  total_viajes: 0
+            var dataByField = crossf.dimension(function (row) { return row['EQUIPO']; });
+            var addReduce = function (p, v) {
+                var fecha = new Date(v['FECHA_HORA']);
+                var k = {
+                    distancia: parseFloat(v['VALOR_05']),
+                    data_type: v['TIPO_REG'],
+                    fecha: fecha,
+                    hora: fecha.getHours() + ':00',
+                    viajes: parseFloat(v['VALOR_01']),
+                    tons: parseFloat(v['VALOR_02']),
+                    tons_promedio: parseFloat(v['VALOR_03']),
+                    tiempo: parseFloat(v['VALOR_04']),
+                    velocidad: parseFloat(v['VALOR_06']),
+                    ley: parseFloat(v['VALOR_08']),
+                    spi: parseFloat(v['VALOR_07'])
                 };
-              }
-              p[v['EQUIPO']].series.push(k);
-              p[v['EQUIPO']].total_tons += k.tons;
-              p[v['EQUIPO']].total_viajes += k.viajes;
-            return p;
+                if ((!p[v['EQUIPO']])) {
+                    p[v['EQUIPO']] = {
+                        series: [],
+                        total_tons: 0,
+                        total_viajes: 0
+                    };
+                }
+                p[v['EQUIPO']].series.push(k);
+                p[v['EQUIPO']].total_tons += k.tons;
+                p[v['EQUIPO']].total_viajes += k.viajes;
+                return p;
             };
             var removeReduce = function (p, v) {
                 return p;
@@ -4579,35 +4582,34 @@ var DataService = (function () {
             var initReduce = function () {
                 return {};
             };
-            var chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
-                .map(function (elem) {
-                var timeInSec = Number(elem.value.duracion);
-                var fInit = new Date(elem.value.fechaInicio);
-                var fEnd = new Date(elem.value.fechaFin);
-                if (!_this.paretoInitDay) {
-                    _this.paretoInitDay = fInit;
-                    _this.paretoEndDay = fEnd;
-                }
-                else {
-                    if (_this.paretoInitDay > fInit) {
-                        _this.paretoInitDay = fInit;
-                    }
-                    if (_this.paretoEndDay < fEnd) {
-                        _this.paretoEndDay = fEnd;
-                    }
-                }
-                return {
-                    key: elem.key,
-                    fechaFin: elem.value.fechaFin,
-                    fechaInicio: elem.value.fechaInicio,
-                    falla: elem.value.falla,
-                    value: timeInSec,
-                    veces: elem.value.veces,
-                    duracion: elem.value.duracion,
-                    id: elem.value.id
-                };
-            });
-            _this.originalParetoData = chartsValue;
+            // const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce ).all()
+            // .map(elem => {
+            //   const timeInSec = Number(elem.value.duracion);
+            //   const fInit = new Date(elem.value.fechaInicio);
+            //   const fEnd = new Date(elem.value.fechaFin);
+            //   if (!this.paretoInitDay) {
+            //     this.paretoInitDay = fInit;
+            //     this.paretoEndDay = fEnd;
+            //   } else {
+            //     if (this.paretoInitDay > fInit) {
+            //       this.paretoInitDay = fInit;
+            //     }
+            //     if (this.paretoEndDay < fEnd) {
+            //       this.paretoEndDay = fEnd;
+            //     }
+            //   }
+            //   return {
+            //     key: elem.key,
+            //     fechaFin: elem.value.fechaFin,
+            //     fechaInicio: elem.value.fechaInicio,
+            //     falla: elem.value.falla,
+            //     value: timeInSec,
+            //     veces: elem.value.veces,
+            //     duracion: elem.value.duracion,
+            //     id: elem.value.id
+            //   };
+            // });
+            // this.originalParetoData = chartsValue;
             _this.chageParetoData('106');
         });
         this.http.get('/assets/daily.json').subscribe(function (data) {

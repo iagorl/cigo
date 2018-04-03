@@ -161,35 +161,35 @@ export class DataService {
       };
 
 
-      const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce).all()
-      .map(elem => {
-        const timeInSec = Number(elem.value.duracion);
-        const fInit = new Date(elem.value.fechaInicio);
-        const fEnd = new Date(elem.value.fechaFin);
-        if (!this.paretoInitDay) {
-          this.paretoInitDay = fInit;
-          this.paretoEndDay = fEnd;
-        } else {
-          if (this.paretoInitDay > fInit) {
-            this.paretoInitDay = fInit;
-          }
-          if (this.paretoEndDay < fEnd) {
-            this.paretoEndDay = fEnd;
-          }
-        }
-        return {
-          key: elem.key,
-          fechaFin: elem.value.fechaFin,
-          fechaInicio: elem.value.fechaInicio,
-          falla: elem.value.falla,
-          value: timeInSec,
-          veces: elem.value.veces,
-          duracion: elem.value.duracion,
-          id: elem.value.id
-        };
+      // const chartsValue = dataByDate.group().reduce(addReduce, removeReduce, initReduce ).all()
+      // .map(elem => {
+      //   const timeInSec = Number(elem.value.duracion);
+      //   const fInit = new Date(elem.value.fechaInicio);
+      //   const fEnd = new Date(elem.value.fechaFin);
+      //   if (!this.paretoInitDay) {
+      //     this.paretoInitDay = fInit;
+      //     this.paretoEndDay = fEnd;
+      //   } else {
+      //     if (this.paretoInitDay > fInit) {
+      //       this.paretoInitDay = fInit;
+      //     }
+      //     if (this.paretoEndDay < fEnd) {
+      //       this.paretoEndDay = fEnd;
+      //     }
+      //   }
+      //   return {
+      //     key: elem.key,
+      //     fechaFin: elem.value.fechaFin,
+      //     fechaInicio: elem.value.fechaInicio,
+      //     falla: elem.value.falla,
+      //     value: timeInSec,
+      //     veces: elem.value.veces,
+      //     duracion: elem.value.duracion,
+      //     id: elem.value.id
+      //   };
 
-      });
-      this.originalParetoData = chartsValue;
+      // });
+      // this.originalParetoData = chartsValue;
       this.chageParetoData('106');
     });
     this.http.get<SampleData[]>('/assets/daily.json').subscribe((data) => {
