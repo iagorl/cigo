@@ -26,7 +26,7 @@ var executeQuery = function(res) {
             // create Request object
             var request = new sql.Request();
             // query to the database 
-            request.query('SELECT * FROM vw_cigo_dataAvg ORDER BY  FECHA_HORA, TIPO_REG, EQUIPO', function(err, recordset) {
+            request.query('sp_get_cigo', function(err, recordset) {
                 if (err) {
                     console.log("Error while querying database :- " + err);
                     res.send(err);
