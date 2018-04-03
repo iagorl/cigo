@@ -94,3 +94,30 @@ th {
     justify-content: space-around;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .cigo-container {
+    margin: 10px 0;
+    border-radius: 0;
+    padding: 10px;
+    .body-container {
+      flex-direction: column;
+    }
+  }
+  .prueba {
+    left: 70%;
+  }
+  .header-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subtitle-container {
+    display: grid;
+    .name-tab {
+      flex-direction: initial;
+      justify-content: space-around;
+      padding: 5px 18px;
+    }
+  }
+} 

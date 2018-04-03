@@ -1,3 +1,4 @@
+<mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
 <div class="cigo-container">
   <div class="header-container">
     <div class="title-container">
@@ -7,9 +8,9 @@
       <div class="name-tab">
         <h2>{{title}}</h2>
       </div>
-      <div>
-        <p><strong>Desde {{title_from}}</strong></p>
-        <p><strong>Hasta {{title_to}}</strong></p>
+      <div class="name-tab">
+        <p><strong>Desde</strong> {{title_from}}</p>
+        <p><strong>Hasta</strong> {{title_to}}</p>
       </div>
       <div class="total-tab">
         <div class="tons">
@@ -22,7 +23,6 @@
         </div>
       </div>
     </div>
-    <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
   </div>
   <div class="body-container" *ngIf="showTable">
     <div class="table-container first" >

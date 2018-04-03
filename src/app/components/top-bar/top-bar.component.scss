@@ -36,3 +36,9 @@ div.title-wrapper {
 .navbar-container {
   box-shadow: 0 0 1px rgba(1, 42, 119, 1);
 }
+
+@media only screen and (max-width: 768px) {
+  div.title-wrapper {
+    position: static;
+  }
+} 
