@@ -6,11 +6,11 @@
     </div>
     <div class="subtitle-container">
       <div class="name-tab">
-        <h2>{{title}}</h2>
-      </div>
-      <div class="name-tab">
-        <p><strong>Desde</strong> {{title_from}}</p>
-        <p><strong>Hasta</strong> {{title_to}}</p>
+        <h3>{{title}}</h3>
+        <div class="title-date" *ngIf="title_from && title_to">
+          <div><small><b>Desde</b> {{title_from}}</small></div>
+          <div><small><b>Hasta</b> {{title_to}}</small></div>
+        </div>
       </div>
       <div class="total-tab">
         <div class="tons">
@@ -43,7 +43,7 @@
             </table>
         </div>
         <div class="chart-container">
-          <div class="prueba">
+          <div class="chart">
             <ngx-charts-line-chart
               [view]="view"
               [scheme]="colorScheme"
@@ -79,7 +79,7 @@
             </table>
         </div>
         <div class="chart-container">
-          <div class="prueba">
+          <div class="chart">
             <ngx-charts-line-chart
               [view]="view"
               [scheme]="colorScheme"

@@ -17,7 +17,7 @@
           flex: 1;
           width: 100%;
           position: relative;
-          .prueba {
+          .chart {
             position: absolute;
             transform: rotate(90deg);
             transform-origin: top left;
@@ -31,20 +31,25 @@
         background-color: #f9f9f9;
         padding: 10px;
         border-radius: 0 0 3px 3px;
+        table {
+          border-collapse: collapse;
+        }
         th {
-          border-bottom: 1px solid #e2e2e2;
+          border: 1px solid #e2e2e2;
+          border-top: 0;
         }
         tr:last-child {
-          border-top: 1px solid #e2e2e2;
+          border: 1px solid #e2e2e2;
+        }
+        td:first-child {
+          border-left: 1px solid #e2e2e2;
+        }
+        td:last-child {
+          border-right: 1px solid #e2e2e2;
         }
       }
       &.first, &.second {
         margin-right: 10px;
-      }
-      &.first {
-        td:first-child, th:first-child {
-          border-right: 1px solid #e2e2e2;
-        }
       }
       .datatable-header {
         font-size: 10px;
@@ -65,7 +70,7 @@ td, th {
 }
 th {
   height: 50px;
-  font-size: 13px;
+  font-size: 12px;
   white-space: pre-line;
 }
 
@@ -89,6 +94,13 @@ th {
   .name-tab {
     flex-direction: column;
     justify-content: center;
+    .title-date {
+      display: flex;
+      div {
+        flex-direction: row;
+        padding: 0 5px;
+      }
+    }
   }
   .total-tab {
     justify-content: space-around;
@@ -104,7 +116,7 @@ th {
       flex-direction: column;
     }
   }
-  .prueba {
+  .chart {
     left: 70%;
   }
   .header-container {
@@ -115,9 +127,16 @@ th {
   .subtitle-container {
     display: grid;
     .name-tab {
-      flex-direction: initial;
+      flex-direction: column;
       justify-content: space-around;
-      padding: 5px 18px;
+      .title-date {
+        div {
+          flex-direction: column;
+        }
+      }
+    }
+    .name-tab, .total-tab {
+      padding: 5px 30px;
     }
   }
 } 
