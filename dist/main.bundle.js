@@ -3763,7 +3763,7 @@ var CdiPageComponent = (function () {
 /***/ "../../../../../src/app/pages/cigo/cigo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"title-container\">\n\n    </div>\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h3>{{title}}</h3>\n        <div class=\"title-date\" *ngIf=\"title_from && title_to\">\n          <div><small><b>Desde</b> {{title_from}}</small></div>\n          <div><small><b>Hasta</b> {{title_to}}</small></div>\n        </div>\n      </div>\n      <div class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value].toFixed(2)}}</strong>\n                <span *ngIf=\"i < firstData.length - 1\">{{row[col.value].toFixed(2)}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n    <!-- <div class=\"table-container last\">\n      <ngx-datatable\n        class=\"table-chart\"\n        [rows]=\"firstData\"\n        [columns]=\"columns3\"\n        [headerHeight]=\"50\"\n        [rowHeight]=\"30\"\n        [footerHeight]=\"50\">\n        <ngx-datatable-column *ngFor=\"let col of columns3\" [name]=\"col.name\">\n        <ng-template let-row=\"row\" ngx-datatable-cell-template>\n          {{row[col.value].toFixed(2)}}\n        </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h3>{{title}}</h3>\n        <div class=\"title-date\" *ngIf=\"title_from && title_to\">\n          <div><small><b>Desde</b> {{title_from}}</small></div>\n          <div><small><b>Hasta</b> {{title_to}}</small></div>\n        </div>\n      </div>\n\n      <div *ngIf=\"selectedFilter==='PRIM' || selectedFilter==='PRIM DOS'\" class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n      <div *ngIf=\"selectedFilter==='CF' || selectedFilter==='LB'\" class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Alimentaci&oacute;n</h3>\n          <h3>{{totalAlimentacion.toFixed(2)}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Tratamiento</h3>\n          <h3>{{totalTratamiento.toFixed(2)}}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columnSet.columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columnSet.columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columnSet.columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columnSet.columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columnSet.columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columnSet.columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n  </div>\n  <div *ngIf=\"!firstData.length && showTable\">\n    <h3>No hay datos disponibles</h3>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3814,25 +3814,57 @@ var CigoPageComponent = (function () {
         this.colorScheme = {
             domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
         };
-        this.columns = [
-            { name: 'Hora', value: 'hora' },
-            { name: 'Viajes \n [N]', value: 'viajes' },
-            { name: 'Toneladas \n [Ton]', value: 'tons' },
-        ];
-        this.columns2 = [
-            { name: 'Prom. Tons \n [Ton]', value: 'tons_promedio' },
-            { name: 'T. Cola \n [min]', value: 'tiempo' },
-        ];
-        this.columns3 = [
-            { name: 'Distancia \n [Km]', value: 'distancia' },
-            { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad' },
-            { name: 'SPI', value: 'spi' },
-            { name: 'LEY', value: 'ley' },
-        ];
+        this.tableColumns = {
+            chancador: {
+                columns: [
+                    { name: 'Hora', value: 'hora' },
+                    { name: 'Viajes \n [N]', value: 'viajes' },
+                    { name: 'Toneladas \n [Ton]', value: 'tons' },
+                ],
+                columns2: [
+                    { name: 'Prom. Tons \n [Ton]', value: 'tons_promedio' },
+                    { name: 'T. Cola \n [min]', value: 'tiempo' },
+                ],
+                columns3: [
+                    { name: 'Distancia \n [Km]', value: 'distancia' },
+                    { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad' },
+                    { name: 'SPI', value: 'spi' },
+                    { name: 'LEY', value: 'ley' },
+                ]
+            },
+            sag: {
+                columns: [
+                    { name: 'Hora', value: 'hora' },
+                    { name: 'Alimentación \n [tms]', value: 'alimentacion' },
+                    { name: 'Stock Pile \n [tms]', value: 'stockpile' },
+                ],
+                columns2: [
+                    { name: 'Tratamiento \n [tms]', value: 'tratamiento' },
+                    { name: 'Operación \n [hrs]', value: 'operacion' },
+                ],
+                columns3: [
+                    { name: 'Alimentación \n LB + CF \n [tms]', value: 'alimentacion_2' },
+                    { name: 'Tratamiento \n LB + CF \n [tms]', value: 'tratamiento_2' }
+                ]
+            }
+        };
+        this.filters = ['PRIM', 'PRIM DOS', 'CF', 'LB'];
+        this.currentFilter = 0;
+        this.selectedFilter = '';
         this.firstTableData = [];
         this.secondTableData = [];
         this.firstData = [];
         this.showTable = false;
+        // Chancador variables
+        this.promViaje = 0;
+        this.promTons = 0;
+        this.promPromTons = 0;
+        this.promTiempo = 0;
+        // SAG variables
+        this.totalAlimentacion = 0;
+        this.totalTratamiento = 0;
+        this.promAlimentacion = 0;
+        this.promTratamiento = 0;
     }
     CigoPageComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -3846,7 +3878,9 @@ var CigoPageComponent = (function () {
                     _this.dataService.getData();
                 }
                 _this.progressValue = 0;
-                (_this.viewPrim) ? _this.changeData('PRIM') : _this.changeData('PRIM DOS');
+                _this.selectedFilter = _this.filters[_this.currentFilter % 4];
+                _this.changeData(_this.selectedFilter);
+                _this.currentFilter++;
             }
             else {
                 _this.progressValue = t / 2 % 100;
@@ -3858,9 +3892,11 @@ var CigoPageComponent = (function () {
         this.viewPrim = !this.viewPrim;
         var actualHour = (new Date()).getHours();
         var initialHour = (actualHour > 12) ? actualHour - 12 : 0;
-        this.title = (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
+        this.title = this.setTableTitle(chart);
         this.totalTons = (new Intl.NumberFormat('de-DE').format(0));
         this.totalViajes = 0;
+        this.totalAlimentacion = 0;
+        this.totalTratamiento = 0;
         this.view = [undefined, undefined];
         this.dataService.dataCigo$.subscribe(function (data) {
             _this.showTable = false;
@@ -3876,18 +3912,19 @@ var CigoPageComponent = (function () {
                     name: '',
                     series: []
                 };
-                var promViaje_1 = 0;
-                var promTons_1 = 0;
-                var promPromTons_1 = 0;
-                var promTiempo_1 = 0;
-                var promDist_1 = 0;
-                var promVel_1 = 0;
-                var promSpi_1 = 0;
-                var promLey_1 = 0;
+                // Chancador variables
+                _this.promViaje = 0;
+                _this.promTons = 0;
+                _this.promPromTons = 0;
+                _this.promTiempo = 0;
+                // SAG variables
+                _this.totalAlimentacion = 0;
+                _this.totalTratamiento = 0;
+                _this.promAlimentacion = 0;
+                _this.promTratamiento = 0;
                 data[chart].series.map(function (elem) {
                     var baseHour = new Date(elem.fecha.getTime() + (3 * 3600000)).getHours();
                     var hour = baseHour - initialHour;
-                    var printHour = (baseHour > 9) ? baseHour + ":00" : "0" + baseHour + ":00";
                     if (_this.firstData.length) {
                         _this.title_from = _this.title_from;
                     }
@@ -3895,40 +3932,7 @@ var CigoPageComponent = (function () {
                         _this.title_from = _this.setRequestTitle(15);
                         _this.title_to = _this.setRequestTitle(3);
                     }
-                    if (elem.data_type === '1_VAL') {
-                        _this.firstData.push({
-                            hora: printHour,
-                            viajes: elem.viajes,
-                            tons: elem.tons.toFixed(2),
-                            tiempo: elem.tiempo,
-                            tons_promedio: elem.tons_promedio,
-                            spi: elem.spi,
-                            distancia: elem.distancia,
-                            velocidad: elem.velocidad,
-                            ley: elem.ley
-                        });
-                        promViaje_1 += elem.viajes;
-                        promTons_1 += elem.tons;
-                        promSpi_1 += elem.spi;
-                        promLey_1 += elem.ley;
-                        promVel_1 += elem.velocidad;
-                        promDist_1 += elem.distancia;
-                    }
-                    if (elem.data_type === '2_AVG') {
-                        promPromTons_1 = elem.tons.toFixed(2);
-                        promTiempo_1 = elem.tiempo;
-                        _this.firstData.push({
-                            hora: 'Prom',
-                            viajes: elem.viajes,
-                            tons: elem.tons.toFixed(2),
-                            tiempo: elem.tiempo,
-                            tons_promedio: elem.tons_promedio,
-                            spi: elem.spi,
-                            distancia: elem.distancia,
-                            velocidad: elem.velocidad,
-                            ley: elem.ley
-                        });
-                    }
+                    (chart.includes('PRIM')) ? _this.setChancadorData(elem, baseHour) : _this.setSagData(elem, baseHour);
                 });
                 _this.view[0] = 30 * _this.firstData.length;
                 _this.view[1] = 150 * _this.firstData.length / 13;
@@ -3940,36 +3944,137 @@ var CigoPageComponent = (function () {
                     name: 'Prom',
                     series: []
                 };
-                for (var _i = 0, _a = _this.firstData; _i < _a.length; _i++) {
-                    var elem = _a[_i];
-                    if (elem.hora !== 'Prom') {
-                        firstTableObject.series.push({
-                            name: '' + elem.hora,
-                            value: elem.tons
-                        });
-                        firstPromTableObject.series.push({
-                            name: '' + elem.hora,
-                            value: promPromTons_1
-                        });
-                        secondTableObject.series.push({
-                            name: '' + elem.hora,
-                            value: elem.tiempo
-                        });
-                        secondPromTableObject.series.push({
-                            name: '' + elem.hora,
-                            value: promTiempo_1
-                        });
+                if (chart.includes('PRIM')) {
+                    _this.columnSet = _this.tableColumns.chancador;
+                    for (var _i = 0, _a = _this.firstData; _i < _a.length; _i++) {
+                        var elem = _a[_i];
+                        if (elem.hora !== 'Prom') {
+                            firstTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: elem.tons
+                            });
+                            firstPromTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: _this.promPromTons
+                            });
+                            secondTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: elem.tiempo
+                            });
+                            secondPromTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: _this.promTiempo
+                            });
+                        }
                     }
+                    _this.totalTons = (new Intl.NumberFormat('de-DE').format(_this.promTons));
+                    _this.totalViajes = _this.promViaje;
+                    _this.firstTableData.push(firstTableObject);
+                    _this.secondTableData.push(secondTableObject);
+                    _this.firstTableData.push(firstPromTableObject);
+                    _this.secondTableData.push(secondPromTableObject);
                 }
-                _this.totalTons = (new Intl.NumberFormat('de-DE').format(promTons_1));
-                _this.totalViajes = promViaje_1;
-                _this.firstTableData.push(firstTableObject);
-                _this.secondTableData.push(secondTableObject);
-                _this.firstTableData.push(firstPromTableObject);
-                _this.secondTableData.push(secondPromTableObject);
+                else {
+                    _this.columnSet = _this.tableColumns.sag;
+                    for (var _b = 0, _c = _this.firstData; _b < _c.length; _b++) {
+                        var elem = _c[_b];
+                        if (elem.hora !== 'Prom') {
+                            firstTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: elem.alimentacion
+                            });
+                            firstPromTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: _this.promAlimentacion
+                            });
+                            secondTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: elem.tratamiento
+                            });
+                            secondPromTableObject.series.push({
+                                name: '' + elem.hora,
+                                value: _this.promTratamiento
+                            });
+                        }
+                    }
+                    _this.firstTableData.push(firstTableObject);
+                    _this.secondTableData.push(secondTableObject);
+                    _this.firstTableData.push(firstPromTableObject);
+                    _this.secondTableData.push(secondPromTableObject);
+                }
                 _this.showTable = true;
             }
         });
+    };
+    CigoPageComponent.prototype.setChancadorData = function (row, baseHour) {
+        var printHour = (baseHour > 9) ? baseHour + ":00" : "0" + baseHour + ":00";
+        if (row.data_type === '1_VAL') {
+            this.firstData.push({
+                hora: printHour,
+                viajes: row.viajes,
+                tons: row.tons.toFixed(2),
+                tiempo: row.tiempo.toFixed(2),
+                tons_promedio: row.tons_promedio.toFixed(2),
+                spi: row.spi.toFixed(2),
+                distancia: row.distancia.toFixed(2),
+                velocidad: row.velocidad.toFixed(2),
+                ley: row.ley.toFixed(2)
+            });
+            this.promViaje += row.viajes;
+            this.promTons += row.tons;
+        }
+        if (row.data_type === '2_AVG') {
+            this.promPromTons = row.tons.toFixed(2);
+            this.promTiempo = row.tiempo.toFixed(2);
+            this.firstData.push({
+                hora: 'Prom',
+                viajes: row.viajes,
+                tons: row.tons.toFixed(2),
+                tiempo: row.tiempo.toFixed(2),
+                tons_promedio: row.tons_promedio.toFixed(2),
+                spi: row.spi.toFixed(2),
+                distancia: row.distancia.toFixed(2),
+                velocidad: row.velocidad.toFixed(2),
+                ley: row.ley.toFixed(2)
+            });
+        }
+    };
+    CigoPageComponent.prototype.setSagData = function (row, baseHour) {
+        var printHour = (baseHour > 9) ? baseHour + ":00" : "0" + baseHour + ":00";
+        if (row.data_type === '1_VAL') {
+            this.firstData.push({
+                hora: printHour,
+                alimentacion: row.alimentacion.toFixed(2),
+                stockpile: row.stockpile.toFixed(2),
+                tratamiento: row.tratamiento.toFixed(2),
+                operacion: row.operacion.toFixed(2),
+                alimentacion_2: row.alimentacion_2.toFixed(2),
+                tratamiento_2: row.tratamiento_2.toFixed(2)
+            });
+            this.totalAlimentacion += row.alimentacion;
+            this.totalTratamiento += row.tratamiento;
+        }
+        if (row.data_type === '2_AVG') {
+            this.promAlimentacion = row.alimentacion;
+            this.promTratamiento = row.tratamiento;
+            this.firstData.push({
+                hora: 'Prom',
+                alimentacion: row.alimentacion.toFixed(2),
+                stockpile: row.stockpile.toFixed(2),
+                tratamiento: row.tratamiento.toFixed(2),
+                operacion: row.operacion.toFixed(2),
+                alimentacion_2: row.alimentacion_2.toFixed(2),
+                tratamiento_2: row.tratamiento_2.toFixed(2)
+            });
+        }
+    };
+    CigoPageComponent.prototype.setTableTitle = function (chart) {
+        if (chart.includes('PRIM')) {
+            return (chart === 'PRIM') ? 'Chancador Primario (1)' : 'Chancador Primario (2)';
+        }
+        else {
+            return (chart === 'CF') ? 'Planta SAG CF' : 'Planta SAG LB';
+        }
     };
     CigoPageComponent.prototype.setRequestTitle = function (hours) {
         var baseDate = new Date(Date.now() - (hours * 3600000));
@@ -4297,7 +4402,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CigoDataService = (function () {
     function CigoDataService(http) {
         this.http = http;
-        this.apiUrl = 'https://cigo-deploy.azurewebsites.net/api';
+        this.apiUrl = 'https://latam-cppr-cigo.azurewebsites.net/api';
         this.data = {};
         this.dataCigo$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]({});
         this.dataAvailable$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"](false);
@@ -4312,30 +4417,31 @@ var CigoDataService = (function () {
             var crossf = __WEBPACK_IMPORTED_MODULE_3_crossfilter2__(_this.originalData);
             var dataByField = crossf.dimension(function (row) { return row['EQUIPO']; });
             var addReduce = function (p, v) {
-                var fecha = new Date(v['FECHA_HORA']);
-                var k = {
-                    distancia: parseFloat(v['VALOR_05']),
-                    data_type: v['TIPO_REG'],
-                    fecha: fecha,
-                    hora: fecha.getHours() + ':00',
-                    viajes: parseFloat(v['VALOR_01']),
-                    tons: parseFloat(v['VALOR_02']),
-                    tons_promedio: parseFloat(v['VALOR_03']),
-                    tiempo: parseFloat(v['VALOR_04']),
-                    velocidad: parseFloat(v['VALOR_06']),
-                    ley: parseFloat(v['VALOR_08']),
-                    spi: parseFloat(v['VALOR_07'])
-                };
-                if ((!p[v['EQUIPO']])) {
-                    p[v['EQUIPO']] = {
-                        series: [],
-                        total_tons: 0,
-                        total_viajes: 0
-                    };
+                var k = _this.setEquipmentData(v);
+                if (v['TIPO_EQUIPO'] === 'CHANCADOR') {
+                    if ((!p[v['EQUIPO']])) {
+                        p[v['EQUIPO']] = {
+                            series: [],
+                            total_tons: 0,
+                            total_viajes: 0
+                        };
+                    }
+                    p[v['EQUIPO']].series.push(k);
+                    p[v['EQUIPO']].total_tons += k.tons;
+                    p[v['EQUIPO']].total_viajes += k.viajes;
                 }
-                p[v['EQUIPO']].series.push(k);
-                p[v['EQUIPO']].total_tons += k.tons;
-                p[v['EQUIPO']].total_viajes += k.viajes;
+                else {
+                    if ((!p[v['EQUIPO']])) {
+                        p[v['EQUIPO']] = {
+                            series: [],
+                            total_alimentacion: 0,
+                            total_tratamiento: 0
+                        };
+                    }
+                    p[v['EQUIPO']].series.push(k);
+                    p[v['EQUIPO']].total_alimentacion += k.alimentacion;
+                    p[v['EQUIPO']].total_tratamiento += k.tratamiento;
+                }
                 return p;
             };
             var removeReduce = function (p, v) {
@@ -4350,6 +4456,37 @@ var CigoDataService = (function () {
             _this.dataCigo$.next(_this.data);
             _this.dataAvailable$.next(true);
         });
+    };
+    CigoDataService.prototype.setEquipmentData = function (row) {
+        var date = new Date(row['FECHA_HORA']);
+        if (row['TIPO_EQUIPO'] === 'CHANCADOR') {
+            return {
+                data_type: row['TIPO_REG'],
+                fecha: date,
+                hora: date.getHours() + ':00',
+                viajes: parseFloat(row['VALOR_01']),
+                tons: parseFloat(row['VALOR_02']),
+                tons_promedio: parseFloat(row['VALOR_03']),
+                tiempo: parseFloat(row['VALOR_04']),
+                distancia: parseFloat(row['VALOR_05']),
+                velocidad: parseFloat(row['VALOR_06']),
+                ley: parseFloat(row['VALOR_08']),
+                spi: parseFloat(row['VALOR_07'])
+            };
+        }
+        else {
+            return {
+                data_type: row['TIPO_REG'],
+                fecha: date,
+                hora: date.getHours() + ':00',
+                alimentacion: parseFloat(row['VALOR_01']),
+                stockpile: row['VALOR_02'] ? parseFloat(row['VALOR_02']) : parseFloat('0'),
+                tratamiento: parseFloat(row['VALOR_03']),
+                operacion: parseFloat(row['VALOR_04']),
+                alimentacion_2: parseFloat(row['VALOR_05']),
+                tratamiento_2: parseFloat(row['VALOR_06'])
+            };
+        }
     };
     CigoDataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
