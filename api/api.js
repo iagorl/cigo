@@ -26,7 +26,7 @@ var executeQuery = function(res) {
             // create Request object
             var request = new sql.Request();
             // query to the database 
-            request.query('sp_get_cigo', function(err, recordset) {
+            request.execute('sp_get_cigo', function(err, recordset) {
                 if (err) {
                     console.log("Error while querying database :- " + err);
                     res.send(err);
