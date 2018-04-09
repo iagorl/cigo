@@ -1,5 +1,18 @@
 <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
 <div class="cigo-container">
+  <button mat-raised-button color="secondary" (click)="toggleSettingsForm()">
+    <i class="material-icons">settings</i> Configurar
+  </button>
+  <div class="settingForm" *ngIf="showSettingForm">
+    <mat-form-field class="full-width">
+      <input matInput type="number" placeholder="Velocidad de transición" [(ngModel)]="form.timer" min="10">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="saveTimer()">Actualizar</button>
+    <!--<mat-form-field class="full-width">
+      <input matInput type="number" placeholder="No. de horas a consultar" [(ngModel)]="form.rowNumber" min="10">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="saveRowNumber()">Actualizar</button>-->
+  </div>
   <div class="header-container">
     <div class="subtitle-container">
       <div class="name-tab">
@@ -123,7 +136,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="!firstData.length && showTable">
+  <div class="table-message" *ngIf="firstData.length <= 1">
     <h3>No hay datos disponibles</h3>
   </div>
 </div>

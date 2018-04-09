@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -103,8 +105,8 @@ const Pages = [
     MatInputModule,
     MatIconModule,
     MatSelectModule,
+    MatDialogModule,
     HttpClientModule,
-    FormsModule,
     MatProgressBarModule,
     MatDatepickerModule,
     MatNativeDateModule

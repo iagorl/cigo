@@ -191,41 +191,42 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_material_button_toggle__ = __webpack_require__("../../../material/esm5/button-toggle.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_material_icon__ = __webpack_require__("../../../material/esm5/icon.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_material_select__ = __webpack_require__("../../../material/esm5/select.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_comments_service__ = __webpack_require__("../../../../../src/app/services/comments.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_range_service__ = __webpack_require__("../../../../../src/app/services/range.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_target_service__ = __webpack_require__("../../../../../src/app/services/target.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_view_service__ = __webpack_require__("../../../../../src/app/services/view.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_control_chart_control_chart_component__ = __webpack_require__("../../../../../src/app/components/control-chart/control-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_control_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/control-chart/combo/combo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_top_bar_top_bar_component__ = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_card_listing_card_listing_component__ = __webpack_require__("../../../../../src/app/components/card-listing/card-listing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_card_card_component__ = __webpack_require__("../../../../../src/app/components/card/card.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_comment_section_comment_section_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment-section.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_comment_section_comment_comment_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment/comment.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_new_range_form_new_range_form_component__ = __webpack_require__("../../../../../src/app/components/new-range-form/new-range-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_comment_section_input_input_component__ = __webpack_require__("../../../../../src/app/components/comment-section/input/input.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_filter_filter_component__ = __webpack_require__("../../../../../src/app/components/filter/filter.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_scatter_chart_scatter_chart_component__ = __webpack_require__("../../../../../src/app/components/scatter-chart/scatter-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_pareto_chart_pareto_chart_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/pareto-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_table_table_component__ = __webpack_require__("../../../../../src/app/components/table/table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_pareto_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/combo/combo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_pareto_chart_vertical_series_vertical_series_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/vertical-series/vertical-series.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_cdi_cdi_component__ = __webpack_require__("../../../../../src/app/pages/cdi/cdi.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_pareto_pareto_component__ = __webpack_require__("../../../../../src/app/pages/pareto/pareto.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_fuel_fuel_component__ = __webpack_require__("../../../../../src/app/pages/fuel/fuel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_waterfall_chart_waterfall_chart_component__ = __webpack_require__("../../../../../src/app/components/waterfall-chart/waterfall-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_histogram_chart_histogram_chart_component__ = __webpack_require__("../../../../../src/app/components/histogram-chart/histogram-chart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_cigo_cigo_component__ = __webpack_require__("../../../../../src/app/pages/cigo/cigo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__services_cigo_data_service__ = __webpack_require__("../../../../../src/app/services/cigo-data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__angular_material_core__ = __webpack_require__("../../../material/esm5/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_material_dialog__ = __webpack_require__("../../../material/esm5/dialog.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_comments_service__ = __webpack_require__("../../../../../src/app/services/comments.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_range_service__ = __webpack_require__("../../../../../src/app/services/range.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_target_service__ = __webpack_require__("../../../../../src/app/services/target.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_view_service__ = __webpack_require__("../../../../../src/app/services/view.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_control_chart_control_chart_component__ = __webpack_require__("../../../../../src/app/components/control-chart/control-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_control_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/control-chart/combo/combo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_top_bar_top_bar_component__ = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_card_listing_card_listing_component__ = __webpack_require__("../../../../../src/app/components/card-listing/card-listing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_card_card_component__ = __webpack_require__("../../../../../src/app/components/card/card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_comment_section_comment_section_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment-section.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_comment_section_comment_comment_component__ = __webpack_require__("../../../../../src/app/components/comment-section/comment/comment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_new_range_form_new_range_form_component__ = __webpack_require__("../../../../../src/app/components/new-range-form/new-range-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_comment_section_input_input_component__ = __webpack_require__("../../../../../src/app/components/comment-section/input/input.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_filter_filter_component__ = __webpack_require__("../../../../../src/app/components/filter/filter.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_scatter_chart_scatter_chart_component__ = __webpack_require__("../../../../../src/app/components/scatter-chart/scatter-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_pareto_chart_pareto_chart_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/pareto-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_table_table_component__ = __webpack_require__("../../../../../src/app/components/table/table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_pareto_chart_combo_combo_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/combo/combo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_pareto_chart_vertical_series_vertical_series_component__ = __webpack_require__("../../../../../src/app/components/pareto-chart/vertical-series/vertical-series.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_cdi_cdi_component__ = __webpack_require__("../../../../../src/app/pages/cdi/cdi.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_pareto_pareto_component__ = __webpack_require__("../../../../../src/app/pages/pareto/pareto.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_fuel_fuel_component__ = __webpack_require__("../../../../../src/app/pages/fuel/fuel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_waterfall_chart_waterfall_chart_component__ = __webpack_require__("../../../../../src/app/components/waterfall-chart/waterfall-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_histogram_chart_histogram_chart_component__ = __webpack_require__("../../../../../src/app/components/histogram-chart/histogram-chart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_cigo_cigo_component__ = __webpack_require__("../../../../../src/app/pages/cigo/cigo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__services_cigo_data_service__ = __webpack_require__("../../../../../src/app/services/cigo-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__angular_material_core__ = __webpack_require__("../../../material/esm5/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -281,30 +282,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var Components = [
-    __WEBPACK_IMPORTED_MODULE_24__components_control_chart_control_chart_component__["a" /* ControlChartComponent */],
-    __WEBPACK_IMPORTED_MODULE_25__components_control_chart_combo_combo_component__["a" /* ComboComponent */],
-    __WEBPACK_IMPORTED_MODULE_26__components_top_bar_top_bar_component__["a" /* TopBarComponent */],
-    __WEBPACK_IMPORTED_MODULE_27__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
-    __WEBPACK_IMPORTED_MODULE_28__components_card_listing_card_listing_component__["a" /* CardListingComponent */],
-    __WEBPACK_IMPORTED_MODULE_29__components_card_card_component__["a" /* CardComponent */],
-    __WEBPACK_IMPORTED_MODULE_30__components_comment_section_comment_section_component__["a" /* CommentSectionComponent */],
-    __WEBPACK_IMPORTED_MODULE_31__components_comment_section_comment_comment_component__["a" /* CommentComponent */],
-    __WEBPACK_IMPORTED_MODULE_32__components_new_range_form_new_range_form_component__["a" /* NewRangeFormComponent */],
-    __WEBPACK_IMPORTED_MODULE_33__components_comment_section_input_input_component__["a" /* InputComponent */],
-    __WEBPACK_IMPORTED_MODULE_34__components_filter_filter_component__["a" /* FilterComponent */],
-    __WEBPACK_IMPORTED_MODULE_35__components_scatter_chart_scatter_chart_component__["a" /* ScatterChartComponent */],
-    __WEBPACK_IMPORTED_MODULE_37__components_table_table_component__["a" /* TableComponent */],
-    __WEBPACK_IMPORTED_MODULE_36__components_pareto_chart_pareto_chart_component__["a" /* ParetoChartComponent */],
-    __WEBPACK_IMPORTED_MODULE_38__components_pareto_chart_combo_combo_component__["a" /* ParetoComboComponent */],
-    __WEBPACK_IMPORTED_MODULE_39__components_pareto_chart_vertical_series_vertical_series_component__["a" /* ParetoVerticalSeriesComponent */]
+    __WEBPACK_IMPORTED_MODULE_25__components_control_chart_control_chart_component__["a" /* ControlChartComponent */],
+    __WEBPACK_IMPORTED_MODULE_26__components_control_chart_combo_combo_component__["a" /* ComboComponent */],
+    __WEBPACK_IMPORTED_MODULE_27__components_top_bar_top_bar_component__["a" /* TopBarComponent */],
+    __WEBPACK_IMPORTED_MODULE_28__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
+    __WEBPACK_IMPORTED_MODULE_29__components_card_listing_card_listing_component__["a" /* CardListingComponent */],
+    __WEBPACK_IMPORTED_MODULE_30__components_card_card_component__["a" /* CardComponent */],
+    __WEBPACK_IMPORTED_MODULE_31__components_comment_section_comment_section_component__["a" /* CommentSectionComponent */],
+    __WEBPACK_IMPORTED_MODULE_32__components_comment_section_comment_comment_component__["a" /* CommentComponent */],
+    __WEBPACK_IMPORTED_MODULE_33__components_new_range_form_new_range_form_component__["a" /* NewRangeFormComponent */],
+    __WEBPACK_IMPORTED_MODULE_34__components_comment_section_input_input_component__["a" /* InputComponent */],
+    __WEBPACK_IMPORTED_MODULE_35__components_filter_filter_component__["a" /* FilterComponent */],
+    __WEBPACK_IMPORTED_MODULE_36__components_scatter_chart_scatter_chart_component__["a" /* ScatterChartComponent */],
+    __WEBPACK_IMPORTED_MODULE_38__components_table_table_component__["a" /* TableComponent */],
+    __WEBPACK_IMPORTED_MODULE_37__components_pareto_chart_pareto_chart_component__["a" /* ParetoChartComponent */],
+    __WEBPACK_IMPORTED_MODULE_39__components_pareto_chart_combo_combo_component__["a" /* ParetoComboComponent */],
+    __WEBPACK_IMPORTED_MODULE_40__components_pareto_chart_vertical_series_vertical_series_component__["a" /* ParetoVerticalSeriesComponent */]
 ];
 var Pages = [
-    __WEBPACK_IMPORTED_MODULE_42__pages_pareto_pareto_component__["a" /* ParetoPageComponent */],
-    __WEBPACK_IMPORTED_MODULE_40__pages_cdi_cdi_component__["a" /* CdiPageComponent */],
-    __WEBPACK_IMPORTED_MODULE_43__pages_fuel_fuel_component__["a" /* FuelPageComponent */],
-    __WEBPACK_IMPORTED_MODULE_41__pages_home_home_component__["a" /* HomePageComponent */],
-    __WEBPACK_IMPORTED_MODULE_46__pages_cigo_cigo_component__["a" /* CigoPageComponent */]
+    __WEBPACK_IMPORTED_MODULE_43__pages_pareto_pareto_component__["a" /* ParetoPageComponent */],
+    __WEBPACK_IMPORTED_MODULE_41__pages_cdi_cdi_component__["a" /* CdiPageComponent */],
+    __WEBPACK_IMPORTED_MODULE_44__pages_fuel_fuel_component__["a" /* FuelPageComponent */],
+    __WEBPACK_IMPORTED_MODULE_42__pages_home_home_component__["a" /* HomePageComponent */],
+    __WEBPACK_IMPORTED_MODULE_47__pages_cigo_cigo_component__["a" /* CigoPageComponent */]
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -312,19 +314,19 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_19__app_component__["a" /* AppComponent */]
             ].concat(Components, Pages, [
-                __WEBPACK_IMPORTED_MODULE_44__components_waterfall_chart_waterfall_chart_component__["a" /* WaterfallChartComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__components_histogram_chart_histogram_chart_component__["a" /* HistogramChartComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_waterfall_chart_waterfall_chart_component__["a" /* WaterfallChartComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__components_histogram_chart_histogram_chart_component__["a" /* HistogramChartComponent */],
             ]),
             imports: [
-                __WEBPACK_IMPORTED_MODULE_17__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_18__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"],
                 __WEBPACK_IMPORTED_MODULE_5__angular_material_list__["a" /* MatListModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_material_checkbox__["a" /* MatCheckboxModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_forms__["c" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_16__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_16__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_17__angular_common__["CommonModule"],
                 __WEBPACK_IMPORTED_MODULE_3__swimlane_ngx_charts__["NgxChartsModule"],
                 __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__["NgxDatatableModule"],
                 __WEBPACK_IMPORTED_MODULE_10__angular_material_button__["a" /* MatButtonModule */],
@@ -333,21 +335,21 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_9__angular_material_input__["b" /* MatInputModule */],
                 __WEBPACK_IMPORTED_MODULE_12__angular_material_icon__["a" /* MatIconModule */],
                 __WEBPACK_IMPORTED_MODULE_13__angular_material_select__["a" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_14__angular_material_dialog__["b" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_material_progress_bar__["a" /* MatProgressBarModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material_datepicker__["a" /* MatDatepickerModule */],
-                __WEBPACK_IMPORTED_MODULE_48__angular_material_core__["j" /* MatNativeDateModule */]
+                __WEBPACK_IMPORTED_MODULE_49__angular_material_core__["j" /* MatNativeDateModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_20__services_data_service__["a" /* DataService */],
-                __WEBPACK_IMPORTED_MODULE_19__services_comments_service__["a" /* CommentsService */],
-                __WEBPACK_IMPORTED_MODULE_21__services_range_service__["a" /* RangeService */],
-                __WEBPACK_IMPORTED_MODULE_23__services_view_service__["a" /* ViewService */],
-                __WEBPACK_IMPORTED_MODULE_47__services_cigo_data_service__["a" /* CigoDataService */],
-                __WEBPACK_IMPORTED_MODULE_22__services_target_service__["a" /* TargetService */]
+                __WEBPACK_IMPORTED_MODULE_21__services_data_service__["a" /* DataService */],
+                __WEBPACK_IMPORTED_MODULE_20__services_comments_service__["a" /* CommentsService */],
+                __WEBPACK_IMPORTED_MODULE_22__services_range_service__["a" /* RangeService */],
+                __WEBPACK_IMPORTED_MODULE_24__services_view_service__["a" /* ViewService */],
+                __WEBPACK_IMPORTED_MODULE_48__services_cigo_data_service__["a" /* CigoDataService */],
+                __WEBPACK_IMPORTED_MODULE_23__services_target_service__["a" /* TargetService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_19__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -3763,7 +3765,7 @@ var CdiPageComponent = (function () {
 /***/ "../../../../../src/app/pages/cigo/cigo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n<div class=\"cigo-container\">\n  <div class=\"header-container\">\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h3>{{title}}</h3>\n        <div class=\"title-date\" *ngIf=\"title_from && title_to\">\n          <div><small><b>Desde</b> {{title_from}}</small></div>\n          <div><small><b>Hasta</b> {{title_to}}</small></div>\n        </div>\n      </div>\n\n      <div *ngIf=\"selectedFilter==='PRIM' || selectedFilter==='PRIM DOS'\" class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n      <div *ngIf=\"selectedFilter==='CF' || selectedFilter==='LB'\" class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Alimentaci&oacute;n</h3>\n          <h3>{{totalAlimentacion.toFixed(2)}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Tratamiento</h3>\n          <h3>{{totalTratamiento.toFixed(2)}}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columnSet.columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columnSet.columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columnSet.columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columnSet.columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columnSet.columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columnSet.columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n  </div>\n  <div *ngIf=\"!firstData.length && showTable\">\n    <h3>No hay datos disponibles</h3>\n  </div>\n</div>\n"
+module.exports = "<mat-progress-bar mode=\"determinate\" [value]=\"progressValue\"></mat-progress-bar>\n<div class=\"cigo-container\">\n  <button mat-raised-button color=\"secondary\" (click)=\"toggleSettingsForm()\">\n    <i class=\"material-icons\">settings</i> Configurar\n  </button>\n  <div class=\"settingForm\" *ngIf=\"showSettingForm\">\n    <mat-form-field class=\"full-width\">\n      <input matInput type=\"number\" placeholder=\"Velocidad de transición\" [(ngModel)]=\"form.timer\" min=\"10\">\n    </mat-form-field>\n    <button mat-raised-button color=\"primary\" (click)=\"saveTimer()\">Actualizar</button>\n    <!--<mat-form-field class=\"full-width\">\n      <input matInput type=\"number\" placeholder=\"No. de horas a consultar\" [(ngModel)]=\"form.rowNumber\" min=\"10\">\n    </mat-form-field>\n    <button mat-raised-button color=\"primary\" (click)=\"saveRowNumber()\">Actualizar</button>-->\n  </div>\n  <div class=\"header-container\">\n    <div class=\"subtitle-container\">\n      <div class=\"name-tab\">\n        <h3>{{title}}</h3>\n        <div class=\"title-date\" *ngIf=\"title_from && title_to\">\n          <div><small><b>Desde</b> {{title_from}}</small></div>\n          <div><small><b>Hasta</b> {{title_to}}</small></div>\n        </div>\n      </div>\n\n      <div *ngIf=\"selectedFilter==='PRIM' || selectedFilter==='PRIM DOS'\" class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Tons</h3>\n          <h3>{{totalTons}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Viajes</h3>\n          <h3>{{totalViajes}}</h3>\n        </div>\n      </div>\n      <div *ngIf=\"selectedFilter==='CF' || selectedFilter==='LB'\" class=\"total-tab\">\n        <div class=\"tons\">\n          <h3>Total Alimentaci&oacute;n</h3>\n          <h3>{{totalAlimentacion.toFixed(2)}}</h3>\n        </div>\n        <div class=\"viajes\">\n          <h3>Total Tratamiento</h3>\n          <h3>{{totalTratamiento.toFixed(2)}}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"body-container\" *ngIf=\"showTable\">\n    <div class=\"table-container first\" >\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columnSet.columns\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columnSet.columns\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"firstTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n          </div>\n      </div>\n    </div>\n    <div class=\"table-container second\">\n      <div class=\"table-sub-container\">\n        <div class=\"table-field\">\n            <table style=\"width:100%\">\n                <tr>\n                  <th *ngFor=\"let col of columnSet.columns2\">\n                    {{col.name}}\n                  </th>\n                </tr>\n                <tr *ngFor=\"let row of firstData; let i = index\">\n                  <td *ngFor=\"let col of columnSet.columns2\">\n                    <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                    <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n                  </td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"chart-container\">\n          <div class=\"chart\">\n            <ngx-charts-line-chart\n              [view]=\"view\"\n              [scheme]=\"colorScheme\"\n              [results]=\"secondTableData\"\n              [gradient]=\"false\"\n              [xAxis]=\"false\"\n              [yAxis]=\"false\"\n              [legend]=\"false\"\n              [showXAxisLabel]=\"false\"\n              [showYAxisLabel]=\"false\"\n              [autoScale]=\"true\"\n              (select)=\"onSelect($event)\">\n            </ngx-charts-line-chart>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"table-container last\">\n      <div class=\"table-sub-container\">\n        <table style=\"width:100%\">\n            <tr>\n              <th *ngFor=\"let col of columnSet.columns3\">\n                {{col.name}}\n              </th>\n            </tr>\n            <tr *ngFor=\"let row of firstData; let i = index\">\n              <td *ngFor=\"let col of columnSet.columns3\">\n                <strong *ngIf=\"i === firstData.length - 1\">{{row[col.value]}}</strong>\n                <span *ngIf=\"i < firstData.length - 1\">{{row[col.value]}}</span>\n              </td>\n            </tr>\n        </table>\n      </div>\n    </div>\n  </div>\n  <div class=\"table-message\" *ngIf=\"firstData.length <= 1\">\n    <h3>No hay datos disponibles</h3>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3775,7 +3777,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -ms-flex: 1;\n            flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -ms-flex: 1;\n            flex: 1;\n        width: 100%;\n        position: relative; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .chart {\n          position: absolute;\n          transform: rotate(90deg);\n          transform-origin: top left;\n          top: 65px;\n          left: 100%; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -ms-flex: 1;\n          flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first table, .cigo-container .body-container .table-container.second table, .cigo-container .body-container .table-container.last table {\n        border-collapse: collapse; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border: 1px solid #e2e2e2;\n        border-top: 0; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.second td:first-child, .cigo-container .body-container .table-container.last td:first-child {\n        border-left: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first td:last-child, .cigo-container .body-container .table-container.second td:last-child, .cigo-container .body-container .table-container.last td:last-child {\n        border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 12px;\n  white-space: pre-line; }\n\n.subtitle-container {\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex: 1;\n        flex: 1;\n    padding: 15px 30px;\n    -ms-flex-align: center;\n        align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -ms-flex-direction: column;\n        flex-direction: column;\n    -ms-flex-pack: center;\n        justify-content: center; }\n    .subtitle-container .name-tab .title-date {\n      display: -ms-flexbox;\n      display: flex; }\n      .subtitle-container .name-tab .title-date div {\n        -ms-flex-direction: row;\n            flex-direction: row;\n        padding: 0 5px; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n\n@media only screen and (max-width: 768px) {\n  .cigo-container {\n    margin: 10px 0;\n    border-radius: 0;\n    padding: 10px; }\n    .cigo-container .body-container {\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  .chart {\n    left: 70%; }\n  .header-container {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column; }\n  .subtitle-container {\n    display: -ms-grid;\n    display: grid; }\n    .subtitle-container .name-tab {\n      -ms-flex-direction: column;\n          flex-direction: column;\n      -ms-flex-pack: distribute;\n          justify-content: space-around; }\n      .subtitle-container .name-tab .title-date div {\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .subtitle-container .name-tab, .subtitle-container .total-tab {\n      padding: 5px 30px; } }\n", ""]);
+exports.push([module.i, ".cigo-container {\n  margin: 10px;\n  border-radius: 3px;\n  background-color: #ffffff;\n  box-shadow: 0px 0px 1px #4981FD;\n  padding: 30px; }\n  .cigo-container .body-container {\n    display: -ms-flexbox;\n    display: flex;\n    height: 100%; }\n    .cigo-container .body-container .table-container .table-sub-container {\n      display: -ms-flexbox;\n      display: flex; }\n      .cigo-container .body-container .table-container .table-sub-container .table-field {\n        -ms-flex: 1;\n            flex: 1; }\n      .cigo-container .body-container .table-container .table-sub-container .chart-container {\n        -ms-flex: 1;\n            flex: 1;\n        width: 100%;\n        position: relative; }\n        .cigo-container .body-container .table-container .table-sub-container .chart-container .chart {\n          position: absolute;\n          transform: rotate(90deg);\n          transform-origin: top left;\n          top: 65px;\n          left: 100%; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second, .cigo-container .body-container .table-container.last {\n      -ms-flex: 1;\n          flex: 1;\n      background-color: #f9f9f9;\n      padding: 10px;\n      border-radius: 0 0 3px 3px; }\n      .cigo-container .body-container .table-container.first table, .cigo-container .body-container .table-container.second table, .cigo-container .body-container .table-container.last table {\n        border-collapse: collapse; }\n      .cigo-container .body-container .table-container.first th, .cigo-container .body-container .table-container.second th, .cigo-container .body-container .table-container.last th {\n        border: 1px solid #e2e2e2;\n        border-top: 0; }\n      .cigo-container .body-container .table-container.first tr:last-child, .cigo-container .body-container .table-container.second tr:last-child, .cigo-container .body-container .table-container.last tr:last-child {\n        border: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first td:first-child, .cigo-container .body-container .table-container.second td:first-child, .cigo-container .body-container .table-container.last td:first-child {\n        border-left: 1px solid #e2e2e2; }\n      .cigo-container .body-container .table-container.first td:last-child, .cigo-container .body-container .table-container.second td:last-child, .cigo-container .body-container .table-container.last td:last-child {\n        border-right: 1px solid #e2e2e2; }\n    .cigo-container .body-container .table-container.first, .cigo-container .body-container .table-container.second {\n      margin-right: 10px; }\n    .cigo-container .body-container .table-container .datatable-header {\n      font-size: 10px; }\n  .cigo-container .table-message {\n    padding: 10px;\n    background-color: #f9f9f9; }\n\ntr {\n  text-align: center;\n  height: 30px;\n  font-size: 13px; }\n  tr:nth-of-type(odd) {\n    background: #ffffff; }\n\ntd, th {\n  padding: 5px; }\n\nth {\n  height: 50px;\n  font-size: 12px;\n  white-space: pre-line; }\n\n.subtitle-container {\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n  background-color: #e2e2e2;\n  border-radius: 3px 3px 0 0; }\n  .subtitle-container .name-tab, .subtitle-container .total-tab {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex: 1;\n        flex: 1;\n    padding: 15px 30px;\n    -ms-flex-align: center;\n        align-items: center; }\n    .subtitle-container .name-tab h3, .subtitle-container .name-tab h2, .subtitle-container .total-tab h3, .subtitle-container .total-tab h2 {\n      margin: 0; }\n      .subtitle-container .name-tab h3:last-child, .subtitle-container .name-tab h2:last-child, .subtitle-container .total-tab h3:last-child, .subtitle-container .total-tab h2:last-child {\n        font-weight: 400; }\n  .subtitle-container .name-tab {\n    -ms-flex-direction: column;\n        flex-direction: column;\n    -ms-flex-pack: center;\n        justify-content: center; }\n    .subtitle-container .name-tab .title-date {\n      display: -ms-flexbox;\n      display: flex; }\n      .subtitle-container .name-tab .title-date div {\n        -ms-flex-direction: row;\n            flex-direction: row;\n        padding: 0 5px; }\n  .subtitle-container .total-tab {\n    -ms-flex-pack: distribute;\n        justify-content: space-around; }\n\n@media only screen and (max-width: 768px) {\n  .cigo-container {\n    margin: 10px 0;\n    border-radius: 0;\n    padding: 10px; }\n    .cigo-container .mat-raised-button {\n      top: -5px; }\n    .cigo-container .body-container {\n      -ms-flex-direction: column;\n          flex-direction: column; }\n    .cigo-container .table-message {\n      text-align: center; }\n  .chart {\n    left: 70%; }\n  .header-container {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column; }\n  .subtitle-container {\n    display: -ms-grid;\n    display: grid; }\n    .subtitle-container .name-tab {\n      -ms-flex-direction: column;\n          flex-direction: column;\n      -ms-flex-pack: distribute;\n          justify-content: space-around; }\n      .subtitle-container .name-tab .title-date div {\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .subtitle-container .name-tab, .subtitle-container .total-tab {\n      padding: 5px 30px; } }\n\n.mat-raised-button {\n  top: -15px; }\n\n.settingForm {\n  position: absolute;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-direction: column;\n      flex-direction: column;\n  background-color: #ffffff;\n  padding: 15px;\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  margin-right: 10px; }\n  .settingForm .full-width {\n    width: 100%; }\n", ""]);
 
 // exports
 
@@ -3808,9 +3810,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CigoPageComponent = (function () {
     function CigoPageComponent(dataService) {
         this.dataService = dataService;
+        this.showSettingForm = false;
         this.title_from = '';
         this.title_to = '';
         this.view = [50, 160];
+        this.form = {
+            timer: 20,
+            rowNumber: 12
+        };
         this.colorScheme = {
             domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
         };
@@ -3855,7 +3862,6 @@ var CigoPageComponent = (function () {
         this.secondTableData = [];
         this.firstData = [];
         this.showTable = false;
-        // Chancador variables
         this.promViaje = 0;
         this.promTons = 0;
         this.promPromTons = 0;
@@ -3872,8 +3878,10 @@ var CigoPageComponent = (function () {
         this.viewPrim = true;
         var timer = __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_TimerObservable__["a" /* TimerObservable */].create(0, 100);
         var number = 123456789;
+        this.updateViewTimer(20);
+        this.rowNumber = 12;
         timer.subscribe(function (t) {
-            if (t % 200 === 0) {
+            if (t % _this.viewTimer === 0) {
                 if (t % 600 === 0) {
                     _this.dataService.getData();
                 }
@@ -3883,7 +3891,7 @@ var CigoPageComponent = (function () {
                 _this.currentFilter++;
             }
             else {
-                _this.progressValue = t / 2 % 100;
+                _this.progressValue = t / _this.barDivisor % 100;
             }
         });
     };
@@ -3929,13 +3937,13 @@ var CigoPageComponent = (function () {
                         _this.title_from = _this.title_from;
                     }
                     else {
-                        _this.title_from = _this.setRequestTitle(15);
+                        _this.title_from = _this.setRequestTitle(_this.rowNumber + 3);
                         _this.title_to = _this.setRequestTitle(3);
                     }
                     (chart.includes('PRIM')) ? _this.setChancadorData(elem, baseHour) : _this.setSagData(elem, baseHour);
                 });
                 _this.view[0] = 30 * _this.firstData.length;
-                _this.view[1] = 150 * _this.firstData.length / 13;
+                _this.view[1] = 150 * _this.firstData.length / (_this.rowNumber + 1);
                 var firstPromTableObject = {
                     name: 'Prom',
                     series: []
@@ -4081,6 +4089,19 @@ var CigoPageComponent = (function () {
         baseDate.setMinutes(0);
         baseDate.setSeconds(0);
         return baseDate.toUTCString().split(',')[1].split('GMT')[0];
+    };
+    CigoPageComponent.prototype.updateViewTimer = function (value) {
+        this.viewTimer = value * 10;
+        this.barDivisor = this.viewTimer / 100;
+    };
+    CigoPageComponent.prototype.toggleSettingsForm = function () {
+        this.form.timer = this.viewTimer / 10;
+        this.form.rowNumber = this.rowNumber;
+        this.showSettingForm = !this.showSettingForm;
+    };
+    CigoPageComponent.prototype.saveTimer = function () {
+        this.updateViewTimer(this.form.timer);
+        this.toggleSettingsForm();
     };
     CigoPageComponent.prototype.onSelect = function (event) {
         console.log(event);

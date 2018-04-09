@@ -9,13 +9,19 @@ import {TimerObservable} from 'rxjs/observable/TimerObservable';
 })
 export class CigoPageComponent implements OnInit {
   viewPrim: boolean;
-  totalViajes: number;
-  totalTons: string;
-
+  showSettingForm = false;
   title_from = '';
   title_to = '';
 
   view: any[] = [50, 160];
+  form = {
+    timer: 20,
+    rowNumber: 12
+  };
+
+  rowNumber: number;
+  viewTimer: number;
+  barDivisor: number;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -69,6 +75,8 @@ export class CigoPageComponent implements OnInit {
   progressValue: any;
 
   // Chancador variables
+  totalViajes: number;
+  totalTons: string;
   promViaje = 0;
   promTons = 0;
   promPromTons = 0;
@@ -89,8 +97,10 @@ export class CigoPageComponent implements OnInit {
     this.viewPrim = true;
     const timer = TimerObservable.create(0, 100);
     const number = 123456789;
+    this.updateViewTimer(20);
+    this.rowNumber = 12;
     timer.subscribe(t => {
-      if (t % 200 === 0) {
+      if (t % this.viewTimer === 0) {
         if (t % 600 === 0) {
           this.dataService.getData();
         }
@@ -99,7 +109,7 @@ export class CigoPageComponent implements OnInit {
         this.changeData(this.selectedFilter);
         this.currentFilter++;
       } else  {
-        this.progressValue = t/2 % 100;
+        this.progressValue = t/this.barDivisor % 100;
       }
     });
 
@@ -149,13 +159,13 @@ export class CigoPageComponent implements OnInit {
           if (this.firstData.length) {
             this.title_from = this.title_from;
           } else {
-            this.title_from = this.setRequestTitle(15);
+            this.title_from = this.setRequestTitle(this.rowNumber + 3);
             this.title_to = this.setRequestTitle(3);
           }
           (chart.includes('PRIM')) ? this.setChancadorData(elem, baseHour) : this.setSagData(elem, baseHour);
         });
         this.view[0] = 30 * this.firstData.length;
-        this.view[1] = 150 * this.firstData.length / 13;
+        this.view[1] = 150 * this.firstData.length / (this.rowNumber + 1);
 
         const firstPromTableObject = {
           name: 'Prom',
@@ -304,6 +314,22 @@ export class CigoPageComponent implements OnInit {
     baseDate.setMinutes(0);
     baseDate.setSeconds(0);
     return baseDate.toUTCString().split(',')[1].split('GMT')[0];
+  }
+
+  updateViewTimer(value: number): void {
+    this.viewTimer = value * 10;
+    this.barDivisor = this.viewTimer/100;
+  }
+
+  toggleSettingsForm(): void {
+    this.form.timer = this.viewTimer / 10;
+    this.form.rowNumber = this.rowNumber;
+    this.showSettingForm = !this.showSettingForm;
+  }
+
+  saveTimer(): void {
+    this.updateViewTimer(this.form.timer);
+    this.toggleSettingsForm();
   }
 
   onSelect(event) {
