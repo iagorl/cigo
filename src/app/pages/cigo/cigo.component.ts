@@ -159,8 +159,8 @@ export class CigoPageComponent implements OnInit {
           if (this.firstData.length) {
             this.title_from = this.title_from;
           } else {
-            this.title_from = this.setRequestTitle(this.rowNumber + 3);
-            this.title_to = this.setRequestTitle(3);
+            this.title_from = this.setRequestTitle(elem.fecha, 0);
+            this.title_to = this.setRequestTitle(elem.fecha, this.rowNumber);
           }
           (chart.includes('PRIM')) ? this.setChancadorData(elem, baseHour) : this.setSagData(elem, baseHour);
         });
@@ -309,8 +309,9 @@ export class CigoPageComponent implements OnInit {
     }
   }
 
-  setRequestTitle(hours: number): string {
-    let baseDate = new Date(Date.now() - (hours * 3600000));
+  setRequestTitle(requestDate, hours: number): string {
+    let baseDate = new Date(requestDate.getTime() + (hours * 3600000));
+    // let baseDate = new Date(Date.now() - (hours * 3600000));
     baseDate.setMinutes(0);
     baseDate.setSeconds(0);
     return baseDate.toUTCString().split(',')[1].split('GMT')[0];
@@ -330,6 +331,12 @@ export class CigoPageComponent implements OnInit {
   saveTimer(): void {
     this.updateViewTimer(this.form.timer);
     this.toggleSettingsForm();
+  }
+
+  saveRowNumber(): void {
+    this.rowNumber = this.form.rowNumber;
+    this.toggleSettingsForm();
+    this.dataService.getData(this.rowNumber);
   }
 
   onSelect(event) {

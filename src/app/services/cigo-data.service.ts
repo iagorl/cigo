@@ -21,10 +21,10 @@ export class CigoDataService {
     this.getData();
   }
 
-  getData() {
+  getData(rowNumber = 12) {
     this.dataAvailable$.next(false);
     const fases = {};
-    this.http.get<ChartData[]>(this.apiUrl).subscribe((data) => {
+    this.http.get<ChartData[]>(`${this.apiUrl}/${rowNumber}`).subscribe((data) => {
       this.originalData = data;
       const crossf = crossfilter(this.originalData);
 

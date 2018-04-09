@@ -4,12 +4,12 @@ const router = express.Router();
 
 
 /* GET api listing. */
-router.get('/', (req, res) => {
-    executeQuery(res);
+router.get('/:rows', (req, res) => {
+    executeQuery(req, res);
 });
 
 
-var executeQuery = function(res) {
+var executeQuery = function(req, res) {
     var config = {
         user: 'tableau',
         password: 'sord',
@@ -25,6 +25,7 @@ var executeQuery = function(res) {
         } else {
             // create Request object
             var request = new sql.Request();
+            request.input('horas', req.params.rows);
             // query to the database 
             request.execute('sp_get_cigo', function(err, recordset) {
                 if (err) {
