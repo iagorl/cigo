@@ -3846,8 +3846,8 @@ var CigoPageComponent = (function () {
                     { name: 'Stock Pile \n [tms]', value: 'stockpile' },
                 ],
                 columns2: [
-                    { name: 'Tratamiento \n [tms]', value: 'tratamiento' },
-                    { name: 'Operación \n [hrs]', value: 'operacion' },
+                    { name: 'Tratamiento \n\n [tms]', value: 'tratamiento' },
+                    { name: 'Operación \n\n [hrs]', value: 'operacion' },
                 ],
                 columns3: [
                     { name: 'Alimentación \n LB + CF \n [tms]', value: 'alimentacion_2' },
@@ -3883,7 +3883,7 @@ var CigoPageComponent = (function () {
         timer.subscribe(function (t) {
             if (t % _this.viewTimer === 0) {
                 if (t % 600 === 0) {
-                    _this.dataService.getData();
+                    _this.dataService.getData(_this.rowNumber);
                 }
                 _this.progressValue = 0;
                 _this.selectedFilter = _this.filters[_this.currentFilter % 4];

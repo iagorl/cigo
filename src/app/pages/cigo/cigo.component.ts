@@ -55,8 +55,8 @@ export class CigoPageComponent implements OnInit {
         { name: 'Stock Pile \n [tms]', value: 'stockpile'},
       ],
       columns2: [
-        { name: 'Tratamiento \n [tms]', value: 'tratamiento'},
-        { name: 'Operación \n [hrs]', value: 'operacion'},
+        { name: 'Tratamiento \n\n [tms]', value: 'tratamiento'},
+        { name: 'Operación \n\n [hrs]', value: 'operacion'},
       ],
       columns3: [
         { name: 'Alimentación \n LB + CF \n [tms]', value: 'alimentacion_2'},
@@ -102,7 +102,7 @@ export class CigoPageComponent implements OnInit {
     timer.subscribe(t => {
       if (t % this.viewTimer === 0) {
         if (t % 600 === 0) {
-          this.dataService.getData();
+          this.dataService.getData(this.rowNumber);
         }
         this.progressValue = 0;
         this.selectedFilter = this.filters[this.currentFilter % 4];
