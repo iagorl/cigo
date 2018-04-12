@@ -3905,6 +3905,8 @@ var CigoPageComponent = (function () {
         this.totalViajes = 0;
         this.totalAlimentacion = 0;
         this.totalTratamiento = 0;
+        this.title_from = '';
+        this.title_to = '';
         this.view = [undefined, undefined];
         this.dataService.dataCigo$.subscribe(function (data) {
             _this.showTable = false;
@@ -3933,17 +3935,12 @@ var CigoPageComponent = (function () {
                 data[chart].series.map(function (elem) {
                     var baseHour = new Date(elem.fecha.getTime() + (3 * 3600000)).getHours();
                     var hour = baseHour - initialHour;
-                    if (_this.firstData.length) {
-                        _this.title_from = _this.title_from;
-                    }
-                    else {
-                        _this.title_from = _this.setRequestTitle(elem.fecha, 0);
-                        _this.title_to = _this.setRequestTitle(elem.fecha, _this.rowNumber);
-                    }
                     (chart.includes('PRIM')) ? _this.setChancadorData(elem, baseHour) : _this.setSagData(elem, baseHour);
                 });
                 _this.view[0] = 30 * _this.firstData.length;
                 _this.view[1] = 150 * _this.firstData.length / (_this.rowNumber + 1);
+                _this.title_from = _this.setRequestTitle(_this.rowNumber + 3);
+                _this.title_to = _this.setRequestTitle(3);
                 var firstPromTableObject = {
                     name: 'Prom',
                     series: []
@@ -4084,9 +4081,8 @@ var CigoPageComponent = (function () {
             return (chart === 'CF') ? 'Planta SAG CF' : 'Planta SAG LB';
         }
     };
-    CigoPageComponent.prototype.setRequestTitle = function (requestDate, hours) {
-        var baseDate = new Date(requestDate.getTime() + (hours * 3600000));
-        // let baseDate = new Date(Date.now() - (hours * 3600000));
+    CigoPageComponent.prototype.setRequestTitle = function (hours) {
+        var baseDate = new Date(Date.now() - (hours * 3600000));
         baseDate.setMinutes(0);
         baseDate.setSeconds(0);
         return baseDate.toUTCString().split(',')[1].split('GMT')[0];
@@ -4107,7 +4103,6 @@ var CigoPageComponent = (function () {
     CigoPageComponent.prototype.saveRowNumber = function () {
         this.rowNumber = this.form.rowNumber;
         this.toggleSettingsForm();
-        this.dataService.getData(this.rowNumber);
     };
     CigoPageComponent.prototype.onSelect = function (event) {
         console.log(event);
