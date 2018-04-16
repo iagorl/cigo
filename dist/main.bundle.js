@@ -3842,12 +3842,12 @@ var CigoPageComponent = (function () {
             sag: {
                 columns: [
                     { name: 'Hora', value: 'hora' },
-                    { name: 'Alimentación \n [tms]', value: 'alimentacion' },
-                    { name: 'Stock Pile \n [tms]', value: 'stockpile' },
+                    { name: 'Alimentación \n [tms] \n', value: 'alimentacion' },
+                    { name: 'Stock Pile \n [tms] \n', value: 'stockpile' },
                 ],
                 columns2: [
-                    { name: 'Tratamiento \n\n [tms]', value: 'tratamiento' },
-                    { name: 'Operación \n\n [hrs]', value: 'operacion' },
+                    { name: 'Tratamiento \n [tms] \n', value: 'tratamiento' },
+                    { name: 'Operación \n [hrs] \n', value: 'operacion' },
                 ],
                 columns3: [
                     { name: 'Alimentación \n LB + CF \n [tms]', value: 'alimentacion_2' },
