@@ -18,7 +18,6 @@ export class CigoDataService {
     this.data = {};
     this.dataCigo$ = new BehaviorSubject({});
     this.dataAvailable$ = new BehaviorSubject(false);
-    this.getData();
   }
 
   getData(rowNumber = 12) {

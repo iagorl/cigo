@@ -4428,7 +4428,6 @@ var CigoDataService = (function () {
         this.data = {};
         this.dataCigo$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]({});
         this.dataAvailable$ = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"](false);
-        this.getData();
     }
     CigoDataService.prototype.getData = function (rowNumber) {
         var _this = this;
