@@ -17,24 +17,21 @@ var executeQuery = function(res) {
         database: 'SORD',
         port: 1433
     };
-    // sql.connect('mssql://tableau:sord@GSCLSCL6019/BI/SORD', function(err) {
-    sql.connect(config, function (err) {
-        if (err) {
-            console.log("Error while connecting database :- " + err);
-            res.send(data);
-        } else {
-            // create Request object
-            var request = new sql.Request();
-            // query to the database 
-            request.query('SELECT * FROM vw_cigo_dataAvg ORDER BY  FECHA_HORA, TIPO_REG, EQUIPO', function(err, recordset) {
-                if (err) {
-                    console.log("Error while querying database :- " + err);
-                    res.send(err);
-                } else {
-                    res.send(res.send(recordset.recordsets[0]));
-                }
-            });
-        }
+    const dbConn = new sql.ConnectionPool(config);
+    dbConn.connect().then(function () {
+        // create Request object
+        var request = new sql.Request(dbConn);
+        request.execute('sp_get_cigo', function(err, recordset) {
+            if (err) {
+                res.status(500).send(err.message);
+            } else {
+                res.send(recordset.recordsets[0]);
+                dbConn.close();
+            }
+        });
+    }).catch( function(err) {
+        console.log("Error while connecting database :- " + err);
+        res.status(500).send(err.message);
     });
 }
 
