@@ -33,34 +33,34 @@ export class CigoPageComponent implements OnInit {
   tableColumns = {
     chancador: {
       columns: [
-        { name: 'Hora', value: 'hora'},
-        { name: 'Viajes \n [N]', value: 'viajes'},
-        { name: 'Toneladas \n [Ton]', value: 'tons'},
+        { name: ['Hora'], value: 'hora'},
+        { name: ['Viajes', '[N]'], value: 'viajes'},
+        { name: ['Toneladas', '[Ton]'], value: 'tons'},
       ],
       columns2: [
-        { name: 'Prom. Tons \n [Ton]', value: 'tons_promedio'},
-        { name: 'T. Cola \n [min]', value: 'tiempo'},
+        { name: ['Prom. Tons', '[Ton]'], value: 'tons_promedio'},
+        { name: ['T. Cola', '[min]'], value: 'tiempo'},
       ],
       columns3: [
-        { name: 'Distancia \n [Km]', value: 'distancia'},
-        { name: 'Velocidad \n [Km/Hrs]', value: 'velocidad'},
-        { name: 'SPI', value: 'spi'},
-        { name: 'LEY', value: 'ley'},
+        { name: ['Distancia', '[Km]'], value: 'distancia'},
+        { name: ['Velocidad', '[Km/Hrs]'], value: 'velocidad'},
+        { name: ['SPI'], value: 'spi'},
+        { name: ['LEY'], value: 'ley'},
       ]
     },
     sag: {
       columns: [
-        { name: 'Hora', value: 'hora'},
-        { name: 'Alimentación \n [tms] \n', value: 'alimentacion'},
-        { name: 'Stock Pile \n [tms] \n', value: 'stockpile'},
+        { name: ['Hora'], value: 'hora'},
+        { name: ['Alimentación', '[tms]'], value: 'alimentacion'},
+        { name: ['Stock Pile', '[tms]'], value: 'stockpile'},
       ],
       columns2: [
-        { name: 'Tratamiento \n [tms] \n', value: 'tratamiento'},
-        { name: 'Operación \n [hrs] \n', value: 'operacion'},
+        { name: ['Tratamiento', '[tms]'], value: 'tratamiento'},
+        { name: ['Operación', '[hrs]'], value: 'operacion'},
       ],
       columns3: [
-        { name: 'Alimentación \n LB + CF \n [tms]', value: 'alimentacion_2'},
-        { name: 'Tratamiento \n LB + CF \n [tms]', value: 'tratamiento_2'}
+        { name: ['Alimentación', 'LB + CF [tms]'], value: 'alimentacion_2'},
+        { name: ['Tratamiento', 'LB + CF [tms]'], value: 'tratamiento_2'}
       ]
     }
   }

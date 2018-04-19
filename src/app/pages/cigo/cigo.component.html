@@ -1,18 +1,18 @@
 <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
+<button mat-raised-button color="secondary" class="settingButton" (click)="toggleSettingsForm()">
+  <i class="material-icons">settings</i>
+</button>
+<div class="settingForm shadow" *ngIf="showSettingForm">
+  <mat-form-field class="full-width">
+    <input matInput type="number" placeholder="Velocidad de transición" [(ngModel)]="form.timer" min="10">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="saveTimer()">Actualizar</button>
+  <mat-form-field class="full-width">
+    <input matInput type="number" placeholder="No. de horas a consultar" [(ngModel)]="form.rowNumber" min="1" max="24">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="saveRowNumber()">Actualizar</button>
+</div>
 <div class="cigo-container">
-  <button mat-raised-button color="secondary" (click)="toggleSettingsForm()">
-    <i class="material-icons">settings</i> Configurar
-  </button>
-  <div class="settingForm" *ngIf="showSettingForm">
-    <mat-form-field class="full-width">
-      <input matInput type="number" placeholder="Velocidad de transición" [(ngModel)]="form.timer" min="10">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="saveTimer()">Actualizar</button>
-    <mat-form-field class="full-width">
-      <input matInput type="number" placeholder="No. de horas a consultar" [(ngModel)]="form.rowNumber" min="10">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="saveRowNumber()">Actualizar</button>
-  </div>
   <div class="header-container">
     <div class="subtitle-container">
       <div class="name-tab">
@@ -25,43 +25,43 @@
 
       <div *ngIf="selectedFilter==='PRIM' || selectedFilter==='PRIM DOS'" class="total-tab">
         <div class="tons">
-          <h3>Total Tons</h3>
-          <h3>{{totalTons}}</h3>
+          <h4>Total Tons</h4>
+          <h4>{{totalTons}}</h4>
         </div>
         <div class="viajes">
-          <h3>Total Viajes</h3>
-          <h3>{{totalViajes}}</h3>
+          <h4>Total Viajes</h4>
+          <h4>{{totalViajes}}</h4>
         </div>
       </div>
       <div *ngIf="selectedFilter==='CF' || selectedFilter==='LB'" class="total-tab">
         <div class="tons">
-          <h3>Total Alimentaci&oacute;n</h3>
-          <h3>{{totalAlimentacion.toFixed(2)}}</h3>
+          <h4>Total Alimentaci&oacute;n</h4>
+          <h4>{{totalAlimentacion.toFixed(2)}}</h4>
         </div>
         <div class="viajes">
-          <h3>Total Tratamiento</h3>
-          <h3>{{totalTratamiento.toFixed(2)}}</h3>
+          <h4>Total Tratamiento</h4>
+          <h4>{{totalTratamiento.toFixed(2)}}</h4>
         </div>
       </div>
     </div>
   </div>
   <div class="body-container" *ngIf="showTable">
-    <div class="table-container first" >
+    <div class="table-container first shadow" >
       <div class="table-sub-container">
         <div class="table-field">
-            <table style="width:100%">
-                <tr>
-                  <th *ngFor="let col of columnSet.columns">
-                    {{col.name}}
-                  </th>
-                </tr>
-                <tr *ngFor="let row of firstData; let i = index">
-                  <td *ngFor="let col of columnSet.columns">
-                    <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
-                    <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
-                  </td>
-                </tr>
-            </table>
+          <table style="width:100%">
+            <tr>
+              <th *ngFor="let col of columnSet.columns">
+                <span *ngFor="let text of col.name">{{text}}<br /></span>
+              </th>
+            </tr>
+            <tr *ngFor="let row of firstData; let i = index">
+              <td *ngFor="let col of columnSet.columns">
+                <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
+                <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="chart-container">
           <div class="chart">
@@ -82,21 +82,21 @@
           </div>
       </div>
     </div>
-    <div class="table-container second">
+    <div class="table-container second shadow">
       <div class="table-sub-container">
         <div class="table-field">
             <table style="width:100%">
-                <tr>
-                  <th *ngFor="let col of columnSet.columns2">
-                    {{col.name}}
-                  </th>
-                </tr>
-                <tr *ngFor="let row of firstData; let i = index">
-                  <td *ngFor="let col of columnSet.columns2">
-                    <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
-                    <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
-                  </td>
-                </tr>
+              <tr>
+                <th *ngFor="let col of columnSet.columns2">
+                  <span *ngFor="let text of col.name">{{text}}<br /></span>
+                </th>
+              </tr>
+              <tr *ngFor="let row of firstData; let i = index">
+                <td *ngFor="let col of columnSet.columns2">
+                  <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
+                  <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
+                </td>
+              </tr>
             </table>
         </div>
         <div class="chart-container">
@@ -118,20 +118,20 @@
         </div>
       </div>
     </div>
-    <div class="table-container last">
+    <div class="table-container last shadow">
       <div class="table-sub-container">
         <table style="width:100%">
-            <tr>
-              <th *ngFor="let col of columnSet.columns3">
-                {{col.name}}
-              </th>
-            </tr>
-            <tr *ngFor="let row of firstData; let i = index">
-              <td *ngFor="let col of columnSet.columns3">
-                <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
-                <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
-              </td>
-            </tr>
+          <tr>
+            <th *ngFor="let col of columnSet.columns3">
+              <span *ngFor="let text of col.name">{{text}}<br /></span>
+            </th>
+          </tr>
+          <tr *ngFor="let row of firstData; let i = index">
+            <td *ngFor="let col of columnSet.columns3">
+              <strong *ngIf="i === firstData.length - 1">{{row[col.value]}}</strong>
+              <span *ngIf="i < firstData.length - 1">{{row[col.value]}}</span>
+            </td>
+          </tr>
         </table>
       </div>
     </div>
