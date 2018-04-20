@@ -69,7 +69,7 @@
             </tr>
           </table>
         </div>
-        <div class="chart-container">
+        <div class="chart-container shadow">
           <div class="chart">
             <ngx-charts-line-chart
               [view]="view"
@@ -82,6 +82,7 @@
               [showXAxisLabel]="false"
               [showYAxisLabel]="false"
               [autoScale]="true"
+              [activeEntries]="firstTableData"
               (select)="onSelect($event)">
             </ngx-charts-line-chart>
           </div>
@@ -118,6 +119,7 @@
               [showXAxisLabel]="false"
               [showYAxisLabel]="false"
               [autoScale]="true"
+              [activeEntries]="secondTableData"
               (select)="onSelect($event)">
             </ngx-charts-line-chart>
           </div>
