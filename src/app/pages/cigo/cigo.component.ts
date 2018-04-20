@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CigoDataService } from '../../services/cigo-data.service';
-import {TimerObservable} from 'rxjs/observable/TimerObservable';
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-cigo',
@@ -16,7 +17,8 @@ export class CigoPageComponent implements OnInit {
   view: any[] = [50, 160];
   form = {
     timer: 20,
-    rowNumber: 12
+    rowNumber: 12,
+    invalidRowNumber: false
   };
 
   rowNumber: number;
@@ -161,7 +163,7 @@ export class CigoPageComponent implements OnInit {
           (chart.includes('PRIM')) ? this.setChancadorData(elem, baseHour) : this.setSagData(elem, baseHour);
         });
         this.view[0] = 30 * this.firstData.length;
-        this.view[1] = 150 * this.firstData.length / (this.rowNumber + 1);
+        this.view[1] = 100 * this.firstData.length / (this.rowNumber + 1);
 
         this.title_from = this.setRequestTitle(this.rowNumber + 3);
         this.title_to = this.setRequestTitle(3);
@@ -324,6 +326,7 @@ export class CigoPageComponent implements OnInit {
     this.form.timer = this.viewTimer / 10;
     this.form.rowNumber = this.rowNumber;
     this.showSettingForm = !this.showSettingForm;
+    this.form.invalidRowNumber = false;
   }
 
   saveTimer(): void {
@@ -334,6 +337,10 @@ export class CigoPageComponent implements OnInit {
   saveRowNumber(): void {
     this.rowNumber = this.form.rowNumber;
     this.toggleSettingsForm();
+  }
+
+  validate(): void {
+    this.form.invalidRowNumber = this.form.rowNumber <= 0 || this.form.rowNumber > 24;
   }
 
   onSelect(event) {

@@ -8,13 +8,19 @@
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="saveTimer()">Actualizar</button>
   <mat-form-field class="full-width">
-    <input matInput type="number" placeholder="No. de horas a consultar" [(ngModel)]="form.rowNumber" min="1" max="24">
+    <input matInput type="number" 
+      placeholder="No. de horas a consultar"
+      [(ngModel)]="form.rowNumber" min="1" max="24"
+      (input)="validate()">
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="saveRowNumber()">Actualizar</button>
+  <small class="error-message" *ngIf="form.invalidRowNumber">
+    El valor debe estar entre 1 y 24
+  </small>
+  <button mat-raised-button [disabled]="form.invalidRowNumber" color="primary" (click)="saveRowNumber()">Actualizar</button>
 </div>
 <div class="cigo-container">
   <div class="header-container">
-    <div class="subtitle-container">
+    <div class="subtitle-container shadow">
       <div class="name-tab">
         <h3>{{title}}</h3>
         <div class="title-date" *ngIf="title_from && title_to">
