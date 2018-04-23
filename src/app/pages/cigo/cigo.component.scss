@@ -18,6 +18,11 @@
           width: 100%;
           position: relative;
           background-color: #ffffff;
+          text-align: center;
+          span {
+            font-weight: bold;
+            font-size: 12px;
+          }
           .chart {
             position: absolute;
             transform: rotate(90deg);

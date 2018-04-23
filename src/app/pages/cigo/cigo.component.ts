@@ -68,8 +68,18 @@ export class CigoPageComponent implements OnInit {
   }
 
   filters = ['PRIM', 'PRIM DOS', 'CF', 'LB']
+  chartTitles = [
+    {
+      firstChart: 'Evolución Toneladas',
+      secondChart: 'Evolución T.Cola'
+    },
+    {
+      firstChart: 'Evolución Alimentación',
+      secondChart: 'Evolución Tratamiento'
+    }]
   currentFilter = 0;
   selectedFilter = '';
+  currentTitles = {};
   firstTableData = [];
   secondTableData = [];
   firstData = [];
@@ -108,6 +118,8 @@ export class CigoPageComponent implements OnInit {
         }
         this.progressValue = 0;
         this.selectedFilter = this.filters[this.currentFilter % 4];
+
+        this.currentTitles = this.currentFilter % 4 < 2 ? this.chartTitles[0] : this.chartTitles[1];
         this.changeData(this.selectedFilter);
         this.currentFilter++;
       } else  {
