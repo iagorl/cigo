@@ -17,6 +17,11 @@
     El valor debe estar entre 1 y 24
   </small>
   <button mat-raised-button [disabled]="form.invalidRowNumber" color="primary" (click)="saveRowNumber()">Actualizar</button>
+  <mat-checkbox color="primary" class="full-width" *ngFor="let view of form.views" [(ngModel)]="view.active" (change)="validateFilterSelection()"> <small>{{view.name}}</small></mat-checkbox>
+  <small class="error-message" *ngIf="!validSelection">
+    Se debe seleccionar al menos una vista
+  </small>
+  <button mat-raised-button [disabled]="!validSelection" color="primary" (click)="activateViews()">Activar vistas</button>
 </div>
 <div class="cigo-container">
   <div class="header-container">

@@ -18,7 +18,25 @@ export class CigoPageComponent implements OnInit {
   form = {
     timer: 20,
     rowNumber: 12,
-    invalidRowNumber: false
+    invalidRowNumber: false,
+    views: [
+      {
+        name: 'PRIM',
+        active: true
+      },
+      {
+        name: 'PRIM DOS',
+        active: true
+      },
+      {
+        name: 'CF',
+        active: true
+      },
+      {
+        name: 'LB',
+        active: true
+      }
+    ]
   };
 
   rowNumber: number;
@@ -67,7 +85,24 @@ export class CigoPageComponent implements OnInit {
     }
   }
 
-  filters = ['PRIM', 'PRIM DOS', 'CF', 'LB']
+  filters = [
+    {
+      name: 'PRIM',
+      active: true
+    },
+    {
+      name: 'PRIM DOS',
+      active: true
+    },
+    {
+      name: 'CF',
+      active: true
+    },
+    {
+      name: 'LB',
+      active: true
+    }
+  ];
   chartTitles = [
     {
       firstChart: 'Evolución Toneladas',
@@ -76,8 +111,12 @@ export class CigoPageComponent implements OnInit {
     {
       firstChart: 'Evolución Alimentación',
       secondChart: 'Evolución Tratamiento'
-    }]
+    }
+  ];
+  timer = TimerObservable.create(0, 100);
   currentFilter = 0;
+  validSelection = true;
+  resetViews = false;
   selectedFilter = '';
   currentTitles = {};
   firstTableData = [];
@@ -107,21 +146,16 @@ export class CigoPageComponent implements OnInit {
   ngOnInit() {
     this.progressValue = 0;
     this.viewPrim = true;
-    const timer = TimerObservable.create(0, 100);
     const number = 123456789;
     this.updateViewTimer(20);
     this.rowNumber = 12;
-    timer.subscribe(t => {
-      if (t % this.viewTimer === 0) {
+    this.timer.subscribe(t => {
+      if (t % this.viewTimer === 0 || this.resetViews) {
         if (t % 600 === 0) {
           this.dataService.getData(this.rowNumber);
         }
         this.progressValue = 0;
-        this.selectedFilter = this.filters[this.currentFilter % 4];
-
-        this.currentTitles = this.currentFilter % 4 < 2 ? this.chartTitles[0] : this.chartTitles[1];
-        this.changeData(this.selectedFilter);
-        this.currentFilter++;
+        this.setViews();
       } else  {
         this.progressValue = t/this.barDivisor % 100;
       }
@@ -334,6 +368,14 @@ export class CigoPageComponent implements OnInit {
     this.barDivisor = this.viewTimer/100;
   }
 
+  setViews(): void {
+    this.selectedFilter = this.filters[this.currentFilter % this.filters.length].name;
+    this.currentTitles = this.selectedFilter.includes('PRIM') ? this.chartTitles[0] : this.chartTitles[1];
+    this.changeData(this.selectedFilter);
+    this.currentFilter++;
+    this.resetViews = false;
+  }
+
   toggleSettingsForm(): void {
     this.form.timer = this.viewTimer / 10;
     this.form.rowNumber = this.rowNumber;
@@ -353,6 +395,17 @@ export class CigoPageComponent implements OnInit {
 
   validate(): void {
     this.form.invalidRowNumber = this.form.rowNumber <= 0 || this.form.rowNumber > 24;
+  }
+
+  validateFilterSelection(): void {
+    let selection = this.form.views.filter( view => view.active === true );
+    this.validSelection = selection.length > 0 ? true : false;
+  }
+
+  activateViews(): void {
+    this.filters = this.form.views.filter( view => view.active === true );
+    this.resetViews = true;
+    this.toggleSettingsForm();
   }
 
   onSelect(event) {

@@ -104,7 +104,6 @@ const Pages = [
     MatButtonToggleModule,
     MatInputModule,
     MatIconModule,
-    MatSelectModule,
     MatDialogModule,
     HttpClientModule,
     MatProgressBarModule,
