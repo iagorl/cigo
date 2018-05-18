@@ -80,28 +80,32 @@ export class CigoDataService {
         data_type: row['TIPO_REG'],
         fecha: date,
         hora: date.getHours() + ':00',
-        viajes: parseFloat(row['VALOR_01']),
-        tons: parseFloat(row['VALOR_02']),
-        tons_promedio: parseFloat(row['VALOR_03']),
-        tiempo: parseFloat(row['VALOR_04']),
-        distancia: parseFloat(row['VALOR_05']),
-        velocidad: parseFloat(row['VALOR_06']),
-        ley: parseFloat(row['VALOR_08']),
-        spi: parseFloat(row['VALOR_07'])
+        viajes: this.parsePropertyValue(row['VALOR_01']),
+        tons: this.parsePropertyValue(row['VALOR_02']),
+        tons_promedio: this.parsePropertyValue(row['VALOR_03']),
+        tiempo: this.parsePropertyValue(row['VALOR_04']),
+        distancia: this.parsePropertyValue(row['VALOR_05']),
+        velocidad: this.parsePropertyValue(row['VALOR_06']),
+        ley: this.parsePropertyValue(row['VALOR_08']),
+        spi: this.parsePropertyValue(row['VALOR_07'])
       };
     } else {
       return {
         data_type: row['TIPO_REG'],
         fecha: date,
         hora: date.getHours() + ':00',
-        alimentacion: parseFloat(row['VALOR_01']),
-        stockpile: row['VALOR_02'] ? parseFloat(row['VALOR_02']) : parseFloat('0'),
-        tratamiento: parseFloat(row['VALOR_03']),
-        operacion: parseFloat(row['VALOR_04']),
-        alimentacion_2: parseFloat(row['VALOR_05']),
-        tratamiento_2: parseFloat(row['VALOR_06'])
+        alimentacion: this.parsePropertyValue(row['VALOR_01']),
+        stockpile: this.parsePropertyValue(row['VALOR_02']),
+        tratamiento: this.parsePropertyValue(row['VALOR_03']),
+        operacion: this.parsePropertyValue(row['VALOR_04']),
+        alimentacion_2: this.parsePropertyValue(row['VALOR_05']),
+        tratamiento_2: this.parsePropertyValue(row['VALOR_06'])
       };
     }
+  }
+
+  parsePropertyValue(value) {
+    return !!value ? parseFloat(value) : parseFloat('0');
   }
 
 }
